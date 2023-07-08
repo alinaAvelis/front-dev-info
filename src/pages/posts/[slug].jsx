@@ -13,7 +13,7 @@ import { getDateString } from "../../services/support";
 import Breadcrumbs from "../../components/breadcrumbs";
 import sanityClient from "../../../public/support-func/sanityClient";
 import Head from "next/head";
-
+import Script from "next/script";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { urlFor } from "../../../public/support-func/sanity-support";
@@ -23,7 +23,7 @@ import Vimeo from "@u-wave/react-vimeo";
 import getVideoId from "get-video-id";
 import { groq } from "next-sanity";
 import { useDispatch } from "react-redux";
-import {  setCategoriesState } from "../../store/slices/categoriesSlice";
+import { setCategoriesState } from "../../store/slices/categoriesSlice";
 
 // сделать отдельно хук суппорт где будет обрезаться location
 
@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			pageData: pageData,
-			categories
+			categories,
 		},
 		revalidate: 60,
 	};
@@ -103,7 +103,9 @@ const components = {
 
 			return (
 				<div className="code_block">
-					<p className="code_block__lang">{language ? language : 'JavaScript'}</p>
+					<p className="code_block__lang">
+						{language ? language : "JavaScript"}
+					</p>
 
 					<pre>
 						<code>{code}</code>
@@ -214,17 +216,21 @@ const Post = ({ pageData, categories }) => {
 	};
 
 	useEffect(() => {
-		if(categories) {
-		  dispatch( setCategoriesState(categories));
+		if (categories) {
+			dispatch(setCategoriesState(categories));
 		}
-	  }, [categories])
+	}, [categories]);
 
 	return (
 		<div className="container container--center">
 			<Head>
 				<title>{pageData?.title}</title>
-				<meta name="keywords" content={pageData?.tags} /> 
-				<meta name="description" content={pageData?.shortDescription} key="ogdesc"/>
+				<meta name="keywords" content={pageData?.tags} />
+				<meta
+					name="description"
+					content={pageData?.shortDescription}
+					key="ogdesc"
+				/>
 			</Head>
 			<Breadcrumbs
 				pathArr={[
@@ -251,7 +257,19 @@ const Post = ({ pageData, categories }) => {
 				</div>
 
 				{/* Aside */}
-				<aside className="aside"></aside>
+				<aside className="aside">
+					<div id="yandex_rtb_R-A-2501461-2"></div>
+					<Script id="yandex-ads-2">
+						{`
+							window.yaContextCb.push(()=>{
+								Ya.Context.AdvManager.render({
+									"blockId": "R-A-2501461-2",
+									"renderTo": "yandex_rtb_R-A-2501461-2"
+								})
+							})
+							`}
+					</Script>
+				</aside>
 			</div>
 		</div>
 	);
