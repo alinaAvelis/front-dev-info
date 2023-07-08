@@ -1,8 +1,7 @@
 import metadata from "./blocks/metadata";
 
-import stories from "./blocks/stories";
+import posts from "./blocks/posts";
 import categories from './blocks/categories';
-import books from "./blocks/books";
 
 // components
 import youtubeVideo from "./blocks/components/youtubeVideo";
@@ -14,8 +13,7 @@ export default [
   metadata,
 
   categories,
-  stories,
-  books,
+  posts,
 
   // components
   youtubeVideo,

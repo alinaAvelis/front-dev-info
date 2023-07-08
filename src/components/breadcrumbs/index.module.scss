@@ -1,0 +1,26 @@
+@import "../../styles/vars";
+
+.breadcrumbs {
+    margin-top: 20px;
+    display: flex;
+
+    & a, span {
+        padding: 0 10px;
+    }
+
+    & a:not(:last-child) {
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            position: absolute;
+            top: 7px;
+            right: -2px;
+            background-color: $dark_gray_middle;
+        }
+    }
+}

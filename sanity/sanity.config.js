@@ -2,16 +2,18 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import schemas from './schemas/schema';
+import {codeInput} from '@sanity/code-input';
 
 export default defineConfig({
-  name: 'front-dev-info',
-  title: 'Front Dev Info',
-  title: 'Front Dev Info',
-  projectId: "pg2igaq4",
+  name: 'Front_Dev_Info',
+  title: 'Front dev info',
+  title: 'Alina Avelis',
+  projectId: "ttll739i",
   dataset: 'production',
   plugins: [
     deskTool(),
     visionTool(),
+    codeInput(),
   ],
   tools: (prev) => {
     // 👇 Uses environment variables set by Vite in development mode
