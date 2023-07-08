@@ -1,0 +1,35 @@
+.modal_background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(157, 145, 149, 0.30);
+    backdrop-filter: blur(2px);
+}
+
+.modal {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+
+    background: $white;
+    overflow: hidden;
+    border-radius: 30px;
+
+    position: fixed;
+    z-index: 11; 
+    left: 0;
+    top: 0;
+
+    position: relative;
+}

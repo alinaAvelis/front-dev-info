@@ -1,0 +1,26 @@
+@import "./color-palette.scss";
+
+$black: #000;
+$white: #FFFFFF;
+$light_gray: #F7F7F7;
+$gray: #EEEEEE;
+$medium_gray: #D9D9D9;
+$dark_gray: #444444;
+$dark_gray_middle: #979797ad;
+
+$hover_color: #00006f;
+
+$hover_opacity: 0.8; 
+$active_opacity: 0.4;
+
+$input_radius: 15px;
+$btn_border_radius: 18px;
+
+$big_text_search: 1.4rem;
+
+
+$font_family: 'Roboto', sans-serif;
+
+
+$tablet: 1020px;
+$mobile: 560px;

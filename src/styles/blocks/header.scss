@@ -1,0 +1,155 @@
+/*...Header...*/
+
+.header {
+    width: fit-content;
+    padding: 20px;
+
+    justify-content: end;
+
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    right: 0;
+
+    @media(max-width: $tablet) {	
+      padding: 10px;
+    }
+}
+
+.burger {
+  grid-gap: 9px;
+  width: 75px;
+  height: fit-content;
+  transition: all .3s;
+  position: relative;
+  padding: 10px !important;
+
+  &::before {
+    content: "";
+    opacity: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border: 2px solid $white;
+    border-radius: 10px;
+
+    transition: all .5s;
+    animation: clippath 3s infinite linear;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  & .burger_item {
+    width: 100%;
+    height: 10px;
+    border-radius: 22px;
+    background: $white;
+    margin: 0;
+
+    @media(max-width: $tablet) {	
+      height: 5px;
+    }
+  }
+
+  @media(max-width: $mobile) {	
+    width: 60px;
+  }
+}
+
+.nav_container {
+  width: 460px;
+  min-height: 100vh;
+  height: 100%;
+  padding: 175px 35px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background: $white;
+
+  transform: translateX(500px);
+  transition: all .5s;
+
+  &.open {
+    transform: translateX(0);
+    height: 100%;
+    z-index: 10;
+  }
+
+  @media(max-width: $mobile) {	
+    padding: 90px 20px;	
+    font-size: 16px;
+		width: 300px;
+	}
+}
+
+.close_button {
+  width: 100%;
+  height: 100%;
+  max-width: 63px;
+  max-height: 63px;
+  
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+    fill: $gray;
+  }
+
+  @media(max-width: $mobile) {		
+    max-width: 30px;
+    max-height: 30px;
+	}
+}
+
+.header_nav {
+  margin-top: 30px;
+  grid-gap: 30px;
+  margin-left: 20px;
+
+  @media(max-width: $mobile) {	
+    margin-top: 15px;
+    grid-gap: 15px;
+	}
+}
+
+.info {
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 45px;
+
+  & .info_icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 25px;
+    color: $white;
+    border-radius: 50px;
+    background: $medium_gray;
+
+    @media(max-width: $mobile) {	
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+      font-size: 14px;
+    }
+  }
+
+  @media(max-width: $mobile) {	
+    margin-top: 10px;
+    margin-bottom: 15px;
+	}
+} 
+
+

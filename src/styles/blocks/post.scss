@@ -1,0 +1,113 @@
+/*..........Post.........*/
+/*//////////////////////*/
+
+.post {
+    & .code_block {
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+        
+        background: $white;
+        border: 3px solid $gray;
+        border-radius: 30px;
+
+        overflow: hidden;
+
+        &__lang {
+            padding: 10px;
+            background: $light_gray;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        & .comment {
+            color: $dark_gray_middle;
+        }
+    }
+
+    & h2 {
+        margin-top: 40px;
+    }
+
+    & h3 {
+        margin-top: 20px;
+    }
+
+    & .button {
+        margin-top: 40px;
+    }
+
+    & a:not(.button) {
+        text-decoration: underline;
+    }
+
+    & img {
+        display: inline-block;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+
+    & .post_date {
+        text-align: right;
+    }
+}
+
+.menu_container {
+    margin: 20px 0 50px;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+    
+    &:has(.menu__item:nth-last-child(n + 1)) {
+        display: flex;
+    }
+
+    & .menu__item {
+        width: fit-content;
+        text-decoration: none;
+        // position: relative;
+
+        // &:before {
+        //     content: "";
+        //     display: block;
+        //     width: 5px;
+        //     height: 5px;
+        //     background: $gray;
+        //     border-radius: 50%;
+        //     position: absolute;
+        //     top: 0.5em;
+        //     left: 0px;
+        // }
+
+        &.first_level {
+            font-size: 1.3em;
+            text-decoration: underline;
+        }
+    
+        &.second_level {
+            padding-left: 10px;
+            font-size: 1.1em;
+        }
+    
+        &.three_level {
+            padding-left: 20px;
+        }
+    
+        &.four_level {
+            padding-left: 30px;
+            font-size: 0.9em;
+        }
+    
+        &.five_level {
+            padding-left: 40px;
+        }
+    
+        &.six_level {
+            padding-left: 50px;
+        }
+    }
+}

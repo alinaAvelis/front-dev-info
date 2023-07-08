@@ -1,0 +1,32 @@
+{
+  "name": "ultron",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": null,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "dev": "sanity dev"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/code-input": "^4.1.1",
+    "@sanity/eslint-config-studio": "^2.0.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/ui": "^1.2.0",
+    "@sanity/vision": "^3.2.5",
+    "eslint": "^8.32.0",
+    "prop-types": "^15.8",
+    "react": "^18.2",
+    "react-dom": "^18.2",
+    "react-paginate": "^8.1.4",
+    "sanity": "^3.2.5",
+    "styled-components": "^5.3.6"
+  }
+}
