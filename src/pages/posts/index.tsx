@@ -91,7 +91,7 @@ const AllStories = ({ pageData, categories }) => {
 					<div className="tabs_btns flex ">
 						<Cards data={filtredPosts.slice(0, 6)} />
 						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-1"></div>
+							{/* <div id="yandex_rtb_R-A-2501461-1"></div>
 							<Script id="yandex-ads">
 								{`
 								window.yaContextCb.push(()=>{
@@ -101,7 +101,7 @@ const AllStories = ({ pageData, categories }) => {
 									})
 								})
 							`}
-							</Script>
+							</Script> */}
 						</div>
 						<Cards data={filtredPosts.slice(6, 12)} />
 					</div>
