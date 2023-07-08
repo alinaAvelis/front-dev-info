@@ -38,14 +38,19 @@ import AppHeader from "../components/app-header";
 // import { useRouter } from "next/router";
 // import Modal from "../components/modal";
 
-
-const MyApp = ({categories, Component, ...rest }) => {
+const MyApp = ({ categories, Component, ...rest }) => {
 	const { store, props } = wrapper.useWrappedStore(rest);
 	const { pageProps } = props;
 	return (
 		<Provider store={store}>
-			<Head></Head>
-			
+			<Head>
+				<script>window.yaContextCb=window.yaContextCb||[]</script>
+				<script
+					src="https://yandex.ru/ads/system/context.js"
+					async
+				></script>
+			</Head>
+
 			<AppHeader categories={categories} />
 			<Component {...pageProps} />
 		</Provider>

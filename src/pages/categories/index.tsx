@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Card from "../../components/card";
+import Script from "next/script";
 import Link from "next/link";
 // import { useData } from '../../hooks/useData';
 import CloseBtn from "../../components/close_btn";
