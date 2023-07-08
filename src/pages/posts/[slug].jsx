@@ -258,7 +258,7 @@ const Post = ({ pageData, categories }) => {
 
 				{/* Aside */}
 				<aside className="aside">
-					{/* <div id="yandex_rtb_R-A-2501461-2"></div>
+					<div id="yandex_rtb_R-A-2501461-2"></div>
 					<Script id="yandex-ads-2">
 						{`
 							window.yaContextCb.push(()=>{
@@ -268,7 +268,7 @@ const Post = ({ pageData, categories }) => {
 								})
 							})
 							`}
-					</Script> */}
+					</Script>
 				</aside>
 			</div>
 		</div>
