@@ -89,7 +89,8 @@ const AllStories = ({ pageData, categories }) => {
 					<h1 className="title">Все посты</h1>
 
 					<div className="tabs_btns flex ">
-						<Cards data={filtredPosts.slice(0, 6)} />
+						<Cards data={filtredPosts} />
+
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-1"></div>
 							<Script id="yandex-ads">
@@ -103,7 +104,6 @@ const AllStories = ({ pageData, categories }) => {
 							`}
 							</Script>
 						</div>
-						<Cards data={filtredPosts.slice(6, 12)} />
 					</div>
 				</section>
 			</div>
