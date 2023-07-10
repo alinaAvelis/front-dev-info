@@ -258,15 +258,15 @@ const Post = ({ pageData, categories }) => {
 
 				{/* Aside */}
 				<aside className="aside">
-					<div id="yandex_rtb_R-A-2501461-2"></div>
-					<Script id="yandex-ads-2">
+					<div id="yandex_rtb_R-A-2501461-3"></div>
+					<Script id="yandex-ads-3" strategy="afterInteractive">
 						{`
-							window.yaContextCb.push(()=>{
-								Ya.Context.AdvManager.render({
-									"blockId": "R-A-2501461-2",
-									"renderTo": "yandex_rtb_R-A-2501461-2"
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-3",
+										"renderTo": "yandex_rtb_R-A-2501461-3"
+									})
 								})
-							})
 							`}
 					</Script>
 				</aside>

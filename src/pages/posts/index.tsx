@@ -93,7 +93,7 @@ const AllStories = ({ pageData, categories }) => {
 
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-3"></div>
-							<Script id="yandex-ads">
+							<Script id="yandex-ads-31" strategy="afterInteractive">
 								{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
