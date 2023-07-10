@@ -53,18 +53,17 @@ const MyApp = ({ categories, Component, ...rest }) => {
 
 			<AppHeader categories={categories} />
 			<Component {...pageProps} />
-			{/* 
 			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-2">
+			<Script id="yandex-ads">
 				{`
-							window.yaContextCb.push(()=>{
-								Ya.Context.AdvManager.render({
-									"blockId": "R-A-2501461-2",
-									"renderTo": "yandex_rtb_R-A-2501461-2"
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-2",
+										"renderTo": "yandex_rtb_R-A-2501461-2"
+									})
 								})
-							})
 							`}
-			</Script> */}
+			</Script>
 		</Provider>
 	);
 };
