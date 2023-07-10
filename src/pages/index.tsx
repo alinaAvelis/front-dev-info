@@ -10,8 +10,9 @@ import img from "../../public/image/author_page/main1.png";
 import me from "../../public/image/author_page/1.jpg";
 import { groq } from "next-sanity";
 import Cards from "../components/cards";
-import {  setCategoriesState } from "../store/slices/categoriesSlice";
+import { setCategoriesState } from "../store/slices/categoriesSlice";
 import { useDispatch } from "react-redux";
+import Script from "next/script";
 
 export async function getStaticProps() {
 	// const pageMeta = await sanityClient.fetch(`*[_type == "metadata" && title == "/"] `);
@@ -42,10 +43,10 @@ const HomePage = ({ pageData, categories }) =>
 		}, []);
 
 		useEffect(() => {
-		  if(categories) {
-			dispatch( setCategoriesState(categories));
-		  }
-		}, [categories])
+			if (categories) {
+				dispatch(setCategoriesState(categories));
+			}
+		}, [categories]);
 
 		return (
 			<>
@@ -57,6 +58,18 @@ const HomePage = ({ pageData, categories }) =>
 						<Cards data={pageData} />
 					</div>
 				</section>
+
+				<div id="yandex_rtb_R-A-2501461-2"></div>
+				<Script id="yandex-ads-2">
+					{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-2",
+											"renderTo": "yandex_rtb_R-A-2501461-2"
+										})
+									})
+								`}
+				</Script>
 			</>
 		);
 	};
