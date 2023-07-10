@@ -274,7 +274,7 @@ const Post = ({ pageData, categories }) => {
 				</div>
 			</div>
 
-			<div id="yandex_rtb_R-A-2501461-4"></div>
+			{/* <div id="yandex_rtb_R-A-2501461-4"></div>
 			<Script id="yandex-ads-4" strategy="afterInteractive">
 				{`
 								window.yaContextCb.push(()=>{
@@ -284,7 +284,7 @@ const Post = ({ pageData, categories }) => {
 									})
 								})
 							`}
-			</Script>
+			</Script> */}
 		</>
 	);
 };

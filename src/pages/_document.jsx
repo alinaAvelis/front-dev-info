@@ -21,10 +21,10 @@ export default function Document({categories}) {
     			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
     			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-				{/* <meta
+				<meta
 					http-equiv="Content-Security-Policy"
-					content="script-src 'self' https://yandex.ru https://yandex.ru/ads/system/context.js"
-				/> */}
+					content="script-src 'self' https://yandex.ru https://yandex.ru/ads/system/context.js https://mc.yandex.ru/metrika/watch.js"
+				/>
 			</Head>
 			<body>
 				<Main />
