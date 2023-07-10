@@ -274,19 +274,7 @@ const Post = ({ pageData, categories }) => {
 				</div>
 			</div>
 
-			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-2">
-				{`
-					window.yaContextCb.push(()=>{
-						Ya.Context.AdvManager.render({
-							"blockId": "R-A-2501461-2",
-							"renderTo": "yandex_rtb_R-A-2501461-2"
-						})
-					})
-				`}
-			</Script>
-
-			{/* <div id="yandex_rtb_R-A-2501461-4"></div>
+			<div id="yandex_rtb_R-A-2501461-4"></div>
 			<Script id="yandex-ads-4" strategy="afterInteractive">
 				{`
 								window.yaContextCb.push(()=>{
@@ -296,7 +284,7 @@ const Post = ({ pageData, categories }) => {
 									})
 								})
 							`}
-			</Script> */}
+			</Script>
 		</>
 	);
 };
