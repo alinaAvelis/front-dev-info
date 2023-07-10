@@ -73,7 +73,7 @@ const CategoriesPage = ({ categories }) => {
 			</div>
 
 			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-23">
+			<Script id="yandex-ads-2">
 				{`
 					window.yaContextCb.push(()=>{
 						Ya.Context.AdvManager.render({
