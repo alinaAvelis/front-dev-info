@@ -222,45 +222,46 @@ const Post = ({ pageData, categories }) => {
 	}, [categories]);
 
 	return (
-		<div className="container container--center">
-			<Head>
-				<title>{pageData?.title}</title>
-				<meta name="keywords" content={pageData?.tags} />
-				<meta
-					name="description"
-					content={pageData?.shortDescription}
-					key="ogdesc"
-				/>
-			</Head>
-			<Breadcrumbs
-				pathArr={[
-					{ name: "Посты", url: "/posts" },
-					{ name: pageData?.title },
-				]}
-			/>
-			<div className=" mt-50  flex page_container">
-				<div className="post main  main--not_main">
-					<h1>{pageData?.title}</h1>
-
-					<article className="menu_container">
-						<h2>Содержание</h2>
-						<div className="menu"></div>
-					</article>
-
-					<PortableText
-						value={pageData?.content}
-						components={components}
+		<>
+			<div className="container container--center">
+				<Head>
+					<title>{pageData?.title}</title>
+					<meta name="keywords" content={pageData?.tags} />
+					<meta
+						name="description"
+						content={pageData?.shortDescription}
+						key="ogdesc"
 					/>
-					<p className="post_date">
-						{getDateString(pageData?.releaseDate)}
-					</p>
-				</div>
+				</Head>
+				<Breadcrumbs
+					pathArr={[
+						{ name: "Посты", url: "/posts" },
+						{ name: pageData?.title },
+					]}
+				/>
+				<div className=" mt-50  flex page_container">
+					<div className="post main  main--not_main">
+						<h1>{pageData?.title}</h1>
 
-				{/* Aside */}
-				<aside className="aside">
-					<div id="yandex_rtb_R-A-2501461-3"></div>
-					<Script id="yandex-ads-3" strategy="afterInteractive">
-						{`
+						<article className="menu_container">
+							<h2>Содержание</h2>
+							<div className="menu"></div>
+						</article>
+
+						<PortableText
+							value={pageData?.content}
+							components={components}
+						/>
+						<p className="post_date">
+							{getDateString(pageData?.releaseDate)}
+						</p>
+					</div>
+
+					{/* Aside */}
+					<aside className="aside">
+						<div id="yandex_rtb_R-A-2501461-3"></div>
+						<Script id="yandex-ads-3" strategy="afterInteractive">
+							{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
 										"blockId": "R-A-2501461-3",
@@ -268,10 +269,23 @@ const Post = ({ pageData, categories }) => {
 									})
 								})
 							`}
-					</Script>
-				</aside>
+						</Script>
+					</aside>
+				</div>
 			</div>
-		</div>
+
+			<div id="yandex_rtb_R-A-2501461-4"></div>
+			<Script id="yandex-ads-4" strategy="afterInteractive">
+				{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.renderFeed({
+										"blockId": "R-A-2501461-4",
+										"renderTo": "yandex_rtb_R-A-2501461-4"
+									})
+								})
+							`}
+			</Script>
+		</>
 	);
 };
 
