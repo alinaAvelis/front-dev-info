@@ -7,6 +7,7 @@ import sanityClient from "../../../public/support-func/sanityClient";
 import { sortByDate } from '../../../public/support-func/support.js';
 import Head from 'next/head';
 import {groq} from 'next-sanity';
+import Script from "next/script";
 // сделать подгрузку при скролле
 
 export async function getStaticProps({ params }) {
@@ -70,6 +71,17 @@ const Category = ({pageData, category}) => {
 				</section>
 			</div>
             
+            <div id="yandex_rtb_R-A-2501461-2"></div>
+			<Script id="yandex-ads-2">
+				{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-2",
+										"renderTo": "yandex_rtb_R-A-2501461-2"
+									})
+								})
+							`}
+			</Script>
         </>
     )
 }
