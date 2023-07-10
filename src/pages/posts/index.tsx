@@ -92,13 +92,13 @@ const AllStories = ({ pageData, categories }) => {
 						<Cards data={filtredPosts} />
 
 						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-1"></div>
+							<div id="yandex_rtb_R-A-2501461-2"></div>
 							<Script id="yandex-ads">
 								{`
 								window.yaContextCb.push(()=>{
-									Ya.Context.AdvManager.renderFeed({
-										"blockId": "R-A-2501461-1",
-										"renderTo": "yandex_rtb_R-A-2501461-1"
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-2",
+										"renderTo": "yandex_rtb_R-A-2501461-2"
 									})
 								})
 							`}
