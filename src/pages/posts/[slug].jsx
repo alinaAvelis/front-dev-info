@@ -160,7 +160,7 @@ const components = {
 
 const Post = ({ pageData, categories }) => {
 	const dispatch = useDispatch();
-	const [menu, setMenu] = useState([])
+	const [menu, setMenu] = useState([]);
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		setmMenu();
@@ -170,7 +170,7 @@ const Post = ({ pageData, categories }) => {
 		try {
 			const headings = document.querySelectorAll(".heading");
 			let links = [];
-			console.log('headings ' + headings)
+			console.log("headings " + headings);
 
 			// const menuList = document.querySelector(".menu_container .menu");
 
@@ -186,8 +186,8 @@ const Post = ({ pageData, categories }) => {
 					const link = {
 						linkName: linkName,
 						text: text,
-						classList: ""
-					}
+						classList: "",
+					};
 
 					switch (tag) {
 						case "H1":
@@ -212,15 +212,14 @@ const Post = ({ pageData, categories }) => {
 							break;
 					}
 
-					links.push(link)
-				});		
+					links.push(link);
+				});
 			};
 
-			if(headings.length > 0) {
+			if (headings.length > 0) {
 				createMenuItems(headings);
 				setMenu(links);
 			}
-			
 		} catch (e) {
 			// console.log(e);
 		}
@@ -254,12 +253,22 @@ const Post = ({ pageData, categories }) => {
 					<div className="post main  main--not_main">
 						<h1>{pageData?.title}</h1>
 
-						{menu.length > 0 && <article className="menu_container">
-							<h2>Содержание</h2>
-							<div className="menu">
-								{menu?.map((item, i) => <a key={i} className={`menu__item ${item.classList}`} href={`#${item.linkName}`}>{item.text}</a>)}
-							</div>
-						</article>}
+						{menu.length > 0 && (
+							<article className="menu_container">
+								<h2>Содержание</h2>
+								<div className="menu">
+									{menu?.map((item, i) => (
+										<a
+											key={i}
+											className={`menu__item ${item.classList}`}
+											href={`#${item.linkName}`}
+										>
+											{item.text}
+										</a>
+									))}
+								</div>
+							</article>
+						)}
 
 						<PortableText
 							value={pageData?.content}
@@ -274,6 +283,17 @@ const Post = ({ pageData, categories }) => {
 					<aside className="aside">
 						<div id="yandex_rtb_R-A-2501461-3"></div>
 						<Script id="yandex-ads-3" strategy="afterInteractive">
+							{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-3",
+										"renderTo": "yandex_rtb_R-A-2501461-3"
+									})
+								})
+							`}
+						</Script>
+						<div id="yandex_rtb_R-A-2501461-3"></div>
+						<Script id="yandex-ads-31" strategy="afterInteractive">
 							{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
