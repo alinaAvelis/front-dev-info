@@ -16,6 +16,14 @@
     }
 }
 
+.donate_btn {
+  margin-top: 40px;
+
+  @media(max-width: $tablet) {	
+    margin-top: 30px;
+  }
+}
+
 .burger {
   grid-gap: 9px;
   width: 75px;
@@ -151,5 +159,9 @@
     margin-bottom: 15px;
 	}
 } 
+
+.address {
+  word-break: break-word;
+}
 
 

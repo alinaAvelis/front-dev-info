@@ -73,16 +73,6 @@ const AppHeader = ({ categories }) => {
 				<div ref={mobileMenu} className="nav_container">
 					<CloseBtn clickHandler={onClose} />
 
-					{/* <button
-						className="button"
-						type="button"
-						data-type="open_donate"
-						onClick={() => setOpenModal(true)}
-					>
-						Поддержать автора
-					</button> */}
-
-
 					<Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
 						<AccordionSummary
 						aria-controls="panel1bh-content"
@@ -94,6 +84,15 @@ const AppHeader = ({ categories }) => {
 							На этом сайте я выкладываю информацию, которую нахожу и использую в процессе работы. По мере свободного времени буду добавлять новый функционал и посты.  
 						</AccordionDetails>
 					</Accordion>
+
+					<button
+						className="button donate_btn"
+						type="button"
+						data-type="open_donate"
+						onClick={() => setOpenModal(true)}
+					>
+						Поддержать
+					</button>
 
 					<nav className="grid header_nav">
 						{/* {categoriesState?.map((item) => {
@@ -128,7 +127,7 @@ const AppHeader = ({ categories }) => {
 
 			{openModal && (
 				<Modal onClose={() => setOpenModal(false)}>
-					<p className="subtitle text">Patreon</p>
+					{/* <p className="subtitle text">Patreon</p>
 					<a href="" className="link" target="_blank">
 						Ссылка
 					</a>
@@ -136,12 +135,10 @@ const AppHeader = ({ categories }) => {
 					<p className="subtitle text">Boosty</p>
 					<a href="" className="link" target="_blank">
 						Ссылка
-					</a>
+					</a> */}
 
 					<p className="subtitle text">Metamask</p>
-					<a href="" className="link" target="_blank">
-						Ссылка
-					</a>
+					<p className="text address">0xf71fbed2cfb0dbFD2EAFA1BA2cABE02CCF1a86C7</p>
 				</Modal>
 			)}
 		</>

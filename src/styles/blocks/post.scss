@@ -2,6 +2,9 @@
 /*//////////////////////*/
 
 .post {
+    & .link {
+        word-break: break-word;
+    }
     & .code_block {
         display: block;
         width: 100%;
@@ -29,7 +32,7 @@
         margin-top: 40px;
     }
 
-    & h3 {
+    & h3, h4 {
         margin-top: 20px;
     }
 
@@ -50,6 +53,12 @@
     & .post_date {
         text-align: right;
     }
+
+    & .post_img {
+        max-width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 .menu_container {
@@ -57,14 +66,11 @@
 }
 
 .menu {
-    display: none;
     flex-direction: column;
     margin-top: 10px;
     gap: 10px;
-    
-    &:has(.menu__item:nth-last-child(n + 1)) {
-        display: flex;
-    }
+    display: flex;
+
 
     & .menu__item {
         width: fit-content;

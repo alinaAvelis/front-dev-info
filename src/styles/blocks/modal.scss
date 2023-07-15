@@ -18,9 +18,9 @@
 
 .modal {
     flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    padding: 20px;
+    width: fit-content;
+    max-width: 500px;
+    padding: 50px;
 
     background: $white;
     overflow: hidden;
@@ -32,4 +32,8 @@
     top: 0;
 
     position: relative;
+
+    @media(max-width: $mobile) {	
+        padding: 50px 20px;
+    }
 }

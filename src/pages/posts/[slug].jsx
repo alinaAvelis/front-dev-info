@@ -160,56 +160,67 @@ const components = {
 
 const Post = ({ pageData, categories }) => {
 	const dispatch = useDispatch();
+	const [menu, setMenu] = useState([])
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		setMenu();
+		setmMenu();
 	}, []);
 
-	const setMenu = () => {
+	const setmMenu = () => {
 		try {
 			const headings = document.querySelectorAll(".heading");
+			let links = [];
+			console.log('headings ' + headings)
 
-			const menuList = document.querySelector(".menu_container .menu");
+			// const menuList = document.querySelector(".menu_container .menu");
+
+			// console.log(headings)
 
 			const createMenuItems = (elements) => {
 				elements.forEach((el, i) => {
 					const tag = el?.nodeName;
 					const text = el?.innerText;
 					const linkName = tag + i;
-					const menuLink = document.createElement("a");
-					// const titleLink = document.createElement("a");
-					menuLink.innerText = text;
-					menuLink.setAttribute("href", `#${linkName}`);
-					menuLink.classList.add("menu__item");
-					menuList?.append(menuLink);
-
 					el.setAttribute("id", `${linkName}`);
+
+					const link = {
+						linkName: linkName,
+						text: text,
+						classList: ""
+					}
+
 					switch (tag) {
 						case "H1":
-							menuLink.classList.add("first_level");
+							link.classList = "first_level";
 							break;
 						case "H2":
-							menuLink.classList.add("second_level");
+							link.classList = "second_level";
 							break;
 						case "H3":
-							menuLink.classList.add("three_level");
+							link.classList = "three_level";
 							break;
 						case "H4":
-							menuLink.classList.add("four_level");
+							link.classList = "four_level";
 							break;
 						case "H5":
-							menuLink.classList.add("five_level");
+							link.classList = "five_level";
 							break;
 						case "H6":
-							menuLink.classList.add("six_level");
+							link.classList = "six_level";
 							break;
 						default:
 							break;
 					}
-				});
+
+					links.push(link)
+				});		
 			};
 
-			createMenuItems(headings);
+			if(headings.length > 0) {
+				createMenuItems(headings);
+				setMenu(links);
+			}
+			
 		} catch (e) {
 			// console.log(e);
 		}
@@ -243,10 +254,12 @@ const Post = ({ pageData, categories }) => {
 					<div className="post main  main--not_main">
 						<h1>{pageData?.title}</h1>
 
-						<article className="menu_container">
+						{menu.length > 0 && <article className="menu_container">
 							<h2>Содержание</h2>
-							<div className="menu"></div>
-						</article>
+							<div className="menu">
+								{menu?.map((item, i) => <a key={i} className={`menu__item ${item.classList}`} href={`#${item.linkName}`}>{item.text}</a>)}
+							</div>
+						</article>}
 
 						<PortableText
 							value={pageData?.content}
