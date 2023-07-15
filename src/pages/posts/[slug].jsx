@@ -292,17 +292,6 @@ const Post = ({ pageData, categories }) => {
 								})
 							`}
 						</Script>
-						<div id="yandex_rtb_R-A-2501461-3"></div>
-						<Script id="yandex-ads-31" strategy="afterInteractive">
-							{`
-								window.yaContextCb.push(()=>{
-									Ya.Context.AdvManager.render({
-										"blockId": "R-A-2501461-3",
-										"renderTo": "yandex_rtb_R-A-2501461-3"
-									})
-								})
-							`}
-						</Script>
 					</aside>
 				</div>
 			</div>
