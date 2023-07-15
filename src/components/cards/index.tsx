@@ -10,7 +10,10 @@ const Cards = ({ data }: cardsProps) => {
 			{data?.map((item, i) => {
 				return (
 					<li key={i + "card"}>
-						<a className="card" href={`/posts/${item.slug.current}`}>
+						<a
+							className="card"
+							href={`/posts/${item.slug.current}`}
+						>
 							<span> {item.title} </span>
 
 							<span> {item.shortDescription} </span>
