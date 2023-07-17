@@ -66,7 +66,7 @@ const Category = ({pageData, category}) => {
                     
 					<div className="tabs_btns flex ">
                         
-						<Cards data={pageData?.filter((point: any) => point?.category?._ref === category?._id)} to="categories" />
+						<Cards data={pageData?.filter((point: any) => point?.category?._ref === category?._id)} to="posts" />
 					</div>
 				</section>
 			</div>
