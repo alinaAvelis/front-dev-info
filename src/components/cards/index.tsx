@@ -2,9 +2,10 @@ import React from "react";
 
 type cardsProps = {
 	data: any;
+	to: string;
 };
 
-const Cards = ({ data }: cardsProps) => {
+const Cards = ({ data, to = "posts" }: cardsProps) => {
 	return (
 		<ul className={`tabs_container grid`}>
 			{data?.map((item, i) => {
@@ -12,7 +13,7 @@ const Cards = ({ data }: cardsProps) => {
 					<li key={i + "card"}>
 						<a
 							className="card"
-							href={`/posts/${item.slug.current}`}
+							href={`/${to}/${item.slug.current}`}
 						>
 							<span> {item.title} </span>
 

@@ -117,6 +117,20 @@ const AppHeader = ({ categories }) => {
 						>
 							Все категории
 						</Link>
+						<Link
+							className="link"
+							href="/resourses-posts"
+							onClick={onClose}
+						>
+							Все посты ресурсов
+						</Link>
+						<Link
+							className="link"
+							href="/resourses-categories"
+							onClick={onClose}
+						>
+							Все категории ресурсов
+						</Link>
 					</nav>
 				</div>
 			</header>
