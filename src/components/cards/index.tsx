@@ -2,7 +2,7 @@ import React from "react";
 
 type cardsProps = {
 	data: any;
-	to: string;
+	to?: string;
 };
 
 const Cards = ({ data, to = "posts" }: cardsProps) => {
