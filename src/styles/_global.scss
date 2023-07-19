@@ -3,101 +3,102 @@
 @import "animations";
 
 html {
-	overflow-x: hidden;
-	font-family: $font_family;
-	position: relative;
-	font-size: 18px;
-	font-weight: 300;
+    overflow-x: hidden;
+    font-family: $font_family;
+    position: relative;
+    font-size: 18px;
+    font-weight: 300;
     line-height: 1.2;
-	color: $dark_gray;
+    color: $dark_gray;
 
-	@media(max-width: $tablet) {	
+    @media(max-width: $tablet) {
         font-size: 16px;
-	}
+    }
 
-    @media(max-width: $mobile) {	
+    @media(max-width: $mobile) {
         font-size: 14px;
-	}
+    }
 }
 
 body {
-	display: block;
-	margin: 0 auto;
-	overflow-x: hidden;
-    
-	position: relative;
-	min-height: 100vh;
+    display: block;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    position: relative;
+    min-height: 100vh;
 }
 
 .main {
-	min-height: 100vh;
+    min-height: 100vh;
 
-	&--not_main {
-		width: 60%;
-		max-width: 1700px;
-	}
+    &--not_main {
+        width: 60%;
+        max-width: 1700px;
+    }
 
-	@media(max-width: $tablet) {	
+    @media(max-width: $tablet) {
         width: 100%;
-	}
+    }
 }
 
 .page_container {
-	justify-content: space-between;
-	@media(max-width: $tablet) {	
+    justify-content: space-between;
+
+    @media(max-width: $tablet) {
         flex-direction: column;
-	}
+    }
 }
 
 .aside {
-	max-width: 35%;
-	width: 100%;
-	height: 100%;
+    max-width: 35%;
+    width: 100%;
+    height: 100%;
     padding: 10px;
 
-	@media(max-width: $tablet) {
-		margin-top: 20px;	
-		max-width: 100%;
+    @media(max-width: $tablet) {
+        margin-top: 20px;
+        max-width: 100%;
         width: 100%;
-	}
+    }
 }
 
 pre {
-	white-space: pre-wrap;
-	padding: 0 10px 10px 10px;
+    white-space: pre-wrap;
+    padding: 0 10px 10px 10px;
 }
 
 .main_container {
-	@media(max-width: $tablet) {
-		flex-direction: column;
+    @media(max-width: $tablet) {
+        flex-direction: column;
     }
 }
 
 .container {
-	padding: 20px 50px;
+    padding: 20px 50px;
 
-	position: relative;
+    position: relative;
 
-	&--center {
-		width: 100%;
-		margin: 0 auto;
-	}
+    &--center {
+        width: 100%;
+        margin: 0 auto;
+    }
 
-	@media(max-width: $tablet) {
-		padding: 10px;	
+    @media(max-width: $tablet) {
+        padding: 10px;
     }
 }
 
 .mt-50 {
-	margin-top: 50px;
+    margin-top: 50px;
 
-	@media(max-width: $tablet) {
-		margin-top: 30px;
+    @media(max-width: $tablet) {
+        margin-top: 30px;
     }
 }
 
 .cp_embed_wrapper {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 *,
@@ -106,77 +107,82 @@ pre {
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     line-height: 1.2;
 }
 
 p {
     margin: 0;
-	margin-top: 20px;
-	font-size: 1rem;
-	line-height: 1.5;
-	font-weight: 300;
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
 
-	@media(min-width: $mobile) {
-		margin-top: 15px;
-	}
+    @media(min-width: $mobile) {
+        margin-top: 15px;
+    }
 }
 
 .title {
-	font-size: 2rem;
-	font-weight: 800;
-	color: $dark_gray;
-	text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: $dark_gray;
+    text-align: center;
 
-	margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .subtitle {
-	font-size: 1.5rem;
-	font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 800;
 }
 
 h2 {
-	font-size: 1.4rem !important;
-	font-weight: 700;
+    font-size: 1.4rem !important;
+    font-weight: 700;
 }
 
 .list_type_none {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .list {
-	.list_item {
-		margin-top: 20px;
-	}
+    .list_item {
+        margin-top: 20px;
+    }
 }
 
 .visually-hidden:not(:focus):not(:active) {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
-	white-space: nowrap;
-	clip-path: inset(100%);
-	clip: rect(0 0 0 0);
-	overflow: hidden;
-	opacity: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    opacity: 0;
 }
 
 .no_scroll {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .img {
-	display: block;
-	width: 100%;
-	height: auto;
-	object-fit: cover;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 a,
@@ -184,152 +190,155 @@ a,
 .input,
 .select,
 textarea {
-	font: inherit;
-	cursor: pointer;
+    font: inherit;
+    cursor: pointer;
 }
 
 .button {
-	border-radius: $btn_border_radius;
-	background: $white;
-	border: 4px solid $gray;
-	padding: 8px 40px;
-	text-align: center;
-	font-weight: 500;
-	transition: all 0.5s;
-	line-height: 1.0;
+    border-radius: $btn_border_radius;
+    background: $white;
+    border: 4px solid $gray;
+    padding: 8px 40px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.5s;
+    line-height: 1.0;
 
-	& svg {
-		transition: all 0.3s;
-	}
+    & svg {
+        transition: all 0.3s;
+    }
 
-	&--no_styles {
-		background: none !important;
-		border: none !important;
-		padding: 0 !important;
+    &--no_styles {
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
 
-	}
+    }
 
-	&.active {
-		background: $gray;
-	}
+    &.active {
+        background: $gray;
+    }
 
-	&:hover {
-		border-color:  $hover_color;
-		color: $hover_color;
-		
-		& svg {
-			fill: $hover_color;
-		}
-	}
+    &:hover {
+        border-color: $hover_color;
+        color: $hover_color;
 
-	&:active {
-		opacity: $active_opacity;
-	}
+        & svg {
+            fill: $hover_color;
+        }
+    }
 
-	&--effect {
-		position: relative;
+    &:active {
+        opacity: $active_opacity;
+    }
 
-		&::before,
-		&::after {
-			content: "";
-			display: block;
-			width: 0%;
-			height: 0%;
+    &--effect {
+        position: relative;
 
-			position: absolute;
-			transition: all 0.3s;
-			border-color: $gray;
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 0%;
 
-			border-radius: $btn_border_radius;
-		}
+            position: absolute;
+            transition: all 0.3s;
+            border-color: $gray;
 
-		&::before {
-			top: -10px;
-			left: -10px;
-		}
+            border-radius: $btn_border_radius;
+        }
 
-		&::after {
-			right: -10px;
-			bottom: -10px;
-		}
+        &::before {
+            top: -10px;
+            left: -10px;
+        }
 
-		&:hover {
-			&::before,
-			&::after {
-				border: 2px solid $gray;
-				width: 89%;
-				height: 150%;
-			}
-			&::before {
-				animation: travelBefore 0.5s 1 linear;
-				clip-path: inset(0 60% 40% 0);
-			}
-			&::after {
-				animation: travelAfter 0.5s 1 linear;
-				clip-path: inset(40% 0 0 60%);
-			}
-		}
-	}
+        &::after {
+            right: -10px;
+            bottom: -10px;
+        }
 
-	@media(max-width: $mobile) {	
-		padding: 5px 15px;
-	}
+        &:hover {
+
+            &::before,
+            &::after {
+                border: 2px solid $gray;
+                width: 89%;
+                height: 150%;
+            }
+
+            &::before {
+                animation: travelBefore 0.5s 1 linear;
+                clip-path: inset(0 60% 40% 0);
+            }
+
+            &::after {
+                animation: travelAfter 0.5s 1 linear;
+                clip-path: inset(40% 0 0 60%);
+            }
+        }
+    }
+
+    @media(max-width: $mobile) {
+        padding: 5px 15px;
+    }
 }
 
 a {
-	display: inline-block;
-	text-decoration: none;
-	color: inherit;
-	transition: all 0.5s;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.5s;
 
-	&:hover {
-		color: $hover_color;
-	}
+    &:hover {
+        color: $hover_color;
+    }
 
-	&:active {
-		opacity: $active_opacity;
-	}
+    &:active {
+        opacity: $active_opacity;
+    }
 }
 
 .input {
-	display: block;
-	border: 0;
-	outline: none;
+    display: block;
+    border: 0;
+    outline: none;
 
-	&::placeholder {
-		font-size: $big_text_search;
-		color: $dark_gray;
-	}
+    &::placeholder {
+        font-size: $big_text_search;
+        color: $dark_gray;
+    }
 }
 
 .grid {
-	display: grid;
+    display: grid;
 }
 
 .gap {
-	gap: 15px;
+    gap: 15px;
 }
 
 
 .flex {
-	display: flex;
+    display: flex;
 }
 
 .flex_space_between {
-	justify-content: space-between;
+    justify-content: space-between;
 }
 
 .align_items_center {
-	align-items: center;
+    align-items: center;
 }
 
 .flex_center {
-	justify-content: center;
-	align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex_justify_center {
-	justify-content: center;
+    justify-content: center;
 }
 
 
@@ -356,21 +365,21 @@ a {
 }
 
 .mobile_hide {
-	display: none;
+    display: none;
 
-	@media(min-width: 500px) {
-		display: block;
-	}
+    @media(min-width: 500px) {
+        display: block;
+    }
 }
 
 .desctop_hide {
-	@media(min-width: 500px) {
-		display: none;
-	}
+    @media(min-width: 500px) {
+        display: none;
+    }
 }
 
 .banner {
-	height: 1px;
-	width: 100%;
-	margin: 20px 0;
+    height: 1px;
+    width: 100%;
+    margin: 20px 0;
 }
