@@ -71,6 +71,7 @@ export default {
 						{ title: "H4", value: "h4" },
 						{ title: "H5", value: "h5" },
 						{ title: "H6", value: "h6" },
+						{ title: "Accent Text", value: "accent_text" },
 					],
 					marks: {
 						decorators: [

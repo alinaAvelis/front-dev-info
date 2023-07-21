@@ -64,6 +64,7 @@ const components = {
 		h4: ({ children }) => <h4 className="heading">{children}</h4>,
 		h5: ({ children }) => <h5 className="heading">{children}</h5>,
 		h6: ({ children }) => <h6 className="heading">{children}</h6>,
+		accent_text: ({ children }) => <span className="accent_text">{children}</span>,
 	},
 	marks: {
 		link: ({ value, children }) => {

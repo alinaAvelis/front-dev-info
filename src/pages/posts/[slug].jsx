@@ -100,7 +100,7 @@ const components = {
 	types: {
 		code_input: ({ value }) => {
 			const { language, code } = value;
-
+			console.log(typeof code)
 			return (
 				<div className="code_block">
 					<p className="code_block__lang">

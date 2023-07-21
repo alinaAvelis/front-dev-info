@@ -11,7 +11,7 @@
         margin-top: 30px;
         
         background: $white;
-        border: 3px solid $gray;
+        border: 3px solid $dark_blue;
         border-radius: 30px;
 
         overflow: hidden;
@@ -21,10 +21,20 @@
             background: $light_gray;
             margin-top: 0;
             text-transform: uppercase;
+            border-bottom: 1px solid $dark_blue;
+            font-weight: bold;
         }
 
         & .comment {
             color: $dark_gray_middle;
+        }
+
+        code {
+            color: #000;
+        }
+
+        .accent_text {
+            
         }
     }
 
