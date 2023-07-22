@@ -54,15 +54,15 @@ const HomePage = ({ pageData, categories }) => {
 
 				<div className="tabs_btns flex ">
 					<Cards data={pageData.slice(0, 9)} />
-					{pageData.length > 9 && (
-						<Link
-							href="/posts"
-							className="button button--fill button--center"
-						>
-							Все посты
-						</Link>
-					)}
 				</div>
+				{pageData.length > 9 && (
+					<Link
+						href="/posts"
+						className="button button--fill button--center"
+					>
+						Все посты
+					</Link>
+				)}
 			</section>
 		</>
 	);

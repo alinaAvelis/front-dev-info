@@ -68,17 +68,17 @@ const AllStories = ({ pageData, categories }) => {
 
 					<div className="tabs_btns flex ">
 						<Cards data={filtredPosts.slice(0, sliceValue)} />
-						{filtredPosts.length > sliceValue && (
-							<button
-								className="button button--fill button--center"
-								onClick={() => {
-									setSliceValue(sliceValue + 9);
-								}}
-							>
-								Еще посты
-							</button>
-						)}
 					</div>
+					{filtredPosts.length > sliceValue && (
+						<button
+							className="button button--fill button--center"
+							onClick={() => {
+								setSliceValue(sliceValue + 9);
+							}}
+						>
+							Еще посты
+						</button>
+					)}
 				</section>
 			</div>
 		</>
