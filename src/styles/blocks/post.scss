@@ -2,6 +2,7 @@
 /*//////////////////////*/
 
 .post {
+    line-height: 1.4;
     & .link {
         word-break: break-word;
     }
@@ -11,8 +12,8 @@
         margin-top: 30px;
         
         background: $white;
-        border: 3px solid $dark_blue;
-        border-radius: 30px;
+        border: 3px solid $dark_gray;
+        border-radius: $input_radius;
 
         overflow: hidden;
 
@@ -32,13 +33,14 @@
         code {
             color: #000;
         }
+    }
 
-        .accent_text {
-            
-        }
+    & h1 {
+        font-size: 3rem;
     }
 
     & h2 {
+        font-size: 2rem;
         margin-top: 40px;
     }
 
@@ -51,7 +53,7 @@
     }
 
     & a:not(.button) {
-        text-decoration: underline;
+        color: $light_blue;
     }
 
     & img {
@@ -73,6 +75,10 @@
 
 .menu_container {
     margin: 20px 0 50px;
+
+    & h2 {
+        font-size: 1.5rem;
+    }
 }
 
 .menu {
@@ -84,7 +90,8 @@
 
     & .menu__item {
         width: fit-content;
-        text-decoration: none;
+        text-decoration: none !important; 
+        color: inherit !important;
         // position: relative;
 
         // &:before {
@@ -101,12 +108,13 @@
 
         &.first_level {
             font-size: 1.3em;
-            text-decoration: underline;
+            font-weight: bold;
         }
     
         &.second_level {
-            padding-left: 10px;
+            // padding-left: 10px;
             font-size: 1.1em;
+            font-weight: bold;
         }
     
         &.three_level {

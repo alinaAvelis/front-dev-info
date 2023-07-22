@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {
-	VKShareButton,
-	VKIcon,
-	EmailShareButton,
-	EmailIcon,
-	WhatsappShareButton,
-	WhatsappIcon,
-	TelegramShareButton,
-	TelegramIcon,
-} from "next-share";
+// import {
+// 	VKShareButton,
+// 	VKIcon,
+// 	EmailShareButton,
+// 	EmailIcon,
+// 	WhatsappShareButton,
+// 	WhatsappIcon,
+// 	TelegramShareButton,
+// 	TelegramIcon,
+// } from "next-share";
 import { getDateString } from "../../services/support";
 import Breadcrumbs from "../../components/breadcrumbs";
 import sanityClient from "../../../public/support-func/sanityClient";
@@ -64,8 +64,10 @@ const components = {
 		h4: ({ children }) => <h4 className="heading">{children}</h4>,
 		h5: ({ children }) => <h5 className="heading">{children}</h5>,
 		h6: ({ children }) => <h6 className="heading">{children}</h6>,
+
 	},
 	marks: {
+		accent_text: ({ children }) => <span className="accent_text">{children}</span>,
 		link: ({ value, children }) => {
 			const { blank, href } = value;
 			return blank ? (
@@ -170,11 +172,6 @@ const Post = ({ pageData, categories }) => {
 		try {
 			const headings = document.querySelectorAll(".heading");
 			let links = [];
-			console.log("headings " + headings);
-
-			// const menuList = document.querySelector(".menu_container .menu");
-
-			// console.log(headings)
 
 			const createMenuItems = (elements) => {
 				elements.forEach((el, i) => {

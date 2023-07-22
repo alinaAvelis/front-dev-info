@@ -15,7 +15,7 @@ const Cards = ({ data, to = "posts" }: cardsProps) => {
 							className="card"
 							href={`/${to}/${item.slug.current}`}
 						>
-							<span> {item.title} </span>
+							<span className="card_title"> {item.title} </span>
 
 							<span> {item.shortDescription} </span>
 						</a>

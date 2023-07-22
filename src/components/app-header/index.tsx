@@ -1,10 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-import { styled } from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-// import Stack from '@mui/material/Stack';
-// import Typography from '@mui/material/Typography';
 import Link from "next/link";
 import CloseBtn from "../close_btn";
 import SearchBlock from "../search-block";
@@ -17,9 +12,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 
-const AppHeader = ({ categories }) => {
-	// const { getPersonals } = useData()
-	const categoriesState = useSelector(selectCategoriesState);
+const AppHeader = () => {
 	const [openModal, setOpenModal] = useState(false);
 
 	const mobileMenu = useRef<HTMLInputElement>(null);
@@ -95,14 +88,6 @@ const AppHeader = ({ categories }) => {
 					</button>
 
 					<nav className="grid header_nav">
-						{/* {categoriesState?.map((item) => {
-							
-							return (
-								<Link key={item._id} className="link" href={item.slug.current}>
-									{item.title}
-								</Link>
-							);
-						})} */}
 						<Link
 							className="link"
 							href="/posts"
@@ -119,17 +104,10 @@ const AppHeader = ({ categories }) => {
 						</Link>
 						<Link
 							className="link"
-							href="/resourses-posts"
+							href="/resourses"
 							onClick={onClose}
 						>
-							Все посты ресурсов
-						</Link>
-						<Link
-							className="link"
-							href="/resourses-categories"
-							onClick={onClose}
-						>
-							Все категории ресурсов
+							Ресурсы
 						</Link>
 					</nav>
 				</div>

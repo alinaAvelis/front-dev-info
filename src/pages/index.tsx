@@ -1,64 +1,71 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import Card from "../components/card";
-import Image from "next/image";
-// import { useData } from '../hooks/useData';
 import sanityClient from "../../public/support-func/sanityClient";
-import { sortByDate } from "../../public/support-func/support.js";
-import img from "../../public/image/author_page/main1.png";
-import me from "../../public/image/author_page/1.jpg";
-import { groq } from "next-sanity";
+// import { sortByDate } from "../../public/support-func/support.js";
 import Cards from "../components/cards";
-import {  setCategoriesState } from "../store/slices/categoriesSlice";
+import { setCategoriesState } from "../store/slices/categoriesSlice";
 import { useDispatch } from "react-redux";
 
 export async function getStaticProps() {
-	// const pageMeta = await sanityClient.fetch(`*[_type == "metadata" && title == "/"] `);
 	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);
 	const categories = await sanityClient.fetch(
 		`*[_type == "categories" && activeCategory == true]`
 	);
-	// const postQuery = groq`*[_type == "stories" && active == true && isPremier == true][0]`;
-	// const premierData = await sanityClient.fetch(postQuery);
 
 	return {
 		props: {
-			// pageMeta: pageMeta[0],
 			pageData,
-			// premierTitle: premierData?.title,
 			categories,
 		},
 		revalidate: 300,
 	};
 }
 
-const HomePage = ({ pageData, categories }) =>
-	// {pageMeta, pageData, premierTitle, categories}
-	{
-		const dispatch = useDispatch();
-		useEffect(() => {
-			window.scrollTo(0, 0);
-		}, []);
+const HomePage = ({ pageData, categories }) => {
+	const dispatch = useDispatch();
 
-		useEffect(() => {
-		  if(categories) {
-			dispatch( setCategoriesState(categories));
-		  }
-		}, [categories])
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
-		return (
-			<>
-				{/* <Head></Head> */}
-				<section className="section tabs container  container--center">
-					<h2 className="visually-hidden">Карточки</h2>
+	useEffect(() => {
+		if (categories) {
+			dispatch(setCategoriesState(categories));
+		}
+	}, [categories]);
 
-					<div className="tabs_btns flex ">
-						<Cards data={pageData} />
-					</div>
-				</section>
-			</>
-		);
-	};
+	return (
+		<>
+			<Head>
+				<title>FrontDevInfo - посты о frontend разработке</title>
+				<meta
+					name="keywords"
+					content="программирование, посты, JavaScrip, frontend"
+				/>
+				<meta
+					name="description"
+					content="Посты о frontend разработке"
+					key="ogdesc"
+				/>
+			</Head>
+			<section className="section tabs container  container--center">
+				<h2 className="visually-hidden">Карточки</h2>
+
+				<div className="tabs_btns flex ">
+					<Cards data={pageData.slice(0, 9)} />
+					{pageData.length > 9 && (
+						<Link
+							href="/posts"
+							className="button button--fill button--center"
+						>
+							Все посты
+						</Link>
+					)}
+				</div>
+			</section>
+		</>
+	);
+};
 
 export default HomePage;

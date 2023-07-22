@@ -114,6 +114,44 @@ h = canvas.height = innerHeight;<br />
 <br />
 class Particle {<br />
 constructor() {<br />
+this.x = Math.random()*w;<br />
+};<br />
+<br />
+document.querySelector('body').appendChild(canvas);<br />
+<br />
+window.onresize = function() {<br />
+w = canvas.width = innerWidth;<br />
+h = canvas.height = innerHeight;<br />
+}<br />
+<br />
+class Particle {<br />
+constructor() {<br />
+this.x = Math.random()*w;<br />
+(function(){<br />
+let canvas = document.createElement('canvas'),<br />  
+ctx = canvas.getContext('2d'),<br />             
+w = canvas.width = innerWidth,<br />
+h = canvas.height = innerHeight,<br />
+particles = [],<br />
+properties = {<br />
+bgColor : 'rgba(17, 17, 19, 1)',<br />
+particleColor : 'rgba(255, 40, 40, 1)',<br />
+particleRadius : 3,<br />
+particleCount : 60,<br />
+particleMaxVelocity : 0.5,<br />
+lineLength : 150,<br />
+particleLife : 6,<br />
+};<br />
+<br />
+document.querySelector('body').appendChild(canvas);<br />
+<br />
+window.onresize = function() {<br />
+w = canvas.width = innerWidth;<br />
+h = canvas.height = innerHeight;<br />
+}<br />
+<br />
+class Particle {<br />
+constructor() {<br />
 this.x = Math.random()*w;<br />`;
 
 export default SearchHomeBlock;

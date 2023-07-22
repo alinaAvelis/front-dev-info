@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
-// import { useData } from '../../hooks/useData';
 import Cards from "../../components/cards";
 import Breadcrumbs from "../../components/breadcrumbs";
-import Script from "next/script";
-// import Fuse from 'fuse.js';
 import sanityClient from "../../../public/support-func/sanityClient";
 import Head from "next/head";
-// import { sortByDate } from "../../../public/support-func/support.js";
 import { selectSearchState } from "../../store/slices/searchSlice";
 import { useSelector } from "react-redux";
-// import BlockPagination from '../../components/block-pagination';
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
-// сделать подгрузку при скролле
 
 export async function getStaticProps() {
-	// const pageMeta = await sanityClient.fetch(`*[_type == "metadata" && title == "/"] `);
 	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);
 	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
-	// const postQuery = groq`*[_type == "stories" && active == true && isPremier == true][0]`;
 	console.log(pageData);
 	return {
 		props: {
-			// pageMeta: pageMeta[0],
 			pageData,
 			categories,
 		},
@@ -30,14 +21,9 @@ export async function getStaticProps() {
 	};
 }
 
-// const fuseOptions = {F
-// 	includeScore: true,
-// 	keys: ['title', 'shortDescription', 'tags']
-//   }
-
 const AllStories = ({ pageData, categories }) => {
 	const [filtredPosts, setFiltredPosts] = useState([]);
-	const [filterString, setFilterString] = useState("");
+	const [sliceValue, setSliceValue] = useState(9);
 	const searchState = useSelector(selectSearchState);
 	const dispatch = useDispatch();
 
@@ -46,14 +32,6 @@ const AllStories = ({ pageData, categories }) => {
 			dispatch(setCategoriesState(categories));
 		}
 	}, [categories]);
-
-	// useEffect(() => {
-	// 	if(searchState) {
-	// 		setFiltredPosts(pageData.filter(item => item.title.toLowerCase().includes(searchState.toLowerCase())))
-	// 	} else {
-	// 		setFiltredPosts(pageData)
-	// 	}
-	// }, [searchState]);
 
 	useEffect(() => {
 		if (searchState) {
@@ -89,7 +67,17 @@ const AllStories = ({ pageData, categories }) => {
 					<h1 className="title">Все посты</h1>
 
 					<div className="tabs_btns flex ">
-						<Cards data={filtredPosts} />
+						<Cards data={filtredPosts.slice(0, sliceValue)} />
+						{filtredPosts.length > sliceValue && (
+							<button
+								className="button button--fill button--center"
+								onClick={() => {
+									setSliceValue(sliceValue + 9);
+								}}
+							>
+								Еще посты
+							</button>
+						)}
 					</div>
 				</section>
 			</div>

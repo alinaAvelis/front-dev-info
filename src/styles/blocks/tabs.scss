@@ -48,12 +48,15 @@
 .card {
     display: block;
     width: fit-content;
+    line-height: 1.4;
+
+    .card_title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
 
     & span {
         display: block;
-
-        &:first-child {
-            font-weight: bold;
-        }
     }
 }

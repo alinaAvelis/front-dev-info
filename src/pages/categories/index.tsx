@@ -1,22 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import Card from "../../components/card";
-import Script from "next/script";
 import Link from "next/link";
-// import { useData } from '../../hooks/useData';
-import CloseBtn from "../../components/close_btn";
 import sanityClient from "../../../public/support-func/sanityClient";
-import { sortByDate } from "../../../public/support-func/support.js";
-// сделать загрузку категорий при скролле
-// import { createObserve } from '../services/animaion';
-// import 'animate.css';
 import Breadcrumbs from "../../components/breadcrumbs";
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
 
 export async function getStaticProps() {
-	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
-
+	const categories = await sanityClient.fetch(
+		`*[_type == "categories" && activeCategory == true]`
+	);
 	return {
 		props: {
 			categories,
@@ -26,9 +20,6 @@ export async function getStaticProps() {
 }
 
 const CategoriesPage = ({ categories }) => {
-	// const {getCategories, peronalsArray} = useData();
-	const list = useRef<HTMLInputElement>(null);
-
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -45,10 +36,17 @@ const CategoriesPage = ({ categories }) => {
 		<>
 			<Head>
 				<title>FrontDevInfo - все категории</title>
-				<meta name="keywords" content="программирование, посты, JavaScrip, frontend" /> 
-				<meta name="description" content="Посты о frontend разработке" key="ogdesc"/>
+				<meta
+					name="keywords"
+					content="программирование, посты, JavaScrip, frontend"
+				/>
+				<meta
+					name="description"
+					content="Посты о frontend разработке"
+					key="ogdesc"
+				/>
 			</Head>
-		
+
 			<div className="container  container--center">
 				<Breadcrumbs
 					pathArr={[{ name: "Категории", url: "/categories" }]}
@@ -56,19 +54,20 @@ const CategoriesPage = ({ categories }) => {
 				<section className="section tabs mt-50">
 					<h1 className="title">Все категории</h1>
 
-					<div className="grid gap">
+					<ul className="grid gap">
 						{categories?.map((item: any, i: number) => {
 							return (
-								<Link
-									key={item._id}
-									className="link"
-									href={`/categories/${item.slug.current}`}
-								>
-									{item.title}
-								</Link>
+								<li key={item._id}>
+									<Link
+										className="link category_link"
+										href={`/categories/${item.slug.current}`}
+									>
+										{item.title}
+									</Link>
+								</li>
 							);
 						})}
-					</div>
+					</ul>
 				</section>
 			</div>
 		</>
