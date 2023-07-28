@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Highlight, themes } from "prism-react-renderer";
 // import {
 // 	VKShareButton,
 // 	VKIcon,
@@ -64,10 +65,11 @@ const components = {
 		h4: ({ children }) => <h4 className="heading">{children}</h4>,
 		h5: ({ children }) => <h5 className="heading">{children}</h5>,
 		h6: ({ children }) => <h6 className="heading">{children}</h6>,
-
 	},
 	marks: {
-		accent_text: ({ children }) => <span className="accent_text">{children}</span>,
+		accent_text: ({ children }) => (
+			<span className="accent_text">{children}</span>
+		),
 		link: ({ value, children }) => {
 			const { blank, href } = value;
 			return blank ? (
@@ -102,16 +104,40 @@ const components = {
 	types: {
 		code_input: ({ value }) => {
 			const { language, code } = value;
-			console.log(typeof code)
+			console.log(typeof code);
 			return (
 				<div className="code_block">
 					<p className="code_block__lang">
 						{language ? language : "JavaScript"}
 					</p>
 
-					<pre>
-						<code>{code}</code>
-					</pre>
+					<Highlight
+						theme={themes.dracula}
+						code={code}
+						language={language ? language : "JavaScript"}
+					>
+						{({
+							className,
+							style,
+							tokens,
+							getLineProps,
+							getTokenProps,
+						}) => (
+							<pre style={style}>
+								{tokens.map((line, i) => (
+									<div key={i} {...getLineProps({ line })}>
+										<span className="number">{i + 1}</span>
+										{line.map((token, key) => (
+											<span
+												key={key}
+												{...getTokenProps({ token })}
+											/>
+										))}
+									</div>
+								))}
+							</pre>
+						)}
+					</Highlight>
 				</div>
 			);
 		},

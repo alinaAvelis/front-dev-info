@@ -64,8 +64,17 @@ body {
 }
 
 pre {
+    margin: 0;
     white-space: pre-wrap;
-    padding: 0 10px 10px 10px;
+    padding: 15px 15px 15px 10px;
+
+    & .number {
+        margin-right: 20px;
+        -ms-user-select: none; 
+		-moz-user-select: none; 
+		-webkit-user-select: none; 
+		user-select: none; 
+    }
 }
 
 .main_container {
