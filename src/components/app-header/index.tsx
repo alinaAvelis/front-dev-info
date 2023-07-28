@@ -6,11 +6,9 @@ import SearchBlock from "../search-block";
 import SearchHomeBlock from "../home-search-block";
 // import style from "./index.module.scss";
 import Modal from "../modal";
-import { useSelector } from "react-redux";
-import { selectCategoriesState } from "../../store/slices/categoriesSlice";
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
 
 const AppHeader = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -33,21 +31,22 @@ const AppHeader = () => {
 	const handleOpenMenu = () => {
 		const menu = mobileMenu.current;
 		menu?.classList.add("open");
-		const body = document.querySelector('body');
-		body.style.overflow = 'hidden'
+		const body = document.querySelector("body");
+		body.style.overflow = "hidden";
 	};
 
 	const onClose = () => {
 		const menu = mobileMenu.current;
 		menu?.classList.remove("open");
-		const body = document.querySelector('body');
-		body.style.overflowY = 'visible'
+		const body = document.querySelector("body");
+		body.style.overflowY = "visible";
 	};
 
 	const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+		(panel: string) =>
+		(event: React.SyntheticEvent, isExpanded: boolean) => {
+			setExpanded(isExpanded ? panel : false);
+		};
 
 	return (
 		<>
@@ -66,15 +65,20 @@ const AppHeader = () => {
 				<div ref={mobileMenu} className="nav_container">
 					<CloseBtn clickHandler={onClose} />
 
-					<Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+					<Accordion
+						expanded={expanded === "panel1"}
+						onChange={handleChange("panel1")}
+					>
 						<AccordionSummary
-						aria-controls="panel1bh-content"
-						id="panel1bh-header"
+							aria-controls="panel1bh-content"
+							id="panel1bh-header"
 						>
 							Информация о сайте
 						</AccordionSummary>
 						<AccordionDetails>
-							На этом сайте я выкладываю информацию, которую нахожу и использую в процессе работы. По мере свободного времени буду добавлять новый функционал и посты.  
+							На этом сайте я делюсь информацией, которую
+							использую в процессе работы. Посты пишутся больше в
+							формате памяток, чем полномасштабных статей.
 						</AccordionDetails>
 					</Accordion>
 
@@ -88,11 +92,7 @@ const AppHeader = () => {
 					</button>
 
 					<nav className="grid header_nav">
-						<Link
-							className="link"
-							href="/posts"
-							onClick={onClose}
-						>
+						<Link className="link" href="/posts" onClick={onClose}>
 							Все посты
 						</Link>
 						<Link
@@ -130,7 +130,9 @@ const AppHeader = () => {
 					</a> */}
 
 					<p className="subtitle text">Metamask</p>
-					<p className="text address">0xf71fbed2cfb0dbFD2EAFA1BA2cABE02CCF1a86C7</p>
+					<p className="text address">
+						0xf71fbed2cfb0dbFD2EAFA1BA2cABE02CCF1a86C7
+					</p>
 				</Modal>
 			)}
 		</>

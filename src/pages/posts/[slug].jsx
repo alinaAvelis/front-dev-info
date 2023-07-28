@@ -25,7 +25,10 @@ import getVideoId from "get-video-id";
 import { groq } from "next-sanity";
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
-
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
@@ -189,6 +192,7 @@ const components = {
 const Post = ({ pageData, categories }) => {
 	const dispatch = useDispatch();
 	const [menu, setMenu] = useState([]);
+	const [expanded, setExpanded] = useState(false);
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		setmMenu();
@@ -254,6 +258,11 @@ const Post = ({ pageData, categories }) => {
 		}
 	}, [categories]);
 
+	const handleChange =
+    (panel) => (event, isExpanded) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
 	return (
 		<>
 			<div className="container container--center">
@@ -277,20 +286,32 @@ const Post = ({ pageData, categories }) => {
 						<h1>{pageData?.title}</h1>
 
 						{menu.length > 0 && (
-							<article className="menu_container">
-								<h2>Содержание</h2>
-								<div className="menu">
-									{menu?.map((item, i) => (
-										<a
-											key={i}
-											className={`menu__item ${item.classList}`}
-											href={`#${item.linkName}`}
-										>
-											{item.text}
-										</a>
-									))}
-								</div>
-							</article>
+							<Accordion
+								className="menu_accordeon"
+								expanded={expanded === "panel2"}
+								onChange={handleChange("panel2")}
+							>
+								<AccordionSummary
+									aria-controls="panel2bh-content"
+									id="panel2bh-header"
+									expandIcon={<ExpandMoreIcon />}
+								>
+									<h2>Содержание</h2>
+								</AccordionSummary>
+								<AccordionDetails>
+									<div className="menu">
+										{menu?.map((item, i) => (
+											<a
+												key={i}
+												className={`menu__item ${item.classList}`}
+												href={`#${item.linkName}`}
+											>
+												{item.text}
+											</a>
+										))}
+									</div>
+								</AccordionDetails>
+							</Accordion>
 						)}
 
 						<PortableText

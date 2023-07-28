@@ -37,6 +37,7 @@
 
     & h1 {
         font-size: 3rem;
+        margin-bottom: 30px;
     }
 
     & h2 {
@@ -73,11 +74,16 @@
     }
 }
 
-.menu_container {
-    margin: 20px 0 50px;
+.menu_accordeon {
+    margin: 0 0 50px;
+    color: inherit !important;
+    box-shadow: none;
+    border: 1px solid $dark_gray !important;
+    border-radius: $input_radius;
 
     & h2 {
         font-size: 1.5rem;
+        margin-top: 0;
     }
 }
 
