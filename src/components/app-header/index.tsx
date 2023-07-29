@@ -110,6 +110,17 @@ const AppHeader = () => {
 							Ресурсы
 						</Link>
 					</nav>
+
+					<div className="header_contacts">
+						Если вы заметили ошибку или есть замечания, вы можете
+						написать на почту:{" "}
+						<strong>
+							<a href="mailto:frontdevinfo@gmail.com">
+								frontdevinfo@gmail.com
+							</a>
+						</strong>
+						.
+					</div>
 				</div>
 			</header>
 

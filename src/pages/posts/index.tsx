@@ -3,6 +3,7 @@ import Cards from "../../components/cards";
 import Breadcrumbs from "../../components/breadcrumbs";
 import sanityClient from "../../../public/support-func/sanityClient";
 import Head from "next/head";
+import { sortByDate } from "../../../public/support-func/support.js";
 import { selectSearchState } from "../../store/slices/searchSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -67,7 +68,7 @@ const AllStories = ({ pageData, categories }) => {
 					<h1 className="title">Все посты</h1>
 
 					<div className="tabs_btns flex ">
-						<Cards data={filtredPosts.slice(0, sliceValue)} />
+						<Cards data={sortByDate(filtredPosts).slice(0, sliceValue)} />
 					</div>
 					{filtredPosts.length > sliceValue && (
 						<button
