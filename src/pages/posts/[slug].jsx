@@ -360,6 +360,22 @@ const Post = ({ pageData, categories, allPosts }) => {
 							<h2>Другие посты</h2>
 							<Cards data={lastPosts.slice(0, 3)} />
 						</div>
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-3"></div>
+							<Script
+								id="yandex-ads-3"
+								strategy="afterInteractive"
+							>
+								{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
+									})
+								`}
+							</Script>
+						</div>
 					</div>
 
 					{/* Aside */}
@@ -382,23 +398,6 @@ const Post = ({ pageData, categories, allPosts }) => {
 								))}
 							</div>
 						)}
-
-						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-3"></div>
-							<Script
-								id="yandex-ads-3"
-								strategy="afterInteractive"
-							>
-								{`
-									window.yaContextCb.push(()=>{
-										Ya.Context.AdvManager.render({
-											"blockId": "R-A-2501461-3",
-											"renderTo": "yandex_rtb_R-A-2501461-3"
-										})
-									})
-								`}
-							</Script>
-						</div>
 					</div>
 				</div>
 			</div>
