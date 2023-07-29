@@ -49,7 +49,7 @@ const HomePage = ({ pageData, categories }) => {
 					key="ogdesc"
 				/>
 			</Head>
-			<section className="section tabs container  container--center">
+			<section className="section tabs container  container--center main_container">
 				<h2 className="visually-hidden">Карточки</h2>
 				<div className="tabs_btns flex ">
 					<Cards data={sortByDate(pageData).slice(0, 9)} />

@@ -90,7 +90,7 @@ const Post = () => {
 					/>
 				</Head>
 				<Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
-				<div className=" mt-50  flex page_container">
+				<div className=" mt-50  flex page_container main_container">
 					<div className="post main  main--not_main">
 						<h1>Ресурсы для frontend разработки</h1>
 						{menu.length > 0 && (

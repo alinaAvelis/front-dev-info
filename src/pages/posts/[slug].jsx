@@ -29,17 +29,22 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Cards from "../../components/cards";
+import { sortByDate } from '../../../public/support-func/support.js';
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
 	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug][0]`;
+	const allPosts = await sanityClient.fetch(`*[_type == "posts"]`);
 	const pageData = await sanityClient.fetch(postQuery, { slug: params.slug });
 	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
 	return {
 		props: {
 			pageData: pageData,
 			categories,
+			allPosts: allPosts,
 		},
+		
 		revalidate: 60,
 	};
 }
@@ -189,13 +194,15 @@ const components = {
 	},
 };
 
-const Post = ({ pageData, categories }) => {
+const Post = ({ pageData, categories, allPosts }) => {
 	const dispatch = useDispatch();
 	const [menu, setMenu] = useState([]);
 	const [expanded, setExpanded] = useState(false);
+	const [lastPosts, setLastPosts] = useState([]);
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		setmMenu();
+		setPosts();
 	}, []);
 
 	const setmMenu = () => {
@@ -258,23 +265,31 @@ const Post = ({ pageData, categories }) => {
 		}
 	}, [categories]);
 
-	const handleChange =
-    (panel) => (event, isExpanded) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+	const handleChange = (panel) => (event, isExpanded) => {
+		setExpanded(isExpanded ? panel : false);
+	};
+
+	const setPosts = () => {
+		if (allPosts?.length) {
+			const newArr = allPosts.filter((n) => n.slug.current !== pageData.slug.current);
+			setLastPosts(
+				newArr && sortByDate(newArr)
+			);
+		}
+	};
 
 	return (
 		<>
-			<div className="container container--center">
-				<Head>
-					<title>{pageData?.title}</title>
-					<meta name="keywords" content={pageData?.tags} />
-					<meta
-						name="description"
-						content={pageData?.shortDescription}
-						key="ogdesc"
-					/>
-				</Head>
+			<Head>
+				<title>{pageData?.title}</title>
+				<meta name="keywords" content={pageData?.tags} />
+				<meta
+					name="description"
+					content={pageData?.shortDescription}
+					key="ogdesc"
+				/>
+			</Head>
+			<div className="container container--center main_container">
 				<Breadcrumbs
 					pathArr={[
 						{ name: "Посты", url: "/posts" },
@@ -321,21 +336,28 @@ const Post = ({ pageData, categories }) => {
 						<p className="post_date">
 							{getDateString(pageData?.releaseDate)}
 						</p>
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-3"></div>
+							<Script id="yandex-ads-3" strategy="afterInteractive">
+								{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
+									})
+								`}
+						</Script>
+						</div>
+						<div className="other_posts">
+							<h2>Другие посты</h2>
+							<Cards data={lastPosts.slice(0, 3)} />
+						</div>
 					</div>
 
 					{/* Aside */}
 					<aside className="aside">
-						<div id="yandex_rtb_R-A-2501461-3"></div>
-						<Script id="yandex-ads-3" strategy="afterInteractive">
-							{`
-								window.yaContextCb.push(()=>{
-									Ya.Context.AdvManager.render({
-										"blockId": "R-A-2501461-3",
-										"renderTo": "yandex_rtb_R-A-2501461-3"
-									})
-								})
-							`}
-						</Script>
+						
 					</aside>
 				</div>
 			</div>

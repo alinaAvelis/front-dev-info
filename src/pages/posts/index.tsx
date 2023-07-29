@@ -61,7 +61,7 @@ const AllStories = ({ pageData, categories }) => {
 				/>
 			</Head>
 
-			<div className="container container--center">
+			<div className="container container--center main_container">
 				<Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
 
 				<section className="section tabs mt-50">

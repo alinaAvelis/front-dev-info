@@ -47,7 +47,7 @@ const CategoriesPage = ({ categories }) => {
 				/>
 			</Head>
 
-			<div className="container  container--center">
+			<div className="container  container--center main_container">
 				<Breadcrumbs
 					pathArr={[{ name: "Категории", url: "/categories" }]}
 				/>

@@ -51,7 +51,7 @@ const Category = ({ pageData, category }) => {
 				<meta name="keywords" content={category?.meta_keywords} />
 			</Head>
 
-			<div className="container  container--center">
+			<div className="container  container--center main_container">
 				<Breadcrumbs
 					pathArr={[
 						{ name: "Категории", url: "/categories" },
