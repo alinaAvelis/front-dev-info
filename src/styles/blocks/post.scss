@@ -110,11 +110,11 @@
     margin-top: 10px;
     gap: 10px;
     display: flex;
-    position: absolute;
+    // position: absolute;
 
     &--top {
-        position: fixed;
-        top: 0;
+        // position: fixed;
+        // top: 0;
 
         @media(max-width: 1200px) {
             position: static;

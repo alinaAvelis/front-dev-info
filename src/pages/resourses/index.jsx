@@ -87,10 +87,9 @@ const Post = () => {
 		}
 	};
 
-	const handleChange =
-    (panel) => (event, isExpanded) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+	const handleChange = (panel) => (event, isExpanded) => {
+		setExpanded(isExpanded ? panel : false);
+	};
 
 	const handleResize = () => {
 		setInnerWidth(window?.innerWidth);
@@ -191,8 +190,8 @@ const Post = () => {
 						{/* Изображения */}
 						<section>
 							<h2 className="heading">Изображения</h2>
-							<p>Сгенерировать{" "}
-								<strong>favicon</strong>{" "}
+							<p>
+								Сгенерировать <strong>favicon</strong>{" "}
 								<a
 									className="link"
 									href="https://realfavicongenerator.net/"
@@ -203,7 +202,7 @@ const Post = () => {
 								</a>
 							</p>
 							<p>
-								<strong>Скачать svg</strong>{" "}бесплатно{" "}
+								<strong>Скачать svg</strong> бесплатно{" "}
 								<a
 									className="link"
 									href="https://www.svgrepo.com/"
@@ -439,27 +438,11 @@ const Post = () => {
 								</a>
 							</p>
 						</section>
-						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-3"></div>
-							<Script
-								id="yandex-ads-3"
-								strategy="afterInteractive"
-							>
-								{`
-									window.yaContextCb.push(()=>{
-										Ya.Context.AdvManager.render({
-											"blockId": "R-A-2501461-3",
-											"renderTo": "yandex_rtb_R-A-2501461-3"
-										})
-									})
-								`}
-							</Script>
-						</div>
 					</div>
 
 					{/* Aside */}
 					<aside className="aside">
-					{menu.length > 0 && innerWidth > 1200 && (
+						{menu.length > 0 && innerWidth > 1200 && (
 							<div
 								className={`menu ${
 									changeMenuPosition && "menu--top"
@@ -477,6 +460,22 @@ const Post = () => {
 								))}
 							</div>
 						)}
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-3"></div>
+							<Script
+								id="yandex-ads-3"
+								strategy="afterInteractive"
+							>
+								{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
+									})
+								`}
+							</Script>
+						</div>
 					</aside>
 				</div>
 			</div>
