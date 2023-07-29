@@ -2,11 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { setSearchState } from "../../store/slices/searchSlice";
 import { useDispatch } from "react-redux";
-
+// import { deleteScript, deleteSimbols } from "../../../public/support-func/support";
 
 const SearchHomeBlock = () => {
 	const [value, setValue] = useState("");
 	const { push } = useRouter();
+	// const [ error, setError ] = useState("");
 	const dispatch = useDispatch();
 	useEffect(() => {
 		window.addEventListener("keydown", (e) => {
@@ -20,6 +21,8 @@ const SearchHomeBlock = () => {
 		setValue(e.target.value);
 		window.localStorage.setItem("searchValue", e.target.value);
 		dispatch(setSearchState(e.target.value));
+		// deleteScript(e.target.value, setError);
+		// deleteSimbols(e.target.value, setError);
 	};
 
 	return (
@@ -57,6 +60,7 @@ const SearchHomeBlock = () => {
 						</svg>
 					</button>
 				</div>
+				{/* {error.length && <p className="error">{error}</p>} */}
 			</div>
 		</section>
 	);

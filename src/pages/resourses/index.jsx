@@ -10,10 +10,28 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const Post = () => {
 	const [menu, setMenu] = useState([]);
 	const [expanded, setExpanded] = useState(false);
+	const [innerWidth, setInnerWidth] = useState(0);
+	const [changeMenuPosition, setChangeMenuPosition] = useState(false);
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		setmMenu();
+		if (typeof window !== "undefined") {
+			window.scrollTo(0, 0);
+
+			window.addEventListener("resize", handleResize);
+			handleResize();
+			return () => window.removeEventListener("resize", handleResize);
+		}
 	}, []);
+
+	useEffect(() => {
+		window.addEventListener("scroll", () => {
+			if (scrollY > 200) {
+				setChangeMenuPosition(true);
+			} else {
+				setChangeMenuPosition(false);
+			}
+		});
+	});
 
 	const setmMenu = () => {
 		try {
@@ -74,6 +92,10 @@ const Post = () => {
       setExpanded(isExpanded ? panel : false);
     };
 
+	const handleResize = () => {
+		setInnerWidth(window?.innerWidth);
+	};
+
 	return (
 		<>
 			<div className="container container--center">
@@ -93,7 +115,7 @@ const Post = () => {
 				<div className=" mt-50  flex page_container main_container">
 					<div className="post main  main--not_main">
 						<h1>Ресурсы для frontend разработки</h1>
-						{menu.length > 0 && (
+						{menu.length > 0 && innerWidth < 1200 && (
 							<Accordion
 								className="menu_accordeon"
 								expanded={expanded === "panel3"}
@@ -421,17 +443,41 @@ const Post = () => {
 
 					{/* Aside */}
 					<aside className="aside">
-						<div id="yandex_rtb_R-A-2501461-3"></div>
-						<Script id="yandex-ads-3" strategy="afterInteractive">
-							{`
-								window.yaContextCb.push(()=>{
-									Ya.Context.AdvManager.render({
-										"blockId": "R-A-2501461-3",
-										"renderTo": "yandex_rtb_R-A-2501461-3"
+					{menu.length > 0 && innerWidth > 1200 && (
+							<div
+								className={`menu ${
+									changeMenuPosition && "menu--top"
+								}`}
+							>
+								<h2>Содержание</h2>
+								{menu?.map((item, i) => (
+									<a
+										key={i}
+										className={`menu__item ${item.classList}`}
+										href={`#${item.linkName}`}
+									>
+										{item.text}
+									</a>
+								))}
+							</div>
+						)}
+
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-3"></div>
+							<Script
+								id="yandex-ads-3"
+								strategy="afterInteractive"
+							>
+								{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
 									})
-								})
-							`}
-						</Script>
+								`}
+							</Script>
+						</div>
 					</aside>
 				</div>
 			</div>

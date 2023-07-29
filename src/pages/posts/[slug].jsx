@@ -30,7 +30,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Cards from "../../components/cards";
-import { sortByDate } from '../../../public/support-func/support.js';
+import { sortByDate } from "../../../public/support-func/support.js";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
@@ -44,7 +44,7 @@ export async function getStaticProps({ params }) {
 			categories,
 			allPosts: allPosts,
 		},
-		
+
 		revalidate: 60,
 	};
 }
@@ -112,7 +112,6 @@ const components = {
 	types: {
 		code_input: ({ value }) => {
 			const { language, code } = value;
-			console.log(typeof code);
 			return (
 				<div className="code_block">
 					<p className="code_block__lang">
@@ -198,11 +197,19 @@ const Post = ({ pageData, categories, allPosts }) => {
 	const dispatch = useDispatch();
 	const [menu, setMenu] = useState([]);
 	const [expanded, setExpanded] = useState(false);
+	const [innerWidth, setInnerWidth] = useState(0);
+	const [changeMenuPosition, setChangeMenuPosition] = useState(false);
 	const [lastPosts, setLastPosts] = useState([]);
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		setmMenu();
 		setPosts();
+		if (typeof window !== "undefined") {
+			window.scrollTo(0, 0);
+
+			window.addEventListener("resize", handleResize);
+			handleResize();
+			return () => window.removeEventListener("resize", handleResize);
+		}
 	}, []);
 
 	const setmMenu = () => {
@@ -265,17 +272,31 @@ const Post = ({ pageData, categories, allPosts }) => {
 		}
 	}, [categories]);
 
+	useEffect(() => {
+		window.addEventListener("scroll", () => {
+			if (scrollY > 200) {
+				setChangeMenuPosition(true);
+			} else {
+				setChangeMenuPosition(false);
+			}
+		});
+	});
+
+	const setPosts = () => {
+		if (allPosts?.length) {
+			const newArr = allPosts.filter(
+				(n) => n.slug.current !== pageData.slug.current
+			);
+			setLastPosts(newArr && sortByDate(newArr));
+		}
+	};
+
 	const handleChange = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : false);
 	};
 
-	const setPosts = () => {
-		if (allPosts?.length) {
-			const newArr = allPosts.filter((n) => n.slug.current !== pageData.slug.current);
-			setLastPosts(
-				newArr && sortByDate(newArr)
-			);
-		}
+	const handleResize = () => {
+		setInnerWidth(window?.innerWidth);
 	};
 
 	return (
@@ -299,8 +320,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 				<div className=" mt-50  flex page_container">
 					<div className="post main  main--not_main">
 						<h1>{pageData?.title}</h1>
-
-						{menu.length > 0 && (
+						{menu.length > 0 && innerWidth < 1200 && (
 							<Accordion
 								className="menu_accordeon"
 								expanded={expanded === "panel2"}
@@ -336,9 +356,39 @@ const Post = ({ pageData, categories, allPosts }) => {
 						<p className="post_date">
 							{getDateString(pageData?.releaseDate)}
 						</p>
+						<div className="other_posts">
+							<h2>Другие посты</h2>
+							<Cards data={lastPosts.slice(0, 3)} />
+						</div>
+					</div>
+
+					{/* Aside */}
+					<div className="aside">
+						{menu.length > 0 && innerWidth > 1200 && (
+							<div
+								className={`menu ${
+									changeMenuPosition && "menu--top"
+								}`}
+							>
+								<h2>Содержание</h2>
+								{menu?.map((item, i) => (
+									<a
+										key={i}
+										className={`menu__item ${item.classList}`}
+										href={`#${item.linkName}`}
+									>
+										{item.text}
+									</a>
+								))}
+							</div>
+						)}
+
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-3"></div>
-							<Script id="yandex-ads-3" strategy="afterInteractive">
+							<Script
+								id="yandex-ads-3"
+								strategy="afterInteractive"
+							>
 								{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
@@ -347,18 +397,9 @@ const Post = ({ pageData, categories, allPosts }) => {
 										})
 									})
 								`}
-						</Script>
-						</div>
-						<div className="other_posts">
-							<h2>Другие посты</h2>
-							<Cards data={lastPosts.slice(0, 3)} />
+							</Script>
 						</div>
 					</div>
-
-					{/* Aside */}
-					<aside className="aside">
-						
-					</aside>
 				</div>
 			</div>
 		</>
