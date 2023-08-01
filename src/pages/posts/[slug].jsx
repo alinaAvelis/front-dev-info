@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import React, { useEffect, useState } from "react";
 import { Highlight, themes } from "prism-react-renderer";
 // import {
@@ -388,7 +387,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 							<div id="yandex_rtb_R-A-2501461-3"></div>
 							<Script
 								id="yandex-ads-3"
-								strategy="beforeInteractive"
+								strategy="afterInteractive"
 							>
 								{`
 									window.yaContextCb.push(()=>{
