@@ -142,7 +142,7 @@ const Post = () => {
 								</AccordionDetails>
 							</Accordion>
 						)}
-						{/* API */}
+
 						<section>
 							<h2 className="heading">API</h2>
 							<p>
@@ -158,7 +158,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/*Content Security Policy */}
 						<section>
 							<h2 className="heading">Content Security Policy</h2>
 							<p>
@@ -187,7 +186,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/* Изображения */}
 						<section>
 							<h2 className="heading">Изображения</h2>
 							<p>
@@ -238,7 +236,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/* Информационые */}
 						<section>
 							<h2 className="heading">Информационные</h2>
 							<p>
@@ -303,7 +300,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/* Библиотеки */}
 						<section>
 							<h2 className="heading">Библиотеки</h2>
 							<p>
@@ -346,7 +342,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/* Frameworks */}
 						<section>
 							<h2 className="heading">Frameworks</h2>
 							<p>
@@ -384,7 +379,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/* Инструменты */}
 						<section>
 							<h2 className="heading">Инструменты</h2>
 							<p>
@@ -411,7 +405,6 @@ const Post = () => {
 							</p>
 						</section>
 
-						{/* Разное */}
 						<section>
 							<h2 className="heading">Разное</h2>
 							<p>
@@ -440,7 +433,6 @@ const Post = () => {
 						</section>
 					</div>
 
-					{/* Aside */}
 					<aside className="aside">
 						{menu.length > 0 && innerWidth > 1200 && (
 							<div

@@ -115,9 +115,9 @@ const components = {
 			const { language, code } = value;
 			return (
 				<div className="code_block">
-					<p className="code_block__lang">
+					<di className="code_block__lang">
 						{language ? language : "JavaScript"}
-					</p>
+					</di>
 
 					<Highlight
 						theme={themes.dracula}
@@ -380,7 +380,6 @@ const Post = ({ pageData, categories, allPosts }) => {
 						</Script>
 					</div>
 
-					{/* Aside */}
 					<div className="aside">
 						{menu.length > 0 && innerWidth > 1200 && (
 							<div
