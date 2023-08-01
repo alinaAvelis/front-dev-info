@@ -18,11 +18,9 @@
         overflow: hidden;
 
         &__lang {
-            padding: 10px;
-            background: $light_gray;
+            padding: 0px 10px;
             margin-top: 0;
             text-transform: uppercase;
-            border-bottom: 1px solid $dark_blue;
             font-weight: bold;
         }
 

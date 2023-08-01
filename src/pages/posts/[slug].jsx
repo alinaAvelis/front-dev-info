@@ -194,6 +194,17 @@ const components = {
 	},
 };
 
+const useFormattedDate = (date) => {
+	const [formattedDate, setFormattedDate] = useState(null);
+  
+	useEffect(
+	  () => setFormattedDate(getDateString(date)),
+	  []
+	);
+  
+	return formattedDate;
+  };
+
 const Post = ({ pageData, categories, allPosts }) => {
 	const dispatch = useDispatch();
 	const [menu, setMenu] = useState([]);
@@ -354,8 +365,8 @@ const Post = ({ pageData, categories, allPosts }) => {
 							value={pageData?.content}
 							components={components}
 						/>
-						<p className="post_date">
-							{getDateString(pageData?.releaseDate)}
+						<p className="post_date">							
+							{useFormattedDate(pageData?.releaseDate)}
 						</p>
 						<div className="other_posts">
 							<h2>Другие посты</h2>
