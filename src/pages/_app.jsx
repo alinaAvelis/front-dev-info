@@ -23,7 +23,7 @@ const MyApp = ({ categories, Component, ...rest }) => {
 			<Component {...pageProps} />
 
 			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-2">
+			<Script id="yandex-ads-2" strategy="lazyOnload">
 				{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
