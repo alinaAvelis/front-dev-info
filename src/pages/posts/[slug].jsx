@@ -10,6 +10,7 @@ import { Highlight, themes } from "prism-react-renderer";
 // 	TelegramShareButton,
 // 	TelegramIcon,
 // } from "next-share";
+// import dynamic from 'next/dynamic';
 import { getDateString } from "../../services/support";
 import Breadcrumbs from "../../components/breadcrumbs";
 import sanityClient from "../../../public/support-func/sanityClient";
@@ -360,7 +361,23 @@ const Post = ({ pageData, categories, allPosts }) => {
 							<h2>Другие посты</h2>
 							<Cards data={lastPosts.slice(0, 3)} />
 						</div>
-						
+
+						<div id="adfox_169091256339947002"></div>
+						<Script id="yandex-ads-adfox-1" strategy="afterInteractive">
+							{`
+									window.yaContextCb.push(()=>{
+										Ya.adfoxCode.create({
+											ownerId: 1464385,
+											containerId: 'adfox_169091256339947002',
+											params: {
+												pp: 'g',
+												ps: 'grkh',
+												p2: 'hukd'
+											}
+										})
+									})
+								`}
+						</Script>
 					</div>
 
 					{/* Aside */}
@@ -383,6 +400,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 								))}
 							</div>
 						)}
+
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-3"></div>
 							<Script
