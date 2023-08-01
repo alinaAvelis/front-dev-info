@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import { Provider } from "react-redux";
 import { wrapper } from "../store/store";
 import Script from "next/script";
@@ -22,7 +23,7 @@ const MyApp = ({ categories, Component, ...rest }) => {
 			<Component {...pageProps} />
 
 			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-2">
+			<Script id="yandex-ads-2" strategy="beforeInteractive">
 				{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
