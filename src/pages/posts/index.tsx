@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cards from "../../components/cards";
-import Breadcrumbs from "../../components/breadcrumbs";
+
 import sanityClient from "../../../public/support-func/sanityClient";
 import Head from "next/head";
 import { sortByDate } from "../../../public/support-func/support.js";
@@ -8,6 +7,10 @@ import { selectSearchState } from "../../store/slices/searchSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
+
+import dynamic from 'next/dynamic';
+const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
+const Cards = dynamic(() => import("../../components/cards"));
 
 export async function getStaticProps() {
 	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);

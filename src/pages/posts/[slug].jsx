@@ -12,7 +12,6 @@ import { Highlight, themes } from "prism-react-renderer";
 // } from "next-share";
 // import dynamic from 'next/dynamic';
 import { getDateString } from "../../services/support";
-import Breadcrumbs from "../../components/breadcrumbs";
 import sanityClient from "../../../public/support-func/sanityClient";
 import Head from "next/head";
 import Script from "next/script";
@@ -30,8 +29,10 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Cards from "../../components/cards";
 import { sortByDate } from "../../../public/support-func/support.js";
+import dynamic from 'next/dynamic';
+const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
+const Cards = dynamic(() => import("../../components/cards"));
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {

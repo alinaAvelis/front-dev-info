@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import Cards from "../../components/cards";
-import Breadcrumbs from "../../components/breadcrumbs";
 import sanityClient from "../../../public/support-func/sanityClient";
 // import { sortByDate } from '../../../public/support-func/support.js';
 import Head from "next/head";
 import { groq } from "next-sanity";
+import dynamic from 'next/dynamic';
+const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
+const Cards = dynamic(() => import("../../components/cards"));
 
 export async function getStaticProps({ params }) {
 	const categoryQuery = groq`*[_type == "categories" && activeCategory == true && slug.current == $slug][0]`;

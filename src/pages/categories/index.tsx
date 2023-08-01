@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import Card from "../../components/card";
 import Link from "next/link";
 import sanityClient from "../../../public/support-func/sanityClient";
-import Breadcrumbs from "../../components/breadcrumbs";
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
+import dynamic from 'next/dynamic';
+const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 
 export async function getStaticProps() {
 	const categories = await sanityClient.fetch(
