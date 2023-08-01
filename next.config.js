@@ -7,11 +7,7 @@ const moduleExports = {
     domains: ["cdn.sanity.io"],
     unoptimized: true
   },
-  experimental: {
-    appDir: true,
-  },
 };
-
 
 
 module.exports = moduleExports;
