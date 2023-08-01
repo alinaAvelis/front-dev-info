@@ -5,6 +5,7 @@
 html {
     font-family: $font_family;
     position: relative;
+    overflow-x: hidden;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.2;

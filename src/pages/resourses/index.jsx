@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import React, { useEffect, useState } from "react";
 import Breadcrumbs from "../../components/breadcrumbs";
 import Head from "next/head";
@@ -463,8 +464,8 @@ const Post = () => {
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-3"></div>
 							<Script
-								id="yandex-ads-3"
-								strategy="afterInteractive"
+								id="yandex-ads-4"
+								strategy="beforeInteractive"
 							>
 								{`
 									window.yaContextCb.push(()=>{
