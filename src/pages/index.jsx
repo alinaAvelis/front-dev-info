@@ -3,9 +3,11 @@ import Link from "next/link";
 import Head from "next/head";
 import sanityClient from "../../public/support-func/sanityClient";
 import { sortByDate } from "../../public/support-func/support.js";
-import Cards from "../components/cards";
 import { setCategoriesState } from "../store/slices/categoriesSlice";
 import { useDispatch } from "react-redux";
+
+import dynamic from 'next/dynamic';
+const Cards = dynamic(() => import("../components/cards"));
 
 export async function getStaticProps() {
 	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);

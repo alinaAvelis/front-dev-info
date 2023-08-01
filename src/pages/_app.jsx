@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import { Provider } from "react-redux";
 import { wrapper } from "../store/store";
+import dynamic from 'next/dynamic';
 import Script from "next/script";
-import Head from "next/head";
+// import Head from "next/head";
 import "../styles/_global.scss";
-import AppHeader from "../components/app-header";
+const AppHeader = dynamic(() => import("../components/app-header"));
+// import AppHeader from "../components/app-header";
 
 const MyApp = ({ categories, Component, ...rest }) => {
 	const { store, props } = wrapper.useWrappedStore(rest);

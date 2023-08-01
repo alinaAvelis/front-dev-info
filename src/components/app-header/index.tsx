@@ -1,14 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import CloseBtn from "../close_btn";
-import SearchBlock from "../search-block";
-import SearchHomeBlock from "../home-search-block";
 // import style from "./index.module.scss";
-import Modal from "../modal";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
+
+import dynamic from 'next/dynamic';
+const Modal = dynamic(() => import("../modal"));
+const SearchHomeBlock = dynamic(() => import("../home-search-block"));
+const SearchBlock = dynamic(() => import("../search-block"));
+const CloseBtn = dynamic(() => import("../close_btn"));
 
 const AppHeader = () => {
 	const [openModal, setOpenModal] = useState(false);
