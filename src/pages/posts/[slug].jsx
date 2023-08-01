@@ -196,14 +196,11 @@ const components = {
 
 const useFormattedDate = (date) => {
 	const [formattedDate, setFormattedDate] = useState(null);
-  
-	useEffect(
-	  () => setFormattedDate(getDateString(date)),
-	  []
-	);
-  
+
+	useEffect(() => setFormattedDate(getDateString(date)), []);
+
 	return formattedDate;
-  };
+};
 
 const Post = ({ pageData, categories, allPosts }) => {
 	const dispatch = useDispatch();
@@ -365,7 +362,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 							value={pageData?.content}
 							components={components}
 						/>
-						<p className="post_date">							
+						<p className="post_date">
 							{useFormattedDate(pageData?.releaseDate)}
 						</p>
 						<div className="other_posts">
@@ -374,7 +371,10 @@ const Post = ({ pageData, categories, allPosts }) => {
 						</div>
 
 						<div id="adfox_169091256339947002"></div>
-						<Script id="yandex-ads-adfox-1" strategy="afterInteractive">
+						<Script
+							id="yandex-ads-adfox-1"
+							strategy="afterInteractive"
+						>
 							{`
 									window.yaContextCb.push(()=>{
 										Ya.adfoxCode.create({
@@ -411,13 +411,14 @@ const Post = ({ pageData, categories, allPosts }) => {
 							</div>
 						)}
 
-						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-3"></div>
-							<Script
-								id="yandex-ads-3"
-								strategy="afterInteractive"
-							>
-								{`
+						{innerWidth > 1000 && (
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-3"></div>
+								<Script
+									id="yandex-ads-3"
+									strategy="afterInteractive"
+								>
+									{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -425,8 +426,9 @@ const Post = ({ pageData, categories, allPosts }) => {
 										})
 									})
 								`}
-							</Script>
-						</div>
+								</Script>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

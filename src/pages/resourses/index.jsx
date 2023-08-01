@@ -452,13 +452,14 @@ const Post = () => {
 								))}
 							</div>
 						)}
-						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-3"></div>
-							<Script
-								id="yandex-ads-4"
-								strategy="afterInteractive"
-							>
-								{`
+						{innerWidth > 1000 && (
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-3"></div>
+								<Script
+									id="yandex-ads-4"
+									strategy="afterInteractive"
+								>
+									{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -466,8 +467,9 @@ const Post = () => {
 										})
 									})
 								`}
-							</Script>
-						</div>
+								</Script>
+							</div>
+						)}
 					</aside>
 				</div>
 			</div>
