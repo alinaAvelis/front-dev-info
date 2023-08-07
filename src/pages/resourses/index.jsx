@@ -477,7 +477,7 @@ const Post = () => {
 						<section>
 							<h2 className="heading">Разное</h2>
 							<p>
-								<strong>Визуализация JSON</strong> (, XML, CSV,
+								<strong>Визуализация JSON</strong> (XML, CSV,
 								YAML, TOML) -{" "}
 								<Link
 									locale={false}
