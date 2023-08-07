@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Breadcrumbs from "../../components/breadcrumbs";
 import Head from "next/head";
 import Script from "next/script";
@@ -147,14 +148,15 @@ const Post = () => {
 							<h2 className="heading">API</h2>
 							<p>
 								<strong>YouTube iframe player API</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://developers.google.com/youtube/player_parameters?hl=ru"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://developers.google.com/youtube/player_parameters?hl=ru
-								</a>
+								</Link>
 							</p>
 						</section>
 
@@ -163,26 +165,28 @@ const Post = () => {
 							<p>
 								<strong>Документация</strong> Content Security
 								Policy -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://content-security-policy.com/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://content-security-policy.com/
-								</a>
+								</Link>
 							</p>
 							<p>
 								Сгенерировать{" "}
 								<strong>sha256 для Inline скриптов</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://strict-csp-codelab.glitch.me/csp_sha256_util.html"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://strict-csp-codelab.glitch.me/csp_sha256_util.html
-								</a>
+								</Link>
 							</p>
 						</section>
 
@@ -190,49 +194,53 @@ const Post = () => {
 							<h2 className="heading">Изображения</h2>
 							<p>
 								Сгенерировать <strong>favicon</strong>{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://realfavicongenerator.net/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://realfavicongenerator.net/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Скачать svg</strong> бесплатно{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://www.svgrepo.com/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://www.svgrepo.com/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Сжать картинку</strong> до меньших
 								размеров (WebP, PNG и JPEG) -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://tinypng.com/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://tinypng.com/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Изменить формат</strong> (В том числе
 								форматировать <strong>в webp</strong> ) -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://squoosh.app/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://squoosh.app/
-								</a>
+								</Link>
 							</p>
 						</section>
 
@@ -241,89 +249,108 @@ const Post = () => {
 							<p>
 								Различные{" "}
 								<strong>roadmaps для разработки</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://roadmap.sh/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://roadmap.sh/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Roadmap для Javascript</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://roadmap.sh/javascript"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://roadmap.sh/javascript
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Лучшие практики</strong> во frontend -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://roadmap.sh/best-practices/frontend-performance"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://roadmap.sh/best-practices/frontend-performance
-								</a>
+								</Link>
 							</p>
 							<p>
 								Персональный{" "}
 								<strong>помощник для программистов</strong> с
 								возможностью поиска -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://www.phind.com"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://www.phind.com
-								</a>
+								</Link>
 							</p>
 							<p>
 								Полезно{" "}
 								<strong>для подготовки к собеседованию</strong>{" "}
 								-{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://www.techiedelight.com/ru/data-structures-and-algorithms-problems/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://www.techiedelight.com/ru/data-structures-and-algorithms-problems/
-								</a>
+								</Link>
 							</p>
 						</section>
 
 						<section>
 							<h2 className="heading">Библиотеки</h2>
 							<p>
+								Библиотека <strong>для работы с датами</strong> day.js -{" "}
+								<Link
+									locale={false}
+									className="link"
+									href="https://day.js.org/en/"
+									target="_blank"
+									rel="noreferrer noopener"
+								>
+									https://day.js.org/en/
+								</Link>
+							</p>
+							<p>
 								Библиотека <strong>анимаций</strong> на css -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://animate.style/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://animate.style/
-								</a>
+								</Link>
 							</p>
 							<p>
 								Библиотека{" "}
 								<strong>компонентов для React Chakra</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://chakra-ui.com/getting-started"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://chakra-ui.com/getting-started
-								</a>
+								</Link>
 							</p>
 							<p>
 								Библиотека{" "}
@@ -331,14 +358,15 @@ const Post = () => {
 									компонентов для React Material UI
 								</strong>{" "}
 								-{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://mui.com/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://mui.com/
-								</a>
+								</Link>
 							</p>
 						</section>
 
@@ -346,62 +374,103 @@ const Post = () => {
 							<h2 className="heading">Frameworks</h2>
 							<p>
 								<strong>Foundation</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://get.foundation/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://get.foundation/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Vue</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://vuejs.org/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://vuejs.org/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>React</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://react.dev/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://react.dev/
-								</a>
+								</Link>
+							</p>
+							<p>
+								<strong>Tailwindcss</strong> - CSS-фреймворк{" "}
+								<Link
+									locale={false}
+									className="link"
+									href="https://tailwindcss.com/"
+									target="_blank"
+									rel="noreferrer noopener"
+								>
+									https://tailwindcss.com/
+								</Link>
 							</p>
 						</section>
 
 						<section>
 							<h2 className="heading">Инструменты</h2>
 							<p>
+								Инструмент для работы <strong>с формами</strong> в React -{" "}
+								<Link
+									locale={false}
+									className="link"
+									href="https://react-hook-form.com/"
+									target="_blank"
+									rel="noreferrer noopener"
+								>
+									https://react-hook-form.com/
+								</Link>
+							</p>
+							<p>
+								<strong>UI компоненты</strong> для React и Vue -{" "}
+								<Link
+									locale={false}
+									className="link"
+									href="https://headlessui.com/"
+									target="_blank"
+									rel="noreferrer noopener"
+								>
+									https://headlessui.com/
+								</Link>
+							</p>
+							<p>
 								<strong>Next.js</strong> инструмент для React -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://nextjs.org/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://nextjs.org/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Vite</strong> -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://vitejs.dev/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://vitejs.dev/
-								</a>
+								</Link>
 							</p>
 						</section>
 
@@ -410,25 +479,27 @@ const Post = () => {
 							<p>
 								<strong>Визуализация JSON</strong> (, XML, CSV,
 								YAML, TOML) -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://jsoncrack.com/"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://jsoncrack.com/
-								</a>
+								</Link>
 							</p>
 							<p>
 								<strong>Подборка цветов </strong> adobe -{" "}
-								<a
+								<Link
+									locale={false}
 									className="link"
 									href="https://color.adobe.com/ru/create/color-wheel"
 									target="_blank"
 									rel="noreferrer noopener"
 								>
 									https://color.adobe.com/ru/create/color-wheel
-								</a>
+								</Link>
 							</p>
 						</section>
 					</div>
@@ -442,13 +513,14 @@ const Post = () => {
 							>
 								<h2>Содержание</h2>
 								{menu?.map((item, i) => (
-									<a
+									<Link
+										locale={false}
 										key={i}
 										className={`menu__item ${item.classList}`}
 										href={`#${item.linkName}`}
 									>
 										{item.text}
-									</a>
+									</Link>
 								))}
 							</div>
 						)}
