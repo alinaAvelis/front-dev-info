@@ -146,361 +146,255 @@ const Post = () => {
 
 						<section>
 							<h2 className="heading">API</h2>
-							<p>
-								<strong>YouTube iframe player API</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://developers.google.com/youtube/player_parameters?hl=ru"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://developers.google.com/youtube/player_parameters?hl=ru
-								</Link>
-							</p>
+							{API.length > 0 &&
+								API.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Content Security Policy</h2>
-							<p>
-								<strong>Документация</strong> Content Security
-								Policy -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://content-security-policy.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://content-security-policy.com/
-								</Link>
-							</p>
-							<p>
-								Сгенерировать{" "}
-								<strong>sha256 для Inline скриптов</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://strict-csp-codelab.glitch.me/csp_sha256_util.html"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://strict-csp-codelab.glitch.me/csp_sha256_util.html
-								</Link>
-							</p>
+							{contentSecurityPolicy.length > 0 &&
+								contentSecurityPolicy.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "} -{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Изображения</h2>
-							<p>
-								Сгенерировать <strong>favicon</strong>{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://realfavicongenerator.net/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://realfavicongenerator.net/
-								</Link>
-							</p>
-							<p>
-								<strong>Скачать svg</strong> бесплатно{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://www.svgrepo.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://www.svgrepo.com/
-								</Link>
-							</p>
-							<p>
-								<strong>Сжать картинку</strong> до меньших
-								размеров (WebP, PNG и JPEG) -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://tinypng.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://tinypng.com/
-								</Link>
-							</p>
-							<p>
-								<strong>Изменить формат</strong> (В том числе
-								форматировать <strong>в webp</strong> ) -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://squoosh.app/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://squoosh.app/
-								</Link>
-							</p>
+							{images.length > 0 &&
+								images.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Информационные</h2>
-							<p>
-								Различные{" "}
-								<strong>roadmaps для разработки</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://roadmap.sh/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://roadmap.sh/
-								</Link>
-							</p>
-							<p>
-								<strong>Roadmap для Javascript</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://roadmap.sh/javascript"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://roadmap.sh/javascript
-								</Link>
-							</p>
-							<p>
-								<strong>Лучшие практики</strong> во frontend -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://roadmap.sh/best-practices/frontend-performance"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://roadmap.sh/best-practices/frontend-performance
-								</Link>
-							</p>
-							<p>
-								Персональный{" "}
-								<strong>помощник для программистов</strong> с
-								возможностью поиска -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://www.phind.com"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://www.phind.com
-								</Link>
-							</p>
-							<p>
-								Полезно{" "}
-								<strong>для подготовки к собеседованию</strong>{" "}
-								-{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://www.techiedelight.com/ru/data-structures-and-algorithms-problems/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://www.techiedelight.com/ru/data-structures-and-algorithms-problems/
-								</Link>
-							</p>
+							{info.length > 0 &&
+								info.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
+						</section>
+
+						<section>
+							<h2 className="heading">DApps</h2>
+							{dApps.length > 0 &&
+								dApps.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Библиотеки</h2>
-							<p>
-								Библиотека <strong>для работы с датами</strong> day.js -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://day.js.org/en/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://day.js.org/en/
-								</Link>
-							</p>
-							<p>
-								Библиотека <strong>анимаций</strong> на css -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://animate.style/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://animate.style/
-								</Link>
-							</p>
-							<p>
-								Библиотека{" "}
-								<strong>компонентов для React Chakra</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://chakra-ui.com/getting-started"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://chakra-ui.com/getting-started
-								</Link>
-							</p>
-							<p>
-								Библиотека{" "}
-								<strong>
-									компонентов для React Material UI
-								</strong>{" "}
-								-{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://mui.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://mui.com/
-								</Link>
-							</p>
+							{libraries.length > 0 &&
+								libraries.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "} -{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Frameworks</h2>
-							<p>
-								<strong>Foundation</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://get.foundation/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://get.foundation/
-								</Link>
-							</p>
-							<p>
-								<strong>Vue</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://vuejs.org/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://vuejs.org/
-								</Link>
-							</p>
-							<p>
-								<strong>React</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://react.dev/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://react.dev/
-								</Link>
-							</p>
-							<p>
-								<strong>Tailwindcss</strong> - CSS-фреймворк{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://tailwindcss.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://tailwindcss.com/
-								</Link>
-							</p>
+							{frameworks.length > 0 &&
+								frameworks.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "} -{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Инструменты</h2>
-							<p>
-								Инструмент для работы <strong>с формами</strong> в React -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://react-hook-form.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://react-hook-form.com/
-								</Link>
-							</p>
-							<p>
-								<strong>UI компоненты</strong> для React и Vue -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://headlessui.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://headlessui.com/
-								</Link>
-							</p>
-							<p>
-								<strong>Next.js</strong> инструмент для React -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://nextjs.org/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://nextjs.org/
-								</Link>
-							</p>
-							<p>
-								<strong>Vite</strong> -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://vitejs.dev/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://vitejs.dev/
-								</Link>
-							</p>
+							<h3 className="heading">React</h3>
+							{instrumentsReact.length > 0 &&
+								instrumentsReact.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "} -{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
+							<h3 className="heading">Другие</h3>
+							{instrumentsOthers.length > 0 &&
+								instrumentsOthers.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "} -{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
 						</section>
 
 						<section>
 							<h2 className="heading">Разное</h2>
-							<p>
-								<strong>Визуализация JSON</strong> (XML, CSV,
-								YAML, TOML) -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://jsoncrack.com/"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://jsoncrack.com/
-								</Link>
-							</p>
-							<p>
-								<strong>Подборка цветов </strong> adobe -{" "}
-								<Link
-									locale={false}
-									className="link"
-									href="https://color.adobe.com/ru/create/color-wheel"
-									target="_blank"
-									rel="noreferrer noopener"
-								>
-									https://color.adobe.com/ru/create/color-wheel
-								</Link>
-							</p>
+							{others.length > 0 &&
+								others.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "} -{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
+							
 						</section>
 					</div>
 
@@ -548,5 +442,282 @@ const Post = () => {
 		</>
 	);
 };
+
+const API = [
+	{
+		id: 0,
+		href: `https://developers.google.com/youtube/player_parameters?hl=ru`,
+		title: `https://developers.google.com/youtube/player_parameters?hl=ru`,
+		textBeforeStrong: ``,
+		strongText: `YouTube iframe player API`,
+		textAfterStrong: ``,
+	},
+];
+
+const contentSecurityPolicy = [
+	{
+		id: 1,
+		href: `https://content-security-policy.com/`,
+		title: `https://content-security-policy.com/`,
+		textBeforeStrong: ``,
+		strongText: `Документация`,
+		textAfterStrong: `Content Security
+		Policy`,
+	},
+	{
+		id: 2,
+		href: `https://strict-csp-codelab.glitch.me/csp_sha256_util.html`,
+		title: `https://strict-csp-codelab.glitch.me/csp_sha256_util.html`,
+		textBeforeStrong: `Сгенерировать`,
+		strongText: `sha256 для Inline скриптов`,
+		textAfterStrong: ``,
+	},
+];
+
+const images = [
+	{
+		id: 3,
+		href: `https://realfavicongenerator.net/`,
+		title: `https://realfavicongenerator.net/`,
+		textBeforeStrong: `Сгенерировать`,
+		strongText: `favicon`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 4,
+		href: `https://www.svgrepo.com/`,
+		title: `https://www.svgrepo.com/`,
+		textBeforeStrong: ``,
+		strongText: `Скачать svg`,
+		textAfterStrong: `бесплатно`,
+	},
+	{
+		id: 5,
+		href: `https://tinypng.com/`,
+		title: `https://tinypng.com/`,
+		textBeforeStrong: ``,
+		strongText: `Сжать картинку`,
+		textAfterStrong: `до меньших
+		размеров (WebP, PNG и JPEG)`,
+	},
+	{
+		id: 6,
+		href: `https://squoosh.app/`,
+		title: `https://squoosh.app/`,
+		textBeforeStrong: ``,
+		strongText: `Изменить формат`,
+		textAfterStrong: `(В том числе форматировать в webp)`,
+	},
+];
+
+const dApps = [
+	{
+		id: `0dapp`,
+		href: `https://metamask.github.io/metamask-deeplinks/#`,
+		title: `https://metamask.github.io/metamask-deeplinks/#`,
+		textBeforeStrong: ``,
+		strongText: `Сгенерировать ссылку`,
+		textAfterStrong: `в Metamask App`,
+	},
+];
+
+const info = [
+	{
+		id: 7,
+		href: `https://roadmap.sh/`,
+		title: `https://roadmap.sh/`,
+		textBeforeStrong: `Различные`,
+		strongText: `roadmaps для разработки`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 8,
+		href: `https://roadmap.sh/javascript`,
+		title: `https://roadmap.sh/javascript`,
+		textBeforeStrong: ``,
+		strongText: `Roadmap для Javascript`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 9,
+		href: `https://roadmap.sh/best-practices/frontend-performance`,
+		title: `https://roadmap.sh/best-practices/frontend-performance`,
+		textBeforeStrong: ``,
+		strongText: `Лучшие практики`,
+		textAfterStrong: `во frontend`,
+	},
+	{
+		id: 10,
+		href: `https://www.techiedelight.com/ru/data-structures-and-algorithms-problems/`,
+		title: `https://www.techiedelight.com/ru/data-structures-and-algorithms-problems/`,
+		textBeforeStrong: `Полезно`,
+		strongText: `для подготовки к собеседованию`,
+		textAfterStrong: ``,
+	},
+];
+
+const libraries = [
+	{
+		id: 11,
+		href: `https://day.js.org/en/`,
+		title: `https://day.js.org/en/`,
+		textBeforeStrong: `Библиотека`,
+		strongText: `для работы с датами`,
+		textAfterStrong: `day.js`,
+	},
+	{
+		id: 12,
+		href: `https://animate.style/`,
+		title: `https://animate.style/`,
+		textBeforeStrong: `Библиотека css`,
+		strongText: `анимаций`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 13,
+		href: `https://chakra-ui.com/getting-started`,
+		title: `https://chakra-ui.com/getting-started`,
+		textBeforeStrong: `Библиотека`,
+		strongText: `компонентов для React Chakra`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 14,
+		href: `https://mui.com/`,
+		title: `https://mui.com/`,
+		textBeforeStrong: `Библиотека`,
+		strongText: `компонентов для React Material UI`,
+		textAfterStrong: ``,
+	},
+];
+
+const frameworks = [
+	{
+		id: 15,
+		href: `https://get.foundation/`,
+		title: `https://get.foundation/`,
+		textBeforeStrong: ``,
+		strongText: `Foundation`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 16,
+		href: `https://vuejs.org/`,
+		title: `https://vuejs.org/`,
+		textBeforeStrong: ``,
+		strongText: `Vue`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 17,
+		href: `https://react.dev/`,
+		title: `https://react.dev/`,
+		textBeforeStrong: ``,
+		strongText: `React`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 18,
+		href: `https://tailwindcss.com/`,
+		title: `https://tailwindcss.com/`,
+		textBeforeStrong: ``,
+		strongText: `Tailwindcss`,
+		textAfterStrong: `CSS-фреймворк`,
+	},
+];
+
+const instrumentsReact = [
+	{
+		id: 19,
+		href: `https://react-hook-form.com/`,
+		title: `https://react-hook-form.com/`,
+		textBeforeStrong: `Инструмент для работы`,
+		strongText: `с формами`,
+		textAfterStrong: `в React`,
+	},
+	{
+		id: 20,
+		href: `https://nextjs.org/`,
+		title: `https://nextjs.org/`,
+		textBeforeStrong: ``,
+		strongText: `Next.js`,
+		textAfterStrong: `инструмент для React`,
+	},
+
+	{
+		id: `21ir`,
+		href: `https://www.npmjs.com/package/html-react-parser`,
+		title: `html-react-parser`,
+		textBeforeStrong: ``,
+		strongText: `Распарсить строку в html`,
+		textAfterStrong: `в React`,
+	},
+]
+
+const instrumentsOthers = [
+	{
+		id: 21,
+		href: `https://headlessui.com/`,
+		title: `https://headlessui.com/`,
+		textBeforeStrong: ``,
+		strongText: `UI компоненты`,
+		textAfterStrong: `для React и Vue`,
+	},
+	{
+		id: 22,
+		href: `https://vitejs.dev/`,
+		title: `https://vitejs.dev/`,
+		textBeforeStrong: ``,
+		strongText: `Vite`,
+		textAfterStrong: ``,
+	},
+]
+
+const others = [
+	{
+		id: 23,
+		href: `https://jsoncrack.com/`,
+		title: `https://jsoncrack.com/`,
+		textBeforeStrong: ``,
+		strongText: `Визуализация JSON`,
+		textAfterStrong: `(XML, CSV,
+			YAML, TOML)`,
+	},
+	{
+		id: 24,
+		href: `https://color.adobe.com/ru/create/color-wheel`,
+		title: `https://color.adobe.com/ru/create/color-wheel`,
+		textBeforeStrong: ``,
+		strongText: `Подборка цветов`,
+		textAfterStrong: `adobe`,
+	},
+	{
+		id: 25,
+		href: `https://wordstat.yandex.ru`,
+		title: `https://wordstat.yandex.ru`,
+		textBeforeStrong: ``,
+		strongText: `Подборка ключевых слов`,
+		textAfterStrong: `от Yandex`,
+	},
+	{
+		id: 26,
+		href: `https://spec.commonmark.org/0.30/ `,
+		title: `https://spec.commonmark.org/0.30/ `,
+		textBeforeStrong: `Документация`,
+		strongText: `commonmark`,
+		textAfterStrong: ``,
+	},
+]
+
+// layout
+
+// {
+// 	id: 23,
+// 	href: ``,
+// 	title: ``,
+// 	textBeforeStrong: ``,
+// 	strongText: ``,
+// 	textAfterStrong: ``,
+// },
 
 export default Post;

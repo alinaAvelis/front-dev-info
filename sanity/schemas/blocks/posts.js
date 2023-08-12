@@ -143,6 +143,22 @@ export default {
 					},
 				},
 				{
+					name: "code_input_to_page",
+					title: "Code input to page",
+					type: "code",
+					options: {
+						language: "javascript",
+						languageAlternatives: [
+							{ title: "Javascript", value: "javascript" },
+							{ title: "Typescript", value: "typescript" },
+							{ title: "HTML", value: "html" },
+							{ title: "CSS", value: "css" },
+              				{ title: "JSON", value: "json" },
+						],
+						withFilename: true,
+					},
+				},
+				{
 					name: "one_image",
 					title: "One image",
 					type: "image",

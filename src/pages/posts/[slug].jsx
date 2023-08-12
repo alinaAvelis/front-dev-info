@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Highlight, themes } from "prism-react-renderer";
+import parse from 'html-react-parser';
 // import {
 // 	VKShareButton,
 // 	VKIcon,
@@ -149,6 +150,11 @@ const components = {
 					</Highlight>
 				</div>
 			);
+		},
+		code_input_to_page: ({ value }) => {
+			const { code } = value;
+			const newCode = parse(code)
+			return newCode;
 		},
 		one_image: ({ value }) => {
 			const { asset, alt, caption } = value;

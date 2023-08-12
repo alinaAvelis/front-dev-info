@@ -43,7 +43,7 @@ const HomePage = ({ pageData, categories }) => {
 				<title>FrontDevInfo - посты о frontend разработке</title>
 				<meta
 					name="keywords"
-					content="программирование, посты, JavaScrip, frontend"
+					content="программирование, посты, JavaScrip, frontend, javascrip, frontend разработка, frontend js, frontend 2023, frontend code, frontend обучение, frontend html, web frontend, фронтенд"
 				/>
 				<meta
 					name="description"
