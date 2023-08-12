@@ -103,7 +103,7 @@ const Post = () => {
 					<title>Ресурсы для frontend разработки</title>
 					<meta
 						name="keywords"
-						content="программирование, посты, JavaScrip, frontend,ресурсы"
+						content="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика"
 					/>
 					<meta
 						name="description"
