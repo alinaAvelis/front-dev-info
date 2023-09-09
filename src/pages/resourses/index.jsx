@@ -589,6 +589,14 @@ const libraries = [
 		strongText: `компонентов для React Material UI`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 15 + 'l',
+		href: `https://cssfx.netlify.app/`,
+		title: `https://cssfx.netlify.app/`,
+		textBeforeStrong: `Библиотека`,
+		strongText: `css эффектов`,
+		textAfterStrong: `и анимаций`,
+	},
 ];
 
 const frameworks = [
@@ -652,6 +660,14 @@ const instrumentsReact = [
 		strongText: `Распарсить строку в html`,
 		textAfterStrong: `в React`,
 	},
+	{
+		id: `22ir`,
+		href: `https://www.npmjs.com/package/react-timer-hook`,
+		title: `react-timer-hook`,
+		textBeforeStrong: ``,
+		strongText: `Таймер`,
+		textAfterStrong: ``,
+	},
 ]
 
 const instrumentsOthers = [
@@ -684,6 +700,14 @@ const others = [
 			YAML, TOML)`,
 	},
 	{
+		id: 23 + "d",
+		href: `https://jsonplaceholder.typicode.com/`,
+		title: `https://jsonplaceholder.typicode.com/`,
+		textBeforeStrong: ``,
+		strongText: `{JSON} Placeholder`,
+		textAfterStrong: ``,
+	},
+	{
 		id: 24,
 		href: `https://color.adobe.com/ru/create/color-wheel`,
 		title: `https://color.adobe.com/ru/create/color-wheel`,
@@ -705,6 +729,14 @@ const others = [
 		title: `https://spec.commonmark.org/0.30/ `,
 		textBeforeStrong: `Документация`,
 		strongText: `commonmark`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 27,
+		href: `https://cryptologos.cc/`,
+		title: `https://cryptologos.cc/`,
+		textBeforeStrong: ``,
+		strongText: `Криптоиконки`,
 		textAfterStrong: ``,
 	},
 ]

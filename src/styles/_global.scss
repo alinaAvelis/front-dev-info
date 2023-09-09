@@ -6,6 +6,7 @@ html {
     font-family: $font_family;
     position: relative;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.2;
@@ -87,7 +88,6 @@ pre {
 
 .container {
     padding: 20px 50px;
-
     position: relative;
 
     &--center {
