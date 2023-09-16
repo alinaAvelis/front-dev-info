@@ -8,7 +8,7 @@ export default defineConfig({
   name: 'Front_Dev_Info',
   title: 'Front dev info',
   title: 'Alina Avelis',
-  projectId:  process.env.NEXT_PUBLIC_SENTRY_DSN,
+  projectId:  process.env.NEXT_PUBLIC_SANITY_ID,
   dataset: 'production',
   plugins: [
     deskTool(),
