@@ -7,22 +7,31 @@ type cardsProps = {
 
 const Cards = ({ data, to = "posts" }: cardsProps) => {
 	return (
-		<ul className={`tabs_container grid`}>
-			{data?.map((item, i) => {
-				return (
-					<li key={i + "card"}>
-						<a
-							className="card"
-							href={`/${to}/${item.slug.current}`}
-						>
-							<span className="card_title"> {item.title} </span>
+		<>
+			{data.length > 0 ? (
+				<ul className={`tabs_container grid`}>
+					{data?.map((item, i) => {
+						return (
+							<li key={i + "card"}>
+								<a
+									className="card"
+									href={`/${to}/${item.slug.current}`}
+								>
+									<span className="card_title">
+										{" "}
+										{item.title}{" "}
+									</span>
 
-							<span> {item.shortDescription} </span>
-						</a>
-					</li>
-				);
-			})}
-		</ul>
+									<span> {item.shortDescription} </span>
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			) : (
+				<p>Ничего не найдено</p>
+			)}
+		</>
 	);
 };
 

@@ -14,7 +14,6 @@ import parse from 'html-react-parser';
 // import dynamic from 'next/dynamic';
 import { getDateString } from "../../services/support";
 import sanityClient from "../../../public/support-func/sanityClient";
-import Head from "next/head";
 import Script from "next/script";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -34,6 +33,7 @@ import { sortByDate } from "../../../public/support-func/support.js";
 import dynamic from 'next/dynamic';
 const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
+import MainLayout from "../../layouts/main-layout";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
@@ -316,16 +316,12 @@ const Post = ({ pageData, categories, allPosts }) => {
 	};
 
 	return (
-		<>
-			<Head>
-				<title>{pageData?.title}</title>
-				<meta name="keywords" content={pageData?.tags} />
-				<meta
-					name="description"
-					content={pageData?.shortDescription}
-					key="ogdesc"
-				/>
-			</Head>
+		<MainLayout
+			categories={categories}
+			headTitle={pageData?.title}
+			headKeywords={pageData?.tags}
+			headDescription={pageData?.shortDescription}
+		>
 			<div className="container container--center main_container">
 				<Breadcrumbs
 					pathArr={[
@@ -333,7 +329,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 						{ name: pageData?.title },
 					]}
 				/>
-				<div className=" mt-50  flex page_container">
+				<div className="mt-16  flex page_container">
 					<div className="post main  main--not_main">
 						<h1>{pageData?.title}</h1>
 						{menu.length > 0 && innerWidth < 1200 && (
@@ -439,7 +435,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 					</div>
 				</div>
 			</div>
-		</>
+		</MainLayout>
 	);
 };
 

@@ -1,36 +1,10 @@
 /*...Header...*/
 
-.header {
-    width: fit-content;
-    padding: 20px;
-
-    justify-content: end;
-
-    position: absolute;
-    top: 0;
-    z-index: 10;
-    right: 0;
-
-    @media(max-width: $tablet) {	
-      padding: 5px;
-    }
-}
-
-.donate_btn {
-  margin-top: 40px;
-
-  @media(max-width: $tablet) {	
-    margin-top: 30px;
-  }
-}
-
 .burger {
-  grid-gap: 9px;
   width: 90px;
-  height: fit-content;
   transition: all .3s;
-  position: relative;
-  padding: 10px !important;
+
+  @apply gap-2 h-fit relative p-3;
 
   &::before {
     content: "";
@@ -42,28 +16,17 @@
     right: 0;
     bottom: 0;
 
-    border: 2px solid $white;
     border-radius: 10px;
 
     transition: all .5s;
     animation: clippath 3s infinite linear;
+
+    @apply border-2 border-slate-400 border-solid;
   }
 
   &:hover {
     &::before {
       opacity: 1;
-    }
-  }
-
-  & .burger_item {
-    width: 100%;
-    height: 8px;
-    border-radius: 22px;
-    background: $white;
-    margin: 0;
-
-    @media(max-width: $mobile) {	
-      height: 5px;
     }
   }
 
@@ -73,10 +36,10 @@
 }
 
 .nav_container {
-  width: 460px;
+  width: 400px;
   min-height: 100vh;
   height: 100%;
-  padding: 175px 35px;
+  padding: 50px 35px;
 
   position: absolute;
   top: 0;
@@ -103,8 +66,8 @@
 .close_button {
   width: 100%;
   height: 100%;
-  max-width: 63px;
-  max-height: 63px;
+  max-width: 45px;
+  max-height: 45px;
   
   position: absolute;
   top: 20px;
@@ -113,7 +76,7 @@
   & svg {
     width: 100%;
     height: 100%;
-    fill: $gray;
+    fill: $dark_gray_middle;
   }
 
   @media(max-width: $mobile) {		
@@ -162,10 +125,6 @@
 
 .address {
   word-break: break-word;
-}
-
-.header_contacts {
-  margin-top: 50px;
 }
 
 

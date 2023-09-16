@@ -13,3 +13,4 @@ export interface categoryObject {
 	_type: string;
 	_updatedAt: string;
 }
+

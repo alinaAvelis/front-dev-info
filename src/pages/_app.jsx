@@ -1,12 +1,7 @@
 /* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import { Provider } from "react-redux";
 import { wrapper } from "../store/store";
-import dynamic from 'next/dynamic';
-import Script from "next/script";
-// import Head from "next/head";
 import "../styles/_global.scss";
-const AppHeader = dynamic(() => import("../components/app-header"));
-// import AppHeader from "../components/app-header";
 
 const MyApp = ({ categories, Component, ...rest }) => {
 	const { store, props } = wrapper.useWrappedStore(rest);
@@ -21,20 +16,7 @@ const MyApp = ({ categories, Component, ...rest }) => {
 				></script>
 			</Head> */}
 
-			<AppHeader categories={categories} />
 			<Component {...pageProps} />
-
-			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-2" strategy="lazyOnload">
-				{`
-								window.yaContextCb.push(()=>{
-									Ya.Context.AdvManager.render({
-										"blockId": "R-A-2501461-2",
-										"renderTo": "yandex_rtb_R-A-2501461-2"
-									})
-								})
-							`}
-			</Script>
 		</Provider>
 	);
 };

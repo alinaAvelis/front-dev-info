@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import sanityClient from "../../../public/support-func/sanityClient";
-import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
+import MainLayout from "../../layouts/main-layout";
 
 export async function getStaticProps() {
 	const categories = await sanityClient.fetch(
@@ -33,25 +33,17 @@ const CategoriesPage = ({ categories }) => {
 	}, []);
 
 	return (
-		<>
-			<Head>
-				<title>FrontDevInfo - все категории</title>
-				<meta
-					name="keywords"
-					content="программирование, посты, JavaScrip, frontend"
-				/>
-				<meta
-					name="description"
-					content="Посты о frontend разработке"
-					key="ogdesc"
-				/>
-			</Head>
-
+		<MainLayout
+			categories={categories}
+			headTitle="FrontDevInfo - все категории"
+			headKeywords="программирование, посты, JavaScrip, frontend"
+			headDescription="Посты о frontend разработке"
+		>
 			<div className="container  container--center main_container">
 				<Breadcrumbs
 					pathArr={[{ name: "Категории", url: "/categories" }]}
 				/>
-				<section className="section tabs mt-50">
+				<section className="section tabs mt-16">
 					<h1 className="title">Все категории</h1>
 
 					<ul className="grid gap">
@@ -70,7 +62,7 @@ const CategoriesPage = ({ categories }) => {
 					</ul>
 				</section>
 			</div>
-		</>
+		</MainLayout>
 	);
 };
 

@@ -1,6 +1,9 @@
 @import "vars";
 @import "fonts";
 @import "animations";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
     font-family: $font_family;
@@ -92,7 +95,7 @@ pre {
 
     &--center {
         width: 100%;
-        margin: 0 auto;
+        margin: 150px auto 50px;
     }
 
     @media(max-width: $tablet) {
@@ -130,14 +133,13 @@ h6 {
 
 p {
     margin: 0;
-    margin-top: 20px;
     font-size: 1rem;
     line-height: 1.5;
     font-weight: 300;
 
-    @media(min-width: $mobile) {
-        margin-top: 15px;
-    }
+    // @media(min-width: $mobile) {
+    //     margin-top: 15px;
+    // }
 }
 
 .title {
@@ -215,6 +217,8 @@ textarea {
     transition: all 0.5s;
     line-height: 1.0;
     font-weight: bold;
+
+    @apply text-gray-700;
 
     & svg {
         transition: all 0.3s;
@@ -304,6 +308,10 @@ textarea {
         margin: 50px auto 0 !important;
     }
 
+    &--small {
+        @apply px-2 py-1 border-slate-500 border-2;
+    }
+
     @media(max-width: $mobile) {
         padding: 5px 15px;
     }
@@ -343,11 +351,6 @@ a {
     gap: 15px;
 }
 
-
-.flex {
-    display: flex;
-}
-
 .flex_space_between {
     justify-content: space-between;
 }
@@ -365,10 +368,7 @@ a {
     justify-content: center;
 }
 
-
-
 @import "blocks/header";
-@import "blocks/footer";
 @import "blocks/search_block";
 @import "blocks/tabs";
 @import "blocks/breadcrambs";

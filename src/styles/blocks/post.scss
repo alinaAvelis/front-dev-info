@@ -36,6 +36,10 @@
     & h1 {
         font-size: 3rem;
         margin-bottom: 30px;
+
+        @media(max-width: 500px) {
+            font-size: 2rem;
+        }
     }
 
     & h2 {
@@ -53,6 +57,10 @@
 
     & a:not(.button, .card) {
         color: $light_blue;
+    }
+
+    & p {
+        @apply mt-2 md:mt-5;
     }
 
     & img {
@@ -102,6 +110,7 @@
         margin-top: 0;
     }
 }
+
 
 .menu {
     flex-direction: column;

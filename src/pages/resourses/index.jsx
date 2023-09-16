@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Breadcrumbs from "../../components/breadcrumbs";
-import Head from "next/head";
 import Script from "next/script";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MainLayout from "../../layouts/main-layout";
 
-const Post = () => {
+export async function getStaticProps() {
+	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
+	return {
+		props: {
+			categories,
+		},
+		revalidate: 300,
+	};
+}
+
+const Post = ({categories}) => {
 	const [menu, setMenu] = useState([]);
 	const [expanded, setExpanded] = useState(false);
 	const [innerWidth, setInnerWidth] = useState(0);
@@ -97,22 +107,15 @@ const Post = () => {
 	};
 
 	return (
-		<>
+		<MainLayout
+			categories={categories}
+			headTitle="Ресурсы для frontend разработки"
+			headKeywords="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика"
+			headDescription="Различные ресурсы, которые помогут вам во frontend разработке"
+		>
 			<div className="container container--center">
-				<Head>
-					<title>Ресурсы для frontend разработки</title>
-					<meta
-						name="keywords"
-						content="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика"
-					/>
-					<meta
-						name="description"
-						content="Различные ресурсы, которые помогут вам во frontend разработке"
-						key="ogdesc"
-					/>
-				</Head>
 				<Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
-				<div className=" mt-50  flex page_container main_container">
+				<div className=" mt-16  flex page_container main_container">
 					<div className="post main  main--not_main">
 						<h1>Ресурсы для frontend разработки</h1>
 						{menu.length > 0 && innerWidth < 1200 && (
@@ -439,7 +442,7 @@ const Post = () => {
 					</aside>
 				</div>
 			</div>
-		</>
+		</MainLayout>
 	);
 };
 

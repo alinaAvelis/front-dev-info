@@ -2,25 +2,23 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 // import style from "./index.module.scss";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 const Modal = dynamic(() => import("../modal"));
 const SearchHomeBlock = dynamic(() => import("../home-search-block"));
 const SearchBlock = dynamic(() => import("../search-block"));
 const CloseBtn = dynamic(() => import("../close_btn"));
+import { categoryObject } from "../../types";
 
-const AppHeader = () => {
+type THeaderProps = {
+	categories: Array<categoryObject>;
+};
+
+const AppHeader = ({ categories }: THeaderProps) => {
 	const [openModal, setOpenModal] = useState(false);
-
 	const mobileMenu = useRef<HTMLInputElement>(null);
 	const [isHomeSearch, setIsHomeSearch] = useState(false);
 
 	const router = useRouter();
-
-	const [expanded, setExpanded] = React.useState<string | false>(false);
 
 	useEffect(() => {
 		if (router.asPath === "/") {
@@ -44,91 +42,76 @@ const AppHeader = () => {
 		body.style.overflowY = "visible";
 	};
 
-	const handleChange =
-		(panel: string) =>
-		(event: React.SyntheticEvent, isExpanded: boolean) => {
-			setExpanded(isExpanded ? panel : false);
-		};
-
 	return (
 		<>
-			<header className="header  flex">
-				<button
-					id="burger"
-					className="button button--no_styles burger grid"
-					type="button"
-					onClick={handleOpenMenu}
-				>
-					<p className="burger_item"></p>
-					<p className="burger_item"></p>
-					<p className="burger_item"></p>
-				</button>
+			<header className="bg-white fixed top-0 right-0 w-full z-10">
+				<div className="flex gap-5 items-center justify-between py-2 px-5">
+					<Link
+						className="link text-gray-500 text-sm md:text-lg font-bold"
+						href="/"
+						onClick={onClose}
+					>
+						FRONT-DEV-INFO
+					</Link>
+					<div className="flex items-center gap-5">
+						<div>
+							<button
+								className="button button--no_styles  text-sm md:text-lg"
+								type="button"
+								data-type="open_donate"
+								onClick={handleOpenMenu}
+							>
+								Категории
+							</button>
+						</div>
+						<button
+							className="button button--small  text-sm md:text-lg"
+							type="button"
+							data-type="open_donate"
+							onClick={() => setOpenModal(true)}
+						>
+							Поддержать
+						</button>
+						{/* <button
+						id="burger"
+						className="burger grid md:hidden bg-inherit"
+						type="button"
+						onClick={handleOpenMenu}
+					>
+						<p className="w-full h-1 bg-slate-300 rounded-2xl"></p>
+						<p className="w-full h-1 bg-slate-300 rounded-2xl"></p>
+						<p className="w-full h-1 bg-slate-300 rounded-2xl"></p>
+					</button> */}
+					</div>
+				</div>
+
+				{!isHomeSearch && <SearchBlock />}
 
 				<div ref={mobileMenu} className="nav_container">
 					<CloseBtn clickHandler={onClose} />
 
-					<Accordion
-						expanded={expanded === "panel1"}
-						onChange={handleChange("panel1")}
-					>
-						<AccordionSummary
-							aria-controls="panel1bh-content"
-							id="panel1bh-header"
-						>
-							Информация о сайте
-						</AccordionSummary>
-						<AccordionDetails>
-							На этом сайте я делюсь информацией, которую
-							использую в процессе работы. Посты пишутся больше в
-							формате памяток, чем полномасштабных статей.
-						</AccordionDetails>
-					</Accordion>
-
-					<button
-						className="button donate_btn"
-						type="button"
-						data-type="open_donate"
-						onClick={() => setOpenModal(true)}
-					>
-						Поддержать
-					</button>
-
 					<nav className="grid header_nav">
-						<Link className="link" href="/posts" onClick={onClose}>
-							Все посты
-						</Link>
-						<Link
-							className="link"
-							href="/categories"
-							onClick={onClose}
-						>
-							Все категории
-						</Link>
-						<Link
-							className="link"
-							href="/resourses"
-							onClick={onClose}
-						>
-							Ресурсы
-						</Link>
+						{categories?.map((item: any, i: number) => {
+							return (
+								<Link
+									key={i}
+									className="link"
+									href={`/categories/${item.slug.current}`}
+									onClick={onClose}
+								>
+									{item.title}
+								</Link>
+							);
+						})}
 					</nav>
-
-					<div className="header_contacts">
-						Если вы заметили ошибку или есть замечания, вы можете
-						написать на почту:{" "}
-						<strong>
-							<a href="mailto:frontdevinfo@gmail.com">
-								frontdevinfo@gmail.com
-							</a>
-						</strong>
-						.
-					</div>
 				</div>
 			</header>
 
-			<section className="section">
-				{isHomeSearch ? <SearchHomeBlock /> : <SearchBlock />}
-			</section>
+			{isHomeSearch && (
+				<section className="section">
+					<SearchHomeBlock />
+				</section>
+			)}
 
 			{openModal && (
 				<Modal onClose={() => setOpenModal(false)}>

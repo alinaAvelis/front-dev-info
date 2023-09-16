@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
-
 import sanityClient from "../../../public/support-func/sanityClient";
-import Head from "next/head";
 import { sortByDate } from "../../../public/support-func/support.js";
 import { selectSearchState } from "../../store/slices/searchSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setCategoriesState } from "../../store/slices/categoriesSlice";
+import MainLayout from "../../layouts/main-layout";
 
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
 
 export async function getStaticProps() {
 	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);
 	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
-	console.log(pageData);
 	return {
 		props: {
 			pageData,
@@ -50,28 +48,22 @@ const AllStories = ({ pageData, categories }) => {
 	}, [pageData, searchState]);
 
 	return (
-		<>
-			<Head>
-				<title>FrontDevInfo - все посты</title>
-				<meta
-					name="keywords"
-					content="программирование, посты, JavaScrip, frontend"
-				/>
-				<meta
-					name="description"
-					content="Посты о frontend разработке"
-					key="ogdesc"
-				/>
-			</Head>
-
+		<MainLayout
+			categories={categories}
+			headTitle="FrontDevInfo - все посты"
+			headKeywords="программирование, посты, JavaScrip, frontend"
+			headDescription="Посты о frontend разработке"
+		>
 			<div className="container container--center main_container">
 				<Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
 
-				<section className="section tabs mt-50">
+				<section className="section tabs mt-16">
 					<h1 className="title">Все посты</h1>
 
 					<div className="tabs_btns flex ">
-						<Cards data={sortByDate(filtredPosts).slice(0, sliceValue)} />
+						<Cards
+							data={sortByDate(filtredPosts).slice(0, sliceValue)}
+						/>
 					</div>
 					{filtredPosts.length > sliceValue && (
 						<button
@@ -85,7 +77,7 @@ const AllStories = ({ pageData, categories }) => {
 					)}
 				</section>
 			</div>
-		</>
+		</MainLayout>
 	);
 };
 

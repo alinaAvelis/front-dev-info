@@ -29,7 +29,7 @@ const SearchHomeBlock = () => {
 		<section className="search_block">
 			<h2 className="visually-hidden">Поиск</h2>
 
-			<div className="container flex  align_items_center  search_block__container container container--center">
+			<div className="container flex  align_items_center  search_block__container mx-auto">
 				<div className="search_block_back">
 					<code>{code}</code>
 				</div>
@@ -39,7 +39,7 @@ const SearchHomeBlock = () => {
 						className="input  input--big_text"
 						value={value}
 						onChange={onInputChange}
-						placeholder="Поиск..."
+						placeholder="Поиск по постам..."
 					/>
 
 					<button
