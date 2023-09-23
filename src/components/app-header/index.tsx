@@ -45,7 +45,7 @@ const AppHeader = ({ categories }: THeaderProps) => {
 	return (
 		<>
 			<header className="bg-white fixed top-0 right-0 w-full z-10">
-				<div className="flex gap-5 items-center justify-between py-2 px-5">
+				<div className="flex gap-5 sm:items-center justify-between flex-col sm:flex-row py-2 px-5">
 					<Link
 						className="link text-gray-500 text-sm md:text-lg font-bold"
 						href="/"
@@ -53,17 +53,21 @@ const AppHeader = ({ categories }: THeaderProps) => {
 					>
 						FRONT-DEV-INFO
 					</Link>
-					<div className="flex items-center gap-5">
-						<div>
-							<button
-								className="button button--no_styles  text-sm md:text-lg"
-								type="button"
-								data-type="open_donate"
-								onClick={handleOpenMenu}
-							>
-								Категории
-							</button>
-						</div>
+					<div className="flex gap-5 items-center justify-end">
+						<button
+							className="button button--no_styles  text-sm md:text-lg"
+							type="button"
+							data-type="open_donate"
+							onClick={handleOpenMenu}
+						>
+							Категории
+						</button>
+						<Link
+							className="link text-sm md:text-lg font-bold"
+							href="/resourses"
+						>
+							Ресурсы
+						</Link>
 						<button
 							className="button button--small  text-sm md:text-lg"
 							type="button"

@@ -19,7 +19,7 @@ export async function getStaticProps() {
 	};
 }
 
-const Post = ({categories}) => {
+const Post = ({ categories }) => {
 	const [menu, setMenu] = useState([]);
 	const [expanded, setExpanded] = useState(false);
 	const [innerWidth, setInnerWidth] = useState(0);
@@ -184,7 +184,8 @@ const Post = ({categories}) => {
 												item.textBeforeStrong + " "}
 											<strong>{item.strongText}</strong>
 											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "} -{" "}
+												" " + item.textAfterStrong}{" "}
+											-{" "}
 											<Link
 												locale={false}
 												className="link"
@@ -287,7 +288,8 @@ const Post = ({categories}) => {
 												item.textBeforeStrong + " "}
 											<strong>{item.strongText}</strong>
 											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "} -{" "}
+												" " + item.textAfterStrong}{" "}
+											-{" "}
 											<Link
 												locale={false}
 												className="link"
@@ -312,7 +314,8 @@ const Post = ({categories}) => {
 												item.textBeforeStrong + " "}
 											<strong>{item.strongText}</strong>
 											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "} -{" "}
+												" " + item.textAfterStrong}{" "}
+											-{" "}
 											<Link
 												locale={false}
 												className="link"
@@ -338,7 +341,8 @@ const Post = ({categories}) => {
 												item.textBeforeStrong + " "}
 											<strong>{item.strongText}</strong>
 											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "} -{" "}
+												" " + item.textAfterStrong}{" "}
+											-{" "}
 											<Link
 												locale={false}
 												className="link"
@@ -360,7 +364,8 @@ const Post = ({categories}) => {
 												item.textBeforeStrong + " "}
 											<strong>{item.strongText}</strong>
 											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "} -{" "}
+												" " + item.textAfterStrong}{" "}
+											-{" "}
 											<Link
 												locale={false}
 												className="link"
@@ -385,7 +390,8 @@ const Post = ({categories}) => {
 												item.textBeforeStrong + " "}
 											<strong>{item.strongText}</strong>
 											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "} -{" "}
+												" " + item.textAfterStrong}{" "}
+											-{" "}
 											<Link
 												locale={false}
 												className="link"
@@ -398,7 +404,6 @@ const Post = ({categories}) => {
 										</p>
 									);
 								})}
-							
 						</section>
 					</div>
 
@@ -558,6 +563,22 @@ const info = [
 		strongText: `для подготовки к собеседованию`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 11 + "info",
+		href: `https://css-tricks.com/guides/`,
+		title: `https://css-tricks.com/guides/`,
+		textBeforeStrong: `Полезные статьи`,
+		strongText: `по css`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 12 + "info",
+		href: `https://msiter.ru/tutorials/svg/svg_inhtml`,
+		title: `https://msiter.ru/tutorials/svg/svg_inhtml`,
+		textBeforeStrong: `Справочник`,
+		strongText: `по svg`,
+		textAfterStrong: ``,
+	},
 ];
 
 const libraries = [
@@ -594,12 +615,20 @@ const libraries = [
 		textAfterStrong: ``,
 	},
 	{
-		id: 15 + 'l',
+		id: 15 + "l",
 		href: `https://cssfx.netlify.app/`,
 		title: `https://cssfx.netlify.app/`,
 		textBeforeStrong: `Библиотека`,
 		strongText: `css эффектов`,
 		textAfterStrong: `и анимаций`,
+	},
+	{
+		id: 16 + "l",
+		href: `https://lodash.com/`,
+		title: `https://lodash.com/`,
+		textBeforeStrong: `Библиотека JS функций`,
+		strongText: `Lodash`,
+		textAfterStrong: ``,
 	},
 ];
 
@@ -672,7 +701,7 @@ const instrumentsReact = [
 		strongText: `Таймер`,
 		textAfterStrong: ``,
 	},
-]
+];
 
 const instrumentsOthers = [
 	{
@@ -691,9 +720,17 @@ const instrumentsOthers = [
 		strongText: `Vite`,
 		textAfterStrong: ``,
 	},
-]
+];
 
 const others = [
+	{
+		id: 23 + `others`,
+		href: `https://regexr.com/`,
+		title: `https://regexr.com/`,
+		textBeforeStrong: `Сайт для изучения и тестирования`,
+		strongText: `регулярных выражений`,
+		textAfterStrong: ``,
+	},
 	{
 		id: 23,
 		href: `https://jsoncrack.com/`,
@@ -743,7 +780,7 @@ const others = [
 		strongText: `Криптоиконки`,
 		textAfterStrong: ``,
 	},
-]
+];
 
 // layout
 
