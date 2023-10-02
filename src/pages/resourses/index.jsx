@@ -280,8 +280,55 @@ const Post = ({ categories }) => {
 
 						<section>
 							<h2 className="heading">Библиотеки</h2>
-							{libraries.length > 0 &&
-								libraries.map((item) => {
+							<h3 className="heading accent_text font-bold">React</h3>
+							{librariesReact.length > 0 &&
+								librariesReact.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
+							<h3 className="heading accent_text font-bold">Стили</h3>
+							{librariesStyles.length > 0 &&
+								librariesStyles.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
+							<h3 className="heading accent_text font-bold">Разные</h3>
+							{librariesOther.length > 0 &&
+								librariesOther.map((item) => {
 									return (
 										<p key={item.id}>
 											{item.textBeforeStrong &&
@@ -332,7 +379,7 @@ const Post = ({ categories }) => {
 
 						<section>
 							<h2 className="heading">Инструменты</h2>
-							<h3 className="heading">React</h3>
+							<h3 className="heading accent_text font-bold">React</h3>
 							{instrumentsReact.length > 0 &&
 								instrumentsReact.map((item) => {
 									return (
@@ -355,7 +402,7 @@ const Post = ({ categories }) => {
 										</p>
 									);
 								})}
-							<h3 className="heading">Другие</h3>
+							<h3 className="heading accent_text font-bold">Другие</h3>
 							{instrumentsOthers.length > 0 &&
 								instrumentsOthers.map((item) => {
 									return (
@@ -581,15 +628,7 @@ const info = [
 	},
 ];
 
-const libraries = [
-	{
-		id: 11,
-		href: `https://day.js.org/en/`,
-		title: `https://day.js.org/en/`,
-		textBeforeStrong: `Библиотека`,
-		strongText: `для работы с датами`,
-		textAfterStrong: `day.js`,
-	},
+const librariesStyles = [
 	{
 		id: 12,
 		href: `https://animate.style/`,
@@ -598,6 +637,25 @@ const libraries = [
 		strongText: `анимаций`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 15 + "l",
+		href: `https://cssfx.netlify.app/`,
+		title: `https://cssfx.netlify.app/`,
+		textBeforeStrong: `Библиотека`,
+		strongText: `css эффектов`,
+		textAfterStrong: `и анимаций`,
+	},
+	{
+		id: 17 + "l",
+		href: `https://tympanus.net/Development/LineHoverStyles/`,
+		title: `https://tympanus.net/Development/LineHoverStyles/`,
+		textBeforeStrong: ``,
+		strongText: `CSS line hover`,
+		textAfterStrong: `styles for links`,
+	},
+];
+
+const librariesReact = [
 	{
 		id: 13,
 		href: `https://chakra-ui.com/getting-started`,
@@ -614,21 +672,32 @@ const libraries = [
 		strongText: `компонентов для React Material UI`,
 		textAfterStrong: ``,
 	},
+];
+
+const librariesOther = [
 	{
-		id: 15 + "l",
-		href: `https://cssfx.netlify.app/`,
-		title: `https://cssfx.netlify.app/`,
+		id: 11,
+		href: `https://day.js.org/en/`,
+		title: `https://day.js.org/en/`,
 		textBeforeStrong: `Библиотека`,
-		strongText: `css эффектов`,
-		textAfterStrong: `и анимаций`,
+		strongText: `для работы с датами`,
+		textAfterStrong: `day.js`,
 	},
 	{
-		id: 16 + "l",
+		id: 16 + "lo",
 		href: `https://lodash.com/`,
 		title: `https://lodash.com/`,
 		textBeforeStrong: `Библиотека JS функций`,
 		strongText: `Lodash`,
 		textAfterStrong: ``,
+	},
+	{
+		id: 17 + "lo",
+		href: `https://hammerjs.github.io/getting-started/`,
+		title: `https://hammerjs.github.io/getting-started/`,
+		textBeforeStrong: `Библиотека которая помогает`,
+		strongText: `распознавать жесты`,
+		textAfterStrong: `выполняемые касанием, мышью и событиями указателя.`,
 	},
 ];
 
@@ -720,6 +789,22 @@ const instrumentsOthers = [
 		strongText: `Vite`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 23 + 'io',
+		href: `https://github.com/typicode/json-server`,
+		title: `https://github.com/typicode/json-server`,
+		textBeforeStrong: ``,
+		strongText: `JSON Server`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 24 + 'io',
+		href: `https://kenwheeler.github.io/slick/`,
+		title: `https://kenwheeler.github.io/slick/`,
+		textBeforeStrong: ``,
+		strongText: `Slick карусель`,
+		textAfterStrong: ``,
+	},
 ];
 
 const others = [
@@ -778,6 +863,38 @@ const others = [
 		title: `https://cryptologos.cc/`,
 		textBeforeStrong: ``,
 		strongText: `Криптоиконки`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 28,
+		href: `https://ru.bem.info/methodology/declarations/`,
+		title: `https://ru.bem.info/methodology/declarations/`,
+		textBeforeStrong: ``,
+		strongText: `БЭМ`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 29,
+		href: `https://www.toptal.com/developers/keycode`,
+		title: `https://www.toptal.com/developers/keycode`,
+		textBeforeStrong: `Посмотреть`,
+		strongText: `keycode`,
+		textAfterStrong: ``,
+	},
+	{
+		id: 30,
+		href: `http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D`,
+		title: `Event loop`,
+		textBeforeStrong: ``,
+		strongText: ``,
+		textAfterStrong: ``,
+	},
+	{
+		id: 30,
+		href: `https://git-scm.com/`,
+		title: `https://git-scm.com/`,
+		textBeforeStrong: `Документация`,
+		strongText: `git`,
 		textAfterStrong: ``,
 	},
 ];

@@ -154,7 +154,9 @@ const components = {
 		code_input_to_page: ({ value }) => {
 			const { code } = value;
 			const newCode = parse(code)
-			return newCode;
+			return <div className="mt-5">
+				{newCode}
+			</div>;
 		},
 		one_image: ({ value }) => {
 			const { asset, alt, caption } = value;
