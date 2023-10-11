@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Highlight, themes } from "prism-react-renderer";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 // import {
 // 	VKShareButton,
 // 	VKIcon,
@@ -30,7 +30,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { sortByDate } from "../../../public/support-func/support.js";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
 import MainLayout from "../../layouts/main-layout";
@@ -153,10 +153,8 @@ const components = {
 		},
 		code_input_to_page: ({ value }) => {
 			const { code } = value;
-			const newCode = parse(code)
-			return <div className="mt-5">
-				{newCode}
-			</div>;
+			const newCode = parse(code);
+			return <div className="mt-5">{newCode}</div>;
 		},
 		one_image: ({ value }) => {
 			const { asset, alt, caption } = value;
@@ -362,14 +360,14 @@ const Post = ({ pageData, categories, allPosts }) => {
 								</AccordionDetails>
 							</Accordion>
 						)}
-
+						<p className="post_date">
+							{useFormattedDate(pageData?.releaseDate)}
+						</p>
 						<PortableText
 							value={pageData?.content}
 							components={components}
 						/>
-						<p className="post_date">
-							{useFormattedDate(pageData?.releaseDate)}
-						</p>
+
 						<div className="other_posts">
 							<h2>Другие посты</h2>
 							<Cards data={lastPosts.slice(0, 3)} />
