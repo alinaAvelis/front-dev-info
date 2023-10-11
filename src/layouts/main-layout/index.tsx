@@ -42,6 +42,17 @@ const MainLayout = ({
 								})
 							`}
 			</Script>
+			<Script id="yandex-ads-5" strategy="lazyOnload">
+				{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-5",
+										"type": "floorAd",
+										"platform": "touch"
+									})
+								})
+							`}
+			</Script>
 			<AppFooter />
 		</>
 	);
