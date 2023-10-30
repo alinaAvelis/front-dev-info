@@ -2,7 +2,7 @@
 import {createClient, groq} from 'next-sanity'
 
 export default createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_ID, // find this at manage.sanity.io or in your sanity.json
+  projectId: `ttll739i`, // find this at manage.sanity.io or in your sanity.json
   dataset: "production", // this is from those question during 'sanity init'
   useCdn: true,
   ignoreBrowserTokenWarning: true

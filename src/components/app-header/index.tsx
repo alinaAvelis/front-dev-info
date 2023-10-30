@@ -64,6 +64,12 @@ const AppHeader = ({ categories }: THeaderProps) => {
 						</button>
 						<Link
 							className="link text-sm md:text-lg font-bold"
+							href="/posts"
+						>
+							Посты
+						</Link>
+						<Link
+							className="link text-sm md:text-lg font-bold"
 							href="/resourses"
 						>
 							Ресурсы

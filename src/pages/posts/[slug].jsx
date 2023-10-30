@@ -34,6 +34,7 @@ import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
 import MainLayout from "../../layouts/main-layout";
+import CodeInput from "../../components/code-input";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
@@ -116,39 +117,7 @@ const components = {
 		code_input: ({ value }) => {
 			const { language, code } = value;
 			return (
-				<div className="code_block">
-					<di className="code_block__lang">
-						{language ? language : "JavaScript"}
-					</di>
-
-					<Highlight
-						theme={themes.dracula}
-						code={code}
-						language={language ? language : "JavaScript"}
-					>
-						{({
-							className,
-							style,
-							tokens,
-							getLineProps,
-							getTokenProps,
-						}) => (
-							<pre style={style}>
-								{tokens.map((line, i) => (
-									<div key={i} {...getLineProps({ line })}>
-										<span className="number">{i + 1}</span>
-										{line.map((token, key) => (
-											<span
-												key={key}
-												{...getTokenProps({ token })}
-											/>
-										))}
-									</div>
-								))}
-							</pre>
-						)}
-					</Highlight>
-				</div>
+				<CodeInput language={language} code={code} />
 			);
 		},
 		code_input_to_page: ({ value }) => {
