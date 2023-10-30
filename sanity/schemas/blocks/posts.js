@@ -10,6 +10,12 @@ export default {
 			initialValue: true,
 		},
 		{
+			name: "toOtherPage",
+			title: "To other page",
+			type: "boolean",
+			initialValue: false,
+		},
+		{
 			name: "title",
 			title: "Title",
 			type: "string",

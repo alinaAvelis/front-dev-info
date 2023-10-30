@@ -15,7 +15,7 @@ const Cards = ({ data, to = "posts" }: cardsProps) => {
 							<li key={i + "card"}>
 								<a
 									className="card"
-									href={`/${to}/${item.slug.current}`}
+									href={item.toOtherPage ? `${item.slug.current}` : `/${to}/${item.slug.current}`}
 								>
 									<span className="card_title">
 										{" "}
