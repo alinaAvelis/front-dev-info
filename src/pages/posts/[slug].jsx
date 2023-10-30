@@ -38,7 +38,7 @@ import CodeInput from "../../components/code-input";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
-	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug ""][0]`;
+	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug][0]`;
 	const allPosts = await sanityClient.fetch(`*[_type == "posts"]`);
 	const pageData = await sanityClient.fetch(postQuery, { slug: params.slug });
 	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
