@@ -78,6 +78,14 @@ const components = {
 		h5: ({ children }) => <h5 className="heading">{children}</h5>,
 		h6: ({ children }) => <h6 className="heading">{children}</h6>,
 	},
+	list: {
+		// Ex. 1: customizing common list types
+		bullet: ({children}) => <ul className="mt-2 list-disc">{children}</ul>,
+		number: ({children}) => <ol className="mt-2">{children}</ol>,
+	
+		// Ex. 2: rendering custom lists
+		checkmarks: ({children}) => <ol className="mt-2">{children}</ol>,
+	},
 	marks: {
 		accent_text: ({ children }) => (
 			<span className="accent_text">{children}</span>
