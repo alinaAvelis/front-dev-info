@@ -35,7 +35,6 @@ const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
 import MainLayout from "../../layouts/main-layout";
 import CodeInput from "../../components/code-input";
-// сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
 	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug][0]`;
@@ -80,11 +79,13 @@ const components = {
 	},
 	list: {
 		// Ex. 1: customizing common list types
-		bullet: ({children}) => <ul className="mt-2 list-disc">{children}</ul>,
-		number: ({children}) => <ol className="mt-2">{children}</ol>,
-	
+		bullet: ({ children }) => (
+			<ul className="mt-2 list-disc">{children}</ul>
+		),
+		number: ({ children }) => <ol className="mt-2">{children}</ol>,
+
 		// Ex. 2: rendering custom lists
-		checkmarks: ({children}) => <ol className="mt-2">{children}</ol>,
+		checkmarks: ({ children }) => <ol className="mt-2">{children}</ol>,
 	},
 	marks: {
 		accent_text: ({ children }) => (
@@ -124,9 +125,7 @@ const components = {
 	types: {
 		code_input: ({ value }) => {
 			const { language, code } = value;
-			return (
-				<CodeInput language={language} code={code} />
-			);
+			return <CodeInput language={language} code={code} />;
 		},
 		code_input_to_page: ({ value }) => {
 			const { code } = value;
