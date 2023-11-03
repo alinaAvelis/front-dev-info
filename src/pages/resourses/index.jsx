@@ -280,7 +280,9 @@ const Post = ({ categories }) => {
 
 						<section>
 							<h2 className="heading">Библиотеки</h2>
-							<h3 className="heading accent_text font-bold">React</h3>
+							<h3 className="heading accent_text font-bold">
+								React
+							</h3>
 							{librariesReact.length > 0 &&
 								librariesReact.map((item) => {
 									return (
@@ -303,7 +305,9 @@ const Post = ({ categories }) => {
 										</p>
 									);
 								})}
-							<h3 className="heading accent_text font-bold">Стили</h3>
+							<h3 className="heading accent_text font-bold">
+								Стили
+							</h3>
 							{librariesStyles.length > 0 &&
 								librariesStyles.map((item) => {
 									return (
@@ -326,7 +330,9 @@ const Post = ({ categories }) => {
 										</p>
 									);
 								})}
-							<h3 className="heading accent_text font-bold">Разные</h3>
+							<h3 className="heading accent_text font-bold">
+								Разные
+							</h3>
 							{librariesOther.length > 0 &&
 								librariesOther.map((item) => {
 									return (
@@ -379,7 +385,9 @@ const Post = ({ categories }) => {
 
 						<section>
 							<h2 className="heading">Инструменты</h2>
-							<h3 className="heading accent_text font-bold">React</h3>
+							<h3 className="heading accent_text font-bold">
+								React
+							</h3>
 							{instrumentsReact.length > 0 &&
 								instrumentsReact.map((item) => {
 									return (
@@ -402,7 +410,9 @@ const Post = ({ categories }) => {
 										</p>
 									);
 								})}
-							<h3 className="heading accent_text font-bold">Другие</h3>
+							<h3 className="heading accent_text font-bold">
+								Другие
+							</h3>
 							{instrumentsOthers.length > 0 &&
 								instrumentsOthers.map((item) => {
 									return (
@@ -790,7 +800,7 @@ const instrumentsOthers = [
 		textAfterStrong: ``,
 	},
 	{
-		id: 23 + 'io',
+		id: 23 + "io",
 		href: `https://github.com/typicode/json-server`,
 		title: `https://github.com/typicode/json-server`,
 		textBeforeStrong: ``,
@@ -798,7 +808,7 @@ const instrumentsOthers = [
 		textAfterStrong: ``,
 	},
 	{
-		id: 24 + 'io',
+		id: 24 + "io",
 		href: `https://kenwheeler.github.io/slick/`,
 		title: `https://kenwheeler.github.io/slick/`,
 		textBeforeStrong: ``,
