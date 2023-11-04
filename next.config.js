@@ -4,8 +4,14 @@
 const moduleExports = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn.sanity.io"],
-    unoptimized: true
+    domains: ["cdn.sanity.io", `localhost`,],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: `https`,
+        hostname: `cdn.sanity.io`,
+      },
+    ],
   },
 };
 

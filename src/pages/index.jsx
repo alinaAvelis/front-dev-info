@@ -13,7 +13,7 @@ import MainLayout from "../layouts/main-layout";
 export async function getStaticProps() {
 	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);
 	const categories = await sanityClient.fetch(
-		`*[_type == "categories" && activeCategory == true]`
+		`*[_type == "categories"]`
 	);
 
 	return {
@@ -36,7 +36,7 @@ const HomePage = ({ pageData, categories }) => {
 		if (categories) {
 			dispatch(setCategoriesState(categories));
 		}
-	}, [categories]);
+	}, [categories, dispatch]);
 
 	return (
 		<MainLayout

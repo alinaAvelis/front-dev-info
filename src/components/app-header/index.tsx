@@ -102,16 +102,19 @@ const AppHeader = ({ categories }: THeaderProps) => {
 
 					<nav className="grid header_nav">
 						{categories?.map((item: any, i: number) => {
-							return (
-								<Link
-									key={i}
-									className="link"
-									href={`/categories/${item.slug.current}`}
-									onClick={onClose}
-								>
-									{item.title}
-								</Link>
-							);
+							if(item.activeCategory === true) {
+								return (
+									<Link
+										key={i}
+										className="link"
+										href={`/categories/${item.slug.current}`}
+										onClick={onClose}
+									>
+										{item.title}
+									</Link>
+								);
+							}
+							
 						})}
 					</nav>
 				</div>
