@@ -77,7 +77,6 @@ export default {
 						{ title: "H4", value: "h4" },
 						{ title: "H5", value: "h5" },
 						{ title: "H6", value: "h6" },
-
 					],
 					marks: {
 						decorators: [
@@ -111,6 +110,22 @@ export default {
 								],
 							},
 							{
+								name: "internalLink",
+								type: "object",
+								title: "Internal link",
+								fields: [
+									{
+										name: "reference",
+										type: "reference",
+										title: "Reference",
+										to: [
+											{ type: "posts" },
+											// other types you may want to link to
+										],
+									},
+								],
+							},
+							{
 								name: "gitHub_link",
 								type: "object",
 								title: "GitHub link",
@@ -128,7 +143,6 @@ export default {
 									},
 								],
 							},
-							
 						],
 					},
 				},
@@ -143,7 +157,7 @@ export default {
 							{ title: "Typescript", value: "typescript" },
 							{ title: "HTML", value: "html" },
 							{ title: "CSS", value: "css" },
-              				{ title: "JSON", value: "json" },
+							{ title: "JSON", value: "json" },
 						],
 						withFilename: true,
 					},
@@ -159,7 +173,7 @@ export default {
 							{ title: "Typescript", value: "typescript" },
 							{ title: "HTML", value: "html" },
 							{ title: "CSS", value: "css" },
-              				{ title: "JSON", value: "json" },
+							{ title: "JSON", value: "json" },
 						],
 						withFilename: true,
 					},
