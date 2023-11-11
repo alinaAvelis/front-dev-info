@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Highlight, themes } from "prism-react-renderer";
-import parse from "html-react-parser";
 // import {
 // 	VKShareButton,
 // 	VKIcon,
@@ -12,198 +10,22 @@ import parse from "html-react-parser";
 // 	TelegramIcon,
 // } from "next-share";
 // import dynamic from 'next/dynamic';
-import { getDateString } from "../../services/support";
-import sanityClient from "../../../public/support-func/sanityClient";
+import { getDateString } from "../services/support";
 import Script from "next/script";
-import { PortableText } from "@portabletext/react";
-import Image from "next/image";
-import { urlFor } from "../../../public/support-func/sanity-support";
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
-import Vimeo from "@u-wave/react-vimeo";
-import getVideoId from "get-video-id";
-import { groq } from "next-sanity";
 import { useDispatch } from "react-redux";
-import { setCategoriesState } from "../../store/slices/categoriesSlice";
+import { setCategoriesState } from "../store/slices/categoriesSlice";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { sortByDate } from "../../../public/support-func/support.js";
+import { sortByDate } from "../../public/support-func/support.js";
 import dynamic from "next/dynamic";
-const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
-const Cards = dynamic(() => import("../../components/cards"));
-import MainLayout from "../../layouts/main-layout";
-import CodeInput from "../../components/code-input";
+const Breadcrumbs = dynamic(() => import("../components/breadcrumbs"));
+const Cards = dynamic(() => import("../components/cards"));
+import MainLayout from "../layouts/main-layout";
 
-export async function getStaticProps({ params }) {
-	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug][0]`;
-	const allPosts = await sanityClient.fetch(`*[_type == "posts"]`);
-	const pageData = await sanityClient.fetch(postQuery, { slug: params.slug });
-	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
-	return {
-		props: {
-			pageData: pageData,
-			categories,
-			allPosts: allPosts,
-		},
+// сделать отдельно хук суппорт где будет обрезаться location
 
-		revalidate: 60,
-	};
-}
-
-export const getStaticPaths = async () => {
-	const posts = await sanityClient.fetch(
-		`*[_type == "posts" && active == true] { slug }`
-	);
-	const paths = posts.map((post) => ({
-		params: {
-			slug: post.slug.current,
-		},
-	}));
-
-	return {
-		paths,
-		fallback: true,
-	};
-};
-
-const components = {
-	block: {
-		normal: ({ children }) => <p className="text">{children}</p>,
-		h2: ({ children }) => <h2 className="heading">{children}</h2>,
-		h3: ({ children }) => <h3 className="heading">{children}</h3>,
-		h4: ({ children }) => <h4 className="heading">{children}</h4>,
-		h5: ({ children }) => <h5 className="heading">{children}</h5>,
-		h6: ({ children }) => <h6 className="heading">{children}</h6>,
-	},
-	list: {
-		// Ex. 1: customizing common list types
-		bullet: ({ children }) => (
-			<ul className="mt-2 list-disc">{children}</ul>
-		),
-		number: ({ children }) => <ol className="mt-2">{children}</ol>,
-
-		// Ex. 2: rendering custom lists
-		checkmarks: ({ children }) => <ol className="mt-2">{children}</ol>,
-	},
-	marks: {
-		accent_text: ({ children }) => (
-			<span className="accent_text">{children}</span>
-		),
-		link: ({ value, children }) => {
-			const { blank, href } = value;
-			return blank ? (
-				<a
-					className="link"
-					href={href}
-					target="_blank"
-					rel="noreferrer noopener"
-				>
-					{children}
-				</a>
-			) : (
-				<a className="link" href={href}>
-					{children}
-				</a>
-			);
-		},
-		gitHub_link: ({ value, children }) => {
-			const { href } = value;
-			return (
-				<a
-					className="button"
-					href={href}
-					target="_blank"
-					rel="noreferrer noopener"
-				>
-					{children}
-				</a>
-			);
-		},
-	},
-	types: {
-		code_input: ({ value }) => {
-			const { language, code } = value;
-			return <CodeInput language={language} code={code} />;
-		},
-		code_input_to_page: ({ value }) => {
-			const { code } = value;
-			const newCode = parse(code);
-			return <div className="mt-5">{newCode}</div>;
-		},
-		one_image: ({ value }) => {
-			const { asset, alt, caption } = value;
-			return (
-				<div className="post_img my-5">
-					<Image
-						className="img"
-						src={urlFor(asset._ref).url()}
-						alt={alt}
-						width={200}
-						height={200}
-					/>
-				</div>
-			);
-		},
-		one_image_vertical: ({ value }) => {
-			const { asset, alt, caption } = value;
-			return (
-				<div className="post_img  post_img--vertical">
-					<Image
-						className="img"
-						src={urlFor(asset._ref).url()}
-						alt={alt}
-						width={200}
-						height={200}
-					/>
-				</div>
-			);
-		},
-		youtubeVideo: ({ node }) => {
-			const { url } = node;
-			const { id } = getVideoId(url);
-			return (
-				<div className="youtube_video_container">
-					<LiteYouTubeEmbed title={id} id={id} />
-				</div>
-			);
-		},
-		vimeoVideo: ({ value }) => {
-			const { url } = value;
-			const { id } = getVideoId(url);
-			return <Vimeo className="post__video" video={id}></Vimeo>;
-		},
-		table: ({ value }) => {
-			const { rows } = value;
-			return (
-				<table className="table table-auto mt-2">
-					<thead>
-						<tr>
-							{rows[0].cells.map((item, i) => (
-								<th key={i + "th"} className="border border-solid border-slate-400 p-2">{item}</th>
-							))}
-						</tr>
-					</thead>
-
-					<tbody>
-						{rows.map((item, i) => {
-							if (i !== 0) {
-								return (
-									<tr key={item._key}>
-										{item.cells.map((item, i) => (
-											<td key={i + "tr"} className="border border-solid border-slate-400 p-2">{item}</td>
-										))}
-									</tr>
-								);
-							}
-						})}
-					</tbody>
-				</table>
-			);
-		},
-	},
-};
 
 const useFormattedDate = (date) => {
 	const [formattedDate, setFormattedDate] = useState(null);
@@ -213,7 +35,7 @@ const useFormattedDate = (date) => {
 	return formattedDate;
 };
 
-const Post = ({ pageData, categories, allPosts }) => {
+const PostLayout = ({children, categories, allPosts, title, headKeywords, headDescription, breadcrumbsArray, postDate}) => {
 	const dispatch = useDispatch();
 	const [menu, setMenu] = useState([]);
 	const [expanded, setExpanded] = useState(false);
@@ -290,7 +112,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 		if (categories) {
 			dispatch(setCategoriesState(categories));
 		}
-	}, [categories]);
+	}, [categories, dispatch]);
 
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
@@ -305,7 +127,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 	const setPosts = () => {
 		if (allPosts?.length) {
 			const newArr = allPosts.filter(
-				(n) => n.slug.current !== pageData.slug.current
+				(n) => n.slug.current !== `algorithm-execution-speed`
 			);
 			setLastPosts(newArr && sortByDate(newArr));
 		}
@@ -322,20 +144,20 @@ const Post = ({ pageData, categories, allPosts }) => {
 	return (
 		<MainLayout
 			categories={categories}
-			headTitle={pageData?.title}
-			headKeywords={pageData?.tags}
-			headDescription={pageData?.shortDescription}
+			headTitle={title}
+			headKeywords={headKeywords}
+			headDescription={headDescription}
 		>
 			<div className="container container--center main_container">
 				<Breadcrumbs
 					pathArr={[
 						{ name: "Посты", url: "/posts" },
-						{ name: pageData?.title },
+						...breadcrumbsArray,
 					]}
 				/>
 				<div className="mt-16  flex page_container">
 					<div className="post main  main--not_main">
-						<h1>{pageData?.title}</h1>
+						<h1>{title}</h1>
 						{menu.length > 0 && innerWidth < 1200 && (
 							<Accordion
 								className="menu_accordeon"
@@ -365,12 +187,10 @@ const Post = ({ pageData, categories, allPosts }) => {
 							</Accordion>
 						)}
 						<p className="post_date">
-							{useFormattedDate(pageData?.releaseDate)}
+							{useFormattedDate(postDate)}
 						</p>
-						<PortableText
-							value={pageData?.content}
-							components={components}
-						/>
+
+                        {children}
 
 						<div className="other_posts">
 							<h2>Другие посты</h2>
@@ -443,4 +263,4 @@ const Post = ({ pageData, categories, allPosts }) => {
 	);
 };
 
-export default Post;
+export default PostLayout;

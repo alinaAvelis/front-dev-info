@@ -3,6 +3,7 @@ import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import schemas from './schemas/schema';
 import {codeInput} from '@sanity/code-input';
+import { table } from '@sanity/table';
 
 export default defineConfig({
   name: 'Front_Dev_Info',
@@ -14,6 +15,7 @@ export default defineConfig({
     deskTool(),
     visionTool(),
     codeInput(),
+    table(),
   ],
   tools: (prev) => {
     // 👇 Uses environment variables set by Vite in development mode

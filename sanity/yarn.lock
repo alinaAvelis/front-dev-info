@@ -1784,6 +1784,15 @@
     scroll-into-view-if-needed "^2.2.20"
     tiny-invariant "1.0.6"
 
+"@sanity/table@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@sanity/table/-/table-1.0.1.tgz"
+  integrity sha512-QeqTW6MAOS9FElIqV766yArhYVxeiWVYy8LvPlRbLzIfRVBhOm8sDTFQdULK6DuBMIMdV9vVZNRsHS5hHXfr9Q==
+  dependencies:
+    "@sanity/icons" "^2.0.0"
+    "@sanity/incompatible-plugin" "^1.0.4"
+    "@sanity/ui" "^1.0.0"
+
 "@sanity/types@3.12.1":
   version "3.12.1"
   resolved "https://registry.npmjs.org/@sanity/types/-/types-3.12.1.tgz"
@@ -5468,7 +5477,7 @@ sanity-diff-patch@^1.0.9:
   dependencies:
     diff-match-patch "^1.0.5"
 
-sanity@^3, sanity@^3.2.5:
+sanity@^3, sanity@^3.0.0, sanity@^3.2.5:
   version "3.12.1"
   resolved "https://registry.npmjs.org/sanity/-/sanity-3.12.1.tgz"
   integrity sha512-hX9Dzd/HVfIbVcVvkDIBmHk+yhAlGHOHz/zxzgLuspuclHcjQ+ZK/BAgR2i9zHzS55IzV2v4A9kc9a5RvbZiqA==

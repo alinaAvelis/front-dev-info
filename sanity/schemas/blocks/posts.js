@@ -210,6 +210,11 @@ export default {
 						},
 					],
 				},
+				{
+					name: "table",
+					title: "Table",
+					type: "table",
+				},
 				{ type: "youtubeVideo" },
 				{ type: "vimeoVideo" },
 			],
