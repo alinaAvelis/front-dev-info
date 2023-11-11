@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Highlight, themes } from "prism-react-renderer";
+import Link from "next/link.js";
 import parse from "html-react-parser";
 // import {
 // 	VKShareButton,
@@ -108,6 +108,14 @@ const components = {
 				</a>
 			);
 		},
+		internalLink: ({ value, children }) => {
+			const { href } = value;
+			return (
+				<Link className="link" target="_blank" href={href}>
+					{children}
+				</Link>
+			);
+		},
 		gitHub_link: ({ value, children }) => {
 			const { href } = value;
 			return (
@@ -181,7 +189,12 @@ const components = {
 					<thead>
 						<tr>
 							{rows[0].cells.map((item, i) => (
-								<th key={i + "th"} className="border border-solid border-slate-400 p-2">{item}</th>
+								<th
+									key={i + "th"}
+									className="border border-solid border-slate-400 p-2"
+								>
+									{item}
+								</th>
 							))}
 						</tr>
 					</thead>
@@ -192,7 +205,12 @@ const components = {
 								return (
 									<tr key={item._key}>
 										{item.cells.map((item, i) => (
-											<td key={i + "tr"} className="border border-solid border-slate-400 p-2">{item}</td>
+											<td
+												key={i + "tr"}
+												className="border border-solid border-slate-400 p-2"
+											>
+												{item}
+											</td>
 										))}
 									</tr>
 								);

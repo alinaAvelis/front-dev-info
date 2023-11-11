@@ -115,13 +115,9 @@ export default {
 								title: "Internal link",
 								fields: [
 									{
-										name: "reference",
-										type: "reference",
-										title: "Reference",
-										to: [
-											{ type: "posts" },
-											// other types you may want to link to
-										],
+										name: "href",
+										type: "string",
+										title: "href",
 									},
 								],
 							},
