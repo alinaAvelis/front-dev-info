@@ -38,9 +38,9 @@ import CodeInput from "../../components/code-input";
 
 export async function getStaticProps({ params }) {
 	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug][0]`;
-	const allPosts = await sanityClient.fetch(`*[_type == "posts"]`);
+	const allPosts = await sanityClient.fetch(`*[_type == "posts" && active == true]`);
 	const pageData = await sanityClient.fetch(postQuery, { slug: params.slug });
-	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
+	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
 	return {
 		props: {
 			pageData: pageData,

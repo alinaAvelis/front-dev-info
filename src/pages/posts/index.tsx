@@ -12,8 +12,8 @@ const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
 
 export async function getStaticProps() {
-	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);
-	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
+	const pageData = await sanityClient.fetch(`*[_type == "posts" && active == true]`);
+	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
 	return {
 		props: {
 			pageData,

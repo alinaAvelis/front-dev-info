@@ -29,8 +29,8 @@ import LineChart from "../../components/line-chart";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
-	const allPosts = await sanityClient.fetch(`*[_type == "posts"]`);
-	const categories = await sanityClient.fetch(`*[_type == "categories"]`);
+	const allPosts = await sanityClient.fetch(`*[_type == "posts && active == true"]`);
+	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
 	return {
 		props: {
 			categories,

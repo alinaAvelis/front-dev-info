@@ -11,7 +11,7 @@ const Cards = dynamic(() => import("../components/cards"));
 import MainLayout from "../layouts/main-layout";
 
 export async function getStaticProps() {
-	const pageData = await sanityClient.fetch(`*[_type == "posts"]`);
+	const pageData = await sanityClient.fetch(`*[_type == "posts" && active == true]`);
 	const categories = await sanityClient.fetch(
 		`*[_type == "categories"]`
 	);

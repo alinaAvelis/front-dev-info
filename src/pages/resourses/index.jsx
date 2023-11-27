@@ -462,6 +462,26 @@ const Post = ({ categories }) => {
 									);
 								})}
 						</section>
+
+						<div id="adfox_169091256339947002"></div>
+						<Script
+							id="yandex-ads-adfox-1"
+							strategy="afterInteractive"
+						>
+							{`
+									window.yaContextCb.push(()=>{
+										Ya.adfoxCode.create({
+											ownerId: 1464385,
+											containerId: 'adfox_169091256339947002',
+											params: {
+												pp: 'g',
+												ps: 'grkh',
+												p2: 'hukd'
+											}
+										})
+									})
+								`}
+						</Script>
 					</div>
 
 					<aside className="aside">
