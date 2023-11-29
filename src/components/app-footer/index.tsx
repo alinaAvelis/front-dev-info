@@ -20,7 +20,7 @@ const AppFooter = ({}: AppFooterProps) => {
 	return (
 		<footer className="flex justify-between items-center p-5 mt-10 bg-gray-300 ">
 			<p>© {getCurrentYear} front-dev-info</p>
-{/* 
+			{/* 
 			<div className="w-52">
 				<Accordion
 					expanded={expanded === "panel1"}
