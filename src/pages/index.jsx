@@ -42,7 +42,7 @@ const HomePage = ({ pageData, categories }) => {
 		<MainLayout
 			categories={categories}
 			headTitle="FrontDevInfo - посты о frontend разработке"
-			headKeywords="программирование, посты, JavaScrip, frontend, javascrip, frontend разработка, frontend js, frontend 2023, frontend code, frontend обучение, frontend html, web frontend, фронтенд, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, веб фронтенд, js фронтенд"
+			headKeywords="программирование, посты, JavaScrip, frontend, javascrip, frontend разработка, frontend js, frontend 2023, frontend code, frontend обучение, frontend html, web frontend, фронтенд, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, веб фронтенд, js фронтенд, фронт енд инфо, front-dev-info, front dev info, FrontDevInfo"
 			headDescription="Посты о frontend разработке"
 		>
 			<section className="section tabs container  container--center main_container">

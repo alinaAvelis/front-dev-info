@@ -38,9 +38,13 @@ import CodeInput from "../../components/code-input";
 
 export async function getStaticProps({ params }) {
 	const postQuery = groq`*[_type == "posts" && active == true && slug.current == $slug][0]`;
-	const allPosts = await sanityClient.fetch(`*[_type == "posts" && active == true]`);
+	const allPosts = await sanityClient.fetch(
+		`*[_type == "posts" && active == true]`
+	);
 	const pageData = await sanityClient.fetch(postQuery, { slug: params.slug });
-	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
+	const categories = await sanityClient.fetch(
+		`*[_type == "categories" && activeCategory == true]`
+	);
 	return {
 		props: {
 			pageData: pageData,
@@ -437,13 +441,14 @@ const Post = ({ pageData, categories, allPosts }) => {
 						)}
 
 						{innerWidth > 1000 && (
-							<div className="banner">
-								<div id="yandex_rtb_R-A-2501461-3"></div>
-								<Script
-									id="yandex-ads-3"
-									strategy="afterInteractive"
-								>
-									{`
+							<>
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-3"></div>
+									<Script
+										id="yandex-ads-3"
+										strategy="afterInteractive"
+									>
+										{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -451,8 +456,25 @@ const Post = ({ pageData, categories, allPosts }) => {
 										})
 									})
 								`}
-								</Script>
-							</div>
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-6"></div>
+									<Script
+										id="yandex-ads-3"
+										strategy="afterInteractive"
+									>
+										{`
+	window.yaContextCb.push(()=>{
+		Ya.Context.AdvManager.render({
+			"blockId": "R-A-2501461-6",
+			"renderTo": "yandex_rtb_R-A-2501461-6"
+		})
+	})`}
+									</Script>
+								</div>
+							</>
 						)}
 					</div>
 				</div>
