@@ -84,7 +84,7 @@ const components = {
 	list: {
 		// Ex. 1: customizing common list types
 		bullet: ({ children }) => (
-			<ul className="mt-2 list-disc">{children}</ul>
+			<ul className="mt-2 list-disc pl-10">{children}</ul>
 		),
 		number: ({ children }) => <ol className="mt-2">{children}</ol>,
 
