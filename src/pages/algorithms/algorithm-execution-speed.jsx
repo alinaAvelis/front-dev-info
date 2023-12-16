@@ -29,8 +29,12 @@ import LineChart from "../../components/line-chart";
 // сделать отдельно хук суппорт где будет обрезаться location
 
 export async function getStaticProps({ params }) {
-	const allPosts = await sanityClient.fetch(`*[_type == "posts && active == true"]`);
-	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
+	const allPosts = await sanityClient.fetch(
+		`*[_type == "posts && active == true"]`
+	);
+	const categories = await sanityClient.fetch(
+		`*[_type == "categories" && activeCategory == true]`
+	);
 	return {
 		props: {
 			categories,
@@ -297,10 +301,10 @@ const Post = ({ categories, allPosts }) => {
 							время работает цикл forEach
 						</p>
 						<p className="text">
-                            <strong>
+							<strong>
 								Часто количество элементов влияет на объем
 								работы для отдельного элемента.
-							</strong> 
+							</strong>
 							В алгоритме сортировки обрабатывается каждый элемент
 							списка, разделяя список на два меньших, пока каждый
 							элемент не окажется в своем собственном списке.
@@ -372,7 +376,7 @@ const Post = ({ categories, allPosts }) => {
 							решение может быть найдено за полиномиальное время.
 						</p>
 
-                        <LineChart />
+						<LineChart />
 						<h2 className="heading">Примеры</h2>
 						<p className="text">1)</p>
 						<CodeInput code={example1} />
@@ -430,9 +434,9 @@ const Post = ({ categories, allPosts }) => {
 						</p>
 						<ul>
 							<li>
-								1) Если важна удобочитаемая программа, но интерфейс
-								работает незначительно медленнее, чем мог бы,
-								это никого не волнует.
+								1) Если важна удобочитаемая программа, но
+								интерфейс работает незначительно медленнее, чем
+								мог бы, это никого не волнует.
 							</li>
 							<li>
 								2) Алгоритм используется для различных программ,
@@ -444,11 +448,11 @@ const Post = ({ categories, allPosts }) => {
 						<p className="text">
 							<strong>Нужно оптимизировать</strong>
 						</p>
-                        <ul>
+						<ul>
 							<li>
-                                Код внутри цикла, который должен выполняться
-                                миллионы раз, должен быть написан максимально
-                                эффективно.
+								Код внутри цикла, который должен выполняться
+								миллионы раз, должен быть написан максимально
+								эффективно.
 							</li>
 						</ul>
 						<p className="text">

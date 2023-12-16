@@ -9,11 +9,15 @@ import MainLayout from "../../layouts/main-layout";
 
 export async function getStaticProps({ params }) {
 	const categoryQuery = groq`*[_type == "categories" && activeCategory == true && slug.current == $slug][0]`;
-	const pageData = await sanityClient.fetch(`*[_type == "posts" && active == true]`);
+	const pageData = await sanityClient.fetch(
+		`*[_type == "posts" && active == true]`
+	);
 	const category = await sanityClient.fetch(categoryQuery, {
 		slug: params.slug,
 	});
-	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
+	const categories = await sanityClient.fetch(
+		`*[_type == "categories" && activeCategory == true]`
+	);
 
 	return {
 		props: {
