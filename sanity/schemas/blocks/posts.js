@@ -154,6 +154,7 @@ export default {
 							{ title: "HTML", value: "html" },
 							{ title: "CSS", value: "css" },
 							{ title: "JSON", value: "json" },
+							{ title: "Pseudocode", value: "pseudocode" },
 						],
 						withFilename: true,
 					},

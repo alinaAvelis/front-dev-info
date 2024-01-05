@@ -438,6 +438,32 @@ const Post = ({ categories }) => {
 						</section>
 
 						<section>
+							<h2 className="heading">Задачи по программированию</h2>
+							{tasks.length > 0 &&
+								tasks.map((item) => {
+									return (
+										<p key={item.id}>
+											{item.textBeforeStrong &&
+												item.textBeforeStrong + " "}
+											<strong>{item.strongText}</strong>
+											{item.textAfterStrong &&
+												" " + item.textAfterStrong}{" "}
+											-{" "}
+											<Link
+												locale={false}
+												className="link"
+												href={item.href}
+												target="_blank"
+												rel="noreferrer noopener"
+											>
+												{item.title}
+											</Link>
+										</p>
+									);
+								})}
+						</section>
+
+						<section>
 							<h2 className="heading">Разное</h2>
 							{others.length > 0 &&
 								others.map((item) => {
@@ -462,6 +488,7 @@ const Post = ({ categories }) => {
 									);
 								})}
 						</section>
+						
 
 						<div id="adfox_169091256339947002"></div>
 						<Script
@@ -929,6 +956,16 @@ const others = [
 	},
 ];
 
+const tasks = [
+	{
+		id: 1 + "tasks",
+		href: `https://codeforces.com/`,
+		title: `https://codeforces.com/`,
+		textBeforeStrong: ``,
+		strongText: ``,
+		textAfterStrong: ``,
+	},
+]
 // layout
 
 // {
