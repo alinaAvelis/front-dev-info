@@ -462,16 +462,16 @@ const Post = ({ pageData, categories, allPosts }) => {
 								<div className="banner">
 									<div id="yandex_rtb_R-A-2501461-6"></div>
 									<Script
-										id="yandex-ads-3"
+										id="yandex-ads-6"
 										strategy="afterInteractive"
 									>
 										{`
-	window.yaContextCb.push(()=>{
-		Ya.Context.AdvManager.render({
-			"blockId": "R-A-2501461-6",
-			"renderTo": "yandex_rtb_R-A-2501461-6"
-		})
-	})`}
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-6",
+												"renderTo": "yandex_rtb_R-A-2501461-6"
+											})
+										})`}
 									</Script>
 								</div>
 							</>
