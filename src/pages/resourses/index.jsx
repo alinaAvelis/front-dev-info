@@ -438,7 +438,9 @@ const Post = ({ categories }) => {
 						</section>
 
 						<section>
-							<h2 className="heading">Задачи по программированию</h2>
+							<h2 className="heading">
+								Задачи по программированию
+							</h2>
 							{tasks.length > 0 &&
 								tasks.map((item) => {
 									return (
@@ -488,14 +490,14 @@ const Post = ({ categories }) => {
 									);
 								})}
 						</section>
-						
 
-						<div id="adfox_169091256339947002"></div>
-						<Script
-							id="yandex-ads-adfox-1"
-							strategy="afterInteractive"
-						>
-							{`
+						<div className="banner">
+							<div id="adfox_169091256339947002"></div>
+							<Script
+								id="yandex-ads-adfox-1"
+								strategy="afterInteractive"
+							>
+								{`
 									window.yaContextCb.push(()=>{
 										Ya.adfoxCode.create({
 											ownerId: 1464385,
@@ -508,7 +510,61 @@ const Post = ({ categories }) => {
 										})
 									})
 								`}
-						</Script>
+							</Script>
+						</div>
+
+						{innerWidth < 1000 && (
+							<>
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-3"></div>
+									<Script
+										id="yandex-ads-3"
+										strategy="afterInteractive"
+									>
+										{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
+									})
+								`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-6"></div>
+									<Script
+										id="yandex-ads-6"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-6",
+												"renderTo": "yandex_rtb_R-A-2501461-6"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-7"></div>
+									<Script
+										id="yandex-ads-7"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-7",
+												"renderTo": "yandex_rtb_R-A-2501461-7"
+											})
+										})`}
+									</Script>
+								</div>
+							</>
+						)}
 					</div>
 
 					<aside className="aside">
@@ -532,13 +588,14 @@ const Post = ({ categories }) => {
 							</div>
 						)}
 						{innerWidth > 1000 && (
-							<div className="banner">
-								<div id="yandex_rtb_R-A-2501461-3"></div>
-								<Script
-									id="yandex-ads-4"
-									strategy="afterInteractive"
-								>
-									{`
+							<>
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-3"></div>
+									<Script
+										id="yandex-ads-3"
+										strategy="afterInteractive"
+									>
+										{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -546,8 +603,41 @@ const Post = ({ categories }) => {
 										})
 									})
 								`}
-								</Script>
-							</div>
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-6"></div>
+									<Script
+										id="yandex-ads-6"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-6",
+												"renderTo": "yandex_rtb_R-A-2501461-6"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-7"></div>
+									<Script
+										id="yandex-ads-7"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-7",
+												"renderTo": "yandex_rtb_R-A-2501461-7"
+											})
+										})`}
+									</Script>
+								</div>
+							</>
 						)}
 					</aside>
 				</div>
@@ -965,7 +1055,7 @@ const tasks = [
 		strongText: ``,
 		textAfterStrong: ``,
 	},
-]
+];
 // layout
 
 // {

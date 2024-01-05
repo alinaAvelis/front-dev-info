@@ -399,12 +399,13 @@ const Post = ({ pageData, categories, allPosts }) => {
 							<Cards data={lastPosts.slice(0, 3)} />
 						</div>
 
-						<div id="adfox_169091256339947002"></div>
-						<Script
-							id="yandex-ads-adfox-1"
-							strategy="afterInteractive"
-						>
-							{`
+						<div className="banner">
+							<div id="adfox_169091256339947002"></div>
+							<Script
+								id="yandex-ads-adfox-1"
+								strategy="afterInteractive"
+							>
+								{`
 									window.yaContextCb.push(()=>{
 										Ya.adfoxCode.create({
 											ownerId: 1464385,
@@ -417,7 +418,61 @@ const Post = ({ pageData, categories, allPosts }) => {
 										})
 									})
 								`}
-						</Script>
+							</Script>
+						</div>
+
+						{innerWidth < 1000 && (
+							<>
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-3"></div>
+									<Script
+										id="yandex-ads-3"
+										strategy="afterInteractive"
+									>
+										{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
+									})
+								`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-6"></div>
+									<Script
+										id="yandex-ads-6"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-6",
+												"renderTo": "yandex_rtb_R-A-2501461-6"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-7"></div>
+									<Script
+										id="yandex-ads-7"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-7",
+												"renderTo": "yandex_rtb_R-A-2501461-7"
+											})
+										})`}
+									</Script>
+								</div>
+							</>
+						)}
 					</div>
 
 					<div className="aside">
@@ -470,6 +525,22 @@ const Post = ({ pageData, categories, allPosts }) => {
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-6",
 												"renderTo": "yandex_rtb_R-A-2501461-6"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-7"></div>
+									<Script
+										id="yandex-ads-7"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-7",
+												"renderTo": "yandex_rtb_R-A-2501461-7"
 											})
 										})`}
 									</Script>

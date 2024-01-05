@@ -31,9 +31,11 @@ const MainLayout = ({
 			<AppHeader categories={categories} />
 
 			{children}
-			<div id="yandex_rtb_R-A-2501461-2"></div>
-			<Script id="yandex-ads-2" strategy="lazyOnload">
-				{`
+
+			<div className="banner">
+				<div id="yandex_rtb_R-A-2501461-2"></div>
+				<Script id="yandex-ads-2" strategy="lazyOnload">
+					{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
 										"blockId": "R-A-2501461-2",
@@ -41,9 +43,12 @@ const MainLayout = ({
 									})
 								})
 							`}
-			</Script>
-			<Script id="yandex-ads-5" strategy="lazyOnload">
-				{`
+				</Script>
+			</div>
+
+			<div className="banner">
+				<Script id="yandex-ads-5" strategy="lazyOnload">
+					{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
 										"blockId": "R-A-2501461-5",
@@ -52,7 +57,9 @@ const MainLayout = ({
 									})
 								})
 							`}
-			</Script>
+				</Script>
+			</div>
+
 			<AppFooter />
 		</>
 	);
