@@ -420,59 +420,6 @@ const Post = ({ pageData, categories, allPosts }) => {
 								`}
 							</Script>
 						</div>
-
-						{innerWidth < 1000 && (
-							<>
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-3"></div>
-									<Script
-										id="yandex-ads-3"
-										strategy="afterInteractive"
-									>
-										{`
-									window.yaContextCb.push(()=>{
-										Ya.Context.AdvManager.render({
-											"blockId": "R-A-2501461-3",
-											"renderTo": "yandex_rtb_R-A-2501461-3"
-										})
-									})
-								`}
-									</Script>
-								</div>
-
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-6"></div>
-									<Script
-										id="yandex-ads-6"
-										strategy="afterInteractive"
-									>
-										{`
-										window.yaContextCb.push(()=>{
-											Ya.Context.AdvManager.render({
-												"blockId": "R-A-2501461-6",
-												"renderTo": "yandex_rtb_R-A-2501461-6"
-											})
-										})`}
-									</Script>
-								</div>
-
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-7"></div>
-									<Script
-										id="yandex-ads-7"
-										strategy="afterInteractive"
-									>
-										{`
-										window.yaContextCb.push(()=>{
-											Ya.Context.AdvManager.render({
-												"blockId": "R-A-2501461-7",
-												"renderTo": "yandex_rtb_R-A-2501461-7"
-											})
-										})`}
-									</Script>
-								</div>
-							</>
-						)}
 					</div>
 
 					<div className="aside">
