@@ -34,7 +34,7 @@ const MainLayout = ({
 
 			<div className="banner">
 				<div id="yandex_rtb_R-A-2501461-2"></div>
-				<Script id="yandex-ads-2" strategy="lazyOnload">
+				<Script id="yandex-ads-2" strategy="afterInteractive">
 					{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
@@ -47,7 +47,7 @@ const MainLayout = ({
 			</div>
 
 			<div className="banner">
-				<Script id="yandex-ads-5" strategy="lazyOnload">
+				<Script id="yandex-ads-5" strategy="afterInteractive">
 					{`
 								window.yaContextCb.push(()=>{
 									Ya.Context.AdvManager.render({
