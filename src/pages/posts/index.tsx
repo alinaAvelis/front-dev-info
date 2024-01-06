@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import sanityClient from "../../../public/support-func/sanityClient";
 import { sortByDate } from "../../../public/support-func/support.js";
 import { selectSearchState } from "../../store/slices/searchSlice";
@@ -12,8 +13,12 @@ const Breadcrumbs = dynamic(() => import("../../components/breadcrumbs"));
 const Cards = dynamic(() => import("../../components/cards"));
 
 export async function getStaticProps() {
-	const pageData = await sanityClient.fetch(`*[_type == "posts" && active == true]`);
-	const categories = await sanityClient.fetch(`*[_type == "categories" && activeCategory == true]`);
+	const pageData = await sanityClient.fetch(
+		`*[_type == "posts" && active == true]`
+	);
+	const categories = await sanityClient.fetch(
+		`*[_type == "categories" && activeCategory == true]`
+	);
 	return {
 		props: {
 			pageData,
@@ -48,36 +53,51 @@ const AllStories = ({ pageData, categories }) => {
 	}, [pageData, searchState]);
 
 	return (
-		<MainLayout
-			categories={categories}
-			headTitle="FrontDevInfo - все посты"
-			headKeywords="программирование, посты, JavaScrip, frontend"
-			headDescription="Посты о frontend разработке"
-		>
-			<div className="container container--center main_container">
-				<Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
+		<>
+			<Head>
+				<title>FrontDevInfo - все посты</title>
+				<meta
+					name="keywords"
+					content="программирование, посты, JavaScrip, frontend"
+				/>
 
-				<section className="section tabs mt-16">
-					<h1 className="title">Все посты</h1>
+				<meta
+					name="description"
+					content="Посты о frontend разработке"
+					key="ogdesc"
+				/>
+			</Head>
+			<MainLayout
+				categories={categories}
+			>
+				<div className="container container--center main_container">
+					<Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
 
-					<div className="tabs_btns flex ">
-						<Cards
-							data={sortByDate(filtredPosts).slice(0, sliceValue)}
-						/>
-					</div>
-					{filtredPosts.length > sliceValue && (
-						<button
-							className="button button--fill button--center"
-							onClick={() => {
-								setSliceValue(sliceValue + 9);
-							}}
-						>
-							Еще посты
-						</button>
-					)}
-				</section>
-			</div>
-		</MainLayout>
+					<section className="section tabs mt-16">
+						<h1 className="title">Все посты</h1>
+
+						<div className="tabs_btns flex ">
+							<Cards
+								data={sortByDate(filtredPosts).slice(
+									0,
+									sliceValue
+								)}
+							/>
+						</div>
+						{filtredPosts.length > sliceValue && (
+							<button
+								className="button button--fill button--center"
+								onClick={() => {
+									setSliceValue(sliceValue + 9);
+								}}
+							>
+								Еще посты
+							</button>
+						)}
+					</section>
+				</div>
+			</MainLayout>
+		</>
 	);
 };
 

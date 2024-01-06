@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import Breadcrumbs from "../../components/breadcrumbs";
 import Script from "next/script";
@@ -108,396 +109,445 @@ const Post = ({ categories }) => {
 	};
 
 	return (
-		<MainLayout
-			categories={categories}
-			headTitle="Ресурсы для frontend разработки"
-			headKeywords="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика"
-			headDescription="Различные ресурсы, которые помогут вам во frontend разработке"
-		>
-			<div className="container container--center">
-				<Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
-				<div className=" mt-16  flex page_container main_container">
-					<div className="post main  main--not_main">
-						<h1>Ресурсы для frontend разработки</h1>
-						{menu.length > 0 && innerWidth < 1200 && (
-							<Accordion
-								className="menu_accordeon"
-								expanded={expanded === "panel3"}
-								onChange={handleChange("panel3")}
-							>
-								<AccordionSummary
-									aria-controls="panel3bh-content"
-									id="panel3bh-header"
-									expandIcon={<ExpandMoreIcon />}
+		<>
+			<Head>
+				<title>Ресурсы для frontend разработки</title>
+				<meta name="keywords" content="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика" />
+
+				<meta
+					name="description"
+					content="Различные ресурсы, которые помогут вам во frontend разработке"
+					key="ogdesc"
+				/>
+			</Head>
+			<MainLayout
+				categories={categories}
+			>
+				<div className="container container--center">
+					<Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
+					<div className=" mt-16  flex page_container main_container">
+						<div className="post main  main--not_main">
+							<h1>Ресурсы для frontend разработки</h1>
+							{menu.length > 0 && innerWidth < 1200 && (
+								<Accordion
+									className="menu_accordeon"
+									expanded={expanded === "panel3"}
+									onChange={handleChange("panel3")}
 								>
-									<h2>Содержание</h2>
-								</AccordionSummary>
-								<AccordionDetails>
-									<div className="menu">
-										{menu?.map((item, i) => (
-											<a
-												key={i}
-												className={`menu__item ${item.classList}`}
-												href={`#${item.linkName}`}
-											>
-												{item.text}
-											</a>
-										))}
-									</div>
-								</AccordionDetails>
-							</Accordion>
-						)}
+									<AccordionSummary
+										aria-controls="panel3bh-content"
+										id="panel3bh-header"
+										expandIcon={<ExpandMoreIcon />}
+									>
+										<h2>Содержание</h2>
+									</AccordionSummary>
+									<AccordionDetails>
+										<div className="menu">
+											{menu?.map((item, i) => (
+												<a
+													key={i}
+													className={`menu__item ${item.classList}`}
+													href={`#${item.linkName}`}
+												>
+													{item.text}
+												</a>
+											))}
+										</div>
+									</AccordionDetails>
+								</Accordion>
+							)}
 
-						<section>
-							<h2 className="heading">API</h2>
-							{API.length > 0 &&
-								API.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">API</h2>
+								{API.length > 0 &&
+									API.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Content Security Policy</h2>
-							{contentSecurityPolicy.length > 0 &&
-								contentSecurityPolicy.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">
+									Content Security Policy
+								</h2>
+								{contentSecurityPolicy.length > 0 &&
+									contentSecurityPolicy.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Изображения</h2>
-							{images.length > 0 &&
-								images.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">Изображения</h2>
+								{images.length > 0 &&
+									images.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Информационные</h2>
-							{info.length > 0 &&
-								info.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">Информационные</h2>
+								{info.length > 0 &&
+									info.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">DApps</h2>
-							{dApps.length > 0 &&
-								dApps.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">DApps</h2>
+								{dApps.length > 0 &&
+									dApps.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Библиотеки</h2>
-							<h3 className="heading accent_text font-bold">
-								React
-							</h3>
-							{librariesReact.length > 0 &&
-								librariesReact.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-							<h3 className="heading accent_text font-bold">
-								Стили
-							</h3>
-							{librariesStyles.length > 0 &&
-								librariesStyles.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-							<h3 className="heading accent_text font-bold">
-								Разные
-							</h3>
-							{librariesOther.length > 0 &&
-								librariesOther.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">Библиотеки</h2>
+								<h3 className="heading accent_text font-bold">
+									React
+								</h3>
+								{librariesReact.length > 0 &&
+									librariesReact.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+								<h3 className="heading accent_text font-bold">
+									Стили
+								</h3>
+								{librariesStyles.length > 0 &&
+									librariesStyles.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+								<h3 className="heading accent_text font-bold">
+									Разные
+								</h3>
+								{librariesOther.length > 0 &&
+									librariesOther.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Frameworks</h2>
-							{frameworks.length > 0 &&
-								frameworks.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">Frameworks</h2>
+								{frameworks.length > 0 &&
+									frameworks.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Инструменты</h2>
-							<h3 className="heading accent_text font-bold">
-								React
-							</h3>
-							{instrumentsReact.length > 0 &&
-								instrumentsReact.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-							<h3 className="heading accent_text font-bold">
-								Другие
-							</h3>
-							{instrumentsOthers.length > 0 &&
-								instrumentsOthers.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">Инструменты</h2>
+								<h3 className="heading accent_text font-bold">
+									React
+								</h3>
+								{instrumentsReact.length > 0 &&
+									instrumentsReact.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+								<h3 className="heading accent_text font-bold">
+									Другие
+								</h3>
+								{instrumentsOthers.length > 0 &&
+									instrumentsOthers.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">
-								Задачи по программированию
-							</h2>
-							{tasks.length > 0 &&
-								tasks.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">
+									Задачи по программированию
+								</h2>
+								{tasks.length > 0 &&
+									tasks.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<section>
-							<h2 className="heading">Разное</h2>
-							{others.length > 0 &&
-								others.map((item) => {
-									return (
-										<p key={item.id}>
-											{item.textBeforeStrong &&
-												item.textBeforeStrong + " "}
-											<strong>{item.strongText}</strong>
-											{item.textAfterStrong &&
-												" " + item.textAfterStrong}{" "}
-											-{" "}
-											<Link
-												locale={false}
-												className="link"
-												href={item.href}
-												target="_blank"
-												rel="noreferrer noopener"
-											>
-												{item.title}
-											</Link>
-										</p>
-									);
-								})}
-						</section>
+							<section>
+								<h2 className="heading">Разное</h2>
+								{others.length > 0 &&
+									others.map((item) => {
+										return (
+											<p key={item.id}>
+												{item.textBeforeStrong &&
+													item.textBeforeStrong + " "}
+												<strong>
+													{item.strongText}
+												</strong>
+												{item.textAfterStrong &&
+													" " +
+														item.textAfterStrong}{" "}
+												-{" "}
+												<Link
+													locale={false}
+													className="link"
+													href={item.href}
+													target="_blank"
+													rel="noreferrer noopener"
+												>
+													{item.title}
+												</Link>
+											</p>
+										);
+									})}
+							</section>
 
-						<div className="banner">
-							<div id="adfox_169091256339947002"></div>
-							<Script
-								id="yandex-ads-adfox-1"
-								strategy="afterInteractive"
-							>
-								{`
+							<div className="banner">
+								<div id="adfox_169091256339947002"></div>
+								<Script
+									id="yandex-ads-adfox-1"
+									strategy="afterInteractive"
+								>
+									{`
 									window.yaContextCb.push(()=>{
 										Ya.adfoxCode.create({
 											ownerId: 1464385,
@@ -510,39 +560,39 @@ const Post = ({ categories }) => {
 										})
 									})
 								`}
-							</Script>
-						</div>
-					</div>
-
-					<aside className="aside">
-						{menu.length > 0 && innerWidth > 1200 && (
-							<div
-								className={`menu ${
-									changeMenuPosition && "menu--top"
-								}`}
-							>
-								<h2>Содержание</h2>
-								{menu?.map((item, i) => (
-									<Link
-										locale={false}
-										key={i}
-										className={`menu__item ${item.classList}`}
-										href={`#${item.linkName}`}
-									>
-										{item.text}
-									</Link>
-								))}
+								</Script>
 							</div>
-						)}
-						{innerWidth > 1000 && (
-							<>
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-3"></div>
-									<Script
-										id="yandex-ads-3"
-										strategy="afterInteractive"
-									>
-										{`
+						</div>
+
+						<aside className="aside">
+							{menu.length > 0 && innerWidth > 1200 && (
+								<div
+									className={`menu ${
+										changeMenuPosition && "menu--top"
+									}`}
+								>
+									<h2>Содержание</h2>
+									{menu?.map((item, i) => (
+										<Link
+											locale={false}
+											key={i}
+											className={`menu__item ${item.classList}`}
+											href={`#${item.linkName}`}
+										>
+											{item.text}
+										</Link>
+									))}
+								</div>
+							)}
+							{innerWidth > 1000 && (
+								<>
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-3"></div>
+										<Script
+											id="yandex-ads-3"
+											strategy="afterInteractive"
+										>
+											{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -550,46 +600,47 @@ const Post = ({ categories }) => {
 										})
 									})
 								`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-6"></div>
-									<Script
-										id="yandex-ads-6"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-6"></div>
+										<Script
+											id="yandex-ads-6"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-6",
 												"renderTo": "yandex_rtb_R-A-2501461-6"
 											})
 										})`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-7"></div>
-									<Script
-										id="yandex-ads-7"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-7"></div>
+										<Script
+											id="yandex-ads-7"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-7",
 												"renderTo": "yandex_rtb_R-A-2501461-7"
 											})
 										})`}
-									</Script>
-								</div>
-							</>
-						)}
-					</aside>
+										</Script>
+									</div>
+								</>
+							)}
+						</aside>
+					</div>
 				</div>
-			</div>
-		</MainLayout>
+			</MainLayout>
+		</>
 	);
 };
 

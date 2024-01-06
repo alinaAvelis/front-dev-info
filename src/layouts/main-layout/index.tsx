@@ -3,14 +3,13 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 const AppHeader = dynamic(() => import("../../components/app-header"));
 const AppFooter = dynamic(() => import("../../components/app-footer"));
-import Head from "next/head";
 import { categoryObject } from "../../types";
 
 const MainLayout = ({
 	categories,
-	headTitle,
-	headKeywords,
-	headDescription,
+	// headTitle,
+	// headKeywords,
+	// headDescription,
 	children,
 }: PropsWithChildren<{
 	categories: Array<categoryObject>;
@@ -18,14 +17,6 @@ const MainLayout = ({
 	headKeywords?: string;
 	headDescription?: string;
 }>) => {
-	<Head>
-		{headTitle && <title>{headTitle}</title>}
-		{headKeywords && <meta name="keywords" content={headKeywords} />}
-
-		{headDescription && (
-			<meta name="description" content={headDescription} key="ogdesc" />
-		)}
-	</Head>;
 	return (
 		<>
 			<AppHeader categories={categories} />

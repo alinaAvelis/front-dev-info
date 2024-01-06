@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 import sanityClient from "../../../public/support-func/sanityClient";
 // import { sortByDate } from '../../../public/support-func/support.js';
 import { groq } from "next-sanity";
@@ -51,34 +52,41 @@ const Category = ({ pageData, category, categories }) => {
 	}, []);
 
 	return (
-		<MainLayout
-			categories={categories}
-			headTitle={pageData?.title}
-			headKeywords={pageData?.tags}
-			headDescription={pageData?.shortDescription}
-		>
-			<div className="container  container--center main_container">
-				<Breadcrumbs
-					pathArr={[
-						{ name: "Категории", url: "/categories" },
-						{ name: category?.title },
-					]}
-				/>
-				<section className="section tabs mt-16">
-					<h1 className="title">{category?.title}</h1>
+		<>
+			<Head>
+				<title>{pageData?.title}</title>
+				<meta name="keywords" content={pageData?.tags} />
 
-					<div className="tabs_btns flex ">
-						<Cards
-							data={pageData?.filter(
-								(point: any) =>
-									point?.category?._ref === category?._id
-							)}
-							to="posts"
-						/>
-					</div>
-				</section>
-			</div>
-		</MainLayout>
+				<meta
+					name="description"
+					content={pageData?.shortDescription}
+					key="ogdesc"
+				/>
+			</Head>
+			<MainLayout categories={categories}>
+				<div className="container  container--center main_container">
+					<Breadcrumbs
+						pathArr={[
+							{ name: "Категории", url: "/categories" },
+							{ name: category?.title },
+						]}
+					/>
+					<section className="section tabs mt-16">
+						<h1 className="title">{category?.title}</h1>
+
+						<div className="tabs_btns flex ">
+							<Cards
+								data={pageData?.filter(
+									(point: any) =>
+										point?.category?._ref === category?._id
+								)}
+								to="posts"
+							/>
+						</div>
+					</section>
+				</div>
+			</MainLayout>
+		</>
 	);
 };
 

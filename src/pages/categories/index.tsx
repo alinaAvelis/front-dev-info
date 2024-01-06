@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import sanityClient from "../../../public/support-func/sanityClient";
 import { useDispatch } from "react-redux";
@@ -33,36 +34,48 @@ const CategoriesPage = ({ categories }) => {
 	}, []);
 
 	return (
-		<MainLayout
-			categories={categories}
-			headTitle="FrontDevInfo - все категории"
-			headKeywords="программирование, посты, JavaScrip, frontend"
-			headDescription="Посты о frontend разработке"
-		>
-			<div className="container  container--center main_container">
-				<Breadcrumbs
-					pathArr={[{ name: "Категории", url: "/categories" }]}
+		<>
+			<Head>
+				<title>FrontDevInfo - все категории</title>
+				<meta
+					name="keywords"
+					content="программирование, посты, JavaScrip, frontend"
 				/>
-				<section className="section tabs mt-16">
-					<h1 className="title">Все категории</h1>
 
-					<ul className="grid gap">
-						{categories?.map((item: any, i: number) => {
-							return (
-								<li key={item._id}>
-									<Link
-										className="link category_link"
-										href={`/categories/${item.slug.current}`}
-									>
-										{item.title}
-									</Link>
-								</li>
-							);
-						})}
-					</ul>
-				</section>
-			</div>
-		</MainLayout>
+				<meta
+					name="description"
+					content="Посты о frontend разработке"
+					key="ogdesc"
+				/>
+			</Head>
+			<MainLayout
+				categories={categories}
+			>
+				<div className="container  container--center main_container">
+					<Breadcrumbs
+						pathArr={[{ name: "Категории", url: "/categories" }]}
+					/>
+					<section className="section tabs mt-16">
+						<h1 className="title">Все категории</h1>
+
+						<ul className="grid gap">
+							{categories?.map((item: any, i: number) => {
+								return (
+									<li key={item._id}>
+										<Link
+											className="link category_link"
+											href={`/categories/${item.slug.current}`}
+										>
+											{item.title}
+										</Link>
+									</li>
+								);
+							})}
+						</ul>
+					</section>
+				</div>
+			</MainLayout>
+		</>
 	);
 };
 

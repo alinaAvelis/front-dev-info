@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link.js";
 import parse from "html-react-parser";
+import Head from "next/head";
 // import {
 // 	VKShareButton,
 // 	VKIcon,
@@ -342,70 +343,81 @@ const Post = ({ pageData, categories, allPosts }) => {
 	};
 
 	return (
-		<MainLayout
-			categories={categories}
-			headTitle={pageData?.title}
-			headKeywords={pageData?.tags}
-			headDescription={pageData?.shortDescription}
-		>
-			<div className="container container--center main_container">
-				<Breadcrumbs
-					pathArr={[
-						{ name: "Посты", url: "/posts" },
-						{ name: pageData?.title },
-					]}
+		<>
+			<Head>
+				<title>{pageData?.title}</title>
+				<meta
+					name="keywords"
+					content={pageData?.tags}
 				/>
-				<div className="mt-16  flex page_container">
-					<div className="post main  main--not_main">
-						<h1>{pageData?.title}</h1>
-						{menu.length > 0 && innerWidth < 1200 && (
-							<Accordion
-								className="menu_accordeon"
-								expanded={expanded === "panel2"}
-								onChange={handleChange("panel2")}
-							>
-								<AccordionSummary
-									aria-controls="panel2bh-content"
-									id="panel2bh-header"
-									expandIcon={<ExpandMoreIcon />}
+
+				<meta
+					name="description"
+					content={pageData?.shortDescription}
+					key="ogdesc"
+				/>
+			</Head>
+			<MainLayout
+				categories={categories}
+			>
+				<div className="container container--center main_container">
+					<Breadcrumbs
+						pathArr={[
+							{ name: "Посты", url: "/posts" },
+							{ name: pageData?.title },
+						]}
+					/>
+					<div className="mt-16  flex page_container">
+						<div className="post main  main--not_main">
+							<h1>{pageData?.title}</h1>
+							{menu.length > 0 && innerWidth < 1200 && (
+								<Accordion
+									className="menu_accordeon"
+									expanded={expanded === "panel2"}
+									onChange={handleChange("panel2")}
 								>
-									<h2>Содержание</h2>
-								</AccordionSummary>
-								<AccordionDetails>
-									<div className="menu">
-										{menu?.map((item, i) => (
-											<a
-												key={i}
-												className={`menu__item ${item.classList}`}
-												href={`#${item.linkName}`}
-											>
-												{item.text}
-											</a>
-										))}
-									</div>
-								</AccordionDetails>
-							</Accordion>
-						)}
-						<p className="post_date">
-							{useFormattedDate(pageData?.releaseDate)}
-						</p>
-						<PortableText
-							value={pageData?.content}
-							components={components}
-						/>
+									<AccordionSummary
+										aria-controls="panel2bh-content"
+										id="panel2bh-header"
+										expandIcon={<ExpandMoreIcon />}
+									>
+										<h2>Содержание</h2>
+									</AccordionSummary>
+									<AccordionDetails>
+										<div className="menu">
+											{menu?.map((item, i) => (
+												<a
+													key={i}
+													className={`menu__item ${item.classList}`}
+													href={`#${item.linkName}`}
+												>
+													{item.text}
+												</a>
+											))}
+										</div>
+									</AccordionDetails>
+								</Accordion>
+							)}
+							<p className="post_date">
+								{useFormattedDate(pageData?.releaseDate)}
+							</p>
+							<PortableText
+								value={pageData?.content}
+								components={components}
+							/>
 
-						<div className="other_posts">
-							<h2>Другие посты</h2>
-							<Cards data={lastPosts.slice(0, 3)} />
-						</div>
+							<div className="other_posts">
+								<h2>Другие посты</h2>
+								<Cards data={lastPosts.slice(0, 3)} />
+							</div>
 
-						<div className="banner">
-							<div id="adfox_169091256339947002"></div>
-							<Script
-								id="yandex-ads-adfox-1"
-								strategy="afterInteractive"
-							>
-								{`
+							<div className="banner">
+								<div id="adfox_169091256339947002"></div>
+								<Script
+									id="yandex-ads-adfox-1"
+									strategy="afterInteractive"
+								>
+									{`
 									window.yaContextCb.push(()=>{
 										Ya.adfoxCode.create({
 											ownerId: 1464385,
@@ -418,39 +430,39 @@ const Post = ({ pageData, categories, allPosts }) => {
 										})
 									})
 								`}
-							</Script>
-						</div>
-					</div>
-
-					<div className="aside">
-						{menu.length > 0 && innerWidth > 1200 && (
-							<div
-								className={`menu ${
-									changeMenuPosition && "menu--top"
-								}`}
-							>
-								<h2>Содержание</h2>
-								{menu?.map((item, i) => (
-									<a
-										key={i}
-										className={`menu__item ${item.classList}`}
-										href={`#${item.linkName}`}
-									>
-										{item.text}
-									</a>
-								))}
+								</Script>
 							</div>
-						)}
+						</div>
 
-						{innerWidth > 1000 && (
-							<>
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-3"></div>
-									<Script
-										id="yandex-ads-3"
-										strategy="afterInteractive"
-									>
-										{`
+						<div className="aside">
+							{menu.length > 0 && innerWidth > 1200 && (
+								<div
+									className={`menu ${
+										changeMenuPosition && "menu--top"
+									}`}
+								>
+									<h2>Содержание</h2>
+									{menu?.map((item, i) => (
+										<a
+											key={i}
+											className={`menu__item ${item.classList}`}
+											href={`#${item.linkName}`}
+										>
+											{item.text}
+										</a>
+									))}
+								</div>
+							)}
+
+							{innerWidth > 1000 && (
+								<>
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-3"></div>
+										<Script
+											id="yandex-ads-3"
+											strategy="afterInteractive"
+										>
+											{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -458,46 +470,47 @@ const Post = ({ pageData, categories, allPosts }) => {
 										})
 									})
 								`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-6"></div>
-									<Script
-										id="yandex-ads-6"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-6"></div>
+										<Script
+											id="yandex-ads-6"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-6",
 												"renderTo": "yandex_rtb_R-A-2501461-6"
 											})
 										})`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-7"></div>
-									<Script
-										id="yandex-ads-7"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-7"></div>
+										<Script
+											id="yandex-ads-7"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-7",
 												"renderTo": "yandex_rtb_R-A-2501461-7"
 											})
 										})`}
-									</Script>
-								</div>
-							</>
-						)}
+										</Script>
+									</div>
+								</>
+							)}
+						</div>
 					</div>
 				</div>
-			</div>
-		</MainLayout>
+			</MainLayout>
+		</>
 	);
 };
 
