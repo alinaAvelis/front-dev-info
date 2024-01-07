@@ -71,34 +71,15 @@ const HomePage = ({ pageData, categories }) => {
 				</section>
 
 				<div className="aside">
-							{menu.length > 0 && innerWidth > 1200 && (
-								<div
-									className={`menu ${
-										changeMenuPosition && "menu--top"
-									}`}
+					{innerWidth > 1000 && (
+						<>
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-3"></div>
+								<Script
+									id="yandex-ads-3"
+									strategy="afterInteractive"
 								>
-									<h2>Содержание</h2>
-									{menu?.map((item, i) => (
-										<a
-											key={i}
-											className={`menu__item ${item.classList}`}
-											href={`#${item.linkName}`}
-										>
-											{item.text}
-										</a>
-									))}
-								</div>
-							)}
-
-							{innerWidth > 1000 && (
-								<>
-									<div className="banner">
-										<div id="yandex_rtb_R-A-2501461-3"></div>
-										<Script
-											id="yandex-ads-3"
-											strategy="afterInteractive"
-										>
-											{`
+									{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -106,75 +87,75 @@ const HomePage = ({ pageData, categories }) => {
 										})
 									})
 								`}
-										</Script>
-									</div>
+								</Script>
+							</div>
 
-									<div className="banner">
-										<div id="yandex_rtb_R-A-2501461-6"></div>
-										<Script
-											id="yandex-ads-6"
-											strategy="afterInteractive"
-										>
-											{`
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-6"></div>
+								<Script
+									id="yandex-ads-6"
+									strategy="afterInteractive"
+								>
+									{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-6",
 												"renderTo": "yandex_rtb_R-A-2501461-6"
 											})
 										})`}
-										</Script>
-									</div>
+								</Script>
+							</div>
 
-									<div className="banner">
-										<div id="yandex_rtb_R-A-2501461-7"></div>
-										<Script
-											id="yandex-ads-7"
-											strategy="afterInteractive"
-										>
-											{`
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-7"></div>
+								<Script
+									id="yandex-ads-7"
+									strategy="afterInteractive"
+								>
+									{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-7",
 												"renderTo": "yandex_rtb_R-A-2501461-7"
 											})
 										})`}
-										</Script>
-									</div>
+								</Script>
+							</div>
 
-									<div className="banner">
-										<div id="yandex_rtb_R-A-2501461-8"></div>
-										<Script
-											id="yandex-ads-8"
-											strategy="afterInteractive"
-										>
-											{`
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-8"></div>
+								<Script
+									id="yandex-ads-8"
+									strategy="afterInteractive"
+								>
+									{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-8",
 												"renderTo": "yandex_rtb_R-A-2501461-8"
 											})
 										})`}
-										</Script>
-									</div>
+								</Script>
+							</div>
 
-									<div className="banner">
-										<div id="yandex_rtb_R-A-2501461-9"></div>
-										<Script
-											id="yandex-ads-9"
-											strategy="afterInteractive"
-										>
-											{`
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-9"></div>
+								<Script
+									id="yandex-ads-9"
+									strategy="afterInteractive"
+								>
+									{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-9",
 												"renderTo": "yandex_rtb_R-A-2501461-9"
 											})
 										})`}
-										</Script>
-									</div>
-								</>
-							)}
-						</div>
+								</Script>
+							</div>
+						</>
+					)}
+				</div>
 			</MainLayout>
 		</>
 	);
