@@ -90,7 +90,7 @@ const HomePage = ({ pageData, categories }) => {
 						{pageData.length > 9 && (
 							<Link
 								href="/posts"
-								className="button button--fill button--center"
+								className="button button--fill button--center mb-5"
 							>
 								На страницу постов
 							</Link>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Script from "next/script";
 import Head from "next/head";
 import sanityClient from "../../../public/support-func/sanityClient";
 import { sortByDate } from "../../../public/support-func/support.js";
@@ -70,10 +71,10 @@ const AllStories = ({ pageData, categories }) => {
 			<MainLayout
 				categories={categories}
 			>
-				<div className="container container--center main_container">
+				<div className="container">
 					<Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
 
-					<section className="section tabs mt-16">
+					<section className="section tabs ">
 						<h1 className="title">Все посты</h1>
 
 						<div className="tabs_btns flex ">
@@ -95,6 +96,147 @@ const AllStories = ({ pageData, categories }) => {
 							</button>
 						)}
 					</section>
+					<div className="flex page_container mt-16">
+					<section className="section tabs container  container--center main_container">
+						<h1 className="title">Все посты</h1>
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-10"></div>
+							<Script
+								id="yandex-ads-10"
+								strategy="afterInteractive"
+							>
+								{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-10",
+												"renderTo": "yandex_rtb_R-A-2501461-10"
+											})
+										})`}
+							</Script>
+						</div>
+						<div className="tabs_btns flex ">
+							<Cards
+								data={sortByDate(filtredPosts).slice(
+									0,
+									sliceValue
+								)}
+							/>
+						</div>
+						{filtredPosts.length > sliceValue && (
+							<button
+								className="button button--fill button--center mb-5"
+								onClick={() => {
+									setSliceValue(sliceValue + 9);
+								}}
+							>
+								Еще посты
+							</button>
+						)}
+
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-11"></div>
+							<Script
+								id="yandex-ads-11"
+								strategy="afterInteractive"
+							>
+								{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-11",
+												"renderTo": "yandex_rtb_R-A-2501461-11"
+											})
+										})`}
+							</Script>
+						</div>
+					</section>
+
+					<div className="aside aside--small">
+						{innerWidth > 1000 && (
+							<>
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-3"></div>
+									<Script
+										id="yandex-ads-3"
+										strategy="afterInteractive"
+									>
+										{`
+									window.yaContextCb.push(()=>{
+										Ya.Context.AdvManager.render({
+											"blockId": "R-A-2501461-3",
+											"renderTo": "yandex_rtb_R-A-2501461-3"
+										})
+									})
+								`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-6"></div>
+									<Script
+										id="yandex-ads-6"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-6",
+												"renderTo": "yandex_rtb_R-A-2501461-6"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-7"></div>
+									<Script
+										id="yandex-ads-7"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-7",
+												"renderTo": "yandex_rtb_R-A-2501461-7"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-8"></div>
+									<Script
+										id="yandex-ads-8"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-8",
+												"renderTo": "yandex_rtb_R-A-2501461-8"
+											})
+										})`}
+									</Script>
+								</div>
+
+								<div className="banner">
+									<div id="yandex_rtb_R-A-2501461-9"></div>
+									<Script
+										id="yandex-ads-9"
+										strategy="afterInteractive"
+									>
+										{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-9",
+												"renderTo": "yandex_rtb_R-A-2501461-9"
+											})
+										})`}
+									</Script>
+								</div>
+							</>
+						)}
+					</div>
+				</div>
 				</div>
 			</MainLayout>
 		</>
