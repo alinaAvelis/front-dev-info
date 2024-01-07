@@ -28,9 +28,16 @@ export async function getStaticProps() {
 
 const HomePage = ({ pageData, categories }) => {
 	const dispatch = useDispatch();
+	const [innerWidth, setInnerWidth] = useState(0);
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
+		if (typeof window !== "undefined") {
+			window.scrollTo(0, 0);
+
+			window.addEventListener("resize", handleResize);
+			handleResize();
+			return () => window.removeEventListener("resize", handleResize);
+		}
 	}, []);
 
 	useEffect(() => {
@@ -38,6 +45,10 @@ const HomePage = ({ pageData, categories }) => {
 			dispatch(setCategoriesState(categories));
 		}
 	}, [categories, dispatch]);
+
+	const handleResize = () => {
+		setInnerWidth(window?.innerWidth);
+	};
 
 	return (
 		<>
