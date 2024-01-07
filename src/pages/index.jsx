@@ -95,6 +95,22 @@ const HomePage = ({ pageData, categories }) => {
 								На страницу постов
 							</Link>
 						)}
+
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-11"></div>
+							<Script
+								id="yandex-ads-11"
+								strategy="afterInteractive"
+							>
+								{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-11",
+												"renderTo": "yandex_rtb_R-A-2501461-11"
+											})
+										})`}
+							</Script>
+						</div>
 					</section>
 
 					<div className="aside aside--small">
