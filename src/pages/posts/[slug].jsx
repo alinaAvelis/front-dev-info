@@ -365,6 +365,21 @@ const Post = ({ pageData, categories, allPosts }) => {
 					<div className="mt-16  flex page_container">
 						<div className="post main  main--not_main">
 							<h1>{pageData?.title}</h1>
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-10"></div>
+								<Script
+									id="yandex-ads-10"
+									strategy="afterInteractive"
+								>
+									{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-10",
+												"renderTo": "yandex_rtb_R-A-2501461-10"
+											})
+										})`}
+								</Script>
+							</div>
 							{menu.length > 0 && innerWidth < 1200 && (
 								<Accordion
 									className="menu_accordeon"
@@ -400,6 +415,22 @@ const Post = ({ pageData, categories, allPosts }) => {
 								value={pageData?.content}
 								components={components}
 							/>
+
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-11"></div>
+								<Script
+									id="yandex-ads-11"
+									strategy="afterInteractive"
+								>
+									{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-11",
+												"renderTo": "yandex_rtb_R-A-2501461-11"
+											})
+										})`}
+								</Script>
+							</div>
 
 							<div className="other_posts">
 								<h2>Другие посты</h2>

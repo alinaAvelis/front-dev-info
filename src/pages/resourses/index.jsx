@@ -112,7 +112,10 @@ const Post = ({ categories }) => {
 		<>
 			<Head>
 				<title>Ресурсы для frontend разработки</title>
-				<meta name="keywords" content="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика" />
+				<meta
+					name="keywords"
+					content="программирование, посты, JavaScrip, frontend, ресурсы, frontend roadmap, фронтенд, фронтенд обучение, frontend обучение, бесплатный фронтенд, фронтенд сайт, реакт, фронтенд инструменты, ссылки реакт, инструменты фронтенд разработчика"
+				/>
 
 				<meta
 					name="description"
@@ -120,9 +123,7 @@ const Post = ({ categories }) => {
 					key="ogdesc"
 				/>
 			</Head>
-			<MainLayout
-				categories={categories}
-			>
+			<MainLayout categories={categories}>
 				<div className="container container--center">
 					<Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
 					<div className=" mt-16  flex page_container main_container">
@@ -630,6 +631,54 @@ const Post = ({ categories }) => {
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-7",
 												"renderTo": "yandex_rtb_R-A-2501461-7"
+											})
+										})`}
+										</Script>
+									</div>
+
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-8"></div>
+										<Script
+											id="yandex-ads-8"
+											strategy="afterInteractive"
+										>
+											{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-8",
+												"renderTo": "yandex_rtb_R-A-2501461-8"
+											})
+										})`}
+										</Script>
+									</div>
+
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-9"></div>
+										<Script
+											id="yandex-ads-9"
+											strategy="afterInteractive"
+										>
+											{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-9",
+												"renderTo": "yandex_rtb_R-A-2501461-9"
+											})
+										})`}
+										</Script>
+									</div>
+
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-12"></div>
+										<Script
+											id="yandex-ads-12"
+											strategy="afterInteractive"
+										>
+											{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-12",
+												"renderTo": "yandex_rtb_R-A-2501461-12"
 											})
 										})`}
 										</Script>

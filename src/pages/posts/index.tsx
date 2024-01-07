@@ -34,6 +34,17 @@ const AllStories = ({ pageData, categories }) => {
 	const [sliceValue, setSliceValue] = useState(9);
 	const searchState = useSelector(selectSearchState);
 	const dispatch = useDispatch();
+	const [innerWidth, setInnerWidth] = useState(0);
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			window.scrollTo(0, 0);
+
+			window.addEventListener("resize", handleResize);
+			handleResize();
+			return () => window.removeEventListener("resize", handleResize);
+		}
+	}, []);
 
 	useEffect(() => {
 		if (categories) {
@@ -53,6 +64,10 @@ const AllStories = ({ pageData, categories }) => {
 		}
 	}, [pageData, searchState]);
 
+	const handleResize = () => {
+		setInnerWidth(window?.innerWidth);
+	};
+
 	return (
 		<>
 			<Head>
@@ -68,98 +83,74 @@ const AllStories = ({ pageData, categories }) => {
 					key="ogdesc"
 				/>
 			</Head>
-			<MainLayout
-				categories={categories}
-			>
+			<MainLayout categories={categories}>
 				<div className="container">
 					<Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
 
-					<section className="section tabs ">
-						<h1 className="title">Все посты</h1>
-
-						<div className="tabs_btns flex ">
-							<Cards
-								data={sortByDate(filtredPosts).slice(
-									0,
-									sliceValue
-								)}
-							/>
-						</div>
-						{filtredPosts.length > sliceValue && (
-							<button
-								className="button button--fill button--center"
-								onClick={() => {
-									setSliceValue(sliceValue + 9);
-								}}
-							>
-								Еще посты
-							</button>
-						)}
-					</section>
 					<div className="flex page_container mt-16">
-					<section className="section tabs container  container--center main_container">
-						<h1 className="title">Все посты</h1>
-						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-10"></div>
-							<Script
-								id="yandex-ads-10"
-								strategy="afterInteractive"
-							>
-								{`
+						<section className="section tabs container  container--center main_container">
+							<h1 className="title">Все посты</h1>
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-10"></div>
+								<Script
+									id="yandex-ads-10"
+									strategy="afterInteractive"
+								>
+									{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-10",
 												"renderTo": "yandex_rtb_R-A-2501461-10"
 											})
 										})`}
-							</Script>
-						</div>
-						<div className="tabs_btns flex ">
-							<Cards
-								data={sortByDate(filtredPosts).slice(
-									0,
-									sliceValue
-								)}
-							/>
-						</div>
-						{filtredPosts.length > sliceValue && (
-							<button
-								className="button button--fill button--center mb-5"
-								onClick={() => {
-									setSliceValue(sliceValue + 9);
-								}}
-							>
-								Еще посты
-							</button>
-						)}
+								</Script>
+							</div>
+							<div className="tabs_btns flex ">
+								<Cards
+									data={sortByDate(filtredPosts).slice(
+										0,
+										sliceValue
+									)}
+								/>
+							</div>
+							{filtredPosts.length > sliceValue && (
+								<button
+									className="button button--fill button--center mb-5"
+									onClick={() => {
+										setSliceValue(sliceValue + 9);
+									}}
+								>
+									Еще посты
+								</button>
+							)}
 
-						<div className="banner">
-							<div id="yandex_rtb_R-A-2501461-11"></div>
-							<Script
-								id="yandex-ads-11"
-								strategy="afterInteractive"
-							>
-								{`
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-11"></div>
+								<Script
+									id="yandex-ads-11"
+									strategy="afterInteractive"
+								>
+									{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-11",
 												"renderTo": "yandex_rtb_R-A-2501461-11"
 											})
 										})`}
-							</Script>
-						</div>
-					</section>
+								</Script>
+							</div>
+						</section>
 
-					<div className="aside aside--small">
-						{innerWidth > 1000 && (
-							<>
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-3"></div>
-									<Script
-										id="yandex-ads-3"
-										strategy="afterInteractive"
-									>
-										{`
+						<div className="aside aside--small">
+							{innerWidth > 1000 && (
+								<>
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-3"></div>
+										<Script
+											id="yandex-ads-3"
+											strategy="afterInteractive"
+										>
+											{`
 									window.yaContextCb.push(()=>{
 										Ya.Context.AdvManager.render({
 											"blockId": "R-A-2501461-3",
@@ -167,76 +158,76 @@ const AllStories = ({ pageData, categories }) => {
 										})
 									})
 								`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-6"></div>
-									<Script
-										id="yandex-ads-6"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-6"></div>
+										<Script
+											id="yandex-ads-6"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-6",
 												"renderTo": "yandex_rtb_R-A-2501461-6"
 											})
 										})`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-7"></div>
-									<Script
-										id="yandex-ads-7"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-7"></div>
+										<Script
+											id="yandex-ads-7"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-7",
 												"renderTo": "yandex_rtb_R-A-2501461-7"
 											})
 										})`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-8"></div>
-									<Script
-										id="yandex-ads-8"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-8"></div>
+										<Script
+											id="yandex-ads-8"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-8",
 												"renderTo": "yandex_rtb_R-A-2501461-8"
 											})
 										})`}
-									</Script>
-								</div>
+										</Script>
+									</div>
 
-								<div className="banner">
-									<div id="yandex_rtb_R-A-2501461-9"></div>
-									<Script
-										id="yandex-ads-9"
-										strategy="afterInteractive"
-									>
-										{`
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-9"></div>
+										<Script
+											id="yandex-ads-9"
+											strategy="afterInteractive"
+										>
+											{`
 										window.yaContextCb.push(()=>{
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-9",
 												"renderTo": "yandex_rtb_R-A-2501461-9"
 											})
 										})`}
-									</Script>
-								</div>
-							</>
-						)}
+										</Script>
+									</div>
+								</>
+							)}
+						</div>
 					</div>
-				</div>
 				</div>
 			</MainLayout>
 		</>
