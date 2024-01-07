@@ -87,6 +87,17 @@ const Category = ({ pageData, category, categories }) => {
 					<div className="mt-16  flex page_container">
 						<section className="section tabs container--center main_container">
 							<h1 className="title">{category?.title}</h1>
+							
+							<div className="tabs_btns flex ">
+								<Cards
+									data={pageData?.filter(
+										(point: any) =>
+											point?.category?._ref ===
+											category?._id
+									)}
+									to="posts"
+								/>
+							</div>
 							<div className="banner">
 								<div id="yandex_rtb_R-A-2501461-10"></div>
 								<Script
@@ -101,16 +112,6 @@ const Category = ({ pageData, category, categories }) => {
 											})
 										})`}
 								</Script>
-							</div>
-							<div className="tabs_btns flex ">
-								<Cards
-									data={pageData?.filter(
-										(point: any) =>
-											point?.category?._ref ===
-											category?._id
-									)}
-									to="posts"
-								/>
 							</div>
 							<div className="banner">
 								<div id="yandex_rtb_R-A-2501461-11"></div>

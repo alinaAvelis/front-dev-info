@@ -69,6 +69,18 @@ const HomePage = ({ pageData, categories }) => {
 				<div className="mt-16  flex page_container">
 					<section className="section tabs container  container--center main_container">
 						<h2 className="visually-hidden">Карточки</h2>
+
+						<div className="tabs_btns flex ">
+							<Cards data={sortByDate(pageData).slice(0, 9)} />
+						</div>
+						{pageData.length > 9 && (
+							<Link
+								href="/posts"
+								className="button button--fill button--center mb-5"
+							>
+								На страницу постов
+							</Link>
+						)}
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-10"></div>
 							<Script
@@ -84,18 +96,6 @@ const HomePage = ({ pageData, categories }) => {
 										})`}
 							</Script>
 						</div>
-						<div className="tabs_btns flex ">
-							<Cards data={sortByDate(pageData).slice(0, 9)} />
-						</div>
-						{pageData.length > 9 && (
-							<Link
-								href="/posts"
-								className="button button--fill button--center mb-5"
-							>
-								На страницу постов
-							</Link>
-						)}
-
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-11"></div>
 							<Script

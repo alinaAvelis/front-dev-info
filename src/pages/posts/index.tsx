@@ -90,21 +90,7 @@ const AllStories = ({ pageData, categories }) => {
 					<div className="flex page_container mt-16">
 						<section className="section tabs container  container--center main_container">
 							<h1 className="title">Все посты</h1>
-							<div className="banner">
-								<div id="yandex_rtb_R-A-2501461-10"></div>
-								<Script
-									id="yandex-ads-10"
-									strategy="afterInteractive"
-								>
-									{`
-										window.yaContextCb.push(()=>{
-											Ya.Context.AdvManager.render({
-												"blockId": "R-A-2501461-10",
-												"renderTo": "yandex_rtb_R-A-2501461-10"
-											})
-										})`}
-								</Script>
-							</div>
+
 							<div className="tabs_btns flex ">
 								<Cards
 									data={sortByDate(filtredPosts).slice(
@@ -123,7 +109,21 @@ const AllStories = ({ pageData, categories }) => {
 									Еще посты
 								</button>
 							)}
-
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-10"></div>
+								<Script
+									id="yandex-ads-10"
+									strategy="afterInteractive"
+								>
+									{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-10",
+												"renderTo": "yandex_rtb_R-A-2501461-10"
+											})
+										})`}
+								</Script>
+							</div>
 							<div className="banner">
 								<div id="yandex_rtb_R-A-2501461-11"></div>
 								<Script
