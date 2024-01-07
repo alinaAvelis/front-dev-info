@@ -346,10 +346,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 		<>
 			<Head>
 				<title>{pageData?.title}</title>
-				<meta
-					name="keywords"
-					content={pageData?.tags}
-				/>
+				<meta name="keywords" content={pageData?.tags} />
 
 				<meta
 					name="description"
@@ -357,9 +354,7 @@ const Post = ({ pageData, categories, allPosts }) => {
 					key="ogdesc"
 				/>
 			</Head>
-			<MainLayout
-				categories={categories}
-			>
+			<MainLayout categories={categories}>
 				<div className="container container--center main_container">
 					<Breadcrumbs
 						pathArr={[
@@ -500,6 +495,38 @@ const Post = ({ pageData, categories, allPosts }) => {
 											Ya.Context.AdvManager.render({
 												"blockId": "R-A-2501461-7",
 												"renderTo": "yandex_rtb_R-A-2501461-7"
+											})
+										})`}
+										</Script>
+									</div>
+
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-8"></div>
+										<Script
+											id="yandex-ads-8"
+											strategy="afterInteractive"
+										>
+											{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-8",
+												"renderTo": "yandex_rtb_R-A-2501461-8"
+											})
+										})`}
+										</Script>
+									</div>
+
+									<div className="banner">
+										<div id="yandex_rtb_R-A-2501461-9"></div>
+										<Script
+											id="yandex-ads-9"
+											strategy="afterInteractive"
+										>
+											{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-9",
+												"renderTo": "yandex_rtb_R-A-2501461-9"
 											})
 										})`}
 										</Script>
