@@ -401,6 +401,12 @@ const Post = ({ pageData, categories, allPosts }) => {
 								components={components}
 							/>
 
+							
+
+							<div className="other_posts">
+								<h2>Другие посты</h2>
+								<Cards data={lastPosts.slice(0, 3)} />
+							</div>
 							<div className="banner">
 								<div id="yandex_rtb_R-A-2501461-11"></div>
 								<Script
@@ -415,11 +421,6 @@ const Post = ({ pageData, categories, allPosts }) => {
 											})
 										})`}
 								</Script>
-							</div>
-
-							<div className="other_posts">
-								<h2>Другие посты</h2>
-								<Cards data={lastPosts.slice(0, 3)} />
 							</div>
 							<div className="banner">
 								<div id="yandex_rtb_R-A-2501461-10"></div>
