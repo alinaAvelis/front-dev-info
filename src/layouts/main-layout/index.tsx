@@ -36,7 +36,6 @@ const MainLayout = ({
 							`}
 				</Script>
 			</div>
-
 			<AppFooter />
 		</>
 	);
