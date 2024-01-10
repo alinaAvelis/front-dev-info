@@ -542,6 +542,21 @@ const Post = ({ categories }) => {
 									})}
 							</section>
 
+							<div className="banner mt-10">
+								<div id="yandex_rtb_R-A-2501461-10"></div>
+								<Script
+									id="yandex-ads-10"
+									strategy="afterInteractive"
+								>
+									{`
+										window.yaContextCb.push(()=>{
+											Ya.Context.AdvManager.render({
+												"blockId": "R-A-2501461-10",
+												"renderTo": "yandex_rtb_R-A-2501461-10"
+											})
+										})`}
+								</Script>
+							</div>
 							<div className="banner">
 								<div id="adfox_169091256339947002"></div>
 								<Script
@@ -561,6 +576,23 @@ const Post = ({ categories }) => {
 										})
 									})
 								`}
+								</Script>
+							</div>
+
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-2"></div>
+								<Script
+									id="yandex-ads-2"
+									strategy="afterInteractive"
+								>
+									{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-2",
+										"renderTo": "yandex_rtb_R-A-2501461-2"
+									})
+								})
+							`}
 								</Script>
 							</div>
 						</div>
@@ -587,7 +619,7 @@ const Post = ({ categories }) => {
 							)}
 							{innerWidth > 1000 && (
 								<>
-									<div className="banner">
+									<div className="banner mt-10">
 										<div id="yandex_rtb_R-A-2501461-3"></div>
 										<Script
 											id="yandex-ads-3"

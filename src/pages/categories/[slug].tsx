@@ -87,7 +87,7 @@ const Category = ({ pageData, category, categories }) => {
 					<div className="mt-16  flex page_container">
 						<section className="section tabs container--center main_container">
 							<h1 className="title">{category?.title}</h1>
-							
+
 							<div className="tabs_btns flex ">
 								<Cards
 									data={pageData?.filter(
@@ -98,7 +98,7 @@ const Category = ({ pageData, category, categories }) => {
 									to="posts"
 								/>
 							</div>
-							<div className="banner">
+							<div className="banner mt-10">
 								<div id="yandex_rtb_R-A-2501461-10"></div>
 								<Script
 									id="yandex-ads-10"
@@ -126,6 +126,23 @@ const Category = ({ pageData, category, categories }) => {
 												"renderTo": "yandex_rtb_R-A-2501461-11"
 											})
 										})`}
+								</Script>
+							</div>
+
+							<div className="banner">
+								<div id="yandex_rtb_R-A-2501461-2"></div>
+								<Script
+									id="yandex-ads-2"
+									strategy="afterInteractive"
+								>
+									{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-2",
+										"renderTo": "yandex_rtb_R-A-2501461-2"
+									})
+								})
+							`}
 								</Script>
 							</div>
 						</section>

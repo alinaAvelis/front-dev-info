@@ -81,7 +81,7 @@ const HomePage = ({ pageData, categories }) => {
 								На страницу постов
 							</Link>
 						)}
-						<div className="banner">
+						<div className="banner mt-10">
 							<div id="yandex_rtb_R-A-2501461-10"></div>
 							<Script
 								id="yandex-ads-10"
@@ -109,6 +109,22 @@ const HomePage = ({ pageData, categories }) => {
 												"renderTo": "yandex_rtb_R-A-2501461-11"
 											})
 										})`}
+							</Script>
+						</div>
+						<div className="banner">
+							<div id="yandex_rtb_R-A-2501461-2"></div>
+							<Script
+								id="yandex-ads-2"
+								strategy="afterInteractive"
+							>
+								{`
+								window.yaContextCb.push(()=>{
+									Ya.Context.AdvManager.render({
+										"blockId": "R-A-2501461-2",
+										"renderTo": "yandex_rtb_R-A-2501461-2"
+									})
+								})
+							`}
 							</Script>
 						</div>
 					</section>
