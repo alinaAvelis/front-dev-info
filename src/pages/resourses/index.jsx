@@ -996,6 +996,14 @@ const instrumentsReact = [
 		strongText: `Таймер`,
 		textAfterStrong: ``,
 	},
+	{
+		id: `23ir`,
+		href: `https://www.react-fast-marquee.com/demo`,
+		title: `react-fast-marquee`,
+		textBeforeStrong: `Бегущая строка`,
+		strongText: ``,
+		textAfterStrong: ``,
+	}
 ];
 
 const instrumentsOthers = [
