@@ -26,6 +26,7 @@ export default function Document({ categories }) {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
+				<meta name="yandex-verification" content="972fd6e17edbb7b9" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
 					rel="stylesheet"
