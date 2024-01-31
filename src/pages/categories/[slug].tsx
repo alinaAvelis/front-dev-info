@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import sanityClient from "../../../public/support-func/sanityClient";
-// import { sortByDate } from '../../../public/support-func/support.js';
 import { groq } from "next-sanity";
 import Script from "next/script";
 import dynamic from "next/dynamic";
