@@ -7,6 +7,7 @@ import useDomain from "@/hooks/use-domain/page";
 const BottomAdds = () => {
     const { domain } = useDomain();
 
+    console.log(domain)
     return (
         <>
             {domain === `front-dev-info` && (
