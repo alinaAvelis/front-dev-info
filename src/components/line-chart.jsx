@@ -1,3 +1,4 @@
+"use client"
 import React, { useMemo, useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import {
@@ -59,7 +60,7 @@ const LineChart = () => {
 	const labels = useMemo(() => {
 		const array = [];
 		for (let i = 1; i <= items; i++) {
-			array.push(i);
+			array?.push(i);
 		}
 
 		return array;

@@ -3,6 +3,10 @@
 
 .post {
     line-height: 1.4;
+
+    strong {
+        font-weight: 700;
+    } 
     & .link {
         word-break: break-word;
     }

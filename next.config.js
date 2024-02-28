@@ -1,19 +1,22 @@
-// This file sets a custom webpack configuration to use your Next.js app
 /** @type {import('next').NextConfig} */
+const nextConfig = {
+    images: {
+        domains: ["cdn.sanity.io"],
+    },
+    reactStrictMode: true,
+    swcMinify: true,
+    productionBrowserSourceMaps: false, // Disable source maps in development
+    optimizeFonts: false, // Disable font optimization
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.resolve.fallback.fs = false;
+            config.resolve.fallback.dns = false;
+            config.resolve.fallback.net = false;
+        }
 
-const moduleExports = {
-  reactStrictMode: true,
-  images: {
-    domains: ["cdn.sanity.io", `localhost`,],
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: `https`,
-        hostname: `cdn.sanity.io`,
-      },
-    ],
-  },
+        return config;
+    },
+    output: 'standalone'
 };
 
-
-module.exports = moduleExports;
+module.exports = nextConfig;
