@@ -7,10 +7,9 @@ import useDomain from "@/hooks/use-domain/page";
 const BottomAdds = () => {
     const { domain } = useDomain();
 
-    console.log(domain)
     return (
         <>
-            {domain === `front-dev-info` && (
+            {domain === `www.front-dev-info.ru` && (
                 <>
                     <div className='banner mt-10'>
                         <div id='yandex_rtb_R-A-2501461-10'></div>

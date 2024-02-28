@@ -11,7 +11,7 @@ const DesctopAdds = () => {
 
     return (
         <>
-            {innerWidth > 1000 && domain === `front-dev-info` && (
+            {innerWidth > 1000 && domain === `www.front-dev-info.ru` && (
                 <>
                     <div className='banner'>
                         <div id='yandex_rtb_R-A-2501461-3'></div>
