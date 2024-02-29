@@ -63,7 +63,7 @@ export default function Layout({ children }) {
                 
 
                 <Script
-
+                    id="adds-1"
                     strategy="beforeInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -73,6 +73,7 @@ export default function Layout({ children }) {
                 />
 
                 <Script
+                    id="adds-2"
                     src='src="https://yandex.ru/ads/system/context.js'
                     strategy="beforeInteractive"
                 />
