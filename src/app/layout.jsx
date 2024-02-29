@@ -74,7 +74,7 @@ export default function Layout({ children }) {
 
                 <Script
                     id="adds-2"
-                    src='src="https://yandex.ru/ads/system/context.js'
+                    src='https://yandex.ru/ads/system/context.js'
                     strategy="beforeInteractive"
                 />
             </body>
