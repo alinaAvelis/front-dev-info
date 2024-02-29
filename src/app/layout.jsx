@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import Head from "next/head";
 import { Providers } from "@/lib/provider";
 import RootLayout from "../RootLayout/RootLayout";
 import "../styles/layout.scss";
@@ -54,6 +55,8 @@ export const metadata = {
 export default function Layout({ children }) {
     return (
         <html lang='ru'>
+            <Head><script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script></Head>
             <body className='flex h-auto min-h-screen flex-col  transition-all '>
                 <Providers>
                     <RootLayout>{children}</RootLayout>
