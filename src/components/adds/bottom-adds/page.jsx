@@ -15,7 +15,7 @@ const BottomAdds = () => {
 
     return (
         <>
-            {domain === `www.front-dev-info.ru` && typeof window?.yaContextCb !== "undefined" && (
+            {domain === `www.front-dev-info.ru` && typeof window !== "undefined" && (
                 <>
                     <div className='banner mt-10'>
                         <div id='yandex_rtb_R-A-2501461-10'></div>
