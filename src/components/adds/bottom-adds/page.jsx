@@ -16,6 +16,7 @@ const BottomAdds = () => {
 
                          <Script
                             id='yandex-ads-10'
+                            strategy="lazyOnload"
                             dangerouslySetInnerHTML={{
                                 __html: `
                                 window.yaContextCb.push(()=>{
