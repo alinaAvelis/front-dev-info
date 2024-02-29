@@ -1,12 +1,17 @@
 "use client";
 import Script from "next/script";
-import React from "react";
+import React, {useEffect} from "react";
 
 import useDomain from "@/hooks/use-domain/page";
 
 const BottomAdds = () => {
     const { domain } = useDomain();
-    console.log(window)
+    
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            console.log(window)
+          }
+    }, [])
 
     return (
         <>
