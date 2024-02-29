@@ -6,10 +6,11 @@ import useDomain from "@/hooks/use-domain/page";
 
 const BottomAdds = () => {
     const { domain } = useDomain();
+    console.log(window)
 
     return (
         <>
-            {domain === `www.front-dev-info.ru` && typeof window?.yaContextCb!== "undefined" && (
+            {domain === `www.front-dev-info.ru` && typeof window?.yaContextCb !== "undefined" && (
                 <>
                     <div className='banner mt-10'>
                         <div id='yandex_rtb_R-A-2501461-10'></div>

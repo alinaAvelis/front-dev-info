@@ -11,7 +11,7 @@ const DesctopAdds = () => {
 
     return (
         <>
-            {innerWidth > 1000 && domain === `www.front-dev-info.ru` && typeof window?.yaContextCb!== "undefined" && (
+            {innerWidth > 1000 && domain === `www.front-dev-info.ru` && typeof window?.yaContextCb !== "undefined" && (
                 <>
                     <div className='banner'>
                         <div id='yandex_rtb_R-A-2501461-3'></div>
