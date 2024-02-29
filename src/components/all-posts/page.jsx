@@ -28,10 +28,6 @@ const AllPosts = ({ pageData, title, homePage = false }) => {
         }
     }, [homePage, pageData, searchValue]);
 
-    // useEffect(() => {
-    //     setFiltredPosts(pageData);
-    // }, [homePage, pageData]);
-
     const transformedData = useMemo(() => {
         return filtredPosts.slice(0, sliceValue)
     }, [filtredPosts, sliceValue])
