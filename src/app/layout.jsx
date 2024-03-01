@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { Providers } from "@/lib/provider";
 import RootLayout from "../RootLayout/RootLayout";
@@ -58,10 +58,9 @@ export default function Layout({ children }) {
             <body className='flex h-auto min-h-screen flex-col  transition-all '>
                 <Providers>
                     <RootLayout>{children}</RootLayout>
-                    <Analytics />
+                    {/* <Analytics /> */}
                 </Providers>
                 
-
                 <Script
                     id="adds-1"
                     strategy="beforeInteractive"

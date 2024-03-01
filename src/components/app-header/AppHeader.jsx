@@ -18,12 +18,15 @@ const AppHeader = ({ categories }) => {
 	const pathname = usePathname()
 
 	useEffect(() => {
+		console.log(pathname)
 		if (pathname === "/") {
 			setIsHomeSearch(true);
 		} else {
 			setIsHomeSearch(false);
 		}
 	}, [pathname]);
+
+	const postResoursesPages = pathname.includes(`/posts/`) || pathname === `resourses`
 
 	const handleOpenMenu = () => {
 		const menu = mobileMenu.current;
@@ -41,7 +44,7 @@ const AppHeader = ({ categories }) => {
 
 	return (
 		<>
-			<header className="bg-white fixed top-0 right-0 w-full z-10">
+			<header className={`bg-white  w-full z-10 ${postResoursesPages ? `` : `fixed top-0 right-0`}`}>
 				<div className="flex gap-5 sm:items-center justify-between flex-col sm:flex-row py-2 px-5">
 					<Link
 						className="link text-gray-500 text-sm md:text-lg font-bold"

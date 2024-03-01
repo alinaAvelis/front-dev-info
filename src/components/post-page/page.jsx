@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect,  useState } from "react";
+import ToTopButton from "@/components/to-top-button/ToTopButton.jsx"
 import Link from "next/link.js";
 import parse from "html-react-parser";
 // import {
@@ -221,7 +222,7 @@ const PostPage = ({ post, allPosts }) => {
                     const link = {
                         linkName: linkName,
                         text: text,
-                        classList: "",
+                        classList: "relative",
                     };
 
                     switch (tag) {
@@ -256,7 +257,7 @@ const PostPage = ({ post, allPosts }) => {
                 setMenu(links);
             }
         } catch (e) {
-            // console.log(e);
+            console.log(e);
         }
     };
 
@@ -279,7 +280,7 @@ const PostPage = ({ post, allPosts }) => {
     };
 
     return (
-        <div className='container--center main_container container'>
+        <div className='main_container container'>
             <Breadcrumbs
                 pathArr={[
                     { name: "Посты", url: "/posts" },
@@ -304,15 +305,17 @@ const PostPage = ({ post, allPosts }) => {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div className='menu'>
-                                    {menu?.map((item, i) => (
-                                        <a
-                                            key={i}
-                                            className={`menu__item ${item.classList}`}
-                                            href={`#${item.linkName}`}
-                                        >
-                                            {item.text}
-                                        </a>
-                                    ))}
+                                    {menu?.map((item, i) => {
+                                        return (
+                                            <a
+                                                key={i}
+                                                className={`menu__item ${item.classList}`}
+                                                href={`#${item.linkName}`}
+                                            >
+                                                {item.text}
+                                            </a>
+                                        );
+                                    })}
                                 </div>
                             </AccordionDetails>
                         </Accordion>
@@ -356,6 +359,8 @@ const PostPage = ({ post, allPosts }) => {
                     <DesctopAdds />
                 </div>
             </div>
+
+            <ToTopButton />
         </div>
     );
 };

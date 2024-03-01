@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import ToTopButton from "@/components/to-top-button/ToTopButton.jsx"
 import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(() =>
     import("@/components/breadcrumbs/Breadcrumbs")
@@ -102,7 +103,7 @@ const ResoursesPage = () => {
     };
 
     return (
-        <div className='container--center container'>
+        <div className='container--center container relative'>
             <Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
             <div className=' page_container  main_container mt-16 flex'>
                 <div className='post main  main--not_main'>
@@ -168,6 +169,8 @@ const ResoursesPage = () => {
                     <DesctopAdds />
                 </aside>
             </div>
+
+            <ToTopButton />
         </div>
     );
 };
