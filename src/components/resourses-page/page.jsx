@@ -103,7 +103,7 @@ const ResoursesPage = () => {
     };
 
     return (
-        <div className='container--center container relative'>
+        <div className='container relative'>
             <Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
             <div className=' page_container  main_container mt-16 flex'>
                 <div className='post main  main--not_main'>
