@@ -26,7 +26,7 @@ const AppHeader = ({ categories }) => {
 		}
 	}, [pathname]);
 
-	const postResoursesPages = pathname.includes(`/posts/`) || pathname === `resourses`
+	const postResoursesPages = pathname.includes(`/posts/`) || pathname.includes(`/resourses`)
 
 	const handleOpenMenu = () => {
 		const menu = mobileMenu.current;
