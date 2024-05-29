@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 // import Script from "next/script";
 const AppHeader = dynamic(() => import("@/components/app-header/AppHeader"));
 const AppFooter = dynamic(() => import("@/components/app-footer/AppFooter"));
-// import { categoryObject } from "@/constants/types";
 
 export default async function RootLayout({ children }) {
     const categories = await sanityFetch({
