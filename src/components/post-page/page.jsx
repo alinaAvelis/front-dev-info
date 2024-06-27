@@ -93,6 +93,16 @@ const components = {
                 </a>
             );
         },
+        ancor_link_main: ({ value, children }) => {
+            const { name } = value;
+            return (
+                <span
+                    id={name}
+                >
+                    {children}
+                </span>
+            );
+        },
     },
     types: {
         code_input: ({ value }) => {

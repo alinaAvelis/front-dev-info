@@ -11,7 +11,6 @@ import TitleStyle from "../components/TitleStyle";
  *    type: 'blockContent'
  *  }
  */
-import { UserIcon } from "@sanity/icons";
 
 export default defineType({
     title: "Content",
@@ -139,6 +138,18 @@ export default defineType({
                                 name: "blank",
                                 type: "boolean",
                                 initialValue: true,
+                            },
+                        ],
+                    },
+                    {
+                        name: "ancor_link_main",
+                        type: "object",
+                        title: "ancor_link_main",
+                        fields: [
+                            {
+                                name: "name",
+                                type: "string",
+                                title: "Name",
                             },
                         ],
                     },
