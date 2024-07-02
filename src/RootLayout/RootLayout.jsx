@@ -1,4 +1,3 @@
-
 // import { SanityDocument } from "@sanity/client";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { categoriesQuery } from "@/sanity/lib/queries";
@@ -14,13 +13,10 @@ export default async function RootLayout({ children }) {
     });
     return (
         <>
-			<AppHeader categories={categories} />
-            <div className="min-h-screen">
-                {children}
-            </div>
-			
+            <AppHeader categories={categories} />
+            <div className='min-h-screen'>{children}</div>
 
-			<AppFooter />
-		</>
+            <AppFooter />
+        </>
     );
 }
