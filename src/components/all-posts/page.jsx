@@ -34,7 +34,7 @@ const AllPosts = ({ pageData, title, homePage = false }) => {
 
     return (
         <div className={`page_container mt-16 flex`}>
-            <div>
+            <div className="md:w-4/5 overflow-hidden">
                 <div className='flex gap-2'>
                     <button type='button' onClick={() => setView('cards')} title="карточки" className="hover:opacity-80">
                         <span className='grid grid-cols-3 gap-[2px]  h-5 w-5'>
