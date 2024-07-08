@@ -24,7 +24,7 @@ const CategoryPage = ({ allPosts, category }) => {
             />
 
             <div className='page_container  mt-16 flex'>
-                <section className='section tabs mt-16'>
+                <section className='section tabs mt-16 md:w-4/5 overflow-hidden'>
                     <h1 className='title'>{category?.title}</h1>
 
                     <div className='tabs_btns flex '>
