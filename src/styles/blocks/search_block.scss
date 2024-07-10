@@ -20,18 +20,6 @@
 
     &--small {
         height: fit-content;
-
-        & .search_container {
-            width: 85%;
-
-            @media(max-width: $tablet) {
-                width: 80%;
-            }
-
-            @media(max-width: $mobile) {
-                width: 70%;
-            }
-        }
     }
 }
 

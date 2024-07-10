@@ -58,9 +58,9 @@ const SearchBlock = () => {
 	};
 
 	return (
-		<section className="search_block search_block--small">
+		<section className="search_block search_block--small ">
 			<h2 className="visually-hidden">Поиск</h2>
-			<div className="py-2 px-5 flex align_items_center">
+			<div className="py-2 px-5 flex justify-center align_items_center mx-auto max-w-screen-xl md:px-10">
 				<div className="search_block_back">
 					<pre>
 						<code>{code}</code>

@@ -1,24 +1,22 @@
 @import "../../styles/vars";
 
 .breadcrumbs {
-    margin-top: 20px;
-    display: flex;
-
+    @apply flex mt-5;
     & a,
     span {
-        padding: 0 10px;
+       @apply px-2;
+    }
+
+    & a:first-child {
+        @apply pl-0;
     }
 
     & a:not(:last-child) {
-        position: relative;
-
+        @apply relative;
+        
         &:before {
+            @apply absolute block rounded-full w-1 h-1;
             content: "";
-            display: block;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            position: absolute;
             top: 7px;
             right: -2px;
             background-color: $dark_gray_middle;

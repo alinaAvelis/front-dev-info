@@ -18,7 +18,7 @@ const CategoriesPage = async () => {
     });
 
     return (
-        <div className='container--center  main_container container'>
+        <div className='container--center  main_container container mx-auto w-full px-5 md:px-10'>
             <Breadcrumbs
                 pathArr={[{ name: "Категории", url: "/categories" }]}
             />
