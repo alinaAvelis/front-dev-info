@@ -106,8 +106,8 @@ const components = {
     },
     types: {
         code_input: ({ value }) => {
-            const { language, code } = value;
-            return <CodeInput language={language} code={code} />;
+            const { language, code, filename } = value;
+            return <CodeInput language={language} code={code} filename={filename} />;
         },
         code_input_to_page: ({ value }) => {
             const { code } = value;

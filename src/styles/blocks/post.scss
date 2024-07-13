@@ -11,20 +11,14 @@
         word-break: break-word;
     }
     & .code_block {
-        display: block;
-        width: 100%;
-        margin-top: 30px;
-        
+        @apply block w-full mt-8 overflow-hidden;   
         background: $white;
         border: 3px solid $dark_gray;
         border-radius: $input_radius;
 
-        overflow: hidden;
-
         &__lang {
             padding: 0px 10px;
             margin-top: 0;
-            text-transform: uppercase;
             font-weight: bold;
         }
 

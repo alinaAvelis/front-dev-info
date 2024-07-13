@@ -20,7 +20,6 @@ const AppHeader = ({ categories }) => {
     const pathname = usePathname();
 
     useEffect(() => {
-        console.log(pathname);
         if (pathname === "/") {
             setIsHomeSearch(true);
         } else {
