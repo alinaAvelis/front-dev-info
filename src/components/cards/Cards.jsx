@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/utils/sanity-utils";
 
-const Cards = ({ data, to = "posts" }) => {
+const Cards = ({ data, to = "posts", withImage = true }) => {
     return (
         <>
             {data.length > 0 ? (
@@ -22,7 +22,7 @@ const Cards = ({ data, to = "posts" }) => {
                                     }
                                 >
                                     <span className="flex flex-col gap-5">
-                                        <span className='card_title bold bold px-3 text-2xl font-bold'>
+                                        <span className='card_title bold bold px-3 text-2xl font-bold leading-none'>
                                             {" "}
                                             {item.title}{" "}
                                         </span>
@@ -33,7 +33,7 @@ const Cards = ({ data, to = "posts" }) => {
                                         </span>
                                     </span>
 
-                                    <span className='w-full '>
+                                    {withImage && <span className='w-full '>
                                         {item.mainImage ? (
                                             <Image
                                                 className='img'
@@ -47,7 +47,7 @@ const Cards = ({ data, to = "posts" }) => {
                                         ) : (
                                             <span className=' inline-block h-full w-full bg-[#dddde1]'></span>
                                         )}
-                                    </span>
+                                    </span>}
                                 </a>
                             </li>
                         );
