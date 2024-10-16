@@ -234,6 +234,14 @@ const images = [
     },
     {
         id: 6,
+        href: `https://www.websiteplanet.com/webtools/imagecompressor/`,
+        title: `https://www.websiteplanet.com/webtools/imagecompressor/`,
+        textBeforeStrong: `Второй ресурс для`,
+        strongText: `сжатия изображений`,
+        textAfterStrong: ``,
+    },
+    {
+        id: 7,
         href: `https://squoosh.app/`,
         title: `https://squoosh.app/`,
         textBeforeStrong: ``,
@@ -328,6 +336,14 @@ const librariesStyles = [
         textBeforeStrong: ``,
         strongText: `CSS line hover`,
         textAfterStrong: `styles for links`,
+    },
+    {
+        id: 18 + "l",
+        href: `https://www.framer.com/motion/`,
+        title: `https://www.framer.com/motion/`,
+        textBeforeStrong: ``,
+        strongText: `Создание анимаций`,
+        textAfterStrong: ``,
     },
 ];
 
