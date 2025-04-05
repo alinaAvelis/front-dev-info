@@ -84,7 +84,7 @@ const components = {
             const { href } = value;
             return (
                 <a
-                    className='button'
+                    className='button mt-3! block sm:w-fit'
                     href={href}
                     target='_blank'
                     rel='noreferrer noopener'

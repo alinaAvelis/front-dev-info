@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-
-
 const Breadcrumbs = ({ pathArr }) => {
     const [path, setPath] = useState([]);
 
