@@ -26,7 +26,7 @@ const Breadcrumbs = ({ pathArr }) => {
                     ) : (
                         <span
                             key={item.name + index}
-                            className="px-2 first:pl-0 relative before:absolute before:block before:rounded-full before:w-1 before:h-1 before:top-[0.6em] before:-right-[2px] before:bg-[#979797] last:before:hidden text-sm!"
+                            className="px-2 first:pl-0 relative before:absolute before:block before:rounded-full before:w-1 before:h-1 before:top-[0.6em] before:-right-[2px] before:bg-[#979797] last:before:hidden text-sm! truncate"
                         >
                             {item.name}
                         </span>

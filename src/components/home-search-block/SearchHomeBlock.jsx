@@ -35,7 +35,7 @@ const SearchHomeBlock = () => {
                     <code>{code}</code>
                 </div>
 
-                <div className='max-w-screen-xl w-full px-5 mx-auto'>
+                <div className='max-w-screen-xl w-full mx-auto'>
                     <div className='search_container  flex w-full '>
                         <input
                             type='text'
