@@ -51,11 +51,11 @@ const AppHeader = ({ categories }) => {
                     postResoursesPages ? `` : `fixed right-0 top-0`
                 }`}
             >
-                <div className='mx-auto max-w-screen-xl px-5 md:px-10'>
+                <div className='mx-auto max-w-screen-xl px-5'>
                     <div className='flex flex-col items-center justify-between gap-5 py-2 sm:flex-row'>
                         <div className='flex w-full items-center justify-between gap-2 md:w-fit'>
                             <Link
-                                className='link text-sm font-bold text-gray-500 md:text-lg'
+                                className='link text-sm font-bold! text-gray-300! md:text-lg'
                                 href='/'
                                 onClick={onClose}
                             >

@@ -19,7 +19,7 @@ const AllStories = async () => {
     });
 
     return (
-        <div className='container--center main_container relative px-5 md:px-10'>
+        <div className='container--center max-w-screen-xl mx-auto main_container relative px-5 md:px-10'>
             <Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
             <AllPosts pageData={pageData} title='Все посты' />
         </div>

@@ -30,12 +30,12 @@ const SearchHomeBlock = () => {
         <section className='search_block'>
             <h2 className='visually-hidden'>Поиск</h2>
 
-            <div className='items-center search_block__container relative px-5 md:px-10 mx-auto flex'>
+            <div className='items-center search_block__container relative px-5 mx-auto flex'>
                 <div className='search_block_back'>
                     <code>{code}</code>
                 </div>
 
-                <div className='max-w-screen-xl w-full px-5 md:px-10 mx-auto'>
+                <div className='max-w-screen-xl w-full px-5 mx-auto'>
                     <div className='search_container  flex w-full '>
                         <input
                             type='text'
