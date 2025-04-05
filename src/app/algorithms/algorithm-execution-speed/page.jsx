@@ -14,7 +14,7 @@ const Post = async () => {
     });
 
     return (
-        <div className='container--center main_container container'>
+        <div className='container--center main_container relative px-5 md:px-10'>
             <Breadcrumbs
                 pathArr={[
                     { name: "Посты", url: "/posts" },

@@ -131,7 +131,7 @@ const StaticPost = ({ allPosts, createDate, title, children }) => {
     };
 
     return (
-        <div className='page_container  mt-16 flex'>
+        <div className='page_container  mt-8! md:mt-16! flex'>
             <div className='post main  main--not_main'>
                 <h1>{title}</h1>
                 {menu.length > 0 && innerWidth < 1200 && (
@@ -145,7 +145,7 @@ const StaticPost = ({ allPosts, createDate, title, children }) => {
                             id='panel2bh-header'
                             expandIcon={<ExpandMoreIcon />}
                         >
-                            <h2>Содержание</h2>
+                            Содержание
                         </AccordionSummary>
                         <AccordionDetails>
                             <div className='menu'>

@@ -12,7 +12,7 @@ const List = ({ data, to = "posts" }) => {
                                 className='pt-3'
                             >
                                 <a
-                                    className=' card_title justify-between bold px-3 text-2xl font-bold'
+                                    className='card_title justify-between bold px-3 text-xl md:text-2xl font-bold'
                                     href={
                                         item.toOtherPage
                                             ? `${item.slug.current}`

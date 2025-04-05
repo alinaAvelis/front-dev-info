@@ -2,7 +2,7 @@ import React from 'react';
 import CloseBtn from '../close_btn/CloseBtn';
 
 type modalProps = {
-    onClose: Function;
+    onClose: () => void;
     children: React.ReactNode;
 };
 

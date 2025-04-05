@@ -3,9 +3,10 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import CategoryPage from "../../../../components/category-page";
 
 export async function generateMetadata({ params }) {
+    const parametrs = await params
     const category = await sanityFetch({
         query: categoryQuery,
-        params,
+        params: parametrs,
     });
 
     if (!category)
@@ -22,14 +23,14 @@ export async function generateMetadata({ params }) {
 }
 
 const Category = async ({ params }) => {
+    const parametrs = await params
     const allPosts = await sanityFetch({
         query: postsQuery,
-        params,
     });
 
     const category = await sanityFetch({
         query: categoryQuery,
-        params,
+        params: parametrs,
     });
 
     return (

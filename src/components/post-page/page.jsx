@@ -290,14 +290,14 @@ const PostPage = ({ post, allPosts }) => {
     };
 
     return (
-        <div className='main_container container'>
+        <div className='main_container relative px-5 md:px-10'>
             <Breadcrumbs
                 pathArr={[
                     { name: "Посты", url: "/posts" },
                     { name: post?.title },
                 ]}
             />
-            <div className='page_container  mt-16 flex'>
+            <div className='page_container  mt-5 md:mt-10 flex'>
                 <div className='post main  main--not_main'>
                     <h1>{post?.title}</h1>
                     {menu.length > 0 && innerWidth < 1200 && (
@@ -311,7 +311,7 @@ const PostPage = ({ post, allPosts }) => {
                                 id='panel2bh-header'
                                 expandIcon={<ExpandMoreIcon />}
                             >
-                                <h2>Содержание</h2>
+                                Содержание
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div className='menu'>

@@ -34,7 +34,7 @@ const CodeInput = ({ code, filename, language = "JavaScript" }) => {
                     className='bg-white font-bold uppercase hover:opacity-80 active:opacity-60'
                     onClick={() => copy()}
                 >
-                    {copied ? <span>Copied</span> : <span>Copy</span>}
+                    {copied ? <span className="text-green-500">Copied</span> : <span className="cursor-pointer">Copy</span>}
                 </button>
             </div>
 

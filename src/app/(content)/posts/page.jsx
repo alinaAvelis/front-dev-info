@@ -15,12 +15,12 @@ export const metadata = {
 const AllStories = async () => {
     const pageData = await sanityFetch({
         query: postsQuery,
+        params: {limit: 3},
     });
 
     return (
-        <div className='container--center main_container container px-5 md:px-10'>
+        <div className='container--center main_container relative px-5 md:px-10'>
             <Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
-
             <AllPosts pageData={pageData} title='Все посты' />
         </div>
     );

@@ -8,10 +8,10 @@ const AllCategories = ({ categories }) => {
     }, []);
 
     return (
-        <section className='section tabs mt-16'>
+        <section className='section tabs mt-5 md:mt-10'>
             <h1 className='title'>Все категории</h1>
 
-            <ul className='gap grid'>
+            <ul className='gap-3 grid'>
                 {categories?.map((item, i) => {
                     return (
                         <li key={item._id}>

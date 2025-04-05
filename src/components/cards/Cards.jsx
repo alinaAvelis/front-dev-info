@@ -14,22 +14,20 @@ const Cards = ({ data, to = "posts", withImage = true }) => {
                                 className='border border-solid border-[#dddde1] pt-3'
                             >
                                 <a
-                                    className='card flex h-full flex-col justify-between'
+                                    className='card flex! h-full flex-col justify-between'
                                     href={
                                         item.toOtherPage
                                             ? `${item.slug.current}`
                                             : `/${to}/${item.slug.current}`
                                     }
                                 >
-                                    <span className="flex flex-col gap-5">
-                                        <span className='card_title bold bold px-3 text-2xl font-bold leading-none'>
-                                            {" "}
-                                            {item.title}{" "}
+                                    <span className="flex flex-col gap-3 md:gap-5">
+                                        <span className='card_title bold bold px-3 text-xl md:text-2xl font-bold leading-none'>
+                                            {item.title}
                                         </span>
 
                                         <span className='px-3 pb-3'>
-                                            {" "}
-                                            {item.shortDescription}{" "}
+                                            {item.shortDescription}
                                         </span>
                                     </span>
 
