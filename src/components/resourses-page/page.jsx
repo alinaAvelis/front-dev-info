@@ -103,9 +103,9 @@ const ResoursesPage = () => {
     };
 
     return (
-        <div className='container relative'>
+        <div className='container container--center mt-0! relative'>
             <Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
-            <div className=' page_container  main_container mt-16 flex'>
+            <div className=' page_container  main_container mt-5 md:mt-10 flex'>
                 <div className='post main  main--not_main'>
                     <h1>Ресурсы для frontend разработки</h1>
                     {menu.length > 0 && innerWidth < 1200 && (
@@ -119,7 +119,7 @@ const ResoursesPage = () => {
                                 id='panel3bh-header'
                                 expandIcon={<ExpandMoreIcon />}
                             >
-                                <h2>Содержание</h2>
+                                Содержание
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div className='menu'>
@@ -156,7 +156,6 @@ const ResoursesPage = () => {
                             <h2>Содержание</h2>
                             {menu?.map((item, i) => (
                                 <Link
-                                    locale={false}
                                     key={i}
                                     className={`menu__item ${item.classList}`}
                                     href={`#${item.linkName}`}

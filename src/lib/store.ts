@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import searchReducer from "./features/searchSlice";
-import { setupListeners } from "@reduxjs/toolkit/dist/query";
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
   reducer: {

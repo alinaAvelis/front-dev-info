@@ -117,7 +117,7 @@ const AppHeader = ({ categories }) => {
                     <div ref={mobileMenu} className='nav_container'>
                         <CloseBtn clickHandler={onClose} />
 
-                        <nav className='header_nav grid'>
+                        <nav className='header_nav grid overscroll-contain'>
                             {categories?.map((item, i) => {
                                 if (item.activeCategory === true) {
                                     return (
@@ -140,9 +140,7 @@ const AppHeader = ({ categories }) => {
             </header>
 
             {isHomeSearch && (
-                <section className='section'>
-                    <SearchHomeBlock />
-                </section>
+                 <SearchHomeBlock />
             )}
 
             {openModal && (

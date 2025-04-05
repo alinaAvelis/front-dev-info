@@ -3,9 +3,10 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import PostPage from "@/components/post-page/page";
 
 export async function generateMetadata({ params }) {
+    const parametrs = await params
     const post = await sanityFetch({
         query: postQuery,
-        params,
+        params: parametrs,
     });
 
     if (!post)
@@ -23,9 +24,10 @@ export async function generateMetadata({ params }) {
 
 
 const Post = async ({ params }) => {
+    const parametrs = await params
     const post = await sanityFetch({
         query: postQuery,
-        params,
+        params: parametrs,
     });
 
     const allPosts = await sanityFetch({

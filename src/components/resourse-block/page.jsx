@@ -1,20 +1,21 @@
+
 import Link from "next/link";
 
 const ResourseBlock = ({ title, data }) => {
     return (
         <section>
             <h2 className='heading'>{title}</h2>
-            {data?.map((item) => {
+            {data?.map((item, i) => {
                 return (
-                    <>
+                    <div key={i + "ps"}>
                         {item?.subtitle && (
                             <h3 className='heading accent_text font-bold'>
                                 {item?.subtitle}
                             </h3>
                         )}
-                        {item?.data?.map((item) => {
+                        {item?.data?.map((item, i) => {
                             return (
-                                <p key={item.id}>
+                                <p key={item.id + i + "psi"}>
                                     {item.textBeforeStrong &&
                                         item.textBeforeStrong + " "}
                                     <strong>{item.strongText}</strong>
@@ -22,7 +23,6 @@ const ResourseBlock = ({ title, data }) => {
                                         " " + item.textAfterStrong}{" "}
                                     -{" "}
                                     <Link
-                                        locale={false}
                                         className='link'
                                         href={item.href}
                                         target='_blank'
@@ -33,7 +33,7 @@ const ResourseBlock = ({ title, data }) => {
                                 </p>
                             );
                         })}
-                    </>
+                    </div>
                 );
             })}
         </section>

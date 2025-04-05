@@ -20,7 +20,7 @@ export default async function Home() {
     });
 
     return (
-        <div className='max-w-screen-xl w-full px-5 md:px-10 mx-auto mt-16 flex'>
+        <div className='max-w-screen-xl w-full px-5 md:px-10 mx-auto mt-5 md:mt-10 flex'>
             <AllPosts pageData={posts} title='Превью постов' homePage={true} />
         </div>
     );

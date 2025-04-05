@@ -33,7 +33,7 @@ this.x = Math.random()*w;<br />`;
 
 const SearchBlock = () => {
 	const searchState = useAppSelector((state) => state.searchState);
-	const [value, setValue] = useState(searchState);
+	const [value, setValue] = useState(searchState ?? "");
 	const searchValue = useAppSelector((state) => state.searchReducer.value);
 	const router = useRouter()
 	
@@ -60,7 +60,7 @@ const SearchBlock = () => {
 	return (
 		<section className="search_block search_block--small ">
 			<h2 className="visually-hidden">Поиск</h2>
-			<div className="py-2 px-5 flex justify-center align_items_center mx-auto max-w-screen-xl md:px-10">
+			<div className="py-2 px-5 flex justify-center items-center mx-auto max-w-screen-xl md:px-10">
 				<div className="search_block_back">
 					<pre>
 						<code>{code}</code>
@@ -76,7 +76,7 @@ const SearchBlock = () => {
 					/>
 
 					<button
-						className="button button--no_styles search_icon flex flex_center"
+						className="button button--no_styles search_icon flex justify-center items-center"
 						type="button"
 						onClick={() => {router?.push('/posts')}}
 					>

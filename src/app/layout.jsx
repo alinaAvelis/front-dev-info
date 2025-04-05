@@ -55,7 +55,7 @@ export const metadata = {
 export default function Layout({ children }) {
     return (
         <html lang='ru'>
-            <body className='flex h-auto min-h-screen flex-col  transition-all '>
+            <body className='flex h-auto min-h-screen flex-col  transition-all ' suppressHydrationWarning>
                 <Providers>
                     <RootLayout>{children}</RootLayout>
                     {/* <Analytics /> */}

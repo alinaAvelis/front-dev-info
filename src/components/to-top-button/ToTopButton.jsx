@@ -16,7 +16,7 @@ const ToTopButton = () => {
     return (
         showToTop && (
             <button
-                className='fixed z-50 bottom-32 right-5 mt-20 flex h-16 w-16 flex-col items-center justify-center gap-1 rounded-sm bg-gray-500 shadow-sm shadow-neutral-500 md:right-10'
+                className='fixed z-50 bottom-32 right-5 mt-20 flex h-16 w-16 flex-col items-center justify-center gap-1 rounded-sm bg-gray-200 shadow-sm shadow-neutral-500 md:right-10 cursor-pointer'
                 onClick={() => {
                     window?.scrollTo({
                         top: 0,
