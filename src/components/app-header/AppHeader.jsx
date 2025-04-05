@@ -6,101 +6,108 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 const Modal = dynamic(() => import("../modal/Modal"));
-const SearchHomeBlock = dynamic(() =>
-    import("../home-search-block/SearchHomeBlock")
+const SearchHomeBlock = dynamic(
+	() => import("../home-search-block/SearchHomeBlock")
 );
 const SearchBlock = dynamic(() => import("../search-block/SearchBlock"));
 const CloseBtn = dynamic(() => import("../close_btn/CloseBtn"));
 
 const AppHeader = ({ categories }) => {
-    const [openModal, setOpenModal] = useState(false);
-    const mobileMenu = useRef(null);
-    const [isHomeSearch, setIsHomeSearch] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+	const mobileMenu = useRef(null);
+	const [isHomeSearch, setIsHomeSearch] = useState(false);
+	const pathname = usePathname();
 
-    const pathname = usePathname();
+	useEffect(() => {
+		if (pathname === "/") {
+			setIsHomeSearch(true);
+		} else {
+			setIsHomeSearch(false);
+		}
+	}, [pathname]);
 
-    useEffect(() => {
-        if (pathname === "/") {
-            setIsHomeSearch(true);
-        } else {
-            setIsHomeSearch(false);
-        }
-    }, [pathname]);
+	const postResoursesPages =
+		pathname.includes(`/posts/`) || pathname.includes(`/resourses`);
 
-    const postResoursesPages =
-        pathname.includes(`/posts/`) || pathname.includes(`/resourses`);
+	const handleOpenMenu = () => {
+		const menu = mobileMenu.current;
+		menu?.classList.add("open");
+		const body = document.querySelector("body");
+		body.style.overflow = "hidden";
+	};
 
-    const handleOpenMenu = () => {
-        const menu = mobileMenu.current;
-        menu?.classList.add("open");
-        const body = document.querySelector("body");
-        body.style.overflow = "hidden";
-    };
+	const onClose = () => {
+		const menu = mobileMenu.current;
+		menu?.classList.remove("open");
+		const body = document.querySelector("body");
+		body.style.overflowY = "visible";
+	};
 
-    const onClose = () => {
-        const menu = mobileMenu.current;
-        menu?.classList.remove("open");
-        const body = document.querySelector("body");
-        body.style.overflowY = "visible";
-    };
+	return (
+		<>
+			<header
+				className={`z-10  w-full  bg-white ${
+					postResoursesPages ? `` : `fixed right-0 top-0`
+				}`}
+			>
+				<div className="mx-auto max-w-screen-xl px-5">
+					<div className="flex flex-col items-center justify-between gap-5 py-2 sm:flex-row">
+						<div className="flex w-full items-center justify-between gap-2 md:w-fit">
+							<Link
+								className="link text-sm font-bold! text-gray-300! md:text-lg"
+								href="/"
+								onClick={onClose}
+							>
+								FRONT-DEV-INFO
+							</Link>
 
-    return (
-        <>
-            <header
-                className={`z-10  w-full  bg-white ${
-                    postResoursesPages ? `` : `fixed right-0 top-0`
-                }`}
-            >
-                <div className='mx-auto max-w-screen-xl px-5'>
-                    <div className='flex flex-col items-center justify-between gap-5 py-2 sm:flex-row'>
-                        <div className='flex w-full items-center justify-between gap-2 md:w-fit'>
-                            <Link
-                                className='link text-sm font-bold! text-gray-300! md:text-lg'
-                                href='/'
-                                onClick={onClose}
-                            >
-                                FRONT-DEV-INFO
-                            </Link>
+							<button
+								className="button button--small text-sm md:hidden md:text-lg"
+								type="button"
+								data-type="open_donate"
+								onClick={() => setOpenModal(true)}
+							>
+								Поддержать
+							</button>
+						</div>
+						<div className="flex items-center justify-end gap-5">
+							{menuItems.map((item) =>
+								item.type === "button" ? (
+									<button
+										key={item.id}
+										className={`button button--no_styles text-base md:text-lg ${pathname.includes(item.path) ? "underline" : ""}`}
+										type="button"
+										data-type="open_donate"
+										onClick={handleOpenMenu}
+									>
+										{item.title}
+									</button>
+								) : (
+									<Link
+										key={item.id}
+										className={`link text-base font-bold md:text-lg ${pathname.includes(item.path) ? "underline!" : ""}`}
+										href={item.path}
+									>
+										{item.title}
+									</Link>
+								)
+							)}
 
-                            <button
-                                className='button button--small text-sm md:hidden md:text-lg'
-                                type='button'
-                                data-type='open_donate'
-                                onClick={() => setOpenModal(true)}
-                            >
-                                Поддержать
-                            </button>
-                        </div>
-                        <div className='flex items-center justify-end gap-5'>
-                            <button
-                                className='button button--no_styles text-base md:text-lg'
-                                type='button'
-                                data-type='open_donate'
-                                onClick={handleOpenMenu}
-                            >
-                                Категории
-                            </button>
-                            <Link
-                                className='link text-base font-bold md:text-lg'
-                                href='/posts'
-                            >
-                                Посты
-                            </Link>
-                            <Link
-                                className='link text-base font-bold md:text-lg'
+							{/* <Link
+                                className={`link text-base font-bold md:text-lg ${ pathname === '/resourses'}`}
                                 href='/resourses'
                             >
                                 Ресурсы
-                            </Link>
-                            <button
-                                className='button button--small text-sm md:text-lg hidden md:block'
-                                type='button'
-                                data-type='open_donate'
-                                onClick={() => setOpenModal(true)}
-                            >
-                                Поддержать
-                            </button>
-                            {/* <button
+                            </Link> */}
+							<button
+								className="button button--small text-sm md:text-lg hidden md:block"
+								type="button"
+								data-type="open_donate"
+								onClick={() => setOpenModal(true)}
+							>
+								Поддержать
+							</button>
+							{/* <button
 						id="burger"
 						className="burger grid md:hidden bg-inherit"
 						type="button"
@@ -110,42 +117,39 @@ const AppHeader = ({ categories }) => {
 						<p className="w-full h-1 bg-slate-300 rounded-2xl"></p>
 						<p className="w-full h-1 bg-slate-300 rounded-2xl"></p>
 					</button> */}
-                        </div>
-                    </div>
+						</div>
+					</div>
 
-                    
-                    <div ref={mobileMenu} className='nav_container'>
-                        <CloseBtn clickHandler={onClose} />
+					<div ref={mobileMenu} className="nav_container ">
+						<CloseBtn clickHandler={onClose} />
 
-                        <nav className='header_nav grid overscroll-contain'>
-                            {categories?.map((item, i) => {
-                                if (item.activeCategory === true) {
-                                    return (
-                                        <Link
-                                            key={i}
-                                            className='link'
-                                            href={`/categories/${item.slug.current}`}
-                                            onClick={onClose}
-                                        >
-                                            {item.title}
-                                        </Link>
-                                    );
-                                }
-                            })}
-                        </nav>
-                    </div>
-                </div>
+						<nav className="header_nav grid overscroll-contain overflow-y-auto h-full pr-3">
+							{categories?.map((item, i) => {
+								if (item.activeCategory === true) {
+									return (
+										<Link
+											key={i}
+											className="link"
+											href={`/categories/${item.slug.current}`}
+											onClick={onClose}
+										>
+											{item.title}
+										</Link>
+									);
+								}
+							})}
+						</nav>
+					</div>
+				</div>
 
-                {!isHomeSearch && <SearchBlock />}
-            </header>
+				{!isHomeSearch && <SearchBlock />}
+			</header>
 
-            {isHomeSearch && (
-                 <SearchHomeBlock />
-            )}
+			{isHomeSearch && <SearchHomeBlock />}
 
-            {openModal && (
-                <Modal onClose={() => setOpenModal(false)}>
-                    {/* <p className="subtitle text">Patreon</p>
+			{openModal && (
+				<Modal onClose={() => setOpenModal(false)}>
+					{/* <p className="subtitle text">Patreon</p>
 					<a href="" className="link" target="_blank">
 						Ссылка
 					</a>
@@ -155,14 +159,35 @@ const AppHeader = ({ categories }) => {
 						Ссылка
 					</a> */}
 
-                    <p className='subtitle text'>Metamask</p>
-                    <p className='text address'>
-                        0xf71fbed2cfb0dbFD2EAFA1BA2cABE02CCF1a86C7
-                    </p>
-                </Modal>
-            )}
-        </>
-    );
+					<p className="subtitle text">Metamask</p>
+					<p className="text address">
+						0xf71fbed2cfb0dbFD2EAFA1BA2cABE02CCF1a86C7
+					</p>
+				</Modal>
+			)}
+		</>
+	);
 };
+
+const menuItems = [
+	{
+		id: "1hl",
+		title: "Категории",
+		path: "/categories",
+		type: "button",
+	},
+	{
+		id: "2hl",
+		title: "Посты",
+		path: "/posts",
+		type: "link",
+	},
+	{
+		id: "3hl",
+		title: "Ресурсы",
+		path: "/resourses",
+		type: "link",
+	},
+];
 
 export default AppHeader;

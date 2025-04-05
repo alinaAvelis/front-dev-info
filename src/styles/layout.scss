@@ -267,14 +267,12 @@ textarea {
   }
   
   .nav_container {
-    @apply h-full min-h-dvh absolute top-0 right-0 bg-white  transition-all duration-500 py-[90px] px-5 md:py-[50px] md:px-[35px] w-[300px] md:w-[400px] text-base md:text-lg;
+    @apply h-dvh absolute top-0 right-0 bg-white  transition-all duration-500 py-5 px-5 md:py-8 md:px-[35px] w-[300px] md:w-[400px] text-base md:text-lg z-10 border-l border-l-gray-300;
   
     transform: translateX(500px);
   
     &.open {
       transform: translateX(0);
-      height: 100%;
-      z-index: 10;
     }
   
   }
@@ -288,7 +286,7 @@ textarea {
   }
   
   .header_nav {
-    @apply mt-3 md:mt-8 gap-3 md:gap-8;
+    @apply mt-3 md:mt-5 gap-3 md:gap-8;
   }
   
   .info {
