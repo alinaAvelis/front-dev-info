@@ -120,10 +120,10 @@ const AppHeader = ({ categories }) => {
 						</div>
 					</div>
 
-					<div ref={mobileMenu} className="nav_container ">
+					<div ref={mobileMenu} className="nav_container h-full">
 						<CloseBtn clickHandler={onClose} />
 
-						<nav className="header_nav grid overscroll-contain overflow-y-auto h-full pr-3">
+						<nav className="header_nav grid overscroll-contain overflow-y-auto pr-3">
 							{categories?.map((item, i) => {
 								if (item.activeCategory === true) {
 									return (

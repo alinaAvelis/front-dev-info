@@ -31,7 +31,7 @@ const Cards = ({ data, to = "posts", withImage = true }) => {
                                         </span>
                                     </span>
 
-                                    {withImage && <span className='w-full '>
+                                    {/* {withImage && <span className='w-full '>
                                         {item.mainImage ? (
                                             <Image
                                                 className='img'
@@ -45,7 +45,7 @@ const Cards = ({ data, to = "posts", withImage = true }) => {
                                         ) : (
                                             <span className=' inline-block h-full w-full bg-[#dddde1]'></span>
                                         )}
-                                    </span>}
+                                    </span>} */}
                                 </a>
                             </li>
                         );

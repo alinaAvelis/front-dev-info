@@ -183,6 +183,15 @@ const API = [
         strongText: `YouTube iframe player API`,
         textAfterStrong: ``,
     },
+    {
+        id: "api1",
+        href: `https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API`,
+        title: `https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API`,
+        textBeforeStrong: ``,
+        strongText: `Web Audio API`,
+        textAfterStrong: ``,
+    },
+    
 ];
 
 const contentSecurityPolicy = [
@@ -361,6 +370,14 @@ const librariesReact = [
         title: `https://mui.com/`,
         textBeforeStrong: `Библиотека`,
         strongText: `компонентов для React Material UI`,
+        textAfterStrong: ``,
+    },
+    {
+        id: "react1",
+        href: `https://magicui.design/`,
+        title: `https://magicui.design/`,
+        textBeforeStrong: `Библиотека`,
+        strongText: `фнимированных компонентов для React magic UI`,
         textAfterStrong: ``,
     },
 ];

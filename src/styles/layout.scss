@@ -267,7 +267,7 @@ textarea {
   }
   
   .nav_container {
-    @apply h-dvh absolute top-0 right-0 bg-white  transition-all duration-500 py-5 px-5 md:py-8 md:px-[35px] w-[300px] md:w-[400px] text-base md:text-lg z-10 border-l border-l-gray-300;
+    @apply min-h-dvh absolute top-0 right-0 bg-white  transition-all duration-500 py-5 px-5 md:py-8 md:px-[35px] w-[300px] md:w-[400px] text-base md:text-lg z-10 border-l border-l-gray-300;
   
     transform: translateX(500px);
   

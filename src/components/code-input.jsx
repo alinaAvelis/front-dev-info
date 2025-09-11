@@ -6,20 +6,13 @@ const CodeInput = ({ code, filename, language = "JavaScript" }) => {
     const [copied, setCopied] = useState(false);
 
     const copy = useCallback(async () => {
-        try {
-            if(navigator) {
-                await navigator?.clipboard
-                .writeText(code)
-                .then(() => {
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
-                })
-                .catch((err) => console.error(`Error copying text:`, err));
-            }
-          
-        } catch (error) {
-            console.error(error.message);
-        }
+        navigator?.clipboard
+        .writeText(code)
+        .then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        })
+        .catch((err) => console.error(`Error copying text:`, err));
     }, [code]);
 
     return (
@@ -32,7 +25,7 @@ const CodeInput = ({ code, filename, language = "JavaScript" }) => {
 
                 <button
                     className='bg-white font-bold uppercase hover:opacity-80 active:opacity-60'
-                    onClick={() => copy()}
+                    onClick={copy}
                 >
                     {copied ? <span className="text-green-500">Copied</span> : <span className="cursor-pointer">Copy</span>}
                 </button>

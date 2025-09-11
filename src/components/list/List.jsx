@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const List = ({ data, to = "posts" }) => {
+
     return (
         <>
             {data.length > 0 ? (
-                <ul className={`tabs_container`}>
+                <ul className="tabs_container ">
                     {data?.map((item, i) => {
                         return (
                             <li
@@ -19,7 +20,7 @@ const List = ({ data, to = "posts" }) => {
                                             : `/${to}/${item.slug.current}`
                                     }
                                 >
-                                    {i +1 }) {item.title}
+                                    {i + 1 }) {item.title}
                                 </a>
                             </li>
                         );
