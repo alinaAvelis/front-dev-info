@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import Link from "next/link";
-// import style from "./index.module.scss";
+
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 const Modal = dynamic(() => import("../modal/Modal"));
