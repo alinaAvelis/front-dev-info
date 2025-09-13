@@ -1,6 +1,7 @@
 import { postsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import AllPosts from "@/components/all-posts/page";
+import { categoriesQuery } from "@/sanity/lib/queries";
 
 import { WEBSITE_NAME, META_DESCRIPTION, WEBSITE_URL } from "@/constants/_APP_SETUP";
 
@@ -19,9 +20,14 @@ export default async function Home() {
         query: postsQuery,
     });
 
+    const categories = await sanityFetch({
+		query: categoriesQuery,
+	});
+
+
     return (
         <div className='max-w-screen-xl w-full px-5 md:px-10 mx-auto mt-5 md:mt-10 flex'>
-            <AllPosts pageData={posts} title='Превью постов' homePage={true} />
+            <AllPosts pageData={posts} title='Превью постов' homePage={true} categories={categories}/>
         </div>
     );
 }

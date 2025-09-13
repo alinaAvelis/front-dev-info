@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { postsQuery } from "@/sanity/lib/queries";
 import AllPosts from "@/components/all-posts/page";
 import dynamic from "next/dynamic";
+import { categoriesQuery } from "@/sanity/lib/queries";
 const Breadcrumbs = dynamic(() =>
     import("@/components/breadcrumbs/Breadcrumbs")
 );
@@ -18,10 +19,14 @@ const AllStories = async () => {
         params: {limit: 3},
     });
 
+    const categories = await sanityFetch({
+		query: categoriesQuery,
+	});
+
     return (
         <div className='container--center max-w-screen-xl mx-auto main_container relative px-5 md:px-10'>
             <Breadcrumbs pathArr={[{ name: "Посты", url: "/posts" }]} />
-            <AllPosts pageData={pageData} title='Все посты' />
+            <AllPosts pageData={pageData} title='Все посты' categories={categories} />
         </div>
     );
 };

@@ -11,7 +11,7 @@ const Breadcrumbs = dynamic(
 import AllPosts from "../all-posts/page";
 
 
-const CategoryPage = ({ allPosts, category }) => {
+const CategoryPage = ({ allPosts, category  }) => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -31,7 +31,7 @@ const CategoryPage = ({ allPosts, category }) => {
 				]}
 			/>
 
-			<AllPosts pageData={data} title={category?.title} />
+			<AllPosts pageData={data} title={category?.title} withCategory={false} />
 		</div>
 	);
 };

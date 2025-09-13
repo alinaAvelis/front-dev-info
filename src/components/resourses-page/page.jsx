@@ -377,8 +377,16 @@ const librariesReact = [
         href: `https://magicui.design/`,
         title: `https://magicui.design/`,
         textBeforeStrong: `Библиотека`,
-        strongText: `фнимированных компонентов для React magic UI`,
+        strongText: `анимированных компонентов для React magic UI`,
         textAfterStrong: ``,
+    },
+    {
+        id: "react2",
+        href: `https://www.remotion.dev/`,
+        title: `https://www.remotion.dev/`,
+        textBeforeStrong: ``,
+        strongText: `Создание MP4 видео`,
+        textAfterStrong: `через код`,
     },
 ];
 

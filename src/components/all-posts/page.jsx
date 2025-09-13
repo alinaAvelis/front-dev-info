@@ -10,7 +10,7 @@ import useInnerWidth from "@/hooks/use-inner-width/page";
 
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
-const AllPosts = ({ pageData, title, homePage = false }) => {
+const AllPosts = ({ pageData, title, categories, homePage = false, withCategory=true }) => {
 	const [filtredPosts, setFiltredPosts] = useState([]);
 	const [sliceValue, setSliceValue] = useState(9);
 	const [itemsOnPage, setItemsOnPage] = useState(9);
@@ -94,9 +94,9 @@ const AllPosts = ({ pageData, title, homePage = false }) => {
 
 					<div className="tabs_btns flex ">
 						{view === `cards` ? (
-							<Cards data={transformedData} />
+							<Cards data={transformedData} categories={categories} withCategory={withCategory} />
 						) : (
-							<List data={transformedData} />
+							<List data={transformedData} categories={categories} />
 						)}
 					</div>
 					{filtredPosts.length > sliceValue && !homePage && (
