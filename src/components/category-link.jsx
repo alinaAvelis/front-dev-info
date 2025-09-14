@@ -10,7 +10,7 @@ const CategoryLink = ({ card, categories }) => {
 
 	return (
 		<Link
-			className="border border-solid border-[#dddde1] py-1 px-2 w-fit text-gray-400 link hover:border-blue-800"
+			className="border border-solid border-[#dddde1] py-1 px-2 w-fit  transition-all duration-300 text-gray-400 hover:text-blue-800 hover:border-blue-800"
 			href={`/categories/${category?.slug.current}`}
 		>
 			{category?.title}
