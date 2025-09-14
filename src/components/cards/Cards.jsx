@@ -14,10 +14,10 @@ const Cards = ({ data, to = "posts", withImage = false, withCategory = true, cat
 						return (
 							<li
 								key={i + "card"}
-								className="border border-solid border-[#dddde1] p-3 flex flex-col gap-3"
+								className="border border-solid border-[#dddde1] p-3 flex flex-col gap-3 "
 							>
 								<Link
-									className="card flex! h-full flex-col justify-between"
+									className="card flex! h-full flex-col justify-between link"
 									href={
 										item.toOtherPage
 											? `${item.slug.current}`

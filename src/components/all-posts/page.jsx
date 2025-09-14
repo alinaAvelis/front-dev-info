@@ -96,7 +96,7 @@ const AllPosts = ({ pageData, title, categories, homePage = false, withCategory=
 						{view === `cards` ? (
 							<Cards data={transformedData} categories={categories} withCategory={withCategory} />
 						) : (
-							<List data={transformedData} categories={categories} />
+							<List data={transformedData} categories={categories} withCategory={withCategory} />
 						)}
 					</div>
 					{filtredPosts.length > sliceValue && !homePage && (

@@ -340,7 +340,7 @@ const PostPage = ({ post, allPosts }) => {
 
                     <div className='other_posts'>
                         <h2>Другие посты</h2>
-                        <Cards data={lastPosts.slice(0, 3)} withImage={false} />
+                        <Cards data={lastPosts.slice(0, 3)} withImage={false} withCategory={false} />
                     </div>
 
                     <BottomAdds />

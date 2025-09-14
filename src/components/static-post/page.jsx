@@ -167,7 +167,7 @@ const StaticPost = ({ allPosts, createDate, title, children }) => {
 
                 <div className='other_posts'>
                     <h2>Другие посты</h2>
-                    <Cards data={lastPosts.slice(0, 3)} />
+                    <Cards data={lastPosts.slice(0, 3)} withCategory={false} />
                 </div>
 
                 <BottomAdds />

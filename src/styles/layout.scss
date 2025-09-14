@@ -137,7 +137,7 @@ textarea {
 }
 
 .link {
-    @apply inline-block no-underline text-inherit transition-all duration-500 hover:text-blue-900 active:opacity-40;
+    @apply inline-block no-underline text-inherit transition-all duration-500 hover:text-blue-800 active:opacity-40;
 }
 
 
@@ -157,7 +157,7 @@ textarea {
     }
 
     &:hover {
-        @apply bg-gray-100 border-blue-900 text-blue-900;
+        @apply bg-gray-100 border-blue-800 text-blue-800;
 
         & svg {
             @apply fill-blue-900;
