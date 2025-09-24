@@ -1,6 +1,7 @@
 "use client";
 import Script from "next/script";
-import React from "react";
+import React, { useEffect } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import useDomain from "@//hooks/use-domain/page";
 import useInnerWidth from "@/hooks/use-inner-width/page";
@@ -8,6 +9,25 @@ import useInnerWidth from "@/hooks/use-inner-width/page";
 const DesctopAdds = () => {
 	const { domain } = useDomain();
 	const { innerWidth } = useInnerWidth();
+
+	const addADS = (blockID) => {
+		window.yaContextCb.push(() => {
+			Ya.Context.AdvManager.render({
+				blockId: `R-A-2501461-${blockID}`,
+				renderTo: `yandex_rtb_R-A-2501461-${blockID}`,
+				async: true,
+			});
+		});
+	};
+
+	useEffect(() => {
+		addADS(3);
+		addADS(6);
+		addADS(7);
+		addADS(8);
+		addADS(9);
+		addADS(13);
+	}, [usePathname, useSearchParams]);
 
 	return (
 		<>
@@ -18,7 +38,7 @@ const DesctopAdds = () => {
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-3"></div>
 
-							<Script
+							{/* <Script
 								id="yandex-ads-3"
 								dangerouslySetInnerHTML={{
 									__html: `
@@ -30,13 +50,13 @@ const DesctopAdds = () => {
                                 })
                                 `,
 								}}
-							></Script>
+							></Script> */}
 						</div>
 
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-6"></div>
 
-							<Script
+							{/* <Script
 								id="yandex-ads-6"
 								dangerouslySetInnerHTML={{
 									__html: `
@@ -48,12 +68,12 @@ const DesctopAdds = () => {
                                 })
                                 `,
 								}}
-							></Script>
+							></Script> */}
 						</div>
 
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-7"></div>
-							<Script
+							{/* <Script
 								id="yandex-ads-7"
 								dangerouslySetInnerHTML={{
 									__html: `
@@ -65,13 +85,13 @@ const DesctopAdds = () => {
                                 })
                                 `,
 								}}
-							></Script>
+							></Script> */}
 						</div>
 
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-8"></div>
 
-							<Script
+							{/* <Script
 								id="yandex-ads-8"
 								dangerouslySetInnerHTML={{
 									__html: `
@@ -83,12 +103,12 @@ const DesctopAdds = () => {
                                 })
                                 `,
 								}}
-							></Script>
+							></Script> */}
 						</div>
 
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-9"></div>
-							<Script
+							{/* <Script
 								id="yandex-ads-9"
 								dangerouslySetInnerHTML={{
 									__html: `
@@ -100,12 +120,12 @@ const DesctopAdds = () => {
                                 })
                                 `,
 								}}
-							></Script>
+							></Script> */}
 						</div>
 
 						<div className="banner">
 							<div id="yandex_rtb_R-A-2501461-13"></div>
-							<Script
+							{/* <Script
 								id="yandex-ads-9"
 								dangerouslySetInnerHTML={{
 									__html: `
@@ -118,7 +138,7 @@ const DesctopAdds = () => {
 })
                                 `,
 								}}
-							></Script>
+							></Script> */}
 						</div>
 					</>
 				)}
