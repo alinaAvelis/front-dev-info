@@ -32,8 +32,8 @@ const CookieMessage = () => {
 
 	return (
 		<div
-			className={`bottom-5 left-5 right-5 bg-white p-5 rounded-md  z-50 shadow-md mx-auto lg:w-2/3 flex bordered-item flex-col sm:flex-row gap-3  sm:gap-10 items-center text-center sm:text-left transition-all ${
-				show ? "opacity-100 translate-y-0 fixed" : "opacity-0 translate-y-10 absolute pointer-events-none -z-10"
+			className={`bottom-5 left-5 right-5 bg-white fixed p-5 rounded-md  z-50 shadow-md mx-auto lg:w-2/3 flex bordered-item flex-col sm:flex-row gap-3  sm:gap-10 items-center text-center sm:text-left transition-all ${
+				show ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10 pointer-events-none -z-10"
 			}`}
 		>
 			<p>
