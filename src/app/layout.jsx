@@ -59,6 +59,7 @@ export default function Layout({ children }) {
                 <Providers>
                     <RootLayout>{children}</RootLayout>
                     {/* <Analytics /> */}
+               
                 </Providers>
                 
                 <Script
