@@ -175,14 +175,14 @@ const ResoursesPage = () => {
 };
 
 const API = [
-    {
-        id: 0,
-        href: `https://developers.google.com/youtube/player_parameters?hl=ru`,
-        title: `https://developers.google.com/youtube/player_parameters?hl=ru`,
-        textBeforeStrong: ``,
-        strongText: `YouTube iframe player API`,
-        textAfterStrong: ``,
-    },
+    // {
+    //     id: 0,
+    //     href: `https://developers.google.com/youtube/player_parameters?hl=ru`,
+    //     title: `https://developers.google.com/youtube/player_parameters?hl=ru`,
+    //     textBeforeStrong: ``,
+    //     strongText: `YouTube iframe player API`,
+    //     textAfterStrong: ``,
+    // },
     {
         id: "api1",
         href: `https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API`,
