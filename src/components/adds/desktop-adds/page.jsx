@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 import useDomain from "@//hooks/use-domain/page";
-import useInnerWidth from "@/hooks/use-inner-width/page";
+import useInnerWidth from "@/hooks/use-inner-width";
 
 const DesctopAdds = () => {
 	const { domain } = useDomain();
