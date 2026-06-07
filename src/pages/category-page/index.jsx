@@ -20,7 +20,7 @@ const CategoryPage = ({ allPosts, category  }) => {
 		return allPosts?.filter(
 			(point) => point?.category?._ref === category?._id
 		);
-	}, []);
+	}, [allPosts, category]);
 
 	return (
 		<div className="container--center  main_container relative px-5 md:px-10">

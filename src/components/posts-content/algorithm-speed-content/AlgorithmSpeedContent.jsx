@@ -1,4 +1,4 @@
-"use client";
+
 import CodeInput from "@/components/code-input";
 import LineChart from "@/components/line-chart";
 
