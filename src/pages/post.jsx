@@ -16,7 +16,7 @@ import parse from "html-react-parser";
 // import dynamic from 'next/dynamic';
 import PostMenu from "@/components/post/menu";
 import { getDateString } from "@/utils/utils";
-import { PortableText } from "@portabletext/react";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { urlFor } from "@/utils/sanity-utils";
 

@@ -1,6 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { postsQuery } from "@/sanity/lib/queries";
-import AllPosts from "@/components/all-posts/page";
+import AllPosts from "@/components/all-posts";
 import dynamic from "next/dynamic";
 import { categoriesQuery } from "@/sanity/lib/queries";
 const Breadcrumbs = dynamic(() =>

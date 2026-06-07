@@ -23,7 +23,7 @@ export default function DesktopMenu({ menu }: DesctopMenuProps) {
 		});
 	});
 	return (
-		<div className={`menu ${changeMenuPosition && "menu--top"} hidden md:block`}>
+		<div className={`menu ${changeMenuPosition && "menu--top"}`}>
 			<h2>Содержание</h2>
 			{menu?.map((item, i) => (
 				<Link

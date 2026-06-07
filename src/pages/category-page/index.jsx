@@ -8,7 +8,7 @@ const Breadcrumbs = dynamic(
 // import DesctopAdds from "@/components/adds/desktop-adds/page";
 // import BottomAdds from "@/components/adds/bottom-adds/page";
 // import List from "@/components/list/List";
-import AllPosts from "../all-posts/page";
+import AllPosts from "@/components/all-posts";
 
 
 const CategoryPage = ({ allPosts, category  }) => {

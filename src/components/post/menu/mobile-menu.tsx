@@ -25,7 +25,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
 	return (
         
 		<Accordion
-			className="menu_accordeon md:hidden"
+			className="menu_accordeon"
 			expanded={expanded === "panel2"}
 			onChange={handleChange("panel2")}
 		>

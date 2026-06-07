@@ -135,11 +135,11 @@ const AllPosts = ({
 		/>
 	);
 
-	const pageTitle = homePage ? (
-		<h2 className="visually-hidden">{title}</h2>
-	) : (
-		<h1 className="title">{title}</h1>
-	);
+	// const pageTitle = homePage ? (
+	// 	<h2 className="visually-hidden">{title}</h2>
+	// ) : (
+	// 	<h1 className="title">{title}</h1>
+	// );
 
 	return (
 		<div className="mt-10">
@@ -149,7 +149,7 @@ const AllPosts = ({
 					<ListButton onClick={() => setView("list")} />
 				</div>
 				<section className="section tabs mt-5 md:mt-10">
-					{pageTitle}
+					<h1 className="title">{title}</h1>
 
 					<div className="tabs_btns flex ">
 						{view === `cards` ? (

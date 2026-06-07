@@ -1,6 +1,6 @@
 import { postQuery, postsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
-import PostPage from "@/components/post-page/page";
+import PostPage from "@/pages/post";
 
 export async function generateMetadata({ params }) {
 	const parametrs = await params;

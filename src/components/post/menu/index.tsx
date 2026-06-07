@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import DesktopMenu from "./desktop-menu";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 type Links =
 	| {
@@ -14,6 +15,7 @@ type Links =
 
 export default function PostMenu() {
 	const [menu, setMenu] = useState<Links>([]);
+	const isMobile = useMediaQuery("(max-width: 768px)");
 	const createMenu = useCallback(
 		async (headings: NodeListOf<HTMLHeadingElement>) => {
 			try {
@@ -80,10 +82,11 @@ export default function PostMenu() {
 	}, []);
 
 	return (
-		Boolean(menu) && (
+		menu && menu?.length > 0 && (
 			<>
-				<MobileMenu menu={menu} />
-				<DesktopMenu menu={menu} />
+			{isMobile ? <MobileMenu menu={menu} /> : <DesktopMenu menu={menu} />}
+				
+				
 			</>
 		)
 	);

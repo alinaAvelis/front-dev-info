@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import Link from "next/link";
 
 const CategoryLink = ({ card, categories }) => {
-    console.log(categories)
+  
 	const category = useMemo(() => {
 		return categories?.find((point) => card?.category?._ref === point?._id);
 	}, [card, categories]);

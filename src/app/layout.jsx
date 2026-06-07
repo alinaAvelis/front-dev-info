@@ -61,22 +61,6 @@ export default function Layout({ children }) {
                     {/* <Analytics /> */}
                
                 </Providers>
-                
-                <Script
-                    id="adds-1"
-                    strategy="beforeInteractive"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        window.yaContextCb=window.yaContextCb||[]
-                        `,
-                    }}
-                />
-
-                <Script
-                    id="adds-2"
-                    src='https://yandex.ru/ads/system/context.js'
-                    strategy="beforeInteractive"
-                />
             </body>
         </html>
     );
