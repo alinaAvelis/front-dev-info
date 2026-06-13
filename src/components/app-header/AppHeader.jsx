@@ -2,15 +2,16 @@
 import { useRef } from "react";
 
 import Link from "next/link";
-
+import { useCategorySelector } from "@/lib/features/categories/hooks/use-category-selector";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 const SearchBlock = dynamic(() => import("../search-block/SearchBlock"));
 const CloseBtn = dynamic(() => import("../close_btn/CloseBtn"));
 
-const AppHeader = ({ categories }) => {
+const AppHeader = () => {
 	const categoriesMenu = useRef(null);
 	const pathname = usePathname();
+	const categories = useCategorySelector();
 
 	const postResoursesPages =
 		pathname.includes(`/posts/`) || pathname.includes(`/resourses`);

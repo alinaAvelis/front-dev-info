@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo } from "react";
 import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(
-	() => import("@/components/breadcrumbs/Breadcrumbs")
+	() => import("@/components/breadcrumbs")
 );
 // const Cards = dynamic(() => import("@/components/cards/Cards"));
 // import DesctopAdds from "@/components/adds/desktop-adds/page";

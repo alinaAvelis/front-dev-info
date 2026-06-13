@@ -23,12 +23,10 @@ import { urlFor } from "@/utils/sanity-utils";
 import { sortByDate } from "@/utils/utils";
 import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(
-	() => import("@/components/breadcrumbs/Breadcrumbs"),
+	() => import("@/components/breadcrumbs"),
 );
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 import CodeInput from "@/components/code-input";
-
-import BottomAdds from "@/components/adds/bottom-adds/page";
 
 const components = {
 	block: {
@@ -120,8 +118,8 @@ const components = {
 						className="img"
 						src={urlFor(asset._ref).url()}
 						alt={alt}
-						width={2000}
-						height={2000}
+						width={1000}
+						height={1000}
 					/>
 				</div>
 			);
@@ -134,8 +132,8 @@ const components = {
 						className="img"
 						src={urlFor(asset._ref).url()}
 						alt={alt}
-						width={2000}
-						height={2000}
+						width={1000}
+						height={1000}
 					/>
 				</div>
 			);
@@ -224,8 +222,6 @@ const PostPage = ({ post, allPosts }) => {
 							withCategory={false}
 						/>
 					</div>
-
-					<BottomAdds />
 				</div>
 
 				<div className="aside">

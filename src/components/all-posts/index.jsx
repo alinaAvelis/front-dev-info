@@ -91,6 +91,7 @@ const AllPosts = ({
 	homePage = false,
 	withCategory = true,
 }) => {
+
 	const isMobile = useMediaQuery("(max-width: 768px)");
 
 	const postsOnPage = isMobile ? 3 : 9

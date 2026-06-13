@@ -1,7 +1,7 @@
 import ToTopButton from "@/components/to-top-button/ToTopButton.jsx";
 import dynamic from "next/dynamic";
 const Breadcrumbs = dynamic(
-	() => import("@/components/breadcrumbs/Breadcrumbs"),
+	() => import("@/components/breadcrumbs"),
 );
 
 import ResourseBlock from "@/components/resourse-block";

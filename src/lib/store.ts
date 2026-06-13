@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import searchReducer from "./features/searchSlice";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import categoriesReducer  from "./features/categories/categoriesSlice";
+// import { setupListeners } from "@reduxjs/toolkit/query";
 
 // export const store = configureStore({
 //   reducer: {
@@ -13,6 +14,7 @@ export const makeStore = () => {
 	return configureStore({
 		reducer: {
 			searchReducer,
+			categoriesReducer
 		},
 		devTools: process.env.NODE_ENV !== "production",
 	});

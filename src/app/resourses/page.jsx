@@ -1,4 +1,4 @@
-import ResoursesPage from "@/app-pages/resourses-page";
+import ResoursesPage from "@/app-pages/resourses";
 
 export const metadata = {
 	title: "Ресурсы для frontend разработки",

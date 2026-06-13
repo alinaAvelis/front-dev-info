@@ -1,10 +1,4 @@
-import { categoriesQuery } from "@/sanity/lib/queries";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
-import dynamic from "next/dynamic";
-const Breadcrumbs = dynamic(
-	() => import("@/components/breadcrumbs/Breadcrumbs")
-);
-import AllCategories from "../../../components/all-categories/page";
+import CategoriesPage from "@/app-pages/categories";
 
 export const metadata = {
 	title: "FrontDevInfo - все категории",
@@ -12,20 +6,8 @@ export const metadata = {
 	keywords: "программирование, посты, JavaScrip, frontend",
 };
 
-const CategoriesPage = async () => {
-	const categories = await sanityFetch({
-		query: categoriesQuery,
-	});
-
-	return (
-		<div className="container--center  main_container  max-w-screen-xl relative  mx-auto w-full px-5 md:px-10">
-			<Breadcrumbs
-				pathArr={[{ name: "Категории", url: "/categories" }]}
-			/>
-
-			<AllCategories categories={categories} />
-		</div>
-	);
+const Categories = () => {
+	return <CategoriesPage />;
 };
 
-export default CategoriesPage;
+export default Categories;

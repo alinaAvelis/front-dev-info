@@ -1,11 +1,7 @@
 import { postsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
-
-import AllPosts from "@/components/all-posts";
-import { categoriesQuery } from "@/sanity/lib/queries";
-
 import { WEBSITE_NAME, META_DESCRIPTION, WEBSITE_URL } from "@/constants/_APP_SETUP";
-
+import MainPage from "@/app-pages/main";
 export const metadata = {
     openGraph: {
         title: WEBSITE_NAME,
@@ -21,14 +17,7 @@ export default async function Home() {
         query: postsQuery,
     });
 
-    const categories = await sanityFetch({
-		query: categoriesQuery,
-	});
-
-
     return (
-        <div className='max-w-screen-xl w-full px-5 md:px-10 mx-auto pt-30 md:pt-20 flex'>
-            <AllPosts pageData={posts} title='Последние посты' homePage={true} categories={categories}/>
-        </div>
+        <MainPage posts={posts} />
     );
 }

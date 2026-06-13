@@ -4,7 +4,7 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import dynamic from "next/dynamic";
 import AlgorithmSpeedContent from "@/components/posts-content/algorithm-speed-content/AlgorithmSpeedContent";
 const Breadcrumbs = dynamic(() =>
-    import("@/components/breadcrumbs/Breadcrumbs")
+    import("@/components/breadcrumbs")
 );
 import StaticPost from "@/components/static-post/page"
 
