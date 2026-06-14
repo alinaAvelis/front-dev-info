@@ -1,7 +1,7 @@
 // import { Analytics } from "@vercel/analytics/react";
 // import Script from "next/script";
 import { Providers } from "@/lib/provider";
-import RootLayout from "../RootLayout/RootLayout";
+import RootLayout from "@/layouts/root-layout";
 import "../styles/layout.scss";
 import {
     WEBSITE_NAME,

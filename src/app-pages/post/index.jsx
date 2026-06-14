@@ -1,32 +1,12 @@
 "use client";
-import React, { useMemo } from "react";
-import ToTopButton from "@/components/to-top-button/ToTopButton.jsx";
 import Link from "next/link.js";
 import parse from "html-react-parser";
-// import {
-// 	VKShareButton,
-// 	VKIcon,
-// 	EmailShareButton,
-// 	EmailIcon,
-// 	WhatsappShareButton,
-// 	WhatsappIcon,
-// 	TelegramShareButton,
-// 	TelegramIcon,
-// } from "next-share";
-// import dynamic from 'next/dynamic';
-import PostMenu from "@/components/post/menu";
 import { getDateString } from "@/utils/utils";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { urlFor } from "@/utils/sanity-utils";
-
-import { sortByDate } from "@/utils/utils";
-import dynamic from "next/dynamic";
-const Breadcrumbs = dynamic(
-	() => import("@/components/breadcrumbs"),
-);
-const Cards = dynamic(() => import("@/components/cards/Cards"));
 import CodeInput from "@/components/code-input";
+import PostLayout from "@/layouts/post-layout";
 
 const components = {
 	block: {
@@ -180,57 +160,17 @@ const components = {
 };
 
 const PostPage = ({ post, allPosts }) => {
-
-
-	const lastPosts = useMemo(() => {
-		if (allPosts?.length && post) {
-			const newArr = allPosts.filter(
-				(n) => n.slug.current !== post.slug.current,
-			);
-			return newArr;
-		} else {
-			return [];
-		}
-	}, [allPosts, post]);
-
-
 	return (
-		<div className="main_container relative px-5 md:px-10">
-			<Breadcrumbs
-				pathArr={[
-					{ name: "Посты", url: "/posts" },
-					{ name: post?.title },
-				]}
-			/>
-			<div className="page_container  mt-5 md:mt-10 flex">
-				<div className="post main  main--not_main">
-					<h1>{post?.title}</h1>
+		<PostLayout
+			currentPostSlug={post.slug.current}
+			allPosts={allPosts}
+			pathArr={[{ name: "Посты", url: "/posts" }, { name: post?.title }]}
+		>
+			<h1>{post?.title}</h1>
 
-					<p className="post_date">
-						{getDateString(post?.releaseDate)}
-					</p>
-					<PortableText
-						value={post?.content}
-						components={components}
-					/>
-
-					<div className="other_posts">
-						<h2>Другие посты</h2>
-						<Cards
-							data={lastPosts.slice(0, 3)}
-							withImage={false}
-							withCategory={false}
-						/>
-					</div>
-				</div>
-
-				<div className="aside">
-					<PostMenu />
-				</div>
-			</div>
-
-			<ToTopButton />
-		</div>
+			<p className="post_date">{getDateString(post?.releaseDate)}</p>
+			<PortableText value={post?.content} components={components} />
+		</PostLayout>
 	);
 };
 

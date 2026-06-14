@@ -34,9 +34,7 @@ const Post = async ({ params }) => {
 	});
 
 	return (
-		<div className="max-w-screen-xl mx-auto">
-			<PostPage post={post} allPosts={allPosts} />
-		</div>
+		<PostPage post={post} allPosts={allPosts} />
 	);
 };
 

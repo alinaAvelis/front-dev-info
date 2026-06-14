@@ -15,7 +15,7 @@ type Links =
 
 export default function PostMenu() {
 	const [menu, setMenu] = useState<Links>([]);
-	const isMobile = useMediaQuery("(max-width: 768px)");
+	const isMobile = useMediaQuery("(max-width: 1020px)");
 	const createMenu = useCallback(
 		async (headings: NodeListOf<HTMLHeadingElement>) => {
 			try {

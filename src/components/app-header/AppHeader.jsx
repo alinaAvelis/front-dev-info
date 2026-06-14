@@ -13,8 +13,8 @@ const AppHeader = () => {
 	const pathname = usePathname();
 	const categories = useCategorySelector();
 
-	const postResoursesPages =
-		pathname.includes(`/posts/`) || pathname.includes(`/resourses`);
+	// const postResoursesPages =
+	// 	pathname.includes(`/posts/`) || pathname.includes(`/resourses`);
 
 	const handleOpenMenu = () => {
 		const menu = categoriesMenu.current;
@@ -32,9 +32,9 @@ const AppHeader = () => {
 
 	return (
 		<header
-			className={`z-10  w-full  bg-white ${
-				postResoursesPages ? `` : `fixed right-0 top-0`
-			}`}
+			className={`z-10  w-full  bg-white fixed right-0 top-0
+				
+			`}
 		>
 			<div className="mx-auto max-w-screen-xl px-5">
 				<div className="flex flex-col items-center justify-between gap-5 py-2 sm:flex-row">

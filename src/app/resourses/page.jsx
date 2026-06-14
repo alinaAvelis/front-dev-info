@@ -9,11 +9,7 @@ export const metadata = {
 };
 
 const Resourses = () => {
-	return (
-		<div className="max-w-screen-xl mx-auto">
-			<ResoursesPage />
-		</div>
-	);
+	return <ResoursesPage />;
 };
 
 export default Resourses;

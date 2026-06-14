@@ -1,35 +1,13 @@
-import ToTopButton from "@/components/to-top-button/ToTopButton.jsx";
-import dynamic from "next/dynamic";
-const Breadcrumbs = dynamic(
-	() => import("@/components/breadcrumbs"),
-);
-
 import ResourseBlock from "@/components/resourse-block";
-import PostMenu from "@/components/post/menu";
+import PostLayout from "@/layouts/post-layout";
 
 const ResoursesPage = () => {
 	return (
-		<div className="container container--center mt-0! relative">
-			<Breadcrumbs pathArr={[{ name: "Ресурсы" }]} />
-			<div className=" page_container  main_container mt-5 md:mt-10 flex ">
-				<div className="post main order-2 md:order-1 main--not_main">
-					{data?.map(({ title, data }) => {
-						return (
-							<ResourseBlock
-								key={title}
-								title={title}
-								data={data}
-							/>
-						);
-					})}
-				</div>
-				<div className="aside order-1 md:order-2">
-					<PostMenu />
-				</div>
-			</div>
-
-			<ToTopButton />
-		</div>
+		<PostLayout pathArr={[{ name: "Ресурсы" }]}>
+			{data?.map(({ title, data }) => {
+				return <ResourseBlock key={title} title={title} data={data} />;
+			})}
+		</PostLayout>
 	);
 };
 
@@ -307,7 +285,7 @@ const frameworks = [
 		strongText: `Vue`,
 		textAfterStrong: ``,
 	},
-    	{
+	{
 		id: 16 + "n",
 		href: `https://nextjs.org/`,
 		title: `https://nextjs.org/`,

@@ -1,31 +1,13 @@
-
 import { postsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
-import dynamic from "next/dynamic";
-import AlgorithmSpeedContent from "@/components/posts-content/algorithm-speed-content/AlgorithmSpeedContent";
-const Breadcrumbs = dynamic(() =>
-    import("@/components/breadcrumbs")
-);
-import StaticPost from "@/components/static-post/page"
+import AlgorithmSpeedPage from "@/app-pages/algorithm-execution-speed";
 
 const Post = async () => {
-    const allPosts = await sanityFetch({
-        query: postsQuery,
-    });
+	const allPosts = await sanityFetch({
+		query: postsQuery,
+	});
 
-    return (
-        <div className='container--center main_container max-w-screen-xl mx-auto relative px-5 md:px-10'>
-            <Breadcrumbs
-                pathArr={[
-                    { name: "Посты", url: "/posts" },
-                    { name: "Скорость выполнения алгоритма" },
-                ]}
-            />
-            <StaticPost allPosts={allPosts} title="Скорость выполнения алгоритма" createDate="2023-10-30">
-                <AlgorithmSpeedContent />
-            </StaticPost>
-        </div>
-    );
+	return <AlgorithmSpeedPage allPosts={allPosts}></AlgorithmSpeedPage>;
 };
 
 export default Post;
