@@ -23,6 +23,7 @@ const PostLayout = ({ currentPostSlug, pathArr, allPosts, children }) => {
 		window.scrollTo(0, 0);
 	}, []);
 	const lastPosts = useMemo(() => {
+	
 		if (allPosts?.length && currentPostSlug) {
 			const newArr = allPosts.filter(
 				(n) => n.slug.current !== currentPostSlug,

@@ -14,6 +14,7 @@ import dynamic from "next/dynamic";
 import List from "@/components/list/List";
 // import useInnerWidth from "@/hooks/use-inner-width";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import useSearch from "@/hooks/use-search";
 
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
@@ -91,25 +92,30 @@ const AllPosts = ({
 	homePage = false,
 	withCategory = true,
 }) => {
-
 	const isMobile = useMediaQuery("(max-width: 768px)");
+	const postsOnPage = isMobile ? 3 : 9;
+	const searchValue = useAppSelector((state) => state.searchReducer.value);
+	// const { posts, loading } = useSearch({
+	// 	limit: postsOnPage,
+	// 	// searchValue: searchValue,
+	// });
 
-	const postsOnPage = isMobile ? 3 : 9
+	// console.log(posts);
+	
 
 	const [sliceValue, setSliceValue] = useState(postsOnPage);
 
 	const [view, setView] = useState("cards");
-	const searchValue = useAppSelector((state) => state.searchReducer.value);
 
 	const filtredPosts = useMemo(() => {
-		if (searchValue && !homePage) {
-			return pageData.filter((item) =>
-				item.title.toLowerCase().includes(searchValue.toLowerCase()),
-			);
-		}
+		// if (searchValue && !homePage) {
+		// 	return pageData.filter((item) =>
+		// 		item.title.toLowerCase().includes(searchValue.toLowerCase()),
+		// 	);
+		// }
 
 		return pageData;
-	}, [pageData, searchValue, homePage]);
+	}, []);
 
 	useEffect(() => {
 		(async () => {
@@ -155,13 +161,13 @@ const AllPosts = ({
 					<div className="tabs_btns flex ">
 						{view === `cards` ? (
 							<Cards
-								data={transformedData}
+								data={pageData}
 								categories={categories}
 								withCategory={withCategory}
 							/>
 						) : (
 							<List
-								data={transformedData}
+								data={pageData}
 								categories={categories}
 								withCategory={withCategory}
 							/>

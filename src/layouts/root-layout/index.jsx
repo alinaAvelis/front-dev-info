@@ -1,10 +1,10 @@
-
 // import { SanityDocument } from "@sanity/client";
 
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { categoriesQuery } from "@/sanity/lib/queries";
 // import { PropsWithChildren } from "react";
-import StateLayoutDispatcher from "@/lib/state-layout-dispatcher"
+import { postsQuery } from "@/sanity/lib/queries";
+import StateLayoutDispatcher from "@/lib/state-layout-dispatcher";
 
 import dynamic from "next/dynamic";
 
@@ -14,15 +14,18 @@ const AppHeader = dynamic(() => import("@/components/app-header/AppHeader"));
 const AppFooter = dynamic(() => import("@/components/app-footer/AppFooter"));
 
 export default async function RootLayout({ children }) {
-	
+	const categories = await sanityFetch({
+		query: categoriesQuery,
+	});
 
-    const categories = await sanityFetch({
-			query: categoriesQuery,
-		});
+	const posts = await sanityFetch({
+		query: postsQuery,
+		params: { limit: 9 },
+	});
 
 	// console.log(categories)
 	return (
-		<StateLayoutDispatcher categories={categories}>
+		<StateLayoutDispatcher categories={categories} allPosts={posts}>
 			<AppHeader />
 			<div className="min-h-screen">{children}</div>
 

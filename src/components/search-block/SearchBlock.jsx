@@ -1,8 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector, } from '@/lib/hooks'
-import { useRouter } from 'next/navigation'
+import React, { useCallback, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useRouter } from "next/navigation";
+import useSearch from "@/hooks/use-search";
 import { setSearchState } from "@/lib/features/searchSlice";
+import useLoadPosts from "@/hooks/use-load-posts";
 
 const code = `(function(){<br />
 let canvas = document.createElement('canvas'),<br />  
@@ -32,28 +34,39 @@ constructor() {<br />
 this.x = Math.random()*w;<br />`;
 
 const SearchBlock = () => {
-	const searchState = useAppSelector((state) => state.searchState);
-	const [value, setValue] = useState(searchState ?? "");
 	const searchValue = useAppSelector((state) => state.searchReducer.value);
-	const router = useRouter()
-	
+	const router = useRouter();
+	const { searchPosts } = useSearch({limit: 9});
 	const dispatch = useAppDispatch();
 
-	useEffect(() => {
-		window.addEventListener("keydown", (e) => {
+	const onSearch = useCallback(() => {
+		if (router.pathname !== "/posts") {
+			router.push("/posts");
+		}
+		if (searchValue) {
+			searchPosts(searchValue);
+		} else {
+			dispatch(setPostsByPreloaded());
+		}
+	}, [dispatch, router, searchPosts, searchValue]);
+
+	const handlePressKeyboard = useCallback(
+		(e) => {
+			console.log(e.keyCode);
 			if (e.keyCode === 13) {
-				router?.push('/posts')
+				onSearch();
 			}
-		});
-	});
+		},
+		[onSearch],
+	);
 
 	useEffect(() => {
-		setValue(searchValue)
-	}, [searchValue])
+		window.addEventListener("keydown", handlePressKeyboard);
+		return () => window.removeEventListener("resize", handlePressKeyboard);
+	}, [handlePressKeyboard]);
+
 
 	const onInputChange = (e) => {
-		setValue(e.target.value);
-		window.localStorage.setItem("searchValue", e.target.value);
 		dispatch(setSearchState(e.target.value));
 	};
 
@@ -70,7 +83,7 @@ const SearchBlock = () => {
 					<input
 						type="text"
 						className="input"
-						value={value}
+						value={searchValue}
 						onChange={onInputChange}
 						placeholder="Поиск по постам..."
 					/>
@@ -78,7 +91,7 @@ const SearchBlock = () => {
 					<button
 						className="button button--no_styles search_icon flex justify-center items-center"
 						type="button"
-						onClick={() => {router?.push('/posts')}}
+						onClick={onSearch}
 					>
 						<svg
 							width="36"

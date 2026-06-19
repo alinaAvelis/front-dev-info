@@ -1,5 +1,5 @@
-import { postsQuery } from "@/sanity/lib/queries";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
+
+
 import { WEBSITE_NAME, META_DESCRIPTION, WEBSITE_URL } from "@/constants/_APP_SETUP";
 import MainPage from "@/app-pages/main";
 export const metadata = {
@@ -13,11 +13,8 @@ export const metadata = {
 };
 
 export default async function Home() {
-    const posts = await sanityFetch({
-        query: postsQuery,
-    });
 
     return (
-        <MainPage posts={posts} />
+        <MainPage />
     );
 }
