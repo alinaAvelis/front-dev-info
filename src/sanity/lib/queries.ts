@@ -32,7 +32,7 @@ export const filteredByDateQuery = groq`
 
 export const filteredByIdQuery = groq`
 {
-  "posts": *[_type == "posts" && _id > $lastId] | order(_createdAt desc) [0...$limit],
+  "posts": *[_type == "posts"] | order(_createdAt desc) [0...$limit],
   "total": count(*[_type == "posts"])
 }`;
 

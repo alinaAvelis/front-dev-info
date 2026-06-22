@@ -6,7 +6,7 @@ type postsState = {
 	posts: PostsType;
 	preloaded: PostsType;
 	loading: boolean;
-	// hasMorePosts: boolean;
+	hasMorePosts: boolean;
 	total: number;
 	limit: number;
 };
@@ -15,7 +15,7 @@ const initialState = {
 	posts: [],
 	preloaded: [],
 	loading: false,
-	// hasMorePosts: false,
+	hasMorePosts: false,
 	total: 0,
 	limit: 9,
 } as postsState;
@@ -29,35 +29,34 @@ export const posts = createSlice({
 			state.posts = action.payload.posts;
 			state.total = action.payload.total;
 
-     
 			// if (action.payload.total > state.limit) {
 			// 	state.hasMorePosts = true;
 			// } else {
 			// 	state.hasMorePosts = false;
-      // }
+			// }
 		},
 		setAllPostsState: (state, action) => {
 			state.posts = action.payload.posts;
 			state.preloaded = action.payload.posts;
 			state.total = action.payload.total;
 
-		// if (action.payload.total > state.limit) {
-		// 		state.hasMorePosts = true;
-		// 	} else {
-		// 		state.hasMorePosts = false;
-    //   }
+			// if (action.payload.total > state.limit) {
+			// 		state.hasMorePosts = true;
+			// 	} else {
+			// 		state.hasMorePosts = false;
+			//   }
 		},
 		setPostsLoading: (state, action) => {
 			state.loading = action.payload;
 		},
-		// setHasMorePosts: (state, action) => {
-		// 	state.hasMorePosts = action.payload;
-		// },
+		setHasMorePosts: (state, action) => {
+			state.hasMorePosts = action.payload;
+		},
 		setLimit: (state, action) => {
 			state.limit = action.payload;
 		},
 		setPostsByPreloaded: (state) => {
-		  state.posts = state.preloaded;
+			state.posts = state.preloaded;
 		},
 	},
 });
@@ -67,8 +66,8 @@ export const {
 	reset,
 	setAllPostsState,
 	setPostsLoading,
-	// setHasMorePosts,
-  setPostsByPreloaded,
+	setHasMorePosts,
+	setPostsByPreloaded,
 	setLimit,
 } = posts.actions;
 export default posts.reducer;

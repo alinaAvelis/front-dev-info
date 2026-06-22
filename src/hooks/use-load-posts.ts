@@ -29,27 +29,27 @@ export default function useLoadPosts({
 	const loadMorePosts = async (searchValue = "", limit = 9) => {
 		dispatch(setPostsLoading(true));
 		// let total = totalPosts;
-		const lastPost = initialPosts?.[initialPosts?.length - 1];
+		// const lastPost = initialPosts?.[initialPosts?.length - 1];
 
 		let query;
 
 		let params;
 
-		if (lastPost) {
-			if (searchValue) {
+		if (searchValue) {
+			// if (searchValue) {
 				query = searchQueryWithPagination;
 				params = {
-					lastId: lastPost._id,
+					// lastId: lastPost._id,
 					limit: limit,
 					searchQuery: searchValue,
 				};
-			} else {
-				query = filteredByIdQuery;
-				params = {
-					lastId: lastPost._id,
-					limit: limit,
-				};
-			}
+			// } else {
+			// 	query = filteredByIdQuery;
+			// 	params = {
+			// 		// lastId: lastPost._id,
+			// 		limit: limit,
+			// 	};
+			// }
 		} else {
 			query = postsQuery;
 			params = {
@@ -57,12 +57,14 @@ export default function useLoadPosts({
 			};
 		}
 
+			console.log(params)
 		const newPosts: PostsFromSanityType = await sanityFetch({
 			query,
 			params,
 		});
 
-		// console.log("newPosts", newPosts);
+		console.log("newPosts", newPosts);
+	
 
 		if (newPosts.total > 0) {
 			// setPosts([...posts, ...newPosts.posts]);

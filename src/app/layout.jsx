@@ -54,7 +54,7 @@ export const metadata = {
 
 export default function Layout({ children }) {
     return (
-        <html lang='ru'>
+        <html lang='ru' data-scroll-behavior="smooth">
             <body className='flex h-auto min-h-screen flex-col  transition-all ' suppressHydrationWarning>
                 <Providers>
                     <RootLayout>{children}</RootLayout>

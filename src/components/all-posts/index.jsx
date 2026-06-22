@@ -14,7 +14,7 @@ import dynamic from "next/dynamic";
 import {
 	useHasMorePostsSelector,
 	usePostsTotalSelector,
-	useLimitSelector,
+	useLimitSelector
 } from "@/lib/features/posts/hooks/use-posts-selector";
 import List from "@/components/list/List";
 // import useInnerWidth from "@/hooks/use-inner-width";
@@ -152,7 +152,7 @@ const AllPosts = ({
 		dispatch(setLimit(postsLimit));
 		loadMorePosts(searchValue, postsLimit);
 		// setSliceValue((prev) => prev + postsOnPage);
-	}, [postsOnPage, loadMorePosts, searchValue, limit]);
+	}, [limit, postsOnPage, dispatch, loadMorePosts, searchValue]);
 
 	const bottomLink = homePage ? (
 		<ToPostPages />
