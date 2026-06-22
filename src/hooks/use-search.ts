@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
-import { useAppSelector } from "@/lib/hooks";
+// import { useState } from "react";
+// import { useAppSelector } from "@/lib/hooks";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { searchQuery } from "@/sanity/lib/queries";
 import { PostsFromSanityType } from "@/types/posts";
@@ -8,7 +8,7 @@ import {
 	
 	setPostsState,
 	setPostsLoading,
-    setHasMorePosts
+    // setHasMorePosts
 } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
 

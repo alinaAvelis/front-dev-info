@@ -40,21 +40,23 @@ export const options = {
 const LineChart = () => {
 	const [items, setItems] = useState(5);
 	const [error, setError] = useState("");
-  const [innerWidth, setInnerWidth] = useState(0);
+//   const [innerWidth, setInnerWidth] = useState(0);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener("resize", handleResize);
-      handleResize();
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      } 
-    }
-  }, [])
+//     const handleResize = () => {
+//     setInnerWidth(window?.innerWidth);
+//   }
 
-  const handleResize = () => {
-    setInnerWidth(window?.innerWidth);
-  }
+//   useEffect(() => {
+//     if (typeof window !== 'undefined') {
+//       window.addEventListener("resize", handleResize);
+//     //   handleResize();
+//       return () => {
+//         window.removeEventListener("resize", handleResize);
+//       } 
+//     }
+//   }, [])
+
+
 
 
 	const labels = useMemo(() => {

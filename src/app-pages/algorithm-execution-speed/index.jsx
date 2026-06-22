@@ -1,8 +1,11 @@
+"use client"
 import { getDateString } from "@/utils/utils";
 import PostLayout from "@/layouts/post-layout";
 import AlgorithmSpeedContent from "@/components/posts-content/algorithm-speed-content";
+import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 
-const StaticPost = ({ allPosts }) => {
+const StaticPost = () => {
+	const allPosts = usePreloadedPostsSelector();
 	return (
 		<PostLayout
 			currentPostSlug="algorithm-execution-speed"
