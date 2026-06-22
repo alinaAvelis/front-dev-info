@@ -6,7 +6,7 @@ const List = ({ data, to = "posts", withCategory=true, categories }) => {
 
     return (
         <>
-            {data.length > 0 ? (
+            {data?.length > 0 ? (
                 <ul className="tabs_container ">
                     {data?.map((item, i) => {
                         return (

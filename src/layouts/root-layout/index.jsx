@@ -4,7 +4,7 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { categoriesQuery } from "@/sanity/lib/queries";
 // import { PropsWithChildren } from "react";
 import { postsQuery } from "@/sanity/lib/queries";
-import StateLayoutDispatcher from "@/lib/state-layout-dispatcher";
+import StateLayoutDispatcher from "@/layouts/state-layout-dispatcher";
 
 import dynamic from "next/dynamic";
 

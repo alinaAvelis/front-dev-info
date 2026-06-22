@@ -1,4 +1,8 @@
-import { postsQuery, categoryQuery } from "@/sanity/lib/queries";
+import {
+	postsQuery,
+	categoryQuery,
+	categoryPostsQuery,
+} from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import CategoryPage from "@/app-pages/category";
 
@@ -24,18 +28,21 @@ export async function generateMetadata({ params }) {
 
 const Category = async ({ params }) => {
 	const parametrs = await params;
-	const allPosts = await sanityFetch({
-		query: postsQuery,
-	});
 
 	const category = await sanityFetch({
 		query: categoryQuery,
 		params: parametrs,
 	});
 
+	const categoryPosts = await sanityFetch({
+		query: categoryPostsQuery,
+		params: { categorySlug: parametrs.slug, limit: 9 },
+	});
+
+
 	return (
 		<div className="max-w-screen-xl mx-auto">
-			<CategoryPage allPosts={allPosts} category={category} />
+			<CategoryPage allPosts={categoryPosts} category={category} />
 		</div>
 	);
 };

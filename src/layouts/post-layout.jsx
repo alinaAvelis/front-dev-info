@@ -15,20 +15,21 @@ import ToTopButton from "@/components/to-top-button/ToTopButton.jsx";
 import PostMenu from "@/components/post/menu";
 import { sortByDate } from "@/utils/utils";
 import dynamic from "next/dynamic";
+import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 const Breadcrumbs = dynamic(() => import("@/components/breadcrumbs"));
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
-const PostLayout = ({ currentPostSlug, pathArr, allPosts, children }) => {
+const PostLayout = ({ currentPostSlug, pathArr, children }) => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+	const allPosts = usePreloadedPostsSelector();
 	const lastPosts = useMemo(() => {
-	
 		if (allPosts?.length && currentPostSlug) {
 			const newArr = allPosts.filter(
 				(n) => n.slug.current !== currentPostSlug,
 			);
-			return sortByDate(newArr);
+			return sortByDate(newArr).slice(0, 3);
 		} else {
 			return [];
 		}
@@ -45,7 +46,7 @@ const PostLayout = ({ currentPostSlug, pathArr, allPosts, children }) => {
 						<div className="other_posts">
 							<h2>Другие посты</h2>
 							<Cards
-								data={lastPosts.slice(0, 3)}
+								data={lastPosts}
 								withImage={false}
 								withCategory={false}
 							/>

@@ -29,12 +29,9 @@ const Post = async ({ params }) => {
 		params: parametrs,
 	});
 
-	const allPosts = await sanityFetch({
-		query: postsQuery,
-	});
 
 	return (
-		<PostPage post={post} allPosts={allPosts} />
+		<PostPage post={post}/>
 	);
 };
 

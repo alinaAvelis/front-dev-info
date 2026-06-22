@@ -4,17 +4,25 @@ import React, {
 	useMemo,
 	useState,
 	// useEffectEvent,
-	// useCallback,
+	useCallback,
 } from "react";
 import Link from "next/link";
 // import { sortByDate } from "@/utils/utils";
 import { useAppSelector } from "@/lib/hooks";
 // import BottomAdds from "@/components/adds/bottom-adds/page";
 import dynamic from "next/dynamic";
+import {
+	useHasMorePostsSelector,
+	usePostsTotalSelector,
+	useLimitSelector,
+} from "@/lib/features/posts/hooks/use-posts-selector";
 import List from "@/components/list/List";
 // import useInnerWidth from "@/hooks/use-inner-width";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useSearch from "@/hooks/use-search";
+import useLoadPosts from "@/hooks/use-load-posts";
+import { setLimit } from "@/lib/features/posts/postsSlice";
+import { useAppDispatch } from "@/lib/hooks";
 
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
@@ -26,16 +34,14 @@ const ToPostPages = () => {
 	);
 };
 
-const AddPostsButton = ({ showMorePostsLink, onClick }) => {
+const AddPostsButton = ({ onClick }) => {
 	return (
-		showMorePostsLink && (
-			<button
-				className="button button--fill button--center"
-				onClick={onClick}
-			>
-				Еще посты
-			</button>
-		)
+		<button
+			className="button button--fill button--center"
+			onClick={onClick}
+		>
+			Еще посты
+		</button>
 	);
 };
 
@@ -86,7 +92,8 @@ const ListButton = ({ onClick }) => {
 };
 
 const AllPosts = ({
-	pageData,
+	posts,
+	postsTotalCount,
 	title,
 	categories,
 	homePage = false,
@@ -95,52 +102,69 @@ const AllPosts = ({
 	const isMobile = useMediaQuery("(max-width: 768px)");
 	const postsOnPage = isMobile ? 3 : 9;
 	const searchValue = useAppSelector((state) => state.searchReducer.value);
+
+	const limit = useLimitSelector();
+	const dispatch = useAppDispatch();
+	const { loadMorePosts } = useLoadPosts({
+		initialPosts: posts,
+		// limit: postsOnPage,
+		// totalPosts: postsTotalCount || postsOnPage,
+	});
+
+	const hasMorePosts = useMemo(() => {
+		return postsTotalCount > limit;
+	}, [postsTotalCount, limit]);
 	// const { posts, loading } = useSearch({
 	// 	limit: postsOnPage,
 	// 	// searchValue: searchValue,
 	// });
 
 	// console.log(posts);
-	
 
-	const [sliceValue, setSliceValue] = useState(postsOnPage);
+	// const [sliceValue, setSliceValue] = useState(postsOnPage);
 
 	const [view, setView] = useState("cards");
 
-	const filtredPosts = useMemo(() => {
-		// if (searchValue && !homePage) {
-		// 	return pageData.filter((item) =>
-		// 		item.title.toLowerCase().includes(searchValue.toLowerCase()),
-		// 	);
-		// }
+	// const filtredPosts = useMemo(() => {
+	// 	// if (searchValue && !homePage) {
+	// 	// 	return posts.filter((item) =>
+	// 	// 		item.title.toLowerCase().includes(searchValue.toLowerCase()),
+	// 	// 	);
+	// 	// }
 
-		return pageData;
-	}, []);
+	// 	return posts;
+	// }, []);
 
-	useEffect(() => {
-		(async () => {
-			setSliceValue(postsOnPage);
-		})();
-	}, [postsOnPage]);
+	// useEffect(() => {
+	// 	(async () => {
+	// 		setSliceValue(postsOnPage);
+	// 	})();
+	// }, [postsOnPage]);
 
-	const transformedData = useMemo(() => {
-		return filtredPosts.slice(0, sliceValue | postsOnPage);
-	}, [filtredPosts, sliceValue, postsOnPage]);
+	// const transformedData = useMemo(() => {
+	// 	return filtredPosts.slice(0, sliceValue | postsOnPage);
+	// }, [filtredPosts, sliceValue, postsOnPage]);
 
-	const showMorePostsLink = filtredPosts.length > sliceValue;
+	// const showMorePostsLink = filtredPosts.length > sliceValue;
 
-	const onAddPosts = () => {
-		setSliceValue((prev) => prev + postsOnPage);
-	};
+	const onAddPosts = useCallback(() => {
+		const postsLimit = limit + postsOnPage;
+		dispatch(setLimit(postsLimit));
+		loadMorePosts(searchValue, postsLimit);
+		// setSliceValue((prev) => prev + postsOnPage);
+	}, [postsOnPage, loadMorePosts, searchValue, limit]);
 
 	const bottomLink = homePage ? (
 		<ToPostPages />
-	) : (
-		<AddPostsButton
-			showMorePostsLink={showMorePostsLink}
-			onClick={onAddPosts}
-		/>
-	);
+	) : hasMorePosts ? (
+		<AddPostsButton onClick={onAddPosts} />
+	) : null;
+
+	useEffect(() => {
+		return () => {
+			dispatch(setLimit(postsOnPage));
+		};
+	}, [postsOnPage]);
 
 	// const pageTitle = homePage ? (
 	// 	<h2 className="visually-hidden">{title}</h2>
@@ -161,13 +185,13 @@ const AllPosts = ({
 					<div className="tabs_btns flex ">
 						{view === `cards` ? (
 							<Cards
-								data={pageData}
+								data={posts}
 								categories={categories}
 								withCategory={withCategory}
 							/>
 						) : (
 							<List
-								data={pageData}
+								data={posts}
 								categories={categories}
 								withCategory={withCategory}
 							/>

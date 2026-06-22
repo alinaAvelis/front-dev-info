@@ -8,7 +8,7 @@ import Link from "next/link";
 const Cards = ({ data, to = "posts", withImage = false, withCategory = true, categories }) => {
 	return (
 		<>
-			{data.length > 0 ? (
+			{data?.length > 0 ? (
 				<ul className={`tabs_container grid`}>
 					{data?.map((item, i) => {
 						return (

@@ -9,8 +9,8 @@ export const postsQuery = groq`
   `;
 export const categoryPostsQuery = groq`
 {
-  "posts": *[_type == "posts"  && references($categoryId)] | order(_createdAt desc) [0...$limit],
-  "total": count(*[_type == "posts"])
+  "posts": *[_type == "posts" && category->slug.current == $categorySlug] | order(_createdAt desc) [0...$limit],
+  "total": count(*[_type == "posts" && category->slug.current == $categorySlug])
 }`;
 export const categoryQuery = groq`*[_type == "categories" && activeCategory == true && slug.current == $slug][0]`;
 export const categoriesQuery = groq`*[_type == "categories" && activeCategory == true]`;
@@ -45,5 +45,11 @@ export const paginationQuery = groq`
 export const searchQuery = groq`
 {
   "posts": *[_type == "posts" && title match $searchQuery] | order(publishedAt desc) [0...$limit],
+  "total": count(*[_type == "posts" && title match $searchQuery])
+}`;
+
+export const searchQueryWithPagination = groq`
+{
+  "posts": *[_type == "posts" && title match $searchQuery && _id > $lastId] | order(publishedAt desc) [0...$limit],
   "total": count(*[_type == "posts" && title match $searchQuery])
 }`;

@@ -52,7 +52,7 @@ const SearchBlock = () => {
 
 	const handlePressKeyboard = useCallback(
 		(e) => {
-			console.log(e.keyCode);
+			// console.log(e.keyCode);
 			if (e.keyCode === 13) {
 				onSearch();
 			}

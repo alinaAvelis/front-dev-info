@@ -8,7 +8,7 @@ const MainPage = () => {
 	return (
 		<div className="max-w-screen-xl w-full px-5 md:px-10 mx-auto pt-30 md:pt-20 flex">
 			<AllPosts
-				pageData={posts}
+				posts={posts}
 				title="Последние посты"
 				homePage={true}
 				categories={categories}
