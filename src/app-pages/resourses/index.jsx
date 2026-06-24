@@ -154,6 +154,14 @@ const info = [
 		strongText: `по svg`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 13 + "info",
+		href: `https://visualstudio.microsoft.com/keyboard-shortcuts.pdf`,
+		title: `https://visualstudio.microsoft.com/keyboard-shortcuts.pdf`,
+		textBeforeStrong: `Visual Studio —`,
+		strongText: `горячие клавиши`,
+		textAfterStrong: ``,
+	},
 ];
 
 const librariesStyles = [
