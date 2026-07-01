@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { languageOptions, defaultLanguage } from "../locales";
 
 export default defineType({
     name: "category",
@@ -12,6 +13,15 @@ export default defineType({
                 "If it is set to false, the category is not visible to users",
             type: "boolean",
             initialValue: true,
+        }),
+        defineField({
+            name: "language",
+            title: "Language",
+            type: "string",
+            initialValue: defaultLanguage,
+            options: {
+                list: languageOptions,
+            },
         }),
         defineField({
             name: "title",

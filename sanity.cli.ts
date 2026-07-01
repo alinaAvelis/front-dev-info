@@ -6,8 +6,14 @@ import { defineCliConfig } from 'sanity/cli'
 // import dotenv from 'dotenv'
 
 // dotenv.config()
-
+    
 const projectId = process.env.NEXT_PUBLIC_SANITY_ID
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+const appId = process.env.NEXT_PUBLIC_SANITY_APP_ID
 
-export default defineCliConfig({ api: { projectId, dataset } })
+export default defineCliConfig({
+  api: { projectId, dataset },
+  deployment: {
+    appId,
+  },
+})
