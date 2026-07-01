@@ -1,7 +1,6 @@
 export const languages = [
   { id: 'en', title: 'English', isDefault: true },
-  { id: 'es', title: 'Spanish' },
-  { id: 'fr', title: 'French' },
+  { id: 'ru', title: 'Russian' },
 ]
 
 export const languageOptions = languages.map(({ id, title }) => ({
