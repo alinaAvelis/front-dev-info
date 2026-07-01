@@ -18,6 +18,8 @@
     "@portabletext/types": "^4.0.2",
     "@reduxjs/toolkit": "^2.12.0",
     "@sanity/client": "^7.22.1",
+    "@sanity/code-input": "^7.2.0",
+    "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.30.0",
     "chart.js": "^4.5.1",

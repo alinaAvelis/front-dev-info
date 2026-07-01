@@ -1,5 +1,4 @@
-// ExternalLinkRenderer.js
-import React from 'react'
+
 import { LaunchIcon } from '@sanity/icons'
 
 const ExternalLinkRenderer = props => (

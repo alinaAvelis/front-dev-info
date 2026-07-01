@@ -14,7 +14,7 @@ import TitleStyle from "../components/TitleStyle";
 
 export default defineType({
     title: "Content",
-    name: "content",
+    name: "blockContent",
     type: "array",
     of: [
         defineArrayMember({

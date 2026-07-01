@@ -1,5 +1,5 @@
 
-console.log(process.env)
+// console.log(process.env)
 export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2026-05-15'
 
