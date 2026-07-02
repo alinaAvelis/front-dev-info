@@ -14,19 +14,19 @@ export default defineType({
             type: "boolean",
             initialValue: true,
         }),
-        defineField({
-            name: "language",
-            title: "Language",
-            type: "string",
-            initialValue: defaultLanguage,
-            options: {
-                list: languageOptions,
-            },
-        }),
+        // defineField({
+        //     name: "language",
+        //     title: "Language",
+        //     type: "string",
+        //     initialValue: defaultLanguage,
+        //     options: {
+        //         list: languageOptions,
+        //     },
+        // }),
         defineField({
             name: "title",
             title: "Title",
-            type: "string",
+            type: "internationalizedArrayString",
         }),
         defineField({
             name: "slug",
@@ -42,13 +42,19 @@ export default defineType({
         defineField({
             name: "shortDescription",
             title: "Short description",
-            type: "text",
+            type: "internationalizedArrayText",
         }),
         defineField({
-            type: "string",
+            type: "internationalizedArrayString",
             name: "meta_keywords",
             title: "Meta keywords",
             description: "Key phrases or words separated by commas",
+        }),
+        defineField({
+            type: "internationalizedArrayString",
+            name: "meta_description",
+            title: "Meta description",
+            description: "Meta description for SEO",
         }),
     ],
 });

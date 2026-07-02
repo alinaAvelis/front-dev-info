@@ -30,7 +30,7 @@ export default defineType({
 		defineField({
 			name: "title",
 			title: "Title",
-			type: "string",
+			type: "internationalizedArrayString",
 		}),
 		defineField({
 			name: "slug",
@@ -70,7 +70,7 @@ export default defineType({
 		defineField({
 			name: "shortDescription",
 			title: "Short description",
-			type: "text",
+			type: "internationalizedArrayText",
 		}),
 
 		defineField({
@@ -82,7 +82,7 @@ export default defineType({
 		defineField({
 			name: "content",
 			title: "Content",
-			type: "blockContent",
+			type: "internationalizedArrayBlockContent",
 		}),
 	],
 
