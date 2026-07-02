@@ -17,29 +17,29 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
-    // documentInternationalization({
-    //   supportedLanguages: languages,
-    //   schemaTypes: ['posts', 'category'],
-    //   languageField: 'language',
-    //   bulkPublish: true,
-    //   addTemplates: true,
-    // }),
+    documentInternationalization({
+      supportedLanguages: languages,
+      schemaTypes: ['posts', 'category'],
+      languageField: 'language',
+      bulkPublish: true,
+      addTemplates: true,
+    }),
     internationalizedArray({
       languages,
       defaultLanguages: ['en'],
       fieldTypes: ['string', 'text', 'blockContent'],
-      // buttonLocations: ['field', 'unstable__fieldAction'],
-      // buttonAddAll: true,
-      // languageFilter: {
-      //   documentTypes: ['posts', 'category'],
-      //   defaultLanguages: ['en'],
-      // },
+      buttonLocations: ['field', 'unstable__fieldAction'],
+      buttonAddAll: true,
+      languageFilter: {
+        documentTypes: ['posts', 'category'],
+        defaultLanguages: ['en'],
+      },
     }),
-    // languageFilter({
-    //   supportedLanguages: languages,
-    //   defaultLanguages: ['en'],
-    //   documentTypes: ['posts', 'category'],
-    // }),
+    languageFilter({
+      supportedLanguages: languages,
+      defaultLanguages: ['en'],
+      documentTypes: ['posts', 'category'],
+    }),
     // googleTranslate(),
     structureTool(),
     visionTool(),
