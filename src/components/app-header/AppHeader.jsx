@@ -13,6 +13,10 @@ const AppHeader = () => {
 	const pathname = usePathname();
 	const categories = useCategorySelector();
 
+	if (pathname?.startsWith("/studio")) {
+		return null;
+	}
+
 	// const postResoursesPages =
 	// 	pathname.includes(`/posts/`) || pathname.includes(`/resourses`);
 
