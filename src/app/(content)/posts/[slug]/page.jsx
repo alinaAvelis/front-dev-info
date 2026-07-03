@@ -1,4 +1,4 @@
-import { postQuery, postsQuery } from "@/sanity/lib/queries";
+import { postQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import PostPage from "@/app-pages/post";
 

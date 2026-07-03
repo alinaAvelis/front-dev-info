@@ -1,14 +1,14 @@
 "use client";
-import { useState } from "react";
+
 
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import {
-	postsQuery,
-	// filteredByIdQuery,
-	searchQueryWithPagination,
+	
+	getAllPostsQuery,
+
 } from "@/sanity/lib/queries";
 import {
-	// setHasMorePosts,
+	
 	setPostsState,
 	setPostsLoading,
 } from "@/lib/features/posts/postsSlice";
@@ -37,7 +37,11 @@ export default function useLoadPosts({
 
 		if (searchValue) {
 			// if (searchValue) {
-				query = searchQueryWithPagination;
+				query = getAllPostsQuery({
+					language: "en",
+					bySearch: true,
+					withLastId: true,
+				});
 				params = {
 					// lastId: lastPost._id,
 					limit: limit,
@@ -51,7 +55,9 @@ export default function useLoadPosts({
 			// 	};
 			// }
 		} else {
-			query = postsQuery;
+			query = getAllPostsQuery({
+				language: "en",
+			});
 			params = {
 				limit: limit,
 			};

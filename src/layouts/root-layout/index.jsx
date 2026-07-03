@@ -3,7 +3,7 @@
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { categoriesQuery } from "@/sanity/lib/queries";
 // import { PropsWithChildren } from "react";
-import { postsQuery } from "@/sanity/lib/queries";
+import { getAllPostsQuery } from "@/sanity/lib/queries";
 import StateLayoutDispatcher from "@/layouts/state-layout-dispatcher";
 
 import dynamic from "next/dynamic";
@@ -19,7 +19,7 @@ export default async function RootLayout({ children }) {
 	});
 
 	const posts = await sanityFetch({
-		query: postsQuery,
+		query: getAllPostsQuery({language: "en"}),
 		params: { limit: 9 },
 	});
 

@@ -5,7 +5,7 @@ const postsLanguageFilter = (language: string = "en") =>
 const categoriesLanguageFilter = (language: string = "en") =>
 	`*[_type == "categories-${language}"`;
 
-const getAllPosts = ({
+export const getAllPostsQuery = ({
 	language = "en",
 	bySearch = false,
 	withLastId = false,
@@ -33,23 +33,6 @@ const getAllPosts = ({
 };
 
 export const postQuery = groq`${postsLanguageFilter()} && active == true && slug.current == $slug][0]`;
-export const postsQuery = groq`
-{
-  "posts": ${postsLanguageFilter()}] | order(_createdAt desc) [0...$limit],
-  "total": count(${postsLanguageFilter()}])
-}
-  `;
-export const searchQuery = groq`
-{
-  "posts": ${postsLanguageFilter} && title match $searchQuery] | order(_createdAt desc) [0...$limit],
-  "total": count(${postsLanguageFilter} && title match $searchQuery])
-}`;
-
-export const searchQueryWithPagination = groq`
-{
-  "posts": ${postsLanguageFilter} && title match $searchQuery && _id > $lastId] | order(_createdAt desc) [0...$limit],
-  "total": count(${postsLanguageFilter} && title match $searchQuery])
-}`;
 
 export const categoryPostsQuery = groq`
 {
@@ -58,6 +41,23 @@ export const categoryPostsQuery = groq`
 }`;
 export const categoryQuery = groq`${categoriesLanguageFilter()} && activeCategory == true && slug.current == $slug][0]`;
 export const categoriesQuery = groq`${categoriesLanguageFilter()} && activeCategory == true]`;
+// export const postsQuery = groq`
+// {
+//   "posts": ${postsLanguageFilter()}] | order(_createdAt desc) [0...$limit],
+//   "total": count(${postsLanguageFilter()}])
+// }
+//   `;
+// export const searchQuery = groq`
+// {
+//   "posts": ${postsLanguageFilter} && title match $searchQuery] | order(_createdAt desc) [0...$limit],
+//   "total": count(${postsLanguageFilter} && title match $searchQuery])
+// }`;
+
+// export const searchQueryWithPagination = groq`
+// {
+//   "posts": ${postsLanguageFilter} && title match $searchQuery && _id > $lastId] | order(_createdAt desc) [0...$limit],
+//   "total": count(${postsLanguageFilter} && title match $searchQuery])
+// }`;
 
 // const filtered = await client.fetch(
 //   '*[_type == $type && publishedAt > $date] | order(publishedAt desc) [0...$limit]',

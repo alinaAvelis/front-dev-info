@@ -1,5 +1,4 @@
 import {
-	postsQuery,
 	categoryQuery,
 	categoryPostsQuery,
 } from "@/sanity/lib/queries";

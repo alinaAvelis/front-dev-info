@@ -1,5 +1,4 @@
-// import { sanityFetch } from "@/sanity/lib/sanityFetch";
-// import { postsQuery } from "@/sanity/lib/queries";
+
 import PostsPage from "@/app-pages/posts";
 
 export const metadata = {
@@ -9,10 +8,6 @@ export const metadata = {
 };
 
 const Posts = async () => {
-	// const posts = await sanityFetch({
-	// 	query: postsQuery,
-	// 	params: { limit: 3 },
-	// });
 
 	return <PostsPage />;
 };
