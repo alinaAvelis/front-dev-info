@@ -8,7 +8,7 @@ export type SanityCategoryType = {
 	_createdAt: string;
 	_id: string;
 	_rev: string;
-	_type: string;
+	_type: 'categories-en' | 'categories-ru';
 	_updatedAt: string;
 };
 
@@ -22,5 +22,5 @@ export type CategoryType = {
 	id: string;
 };
 
-export type SanityCategoriesType = Array<SanityCategoriesType>
-export type CategoriesType = Array<CategoriesType>
+export type SanityCategoriesType = SanityCategoryType[];
+export type CategoriesType = CategoryType[];

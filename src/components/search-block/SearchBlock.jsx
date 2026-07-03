@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import useSearch from "@/hooks/use-search";
 import { setSearchState } from "@/lib/features/searchSlice";
-import useLoadPosts from "@/hooks/use-load-posts";
 
 const code = `(function(){<br />
 let canvas = document.createElement('canvas'),<br />  

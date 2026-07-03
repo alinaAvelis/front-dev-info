@@ -19,7 +19,7 @@ export default defineConfig({
   plugins: [
     documentInternationalization({
       supportedLanguages: languages,
-      schemaTypes: ['posts', 'category'],
+      schemaTypes: ['posts-en', 'posts-ru', 'categories-en', 'categories-ru'],
       languageField: 'language',
       bulkPublish: true,
       addTemplates: true,
@@ -31,14 +31,14 @@ export default defineConfig({
       buttonLocations: ['field', 'unstable__fieldAction'],
       buttonAddAll: true,
       languageFilter: {
-        documentTypes: ['posts', 'category'],
+        documentTypes: ['posts-en', 'posts-ru', 'categories-en', 'categories-ru'],
         defaultLanguages: ['en'],
       },
     }),
     languageFilter({
       supportedLanguages: languages,
       defaultLanguages: ['en'],
-      documentTypes: ['posts', 'category'],
+      documentTypes: ['posts-en', 'posts-ru', 'categories-en', 'categories-ru'],
     }),
     // googleTranslate(),
     structureTool(),

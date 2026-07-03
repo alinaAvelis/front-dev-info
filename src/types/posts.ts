@@ -3,7 +3,7 @@ import type { PortableTextBlock } from '@portabletext/types';
 export type PostType = {
   _id: string;
   _rev: string;
-  _type: 'posts';
+  _type: 'posts-en' | 'posts-ru';
 
   active: boolean;
   title: string;

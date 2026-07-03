@@ -4,7 +4,7 @@ import { useState } from "react";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import {
 	postsQuery,
-	filteredByIdQuery,
+	// filteredByIdQuery,
 	searchQueryWithPagination,
 } from "@/sanity/lib/queries";
 import {

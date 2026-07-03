@@ -23,7 +23,7 @@ export default async function RootLayout({ children }) {
 		params: { limit: 9 },
 	});
 
-	// console.log(categories)
+	console.log(posts)
 	return (
 		<StateLayoutDispatcher categories={categories} allPosts={posts}>
 			<AppHeader />
