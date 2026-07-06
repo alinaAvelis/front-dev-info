@@ -1,24 +1,25 @@
 "use client";
-import { useRef } from "react";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { useCategorySelector } from "@/lib/features/categories/hooks/use-category-selector";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
-const SearchBlock = dynamic(() => import("../search-block/SearchBlock"));
-const CloseBtn = dynamic(() => import("../close_btn/CloseBtn"));
+import LanguageSelector from "@/components/language-selector/LanguageSelector";
+import { useTranslations } from "@/shared/i18n/use-translations";
 
-const AppHeader = () => {
+const SearchBlock = dynamic(() => import("../search-block/SearchBlock"));
+const CloseBtn = dynamic(() => import("@/shared/ui/close-button/CloseButton"));
+
+const AppHeader = ({ language }) => {
 	const categoriesMenu = useRef(null);
 	const pathname = usePathname();
 	const categories = useCategorySelector();
+	const t = useTranslations(language);
 
 	if (pathname?.startsWith("/studio")) {
 		return null;
 	}
-
-	// const postResoursesPages =
-	// 	pathname.includes(`/posts/`) || pathname.includes(`/resourses`);
 
 	const handleOpenMenu = () => {
 		const menu = categoriesMenu.current;
@@ -35,11 +36,7 @@ const AppHeader = () => {
 	};
 
 	return (
-		<header
-			className={`z-10  w-full  bg-white fixed right-0 top-0
-				
-			`}
-		>
+		<header className="z-10 w-full bg-white fixed right-0 top-0">
 			<div className="mx-auto max-w-screen-xl px-5">
 				<div className="flex flex-col items-center justify-between gap-5 py-2 sm:flex-row">
 					<Link
@@ -59,7 +56,7 @@ const AppHeader = () => {
 									data-type="open_donate"
 									onClick={handleOpenMenu}
 								>
-									{item.title}
+									{t("common", item.translationKey)}
 								</button>
 							) : (
 								<Link
@@ -67,10 +64,11 @@ const AppHeader = () => {
 									className={`link text-base font-bold md:text-lg ${pathname.includes(item.path) ? "underline!" : ""}`}
 									href={item.path}
 								>
-									{item.title}
+									{t("common", item.translationKey)}
 								</Link>
 							),
 						)}
+						<LanguageSelector initialLanguage={language} />
 					</div>
 				</div>
 
@@ -104,19 +102,19 @@ const AppHeader = () => {
 const menuItems = [
 	{
 		id: "1hl",
-		title: "Категории",
+		translationKey: "categories",
 		path: "/categories",
 		type: "button",
 	},
 	{
 		id: "2hl",
-		title: "Посты",
+		translationKey: "posts",
 		path: "/posts",
 		type: "link",
 	},
 	{
 		id: "3hl",
-		title: "Ресурсы",
+		translationKey: "resources",
 		path: "/resourses",
 		type: "link",
 	},

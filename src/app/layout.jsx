@@ -8,6 +8,7 @@ import {
     META_SEO_KEYWORDS,
     META_DESCRIPTION,
 } from "@/constants/_APP_SETUP";
+import { getServerLanguage } from "@/shared/i18n/get-server-language";
 
 // export const revalidate = 60
 export const metadata = {
@@ -52,9 +53,11 @@ export const metadata = {
     ],
 };
 
-export default function Layout({ children }) {
+export default async function Layout({ children }) {
+    const language = await getServerLanguage();
+
     return (
-        <html lang='ru' data-scroll-behavior="smooth">
+        <html lang={language} data-scroll-behavior="smooth">
             <body className='flex h-auto min-h-screen flex-col  transition-all ' suppressHydrationWarning>
                 <Providers>
                     <RootLayout>{children}</RootLayout>

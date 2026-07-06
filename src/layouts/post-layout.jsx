@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo, useEffect } from "react";
-import ToTopButton from "@/components/to-top-button/ToTopButton.jsx";
+import ToTopButton from "@/shared/ui/to-top-button/ToTopButton.jsx";
 // import {
 // 	VKShareButton,
 // 	VKIcon,
@@ -16,7 +16,7 @@ import PostMenu from "@/components/post/menu";
 import { sortByDate } from "@/utils/utils";
 import dynamic from "next/dynamic";
 import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
-const Breadcrumbs = dynamic(() => import("@/components/breadcrumbs"));
+const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
 const PostLayout = ({ currentPostSlug, pathArr, children }) => {

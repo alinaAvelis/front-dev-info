@@ -1,11 +1,13 @@
-import { postQuery } from "@/sanity/lib/queries";
+import { getPostQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import PostPage from "@/app-pages/post";
+import { getServerLanguage } from "@/shared/i18n/get-server-language";
 
 export async function generateMetadata({ params }) {
 	const parametrs = await params;
+	const language = await getServerLanguage();
 	const post = await sanityFetch({
-		query: postQuery,
+		query: getPostQuery(language),
 		params: parametrs,
 	});
 
@@ -24,8 +26,9 @@ export async function generateMetadata({ params }) {
 
 const Post = async ({ params }) => {
 	const parametrs = await params;
+	const language = await getServerLanguage();
 	const post = await sanityFetch({
-		query: postQuery,
+		query: getPostQuery(language),
 		params: parametrs,
 	});
 

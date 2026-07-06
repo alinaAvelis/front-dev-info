@@ -1,29 +1,35 @@
 import { WEBSITE_URL } from "@/constants/_APP_SETUP";
 import {
-    postsQuery,
-    categoriesQuery,
+    getAllPostsQuery,
+    getCategoriesQuery,
 } from "@/sanity/lib/queries";
 import { createClient} from "next-sanity";
 import clientConfig from "@/utils/sanity-client-config";
+import { defaultLanguage } from "@/shared/i18n/config";
 // import { SanityDocument } from "@sanity/client";
 // import { sanityFetch } from "@/sanity/lib/sanityFetch";
 
 export default async function sitemap() {
     const baseUrl = WEBSITE_URL;
 
-    const posts = await createClient(clientConfig).fetch(postsQuery);
+    const postsResponse = await createClient(clientConfig).fetch(
+        getAllPostsQuery({ language: defaultLanguage }),
+        { limit: 1000 },
+    );
 
-    const postUrls = posts?.map((post) => ({
-        url: `${baseUrl}/post/${post?.slug?.current}`,
-        lastModified: post?.updatedAt,
-    }));
+    const postUrls = postsResponse?.posts?.map((post) => ({
+        url: `${baseUrl}/posts/${post?.slug?.current}`,
+        lastModified: post?._updatedAt,
+    })) ?? [];
 
-    const categories = await createClient(clientConfig).fetch(categoriesQuery);
+    const categories = await createClient(clientConfig).fetch(
+        getCategoriesQuery(defaultLanguage),
+    );
 
     const categoryUrls = categories?.map((category) => ({
-        url: `${baseUrl}/post/${category?.slug?.current}`,
-        lastModified: category?.updatedAt,
-    }));
+        url: `${baseUrl}/categories/${category?.slug?.current}`,
+        lastModified: category?._updatedAt,
+    })) ?? [];
 
 
     return [

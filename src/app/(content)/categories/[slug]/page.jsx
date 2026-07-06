@@ -1,14 +1,16 @@
 import {
-	categoryQuery,
-	categoryPostsQuery,
+	getCategoryQuery,
+	getCategoryPostsQuery,
 } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import CategoryPage from "@/app-pages/category";
+import { getServerLanguage } from "@/shared/i18n/get-server-language";
 
 export async function generateMetadata({ params }) {
 	const parametrs = await params;
+	const language = await getServerLanguage();
 	const category = await sanityFetch({
-		query: categoryQuery,
+		query: getCategoryQuery(language),
 		params: parametrs,
 	});
 
@@ -27,14 +29,15 @@ export async function generateMetadata({ params }) {
 
 const Category = async ({ params }) => {
 	const parametrs = await params;
+	const language = await getServerLanguage();
 
 	const category = await sanityFetch({
-		query: categoryQuery,
+		query: getCategoryQuery(language),
 		params: parametrs,
 	});
 
 	const categoryPosts = await sanityFetch({
-		query: categoryPostsQuery,
+		query: getCategoryPostsQuery(language),
 		params: { categorySlug: parametrs.slug, limit: 9 },
 	});
 

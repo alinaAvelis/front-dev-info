@@ -10,17 +10,18 @@ import {
 	setPostsLoading,
     // setHasMorePosts
 } from "@/lib/features/posts/postsSlice";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 export default function useSearch({ limit = 9 }) {
 	
 	const dispatch = useAppDispatch();
+	const language = useAppSelector((state) => state.languageReducer.language);
 	
     const searchPosts = async (searchValue: string) => {
         dispatch(setPostsLoading(true));
         // const lastPost = posts[posts.length - 1];
 
-        const query = getAllPostsQuery({ language: "en", bySearch: true });
+        const query = getAllPostsQuery({ language, bySearch: true });
         const params = {
             // lastId: lastPost._id,
             limit: limit,

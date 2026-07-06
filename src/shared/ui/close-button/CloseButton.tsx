@@ -1,7 +1,7 @@
 import React from "react";
 
 type CloseBtnProps = {
-	clickHandler: any;
+	clickHandler: () => void;
 };
 
 const CloseBtn = ({ clickHandler }: CloseBtnProps) => {

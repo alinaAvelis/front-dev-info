@@ -12,7 +12,7 @@ import {
 	setPostsState,
 	setPostsLoading,
 } from "@/lib/features/posts/postsSlice";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { PostsType, PostsFromSanityType } from "@/types/posts";
 
 export default function useLoadPosts({
@@ -26,6 +26,7 @@ export default function useLoadPosts({
 	// const [posts, setPosts] = useState<PostsType>(initialPosts);
 
 	const dispatch = useAppDispatch();
+	const language = useAppSelector((state) => state.languageReducer.language);
 	const loadMorePosts = async (searchValue = "", limit = 9) => {
 		dispatch(setPostsLoading(true));
 		// let total = totalPosts;
@@ -38,9 +39,8 @@ export default function useLoadPosts({
 		if (searchValue) {
 			// if (searchValue) {
 				query = getAllPostsQuery({
-					language: "en",
+					language,
 					bySearch: true,
-					withLastId: true,
 				});
 				params = {
 					// lastId: lastPost._id,
@@ -56,21 +56,17 @@ export default function useLoadPosts({
 			// }
 		} else {
 			query = getAllPostsQuery({
-				language: "en",
+				language,
 			});
 			params = {
 				limit: limit,
 			};
 		}
 
-			console.log(params)
 		const newPosts: PostsFromSanityType = await sanityFetch({
 			query,
 			params,
 		});
-
-		console.log("newPosts", newPosts);
-	
 
 		if (newPosts.total > 0) {
 			// setPosts([...posts, ...newPosts.posts]);
