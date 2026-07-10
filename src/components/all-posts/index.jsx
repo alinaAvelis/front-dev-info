@@ -23,24 +23,27 @@ import useSearch from "@/hooks/use-search";
 import useLoadPosts from "@/hooks/use-load-posts";
 import { setLimit } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
+import { useTranslations } from "@/shared/i18n/use-translations";
 
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
 const ToPostPages = () => {
+	// const t = useTranslations(language);
 	return (
 		<Link href="/posts" className="button button--fill button--center">
-			<span>На страницу постов</span>
+			<span>Posts page</span>
 		</Link>
 	);
 };
 
 const AddPostsButton = ({ onClick }) => {
+		// const t = useTranslations(language);
 	return (
 		<button
 			className="button button--fill button--center"
 			onClick={onClick}
 		>
-			Еще посты
+			Load more
 		</button>
 	);
 };
