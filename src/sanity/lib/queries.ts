@@ -14,7 +14,7 @@ export const getAllPostsQuery = ({
 		const total = `count(${postsLanguageFilter(language)} && title match $searchQuery])`;
 		if (withLastId) {
 			return groq`{
-          "posts": ${postsLanguageFilter(language)} && title match $searchQuery && _id > $lastId] | order(_createdAt desc) [0...$limit],
+          "posts": ${postsLanguageFilter(language)} && title match $searchQuery] | order(_createdAt desc) [0...$limit],
           "total": ${total}
         }`;
 		}

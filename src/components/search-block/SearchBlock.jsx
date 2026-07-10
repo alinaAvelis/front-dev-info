@@ -3,7 +3,12 @@ import React, { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import useSearch from "@/hooks/use-search";
+import { setPostsByPreloaded } from "@/lib/features/posts/postsSlice";
 import { setSearchState } from "@/lib/features/searchSlice";
+import {
+    useLimitSelector
+} from "@/lib/features/posts/hooks/use-posts-selector";
+import { useTranslations } from "@/shared/i18n/use-translations";
 
 const code = `(function(){<br />
 let canvas = document.createElement('canvas'),<br />  
@@ -32,13 +37,17 @@ class Particle {<br />
 constructor() {<br />
 this.x = Math.random()*w;<br />`;
 
-const SearchBlock = () => {
+const SearchBlock = ({language}) => {
 	const searchValue = useAppSelector((state) => state.searchReducer.value);
+	// const [v, setV] = useState()
 	const router = useRouter();
-	const { searchPosts } = useSearch({limit: 9});
+	const limit = useLimitSelector();
+	const { searchPosts } = useSearch({limit});
 	const dispatch = useAppDispatch();
+	const t = useTranslations(language);
 
 	const onSearch = useCallback(() => {
+		// console.log(v)
 		if (router.pathname !== "/posts") {
 			router.push("/posts");
 		}
@@ -49,29 +58,28 @@ const SearchBlock = () => {
 		}
 	}, [dispatch, router, searchPosts, searchValue]);
 
-	const handlePressKeyboard = useCallback(
-		(e) => {
-			// console.log(e.keyCode);
-			if (e.keyCode === 13) {
-				onSearch();
-			}
-		},
-		[onSearch],
-	);
 
-	useEffect(() => {
-		window.addEventListener("keydown", handlePressKeyboard);
-		return () => window.removeEventListener("resize", handlePressKeyboard);
-	}, [handlePressKeyboard]);
+	// useEffect(() => {
+	// 	const handlePressKeyboard = 
+	// 	(e) => {
+	// 		// console.log(e.keyCode);
+	// 		if (e.keyCode === 13) {
+	// 			onSearch();
+	// 		}
+	// 	};
+	// 	window.addEventListener("keydown", handlePressKeyboard);
+	// 	return () => window.removeEventListener("resize", handlePressKeyboard);
+	// }, [onSearch]);
 
 
 	const onInputChange = (e) => {
+		// setV(e.target.value)
 		dispatch(setSearchState(e.target.value));
 	};
 
 	return (
 		<section className="search_block search_block--small ">
-			<h2 className="visually-hidden">Поиск</h2>
+			<h2 className="visually-hidden">{t("common", "search")}</h2>
 			<div className="py-2 px-5 flex justify-center items-center mx-auto max-w-screen-xl">
 				<div className="search_block_back">
 					<pre>
@@ -84,7 +92,7 @@ const SearchBlock = () => {
 						className="input"
 						value={searchValue}
 						onChange={onInputChange}
-						placeholder="Поиск по постам..."
+						placeholder={t("common", "searchPlaceholder")}
 					/>
 
 					<button

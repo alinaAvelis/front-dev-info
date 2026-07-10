@@ -1,47 +1,40 @@
 "use client";
 // import { useState } from "react";
 // import { useAppSelector } from "@/lib/hooks";
+
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { getAllPostsQuery } from "@/sanity/lib/queries";
 import { PostsFromSanityType } from "@/types/posts";
 import {
-	
 	setPostsState,
 	setPostsLoading,
-    // setHasMorePosts
+	// setHasMorePosts
 } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 export default function useSearch({ limit = 9 }) {
-	
 	const dispatch = useAppDispatch();
 	const language = useAppSelector((state) => state.languageReducer.language);
+
+	const searchPosts = async (searchValue: string) => {
+		dispatch(setPostsLoading(true));
+		// const lastPost = posts[posts.length - 1];
+
+		const query = getAllPostsQuery({ language, bySearch: true });
+		const params = {
+			// lastId: lastPost._id,
+			limit: limit,
+			searchQuery: searchValue,
+		};
+
+		const newPosts: PostsFromSanityType = await sanityFetch({
+			query,
+			params,
+		});
 	
-    const searchPosts = async (searchValue: string) => {
-        dispatch(setPostsLoading(true));
-        // const lastPost = posts[posts.length - 1];
-
-        const query = getAllPostsQuery({ language, bySearch: true });
-        const params = {
-            // lastId: lastPost._id,
-            limit: limit,
-            searchQuery: searchValue,
-        };
-
-        const newPosts: PostsFromSanityType = await sanityFetch({ query, params });
-
-        if (newPosts.posts.length > 0) {
-            dispatch(setPostsState(newPosts));
-
-            // if(newPosts.total > limit) {
-            //     dispatch(setHasMorePosts(true));
-            // } else {
-            //     dispatch(setHasMorePosts(false));
-            // }
-        }
-
-        dispatch(setPostsLoading(false));
-    };
+		dispatch(setPostsState(newPosts));
+		dispatch(setPostsLoading(false));
+	};
 
 	return { searchPosts };
 }

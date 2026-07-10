@@ -69,6 +69,7 @@ export default function useLoadPosts({
 		});
 
 		if (newPosts.total > 0) {
+			console.log(newPosts)
 			// setPosts([...posts, ...newPosts.posts]);
 			// console.log("posts", posts);
 			dispatch(setPostsState(newPosts));

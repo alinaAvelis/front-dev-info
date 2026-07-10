@@ -231,7 +231,7 @@ textarea {
     @apply block border-0 outline-0;
 
     &::placeholder {
-        @apply block border-0 outline-0 text-gray-800;
+        @apply block border-0 outline-0 text-slate-500 text-sm;
     }
 }
 

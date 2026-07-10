@@ -1,3 +1,4 @@
+import { search } from "@/lib/features/searchSlice";
 import { Language, defaultLanguage } from "./config";
 
 const dictionary = {
@@ -9,6 +10,8 @@ const dictionary = {
 			allPosts: "All posts",
 			resources: "Resources",
 			language: "Language",
+			search: "Search",
+			searchPlaceholder: "Type the word and click the search icon..."
 		},
 	},
 	ru: {
@@ -19,6 +22,8 @@ const dictionary = {
 			allPosts: "Все посты",
 			resources: "Ресурсы",
 			language: "Язык",
+			search: "Поиск",
+			searchPlaceholder: "Введите слово и нажмите иконку поиска..."
 		},
 	},
 } as const;

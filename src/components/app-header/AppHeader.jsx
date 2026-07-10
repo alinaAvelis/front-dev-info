@@ -94,7 +94,7 @@ const AppHeader = ({ language }) => {
 				</div>
 			</div>
 
-			<SearchBlock />
+			<SearchBlock language={language} />
 		</header>
 	);
 };
