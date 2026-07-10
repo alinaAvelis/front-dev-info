@@ -1,7 +1,8 @@
 import {
 	defaultLanguage as sharedDefaultLanguage,
 	languages as sharedLanguages,
-} from "@/shared/i18n/config";
+} from "../shared/i18n/config";
+
 
 export const languages = sharedLanguages.map(({ id, title }) => ({
   id,
