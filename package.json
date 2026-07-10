@@ -24,6 +24,7 @@
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^2.1.1",
     "@sanity/language-filter": "^5.0.4",
+    "@sanity/table": "^3.1.6",
     "@sanity/vision": "^6.3.0",
     "add": "^2.0.6",
     "chart.js": "^4.5.1",

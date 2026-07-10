@@ -9,6 +9,7 @@ import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schema'
 import {languages} from './src/sanity/locales'
 import {structureTool} from 'sanity/structure'
+import { table } from '@sanity/table'
 import {codeInput} from '@sanity/code-input'
 
 export default defineConfig({
@@ -44,5 +45,6 @@ export default defineConfig({
     structureTool(),
     visionTool(),
     codeInput(),
+    table(),
   ],
 })

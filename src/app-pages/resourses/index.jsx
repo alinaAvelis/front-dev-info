@@ -162,7 +162,33 @@ const info = [
 		strongText: `горячие клавиши`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 14 + "info",
+		href: `https://www.geeksforgeeks.org/dsa/top-100-data-structure-and-algorithms-dsa-interview-questions-topic-wise/`,
+		title: `https://www.geeksforgeeks.org/dsa/top-100-data-structure-and-algorithms-dsa-interview-questions-topic-wise/`,
+		textBeforeStrong: `Топик`,
+		strongText: ` вопросов для интервью`,
+		textAfterStrong: ` по структурам данных и алгоритмам`,
+	},
+	{
+		id: 15 + "info",
+		href: `https://www.geeksforgeeks.org/dsa/data-structures-and-algorithms-online-quiz/`,
+		title: `https://www.geeksforgeeks.org/dsa/data-structures-and-algorithms-online-quiz/`,
+		textBeforeStrong: ``,
+		strongText: `Квиз`,
+		textAfterStrong: ` по структурам данных и алгоритмам`,
+	},
+		{
+		id: 16 + "info",
+		href: `https://www.geeksforgeeks.org/system-design/system-design-tutorial/`,
+		title: `https://www.geeksforgeeks.org/system-design/system-design-tutorial/`,
+		textBeforeStrong: ``,
+		strongText: `Гайд`,
+		textAfterStrong: ` по дизайну систем`,
+	},
 ];
+
+
 
 const librariesStyles = [
 	{
@@ -491,6 +517,14 @@ const others = [
 		strongText: `git`,
 		textAfterStrong: ``,
 	},
+	{
+		id: 31,
+		href: `https://unpkg.com/`,
+		title: `https://unpkg.com/`,
+		textBeforeStrong: ``,
+		strongText: `UNPKG`,
+		textAfterStrong: ` is a fast, global content delivery network for everything on npm.`,
+	},
 ];
 
 const tasks = [
@@ -501,6 +535,41 @@ const tasks = [
 		textBeforeStrong: ``,
 		strongText: ``,
 		textAfterStrong: ``,
+	},
+];
+
+const AI = [
+	{
+		id: 1 + "ai",
+		href: `https://pi.dev/`,
+		title: `https://pi.dev/`,
+		textBeforeStrong: ``,
+		strongText: `Pi`,
+		textAfterStrong: ` is a minimal agent harness`,
+	},
+	{
+		id: 2 + "ai",
+		href: `https://claude.com/product/claude-code`,
+		title: `https://claude.com/product/claude-code`,
+		textBeforeStrong: ``,
+		strongText: `Claude Code`,
+		textAfterStrong: `is AI code assistant`,
+	},
+	{
+		id: 3 + "ai",
+		href: `https://lmstudio.ai/`,
+		title: `https://lmstudio.ai/`,
+		textBeforeStrong: ``,
+		strongText: ``,
+		textAfterStrong: `Run AI models, locally and privately.`,
+	},
+	{
+		id: 4 + "ai",
+		href: `https://huggingface.co/`,
+		title: `https://huggingface.co/`,
+		textBeforeStrong: ``,
+		strongText: ``,
+		textAfterStrong: `The platform where the machine learning community collaborates on models, datasets, and applications.`,
 	},
 ];
 
@@ -566,6 +635,14 @@ const data = [
 		data: [
 			{
 				data: tasks,
+			},
+		],
+	},
+	{
+		title: `Искуственный интелект`,
+		data: [
+			{
+				data: AI,
 			},
 		],
 	},
