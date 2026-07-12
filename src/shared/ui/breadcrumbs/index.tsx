@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations } from "@/shared/i18n/use-translations";
+import useDictionary from "@/shared/i18n/use-dictionary";
+import { MenuTranslationKey } from "@/shared/i18n/dictionary";
 
 type BreadcrumbItem = {
 	name?: string;
-	translationKey?: "home" | "categories" | "posts" | "resources";
+	translationKey?: MenuTranslationKey;
 	url?: string;
 };
 
@@ -14,7 +15,7 @@ type BreadcrumbsPropsType = {
 };
 
 const Breadcrumbs = ({ pathArr }: BreadcrumbsPropsType) => {
-	const t = useTranslations();
+	const menu  = useDictionary("menu") as { [key in MenuTranslationKey]: string };
 	const path: BreadcrumbItem[] = [
 		{ translationKey: "home", url: "/" },
 		...pathArr,
@@ -24,7 +25,7 @@ const Breadcrumbs = ({ pathArr }: BreadcrumbsPropsType) => {
 		<div className="flex mt-5 items-center">
 			{path.map((item, index) => {
 				const name = item.translationKey
-					? t("common", item.translationKey)
+					? menu[item.translationKey]
 					: item.name;
 
 				return item.url ? (

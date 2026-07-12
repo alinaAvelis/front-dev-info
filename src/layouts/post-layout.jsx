@@ -15,11 +15,14 @@ import ToTopButton from "@/shared/ui/to-top-button/ToTopButton.jsx";
 import PostMenu from "@/components/post/menu";
 import { sortByDate } from "@/utils/utils";
 import dynamic from "next/dynamic";
+import useDictionary from "@/shared/i18n/use-dictionary";
 import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
 const PostLayout = ({ currentPostSlug, pathArr, children }) => {
+	const general = useDictionary("general");
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -44,7 +47,7 @@ const PostLayout = ({ currentPostSlug, pathArr, children }) => {
 
 					{lastPosts.length > 0 && (
 						<div className="other_posts">
-							<h2>Другие посты</h2>
+							<h2>{general?.otherPosts}</h2>
 							<Cards
 								data={lastPosts}
 								withImage={false}

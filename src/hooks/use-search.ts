@@ -10,11 +10,12 @@ import {
 	setPostsLoading,
 	// setHasMorePosts
 } from "@/lib/features/posts/postsSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppDispatch } from "@/lib/hooks";
+import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 
 export default function useSearch({ limit = 9 }) {
 	const dispatch = useAppDispatch();
-	const language = useAppSelector((state) => state.languageReducer.language);
+	const language = useLanguageSelector();
 
 	const searchPosts = async (searchValue: string) => {
 		dispatch(setPostsLoading(true));

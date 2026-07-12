@@ -7,6 +7,7 @@ import Image from "next/image";
 import { urlFor } from "@/utils/sanity-utils";
 import CodeInput from "@/components/code-input";
 import PostLayout from "@/layouts/post-layout";
+import useDictionary from "@/shared/i18n/use-dictionary";
 
 const components = {
 	block: {
@@ -160,11 +161,12 @@ const components = {
 };
 
 const PostPage = ({ post, allPosts }) => {
+	const menu = useDictionary("menu")
 	return (
 		<PostLayout
 			currentPostSlug={post.slug.current}
 			allPosts={allPosts}
-			pathArr={[{ name: "Посты", url: "/posts" }, { name: post?.title }]}
+			pathArr={[{ name: menu?.posts, url: "/posts" }, { name: post?.title }]}
 		>
 			<h1>{post?.title}</h1>
 

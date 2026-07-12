@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppDispatch } from "@/lib/hooks";
 import { setLanguageState } from "@/lib/features/language/languageSlice";
 import {
 	LANGUAGE_COOKIE_NAME,
@@ -12,6 +12,7 @@ import {
 } from "@/shared/i18n/config";
 import { getTranslation } from "@/shared/i18n/dictionary";
 import Selector from "@/shared/ui/selector/Selector";
+import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 
 type LanguageSelectorProps = {
 	initialLanguage: Language;
@@ -25,7 +26,7 @@ const languageOptions = languages.map(({ id, title, shortTitle }) => ({
 const LanguageSelector = ({ initialLanguage }: LanguageSelectorProps) => {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
-	const language = useAppSelector((state) => state.languageReducer.language);
+	const language = useLanguageSelector();
 	const selectedLanguage = normalizeLanguage(language ?? initialLanguage);
 	const t = getTranslation(selectedLanguage);
 
@@ -43,7 +44,7 @@ const LanguageSelector = ({ initialLanguage }: LanguageSelectorProps) => {
 
 	return (
 		<Selector
-			ariaLabel={t("common", "language")}
+			ariaLabel={t("menu", "language")}
 			disableScrollLock
 			options={languageOptions}
 			value={selectedLanguage}

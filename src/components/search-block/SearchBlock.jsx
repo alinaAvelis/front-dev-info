@@ -4,11 +4,12 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import useSearch from "@/hooks/use-search";
 import { setPostsByPreloaded } from "@/lib/features/posts/postsSlice";
-import { setSearchState } from "@/lib/features/searchSlice";
+import { setSearchState } from "@/lib/features/search/searchSlice";
+import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 import {
     useLimitSelector
 } from "@/lib/features/posts/hooks/use-posts-selector";
-import { useTranslations } from "@/shared/i18n/use-translations";
+import useDictionary from "@/shared/i18n/use-dictionary";
 
 const code = `(function(){<br />
 let canvas = document.createElement('canvas'),<br />  
@@ -37,14 +38,14 @@ class Particle {<br />
 constructor() {<br />
 this.x = Math.random()*w;<br />`;
 
-const SearchBlock = ({language}) => {
-	const searchValue = useAppSelector((state) => state.searchReducer.value);
+const SearchBlock = () => {
+	const searchValue = useSearchValueSelector();
 	// const [v, setV] = useState()
 	const router = useRouter();
 	const limit = useLimitSelector();
 	const { searchPosts } = useSearch({limit});
 	const dispatch = useAppDispatch();
-	const t = useTranslations(language);
+	const searchDictionary = useDictionary("search") 
 
 	const onSearch = useCallback(() => {
 		// console.log(v)
@@ -79,7 +80,7 @@ const SearchBlock = ({language}) => {
 
 	return (
 		<section className="search_block search_block--small ">
-			<h2 className="visually-hidden">{t("common", "search")}</h2>
+			<h2 className="visually-hidden">{searchDictionary?.title}</h2>
 			<div className="py-2 px-5 flex justify-center items-center mx-auto max-w-screen-xl">
 				<div className="search_block_back">
 					<pre>
@@ -92,13 +93,14 @@ const SearchBlock = ({language}) => {
 						className="input"
 						value={searchValue}
 						onChange={onInputChange}
-						placeholder={t("common", "searchPlaceholder")}
+						placeholder={searchDictionary?.placeholder}
 					/>
 
 					<button
 						className="button button--no_styles search_icon flex justify-center items-center"
 						type="button"
 						onClick={onSearch}
+						aria-label="search icon"
 					>
 						<svg
 							width="36"

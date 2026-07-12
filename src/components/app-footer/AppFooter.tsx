@@ -1,8 +1,9 @@
 "use client";
 import React, { useMemo } from "react";
-
+import useDictionary from "@/shared/i18n/use-dictionary";
 
 const AppFooter = () => {
+    	const general = useDictionary("general");
     const getCurrentYear = useMemo(() => {
         return new Date().getFullYear();
     }, []);
@@ -12,8 +13,7 @@ const AppFooter = () => {
                 <p>© {getCurrentYear} front-dev-info</p>
 
                 <div className='text-sm w-full md:w-96 text-center md:text-left'>
-                    Если вы заметили ошибку или есть замечания, вы можете
-                    написать на почту:{" "}
+                    {general?.writeToMe}{" "}
                     <strong>
                         <a href='mailto:frontdevinfo@gmail.com'>
                             frontdevinfo@gmail.com

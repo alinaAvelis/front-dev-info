@@ -6,16 +6,17 @@ import { useCategorySelector } from "@/lib/features/categories/hooks/use-categor
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import LanguageSelector from "@/components/language-selector/LanguageSelector";
-import { useTranslations } from "@/shared/i18n/use-translations";
-
+import useDictionary from "@/shared/i18n/use-dictionary";
+import { Language } from "@/shared/i18n/config";
+import { MenuTranslationKey } from "@/shared/i18n/dictionary";
 const SearchBlock = dynamic(() => import("../search-block/SearchBlock"));
 const CloseBtn = dynamic(() => import("@/shared/ui/close-button/CloseButton"));
 
-const AppHeader = ({ language }) => {
-	const categoriesMenu = useRef(null);
+const AppHeader = ({ language }: {language: Language}) => {
+	const categoriesMenu = useRef<HTMLDivElement | null>(null);
 	const pathname = usePathname();
 	const categories = useCategorySelector();
-	const t = useTranslations(language);
+	const menuDictionary = useDictionary("menu") as { [key in MenuTranslationKey]: string };
 
 	if (pathname?.startsWith("/studio")) {
 		return null;
@@ -25,14 +26,20 @@ const AppHeader = ({ language }) => {
 		const menu = categoriesMenu.current;
 		menu?.classList.add("open");
 		const body = document.querySelector("body");
-		body.style.overflow = "hidden";
+		if(body) {
+			body.style.overflow = "hidden";
+		}
 	};
 
 	const onClose = () => {
 		const menu = categoriesMenu.current;
 		menu?.classList.remove("open");
 		const body = document.querySelector("body");
-		body.style.overflowY = "visible";
+
+		if(body) {
+			body.style.overflow = "visible";
+		}
+	
 	};
 
 	return (
@@ -56,7 +63,7 @@ const AppHeader = ({ language }) => {
 									data-type="open_donate"
 									onClick={handleOpenMenu}
 								>
-									{t("common", item.translationKey)}
+									{menuDictionary[item.translationKey]}
 								</button>
 							) : (
 								<Link
@@ -64,7 +71,7 @@ const AppHeader = ({ language }) => {
 									className={`link text-base font-bold md:text-lg ${pathname.includes(item.path) ? "underline!" : ""}`}
 									href={item.path}
 								>
-									{t("common", item.translationKey)}
+									{menuDictionary[item.translationKey]}
 								</Link>
 							),
 						)}
@@ -94,12 +101,17 @@ const AppHeader = ({ language }) => {
 				</div>
 			</div>
 
-			<SearchBlock language={language} />
+			<SearchBlock />
 		</header>
 	);
 };
 
-const menuItems = [
+const menuItems: Array<{
+	id: string;
+	translationKey: MenuTranslationKey;
+	path: string;
+	type: string;
+}> = [
 	{
 		id: "1hl",
 		translationKey: "categories",

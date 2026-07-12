@@ -1,8 +1,9 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import DesktopMenu from "./desktop-menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 
 type Links =
 	| {
@@ -14,6 +15,7 @@ type Links =
 	| undefined;
 
 export default function PostMenu() {
+	const language = useLanguageSelector();
 	const [menu, setMenu] = useState<Links>([]);
 	const isMobile = useMediaQuery("(max-width: 1020px)");
 	const createMenu = useCallback(
@@ -79,14 +81,17 @@ export default function PostMenu() {
 				setMenu(links);
 			})();
 		}
-	}, []);
+	}, [createMenu]);
 
 	return (
-		menu && menu?.length > 0 && (
+		menu &&
+		menu?.length > 0 && (
 			<>
-			{isMobile ? <MobileMenu menu={menu} /> : <DesktopMenu menu={menu} />}
-				
-				
+				{isMobile ? (
+					<MobileMenu menu={menu} />
+				) : (
+					<DesktopMenu menu={menu} />
+				)}
 			</>
 		)
 	);

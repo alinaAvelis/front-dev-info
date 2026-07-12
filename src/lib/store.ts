@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchReducer from "./features/searchSlice";
+import searchReducer from "./features/search/searchSlice";
 import categoriesReducer  from "./features/categories/categoriesSlice";
 import postsReducer  from "./features/posts/postsSlice";
 import languageReducer from "./features/language/languageSlice";

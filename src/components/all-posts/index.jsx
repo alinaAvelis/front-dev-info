@@ -1,59 +1,46 @@
 "use client";
-import React, {
-	useEffect,
-	useMemo,
-	useState,
-	// useEffectEvent,
-	useCallback,
-} from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
-// import { sortByDate } from "@/utils/utils";
 import { useAppSelector } from "@/lib/hooks";
-// import BottomAdds from "@/components/adds/bottom-adds/page";
 import dynamic from "next/dynamic";
-import {
-	useHasMorePostsSelector,
-	usePostsTotalSelector,
-	useLimitSelector
-} from "@/lib/features/posts/hooks/use-posts-selector";
+import { useLimitSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 import List from "@/components/list/List";
-// import useInnerWidth from "@/hooks/use-inner-width";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import useSearch from "@/hooks/use-search";
 import useLoadPosts from "@/hooks/use-load-posts";
 import { setLimit } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
-import { useTranslations } from "@/shared/i18n/use-translations";
-
+import useDictionary from "@/shared/i18n/use-dictionary";
+import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
 const ToPostPages = () => {
-	// const t = useTranslations(language);
+	const general = useDictionary("general");
 	return (
 		<Link href="/posts" className="button button--fill button--center">
-			<span>Posts page</span>
+			<span>{general?.toPostsPage}</span>
 		</Link>
 	);
 };
 
 const AddPostsButton = ({ onClick }) => {
-		// const t = useTranslations(language);
+	const general = useDictionary("general");
 	return (
 		<button
 			className="button button--fill button--center"
 			onClick={onClick}
 		>
-			Load more
+			{general?.loadMore}
 		</button>
 	);
 };
 
 const CardsButton = ({ onClick }) => {
+	const general = useDictionary("general");
 	return (
 		<button
 			type="button"
 			onClick={onClick}
-			title="карточки"
+			title={general?.cards}
 			className="hover:opacity-80 cursor-pointer"
 		>
 			<svg
@@ -70,11 +57,12 @@ const CardsButton = ({ onClick }) => {
 };
 
 const ListButton = ({ onClick }) => {
+	const general = useDictionary("general");
 	return (
 		<button
 			type="button "
 			onClick={onClick}
-			title="список"
+			title={general?.list}
 			className="hover:opacity-80 cursor-pointer"
 		>
 			<svg
@@ -104,7 +92,7 @@ const AllPosts = ({
 }) => {
 	const isMobile = useMediaQuery("(max-width: 768px)");
 	const postsOnPage = isMobile ? 3 : 9;
-	const searchValue = useAppSelector((state) => state.searchReducer.value);
+	const searchValue = useSearchValueSelector();
 
 	const limit = useLimitSelector();
 	const dispatch = useAppDispatch();
