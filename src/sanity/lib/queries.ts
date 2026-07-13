@@ -44,6 +44,9 @@ export const getCategoryQuery = (language = "en") =>
 	groq`${categoriesLanguageFilter(language)} && activeCategory == true && slug.current == $slug][0]`;
 export const getCategoriesQuery = (language = "en") =>
 	groq`${categoriesLanguageFilter(language)} && activeCategory == true]`;
+
+export const getResourcesQuery = (language = "en") =>
+	groq`*[_type == "resources-${language}" && isActive == true] | order(_createdAt asc)`;
 // export const postsQuery = groq`
 // {
 //   "posts": ${postsLanguageFilter()}] | order(_createdAt desc) [0...$limit],

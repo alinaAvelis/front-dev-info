@@ -560,75 +560,75 @@ const AI = [
 		title: `https://huggingface.co/`,
 		textBeforeStrong: ``,
 		strongText: ``,
-		textAfterStrong: `The platform where the machine learning community collaborates on models, datasets, and applications.`,
+		textAfterStrong: `Learn and Test Regular Expressions.`,
 	},
 ];
 
 return [
-	{
-		title: `API`,
-		data: [
-			{
-				data: API,
-			},
-		],
-	},
-	{
-		title: `Content Security Policy`,
-		data: [
-			{
-				data: contentSecurityPolicy,
-			},
-		],
-	},
-	{
-		title: `Изображения`,
-		data: [
-			{
-				data: images,
-			},
-		],
-	},
-	{
-		title: `Информационные`,
-		data: [
-			{
-				data: info,
-			},
-		],
-	},
-	{
-		title: `DApps`,
-		data: [
-			{
-				data: dApps,
-			},
-		],
-	},
-	{
-		title: `Библиотеки`,
-		data: libraries,
-	},
-	{
-		title: `Библиотеки и фреймворки`,
-		data: [
-			{
-				data: frameworks,
-			},
-		],
-	},
-	{
-		title: `Инструменты`,
-		data: instruments,
-	},
-	{
-		title: `Задачи по программированию`,
-		data: [
-			{
-				data: tasks,
-			},
-		],
-	},
+	// {
+	// 	title: `API`,
+	// 	data: [
+	// 		{
+	// 			data: API,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	title: `Content Security Policy`,
+	// 	data: [
+	// 		{
+	// 			data: contentSecurityPolicy,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	title: `Изображения`,
+	// 	data: [
+	// 		{
+	// 			data: images,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	title: `Информационные`,
+	// 	data: [
+	// 		{
+	// 			data: info,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	title: `DApps`,
+	// 	data: [
+	// 		{
+	// 			data: dApps,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	title: `Библиотеки`,
+	// 	data: libraries,
+	// },
+	// {
+	// 	title: `Библиотеки и фреймворки`,
+	// 	data: [
+	// 		{
+	// 			data: frameworks,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	title: `Инструменты`,
+	// 	data: instruments,
+	// },
+	// {
+	// 	title: `Задачи по программированию`,
+	// 	data: [
+	// 		{
+	// 			data: tasks,
+	// 		},
+	// 	],
+	// },
 	{
 		title: `Искуственный интелект`,
 		data: [

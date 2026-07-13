@@ -83,6 +83,10 @@ p {
     line-height: 1.2;
 }
 
+ol {
+    @apply list-decimal
+}
+
 .title {
     @apply text-center font-extrabold mb-5 md:mb-10;
     font-size: 2rem;
@@ -137,7 +141,8 @@ textarea {
 }
 
 .link {
-    @apply inline-block no-underline text-inherit transition-all duration-300 hover:text-blue-800 active:opacity-40;
+    @apply inline-block no-underline text-inherit! transition-all duration-300 hover:text-blue-800! active:opacity-40;
+   
 }
 
 
