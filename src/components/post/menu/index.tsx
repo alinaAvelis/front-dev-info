@@ -77,12 +77,11 @@ export default function PostMenu() {
 		const getHeadingsTimout = setTimeout(() => {
 			headings = document.querySelectorAll(".heading");
 			if (headings) {
-				
 					const links = createMenu(headings);
 					setMenu(links);
 				
 			}
-		}, 400);
+		}, 500);
 
 		return () => {
 			if (getHeadingsTimout) {
