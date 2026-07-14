@@ -19,7 +19,7 @@ export default function PostMenu() {
 	const [menu, setMenu] = useState<Links>([]);
 	const isMobile = useMediaQuery("(max-width: 1020px)");
 	const createMenu = useCallback(
-		async (headings: NodeListOf<HTMLHeadingElement>) => {
+		(headings: NodeListOf<HTMLHeadingElement>) => {
 			try {
 				const links = [];
 
@@ -72,16 +72,24 @@ export default function PostMenu() {
 	);
 
 	useEffect(() => {
-		const headings: NodeListOf<HTMLHeadingElement> =
-			document.querySelectorAll(".heading");
+		let headings: NodeListOf<HTMLHeadingElement> | null = null;
 
-		if (headings.length > 0) {
-			(async () => {
-				const links = await createMenu(headings);
-				setMenu(links);
-			})();
-		}
-	}, [createMenu]);
+		const getHeadingsTimout = setTimeout(() => {
+			headings = document.querySelectorAll(".heading");
+			if (headings) {
+				
+					const links = createMenu(headings);
+					setMenu(links);
+				
+			}
+		}, 400);
+
+		return () => {
+			if (getHeadingsTimout) {
+				clearTimeout(getHeadingsTimout);
+			}
+		};
+	}, [createMenu, language]);
 
 	return (
 		menu &&

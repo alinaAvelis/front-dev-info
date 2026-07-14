@@ -7,7 +7,7 @@ const ResourseBlock = ({ title, data }) => {
 			<ol>
                 {data?.map((item, i) => {
 				return (
-					<li key={item?.id} className="mt-3">
+					<li key={item?.title + i} className="mt-3">
 						<Link
 							className="link"
 							href={item.href}

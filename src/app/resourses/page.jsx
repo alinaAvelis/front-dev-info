@@ -17,7 +17,6 @@ const Resourses = async () => {
 			
 		});
 
-		console.log(resources)
 	return <ResoursesPage resources={resources} />;
 };
 
