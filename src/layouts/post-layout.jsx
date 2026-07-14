@@ -41,7 +41,7 @@ const PostLayout = ({ currentPostSlug, pathArr, children }) => {
 	return (
 		<div className="main_container relative px-5 md:px-10 mt-40 md:mt-30 max-w-screen-xl mx-auto">
 			<Breadcrumbs pathArr={pathArr} />
-			<div className="page_container flex">
+			<div className="post_container ">
 				<div className="post main  main--not_main order-2 lg:order-1">
 					{children}
 
@@ -57,7 +57,7 @@ const PostLayout = ({ currentPostSlug, pathArr, children }) => {
 					)}
 				</div>
 
-				<div className="aside order-1 lg:order-2">
+				<div className="aside order-1 lg:order-2 md:fixed right-0">
 					<PostMenu />
 				</div>
 			</div>

@@ -21,8 +21,8 @@ body {
     }
 }
 
-.page_container {
-    @apply justify-between flex-col lg:flex-row
+.post_container {
+    @apply flex justify-between flex-col lg:flex-row
 }
 
 .aside {
@@ -417,7 +417,7 @@ textarea {
 }
 
 .menu_accordeon {
-    @apply border-[1px] border-solid rounded-sm border-gray-800 !text-inherit shadow-none m-0 mb-5 md:mb-10;
+    @apply border-[1px] border-solid rounded-sm border-gray-800 !text-inherit shadow-none m-0 my-5;
 }
 
 .MuiAccordion-heading {
