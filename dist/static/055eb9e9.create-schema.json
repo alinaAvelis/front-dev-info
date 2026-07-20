@@ -1,0 +1,1247 @@
+[
+  {
+    "options": {
+      "apiVersion": "2025-02-19",
+      "languages": [
+        {
+          "id": "en",
+          "title": "English",
+          "isDefault": true
+        },
+        {
+          "id": "ru",
+          "title": "Русский",
+          "isDefault": false
+        }
+      ]
+    },
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "of": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "type": "internationalizedArrayReferenceValue",
+        "title": "Internationalized array reference"
+      }
+    ],
+    "name": "internationalizedArrayReference",
+    "type": "array",
+    "title": "Internationalized array"
+  },
+  {
+    "fields": [
+      {
+        "weak": false,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "to": [
+          {
+            "type": "posts-en"
+          },
+          {
+            "type": "posts-ru"
+          },
+          {
+            "type": "categories-en"
+          },
+          {
+            "type": "categories-ru"
+          }
+        ],
+        "name": "value",
+        "type": "reference"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "hidden": true,
+        "name": "language",
+        "type": "string"
+      }
+    ],
+    "name": "internationalizedArrayReferenceValue",
+    "type": "object",
+    "title": "Internationalized array reference"
+  },
+  {
+    "liveEdit": true,
+    "fields": [
+      {
+        "options": {
+          "apiVersion": "2025-02-19",
+          "languages": [
+            {
+              "id": "en",
+              "title": "English",
+              "isDefault": true
+            },
+            {
+              "id": "ru",
+              "title": "Русский",
+              "isDefault": false
+            }
+          ]
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "translations",
+        "type": "internationalizedArrayReference"
+      },
+      {
+        "options": {
+          "list": [
+            "posts-en",
+            "posts-ru",
+            "categories-en",
+            "categories-ru"
+          ]
+        },
+        "description": "Optional: Used to filter the reference fields above so all translations share the same types.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "readOnly": "conditional",
+        "name": "schemaTypes",
+        "type": "array"
+      }
+    ],
+    "name": "translation.metadata",
+    "type": "document",
+    "title": "Translation metadata"
+  },
+  {
+    "options": {
+      "apiVersion": "2025-10-15",
+      "languages": [
+        {
+          "id": "en",
+          "title": "English",
+          "isDefault": true
+        },
+        {
+          "id": "ru",
+          "title": "Русский",
+          "isDefault": false
+        }
+      ]
+    },
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "of": [
+      {
+        "type": "internationalizedArrayStringValue",
+        "title": "Internationalized array string"
+      }
+    ],
+    "name": "internationalizedArrayString",
+    "type": "array",
+    "title": "Internationalized array"
+  },
+  {
+    "options": {
+      "apiVersion": "2025-10-15",
+      "languages": [
+        {
+          "id": "en",
+          "title": "English",
+          "isDefault": true
+        },
+        {
+          "id": "ru",
+          "title": "Русский",
+          "isDefault": false
+        }
+      ]
+    },
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "of": [
+      {
+        "type": "internationalizedArrayTextValue",
+        "title": "Internationalized array text"
+      }
+    ],
+    "name": "internationalizedArrayText",
+    "type": "array",
+    "title": "Internationalized array"
+  },
+  {
+    "options": {
+      "apiVersion": "2025-10-15",
+      "languages": [
+        {
+          "id": "en",
+          "title": "English",
+          "isDefault": true
+        },
+        {
+          "id": "ru",
+          "title": "Русский",
+          "isDefault": false
+        }
+      ]
+    },
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "of": [
+      {
+        "type": "internationalizedArrayBlockContentValue",
+        "title": "Internationalized array blockContent"
+      }
+    ],
+    "name": "internationalizedArrayBlockContent",
+    "type": "array",
+    "title": "Internationalized array"
+  },
+  {
+    "fields": [
+      {
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "hidden": true,
+        "name": "language",
+        "type": "string"
+      }
+    ],
+    "name": "internationalizedArrayStringValue",
+    "type": "object",
+    "title": "Internationalized array string"
+  },
+  {
+    "fields": [
+      {
+        "name": "value",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "hidden": true,
+        "name": "language",
+        "type": "string"
+      }
+    ],
+    "name": "internationalizedArrayTextValue",
+    "type": "object",
+    "title": "Internationalized array text"
+  },
+  {
+    "fields": [
+      {
+        "name": "value",
+        "type": "blockContent"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "hidden": true,
+        "name": "language",
+        "type": "string"
+      }
+    ],
+    "name": "internationalizedArrayBlockContentValue",
+    "type": "object",
+    "title": "Internationalized array blockContent"
+  },
+  {
+    "fields": [
+      {
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "name": "filename",
+        "type": "string"
+      },
+      {
+        "name": "code",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "type": "number",
+            "title": "Highlighted line"
+          }
+        ],
+        "name": "highlightedLines",
+        "type": "array",
+        "title": "Highlighted lines"
+      }
+    ],
+    "name": "code",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "cells",
+        "type": "array"
+      }
+    ],
+    "name": "tableRow",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "of": [
+          {
+            "type": "tableRow"
+          }
+        ],
+        "name": "rows",
+        "type": "array"
+      }
+    ],
+    "name": "table",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean"
+      },
+      {
+        "initialValue": "en",
+        "options": {
+          "list": [
+            {
+              "value": "en",
+              "title": "English"
+            },
+            {
+              "value": "ru",
+              "title": "Русский"
+            }
+          ]
+        },
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "name": "toOtherPage",
+        "type": "boolean",
+        "title": "To other page"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "to": [
+          {
+            "type": "categories-en"
+          },
+          {
+            "type": "categories-ru"
+          }
+        ],
+        "name": "category",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "description": "Adds to meta tag \"keywords\"",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "mainImage",
+        "type": "image",
+        "title": "Main image"
+      },
+      {
+        "name": "shortDescription",
+        "type": "text",
+        "title": "Short description"
+      },
+      {
+        "name": "releaseDate",
+        "type": "date"
+      },
+      {
+        "name": "content",
+        "type": "blockContent"
+      }
+    ],
+    "name": "posts-en",
+    "type": "document",
+    "title": "Posts (English)"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean"
+      },
+      {
+        "initialValue": "en",
+        "options": {
+          "list": [
+            {
+              "value": "en",
+              "title": "English"
+            },
+            {
+              "value": "ru",
+              "title": "Русский"
+            }
+          ]
+        },
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "name": "toOtherPage",
+        "type": "boolean",
+        "title": "To other page"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "to": [
+          {
+            "type": "categories-en"
+          },
+          {
+            "type": "categories-ru"
+          }
+        ],
+        "name": "category",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "description": "Adds to meta tag \"keywords\"",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "mainImage",
+        "type": "image",
+        "title": "Main image"
+      },
+      {
+        "name": "shortDescription",
+        "type": "text",
+        "title": "Short description"
+      },
+      {
+        "name": "releaseDate",
+        "type": "date"
+      },
+      {
+        "name": "content",
+        "type": "blockContent"
+      }
+    ],
+    "name": "posts-ru",
+    "type": "document",
+    "title": "Posts (Russian)"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": true,
+        "description": "If it is set to false, the category is not visible to users",
+        "name": "activeCategory",
+        "type": "boolean",
+        "title": "Active category"
+      },
+      {
+        "initialValue": "en",
+        "options": {
+          "list": [
+            {
+              "value": "en",
+              "title": "English"
+            },
+            {
+              "value": "ru",
+              "title": "Русский"
+            }
+          ]
+        },
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 200
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "name": "shortDescription",
+        "type": "text",
+        "title": "Short description"
+      },
+      {
+        "description": "Key phrases or words separated by commas",
+        "name": "meta_keywords",
+        "type": "string",
+        "title": "Meta keywords"
+      },
+      {
+        "description": "Meta description for SEO",
+        "name": "meta_description",
+        "type": "string",
+        "title": "Meta description"
+      }
+    ],
+    "name": "categories-en",
+    "type": "document",
+    "title": "Category (English)"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": true,
+        "description": "If it is set to false, the category is not visible to users",
+        "name": "activeCategory",
+        "type": "boolean",
+        "title": "Active category"
+      },
+      {
+        "initialValue": "en",
+        "options": {
+          "list": [
+            {
+              "value": "en",
+              "title": "English"
+            },
+            {
+              "value": "ru",
+              "title": "Русский"
+            }
+          ]
+        },
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 200
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "name": "shortDescription",
+        "type": "text",
+        "title": "Short description"
+      },
+      {
+        "description": "Key phrases or words separated by commas",
+        "name": "meta_keywords",
+        "type": "string",
+        "title": "Meta keywords"
+      },
+      {
+        "description": "Meta description for SEO",
+        "name": "meta_description",
+        "type": "string",
+        "title": "Meta description"
+      }
+    ],
+    "name": "categories-ru",
+    "type": "document",
+    "title": "Category (Russian)"
+  },
+  {
+    "of": [
+      {
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet"
+          },
+          {
+            "value": "number",
+            "title": "Numbered"
+          }
+        ],
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "level": "warning",
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/"
+                              ],
+                              "allowRelative": false,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        },
+                        {
+                          "flag": "regex",
+                          "constraint": {
+                            "pattern": "/https:\\/\\/(www\\.|)(portabletext\\.org|sanity\\.io)\\/.*/gi",
+                            "name": "internal url",
+                            "invert": true
+                          }
+                        }
+                      ],
+                      "message": "This is not an external link. Consider using internal links instead."
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                },
+                {
+                  "initialValue": true,
+                  "name": "blank",
+                  "type": "boolean",
+                  "title": "Open in new tab"
+                }
+              ],
+              "name": "link",
+              "type": "object",
+              "title": "External link"
+            },
+            {
+              "fields": [
+                {
+                  "name": "href",
+                  "type": "string",
+                  "title": "href"
+                }
+              ],
+              "name": "internalLink",
+              "type": "object",
+              "title": "Internal link"
+            },
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "level": "error",
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/"
+                              ],
+                              "allowRelative": false,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                },
+                {
+                  "initialValue": true,
+                  "name": "blank",
+                  "type": "boolean",
+                  "title": "Open in new tab"
+                }
+              ],
+              "name": "gitHub_link",
+              "type": "object",
+              "title": "GitHub link"
+            },
+            {
+              "fields": [
+                {
+                  "name": "name",
+                  "type": "string"
+                }
+              ],
+              "name": "ancor_link_main",
+              "type": "object",
+              "title": "ancor_link_main"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Strong"
+            },
+            {
+              "value": "em",
+              "title": "Emphasis"
+            },
+            {
+              "value": "code",
+              "title": "Code"
+            },
+            {
+              "value": "highlight",
+              "title": "Highlight"
+            },
+            {
+              "value": "underline",
+              "title": "Underline"
+            },
+            {
+              "value": "strike-through",
+              "title": "Strike"
+            },
+            {
+              "value": "accent_text",
+              "title": "Accent Text"
+            }
+          ]
+        },
+        "of": [],
+        "styles": [
+          {
+            "value": "title",
+            "title": "Title"
+          },
+          {
+            "value": "normal",
+            "title": "Normal"
+          },
+          {
+            "value": "h1",
+            "title": "H1"
+          },
+          {
+            "value": "h2",
+            "title": "H2"
+          },
+          {
+            "value": "h3",
+            "title": "H3"
+          },
+          {
+            "value": "h4",
+            "title": "H4"
+          },
+          {
+            "value": "h5",
+            "title": "H5"
+          },
+          {
+            "value": "h6",
+            "title": "H6"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          },
+          {
+            "value": "blockComment",
+            "title": "Hidden"
+          }
+        ],
+        "type": "block"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative Text"
+          }
+        ],
+        "type": "image"
+      },
+      {
+        "options": {
+          "language": "javascript",
+          "languageAlternatives": [
+            {
+              "title": "Javascript",
+              "value": "javascript"
+            },
+            {
+              "title": "Typescript",
+              "value": "typescript"
+            },
+            {
+              "title": "HTML",
+              "value": "html"
+            },
+            {
+              "title": "CSS",
+              "value": "css"
+            },
+            {
+              "title": "JSON",
+              "value": "json"
+            },
+            {
+              "title": "Pseudocode",
+              "value": "pseudocode"
+            }
+          ],
+          "withFilename": true
+        },
+        "type": "code",
+        "name": "code_input",
+        "title": "Code input"
+      },
+      {
+        "options": {
+          "language": "javascript",
+          "languageAlternatives": [
+            {
+              "title": "Javascript",
+              "value": "javascript"
+            },
+            {
+              "title": "Typescript",
+              "value": "typescript"
+            },
+            {
+              "title": "HTML",
+              "value": "html"
+            },
+            {
+              "title": "CSS",
+              "value": "css"
+            },
+            {
+              "title": "JSON",
+              "value": "json"
+            }
+          ],
+          "withFilename": true
+        },
+        "type": "code",
+        "name": "code_input_to_page",
+        "title": "Code input to page"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string"
+          },
+          {
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "type": "image",
+        "name": "one_image",
+        "title": "One image"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string"
+          },
+          {
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "type": "image",
+        "name": "one_image_vertical",
+        "title": "One image vertical"
+      },
+      {
+        "type": "table"
+      },
+      {
+        "type": "lineChart"
+      }
+    ],
+    "name": "blockContent",
+    "type": "array",
+    "title": "Content"
+  },
+  {
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "title": "Chart ID"
+      }
+    ],
+    "name": "lineChart",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": true,
+        "description": "If it is set to false, the resource is not visible to users",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Active resources"
+      },
+      {
+        "initialValue": "en",
+        "options": {
+          "list": [
+            {
+              "value": "en",
+              "title": "English"
+            },
+            {
+              "value": "ru",
+              "title": "Русский"
+            }
+          ]
+        },
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "React",
+                      "value": "react"
+                    },
+                    {
+                      "title": "Styles",
+                      "value": "styles"
+                    },
+                    {
+                      "title": "Others",
+                      "value": "others"
+                    }
+                  ],
+                  "layout": "dropdown"
+                },
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "name": "href",
+                "type": "string"
+              },
+              {
+                "name": "text",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "body",
+        "type": "array"
+      }
+    ],
+    "name": "resources-en",
+    "type": "document",
+    "title": "Resources (English)"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": true,
+        "description": "If it is set to false, the resource is not visible to users",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Active resources"
+      },
+      {
+        "initialValue": "en",
+        "options": {
+          "list": [
+            {
+              "value": "en",
+              "title": "English"
+            },
+            {
+              "value": "ru",
+              "title": "Русский"
+            }
+          ]
+        },
+        "name": "language",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "React",
+                      "value": "react"
+                    },
+                    {
+                      "title": "Styles",
+                      "value": "styles"
+                    },
+                    {
+                      "title": "Others",
+                      "value": "others"
+                    }
+                  ],
+                  "layout": "dropdown"
+                },
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "name": "href",
+                "type": "string"
+              },
+              {
+                "name": "text",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "body",
+        "type": "array"
+      }
+    ],
+    "name": "resources-ru",
+    "type": "document",
+    "title": "Resources (Russian)"
+  }
+]
