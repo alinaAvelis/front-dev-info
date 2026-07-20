@@ -1,5 +1,5 @@
 "use client"
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import TextField from "@mui/material/TextField";
 import {
 	Chart as ChartJS,
@@ -37,7 +37,7 @@ export const options = {
 	},
 };
 
-const LineChart = () => {
+const AlgorithmSpeedLineChart = () => {
 	const [items, setItems] = useState(5);
 	const [error, setError] = useState("");
 //   const [innerWidth, setInnerWidth] = useState(0);
@@ -140,4 +140,4 @@ const LineChart = () => {
 	);
 };
 
-export default LineChart;
+export default AlgorithmSpeedLineChart;

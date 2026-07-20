@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
-import { useAppSelector } from "@/lib/hooks";
+
 import dynamic from "next/dynamic";
 import { useLimitSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 import List from "@/components/list/List";
@@ -11,6 +11,7 @@ import { setLimit } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
+import PostsGridSkeleton from "@/shared/ui/sceletons/posts-sceletone";
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
 const ToPostPages = () => {
@@ -93,7 +94,7 @@ const AllPosts = ({
 	const isMobile = useMediaQuery("(max-width: 768px)");
 	const postsOnPage = isMobile ? 3 : 9;
 	const searchValue = useSearchValueSelector();
-
+	const [view, setView] = useState("cards");
 	const limit = useLimitSelector();
 	const dispatch = useAppDispatch();
 	const { loadMorePosts } = useLoadPosts({
@@ -105,38 +106,6 @@ const AllPosts = ({
 	const hasMorePosts = useMemo(() => {
 		return postsTotalCount > limit;
 	}, [postsTotalCount, limit]);
-	// const { posts, loading } = useSearch({
-	// 	limit: postsOnPage,
-	// 	// searchValue: searchValue,
-	// });
-
-	// console.log(posts);
-
-	// const [sliceValue, setSliceValue] = useState(postsOnPage);
-
-	const [view, setView] = useState("cards");
-
-	// const filtredPosts = useMemo(() => {
-	// 	// if (searchValue && !homePage) {
-	// 	// 	return posts.filter((item) =>
-	// 	// 		item.title.toLowerCase().includes(searchValue.toLowerCase()),
-	// 	// 	);
-	// 	// }
-
-	// 	return posts;
-	// }, []);
-
-	// useEffect(() => {
-	// 	(async () => {
-	// 		setSliceValue(postsOnPage);
-	// 	})();
-	// }, [postsOnPage]);
-
-	// const transformedData = useMemo(() => {
-	// 	return filtredPosts.slice(0, sliceValue | postsOnPage);
-	// }, [filtredPosts, sliceValue, postsOnPage]);
-
-	// const showMorePostsLink = filtredPosts.length > sliceValue;
 
 	const onAddPosts = useCallback(() => {
 		const postsLimit = limit + postsOnPage;
@@ -157,46 +126,38 @@ const AllPosts = ({
 		};
 	}, [postsOnPage]);
 
-	// const pageTitle = homePage ? (
-	// 	<h2 className="visually-hidden">{title}</h2>
-	// ) : (
-	// 	<h1 className="title">{title}</h1>
-	// );
+	// if(true) {
+	// 	return <PostsGridSkeleton />
+	// }
 
 	return (
-		<div className="mt-10">
-			<div className="w-full">
-				<div className="flex gap-2">
-					<CardsButton onClick={() => setView("cards")} />
-					<ListButton onClick={() => setView("list")} />
-				</div>
-				<section className="section tabs mt-5 md:mt-10">
-					<h1 className="title">{title}</h1>
-
-					<div className="tabs_btns flex ">
-						{view === `cards` ? (
-							<Cards
-								data={posts}
-								categories={categories}
-								withCategory={withCategory}
-							/>
-						) : (
-							<List
-								data={posts}
-								categories={categories}
-								withCategory={withCategory}
-							/>
-						)}
-					</div>
-					{bottomLink}
-
-					{/* <BottomAdds /> */}
-				</section>
+		<div className="w-full mt-10">
+			<div className="flex gap-2">
+				<CardsButton onClick={() => setView("cards")} />
+				<ListButton onClick={() => setView("list")} />
 			</div>
+			<section className="section tabs mt-5 md:mt-10">
+				<h1 className="title">{title}</h1>
 
-			{/* <div className='aside aside--small'>
-                <DesctopAdds />
-            </div> */}
+				<div className="tabs_btns flex ">
+					{view === `cards` ? (
+						<Cards
+							data={posts}
+							categories={categories}
+							withCategory={withCategory}
+						/>
+					) : (
+						<List
+							data={posts}
+							categories={categories}
+							withCategory={withCategory}
+						/>
+					)}
+				</div>
+				{bottomLink}
+
+				{/* <BottomAdds /> */}
+			</section>
 		</div>
 	);
 };

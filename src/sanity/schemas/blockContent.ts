@@ -251,6 +251,7 @@ export default defineType({
 		},
         {
             type: "table"
-        }
+        },
+		{ type: 'lineChart' }
 	],
 });

@@ -1,6 +1,6 @@
 
 import CodeInput from "@/components/code-input";
-import LineChart from "@/components/line-chart";
+import AlgorithmSpeedLineChart from "@/components/line-chart";
 
 const example1 = `nameCollection.foreach((name) => 
     {alert(${"`Hello, ${name}!`"});
@@ -155,7 +155,7 @@ const AlgorithmSpeedContent = () => {
                 найдено за полиномиальное время.
             </p>
 
-            <LineChart />
+            <AlgorithmSpeedLineChart />
             <h2 className='heading'>Примеры</h2>
             <p className='text'>1)</p>
             <CodeInput code={example1} />

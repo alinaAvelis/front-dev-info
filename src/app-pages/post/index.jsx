@@ -8,6 +8,7 @@ import { urlFor } from "@/utils/sanity-utils";
 import CodeInput from "@/components/code-input";
 import PostLayout from "@/layouts/post-layout";
 import useDictionary from "@/shared/i18n/use-dictionary";
+import AlgorithmSpeedLineChart from "@/components/line-chart";
 
 const components = {
 	block: {
@@ -157,16 +158,25 @@ const components = {
 				</table>
 			);
 		},
+		lineChart: ({ value }) => {
+			const { id } = value;
+			if (id === "algorithm-speed-line-chart") {
+				return <AlgorithmSpeedLineChart />;
+			}
+		},
 	},
 };
 
 const PostPage = ({ post, allPosts }) => {
-	const menu = useDictionary("menu")
+	const menu = useDictionary("menu");
 	return (
 		<PostLayout
 			currentPostSlug={post.slug.current}
 			allPosts={allPosts}
-			pathArr={[{ name: menu?.posts, url: "/posts" }, { name: post?.title }]}
+			pathArr={[
+				{ name: menu?.posts, url: "/posts" },
+				{ name: post?.title },
+			]}
 		>
 			<h1>{post?.title}</h1>
 

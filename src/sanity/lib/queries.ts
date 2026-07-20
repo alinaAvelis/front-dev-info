@@ -5,8 +5,15 @@ const postsLanguageFilter = (language: string = "en") =>
 const categoriesLanguageFilter = (language: string = "en") =>
 	`*[_type == "categories-${language}"`;
 
+export const getCategoryPostsQuery = (language = "en") => groq`
+{
+  "posts": ${postsLanguageFilter(language)} && category->slug.current == $categorySlug] | order(_createdAt desc) [0...$limit],
+  "total": count(${postsLanguageFilter(language)} && category->slug.current == $categorySlug])
+}`;
+
 export const getAllPostsQuery = ({
 	language = "en",
+	byCategory = false,
 	bySearch = false,
 	withLastId = false,
 }) => {
@@ -25,6 +32,10 @@ export const getAllPostsQuery = ({
     }`;
 	}
 
+	if(byCategory) {
+		return getCategoryPostsQuery(language)
+	}
+
 	return groq`
   {
     "posts": ${postsLanguageFilter(language)}] | order(_createdAt desc) [0...$limit],
@@ -35,11 +46,7 @@ export const getAllPostsQuery = ({
 export const getPostQuery = (language = "en") =>
 	groq`${postsLanguageFilter(language)} && active == true && slug.current == $slug][0]`;
 
-export const getCategoryPostsQuery = (language = "en") => groq`
-{
-  "posts": ${postsLanguageFilter(language)} && category->slug.current == $categorySlug] | order(_createdAt desc) [0...$limit],
-  "total": count(${postsLanguageFilter(language)} && category->slug.current == $categorySlug])
-}`;
+
 export const getCategoryQuery = (language = "en") =>
 	groq`${categoriesLanguageFilter(language)} && activeCategory == true && slug.current == $slug][0]`;
 export const getCategoriesQuery = (language = "en") =>
