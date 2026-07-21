@@ -1,6 +1,6 @@
 import { WEBSITE_URL } from "@/constants/_APP_SETUP";
 import {
-    getAllPostsQuery,
+    getPostsQuery,
     getCategoriesQuery,
 } from "@/sanity/lib/queries";
 import { createClient} from "next-sanity";
@@ -13,7 +13,7 @@ export default async function sitemap() {
     const baseUrl = WEBSITE_URL;
 
     const postsResponse = await createClient(clientConfig).fetch(
-        getAllPostsQuery({ language: defaultLanguage }),
+        getPostsQuery({ language: defaultLanguage }),
         { limit: 1000 },
     );
 
