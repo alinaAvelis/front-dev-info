@@ -171,7 +171,7 @@ const PostPage = ({ post, allPosts }) => {
 	const menu = useDictionary("menu");
 	return (
 		<PostLayout
-			currentPostSlug={post.slug.current}
+			currentPostSlug={post?.slug?.current}
 			allPosts={allPosts}
 			pathArr={[
 				{ name: menu?.posts, url: "/posts" },

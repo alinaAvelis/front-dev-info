@@ -1,19 +1,14 @@
 "use client";
 
-
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
+import { getPostsQuery } from "@/sanity/lib/queries";
 import {
-	
-	getAllPostsQuery,
-
-} from "@/sanity/lib/queries";
-import {
-	
 	setPostsState,
 	setPostsLoading,
 } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { PostsType, PostsFromSanityType } from "@/types/posts";
+import { useCategorySlugSelector } from "@/lib/features/categories/hooks/use-category-selector";
 
 export default function useLoadPosts({
 	initialPosts,
@@ -27,41 +22,52 @@ export default function useLoadPosts({
 
 	const dispatch = useAppDispatch();
 	const language = useAppSelector((state) => state.languageReducer.language);
+	const categorySlug = useCategorySlugSelector();
 	const loadMorePosts = async (searchValue = "", limit = 9) => {
 		dispatch(setPostsLoading(true));
 		// let total = totalPosts;
 		// const lastPost = initialPosts?.[initialPosts?.length - 1];
 
-		let query;
+		// let query;
 
-		let params;
+		const query = getPostsQuery({
+			searchValue,
+			category: categorySlug,
+			language,
+		});
 
-		if (searchValue) {
-			// if (searchValue) {
-				query = getAllPostsQuery({
-					language,
-					bySearch: true,
-				});
-				params = {
-					// lastId: lastPost._id,
-					limit: limit,
-					searchQuery: searchValue,
-				};
-			// } else {
-			// 	query = filteredByIdQuery;
-			// 	params = {
-			// 		// lastId: lastPost._id,
-			// 		limit: limit,
-			// 	};
-			// }
-		} else {
-			query = getAllPostsQuery({
-				language,
-			});
-			params = {
-				limit: limit,
-			};
-		}
+		const params = {
+			limit: limit,
+			categorySlug,
+			searchQuery: searchValue,
+		};
+
+		// if (searchValue) {
+		// 	// if (searchValue) {
+		// 		query = getAllPostsQuery({
+		// 			language,
+		// 			bySearch: true,
+		// 		});
+		// 		params = {
+		// 			// lastId: lastPost._id,
+		// 			limit: limit,
+		// 			searchQuery: searchValue,
+		// 		};
+		// 	// } else {
+		// 	// 	query = filteredByIdQuery;
+		// 	// 	params = {
+		// 	// 		// lastId: lastPost._id,
+		// 	// 		limit: limit,
+		// 	// 	};
+		// 	// }
+		// } else {
+		// 	query = getAllPostsQuery({
+		// 		language,
+		// 	});
+		// 	params = {
+		// 		limit: limit,
+		// 	};
+		// }
 
 		const newPosts: PostsFromSanityType = await sanityFetch({
 			query,
@@ -69,18 +75,9 @@ export default function useLoadPosts({
 		});
 
 		if (newPosts.total > 0) {
-			console.log(newPosts)
-			// setPosts([...posts, ...newPosts.posts]);
-			// console.log("posts", posts);
 			dispatch(setPostsState(newPosts));
-			// total = newPosts.total;
+			
 		}
-
-		// if (total > limit) {
-		// 	dispatch(setHasMorePosts(true));
-		// } else {
-		// 	dispatch(setHasMorePosts(false));
-		// }
 		dispatch(setPostsLoading(false));
 	};
 

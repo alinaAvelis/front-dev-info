@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { useCategorySelector } from "@/lib/features/categories/hooks/use-category-selector";
+import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import LanguageSelector from "@/components/language-selector/LanguageSelector";
@@ -15,7 +15,7 @@ const CloseBtn = dynamic(() => import("@/shared/ui/close-button/CloseButton"));
 const AppHeader = ({ language }: {language: Language}) => {
 	const categoriesMenu = useRef<HTMLDivElement | null>(null);
 	const pathname = usePathname();
-	const categories = useCategorySelector();
+	const categories = useCategoriesSelector();
 	const menuDictionary = useDictionary("menu") as { [key in MenuTranslationKey]: string };
 
 	if (pathname?.startsWith("/studio")) {

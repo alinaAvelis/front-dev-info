@@ -1,10 +1,10 @@
 "use client"
 import AllPosts from "@/components/all-posts";
-import { useCategorySelector } from "@/lib/features/categories/hooks/use-category-selector";
+import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 import useDictionary from "@/shared/i18n/use-dictionary";
 const MainPage = () => {
-	const categories = useCategorySelector();
+	const categories = useCategoriesSelector();
 	const posts = usePreloadedPostsSelector();
 	const general = useDictionary("general");
 	return (

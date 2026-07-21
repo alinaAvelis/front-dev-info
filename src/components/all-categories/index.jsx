@@ -1,10 +1,10 @@
 "use client";
 import { useEffect } from "react";
-import { useCategorySelector } from "@/lib/features/categories/hooks/use-category-selector";
+import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import Link from "next/link";
 
 const AllCategories = () => {
-	const categories = useCategorySelector();
+	const categories = useCategoriesSelector();
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);

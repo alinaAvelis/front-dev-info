@@ -9,6 +9,14 @@ export function usePostsSelector() {
     return posts
 }
 
+export function usePostsLoadingSelector() {
+    const loading = useAppSelector(
+        (state) => state.postsReducer.loading,
+    );
+
+    return loading
+}
+
 export function usePostsTotalSelector() {
     const total = useAppSelector(
         (state) => state.postsReducer.total,
@@ -39,4 +47,12 @@ export function useLimitSelector() {
     );
 
     return limit
+}
+
+export function usePostsOnPageSelector() {
+    const postsOnPage = useAppSelector(
+        (state) => state.postsReducer.postsOnPage,
+    );
+
+    return postsOnPage
 }

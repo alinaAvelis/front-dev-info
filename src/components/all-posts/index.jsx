@@ -3,15 +3,19 @@ import React, { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 
 import dynamic from "next/dynamic";
-import { useLimitSelector } from "@/lib/features/posts/hooks/use-posts-selector";
+import {
+	useLimitSelector,
+	usePostsOnPageSelector,
+	usePostsLoadingSelector,
+} from "@/lib/features/posts/hooks/use-posts-selector";
 import List from "@/components/list/List";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import useLoadPosts from "@/hooks/use-load-posts";
 import { setLimit } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 import PostsGridSkeleton from "@/shared/ui/sceletons/posts-sceletone";
+
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
 const ToPostPages = () => {
@@ -25,6 +29,10 @@ const ToPostPages = () => {
 
 const AddPostsButton = ({ onClick }) => {
 	const general = useDictionary("general");
+	const postsLoading = usePostsLoadingSelector();
+	if (postsLoading) {
+		return <span className="button button--outlined button--center">{general.loading}...</span>;
+	}
 	return (
 		<button
 			className="button button--fill button--center"
@@ -91,8 +99,8 @@ const AllPosts = ({
 	homePage = false,
 	withCategory = true,
 }) => {
-	const isMobile = useMediaQuery("(max-width: 768px)");
-	const postsOnPage = isMobile ? 3 : 9;
+	const postsOnPage = usePostsOnPageSelector();
+
 	const searchValue = useSearchValueSelector();
 	const [view, setView] = useState("cards");
 	const limit = useLimitSelector();
@@ -124,7 +132,7 @@ const AllPosts = ({
 		return () => {
 			dispatch(setLimit(postsOnPage));
 		};
-	}, [postsOnPage]);
+	}, [dispatch, postsOnPage]);
 
 	// if(true) {
 	// 	return <PostsGridSkeleton />

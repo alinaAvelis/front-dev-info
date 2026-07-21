@@ -2,7 +2,7 @@
 
 import AllPosts from "@/components/all-posts";
 import dynamic from "next/dynamic";
-import { useCategorySelector } from "@/lib/features/categories/hooks/use-category-selector";
+import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import {
 	usePostsSelector,
 	usePostsTotalSelector,
@@ -11,7 +11,7 @@ import useDictionary from "@/shared/i18n/use-dictionary";
 const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
 
 const PostsPage = () => {
-	const categories = useCategorySelector();
+	const categories = useCategoriesSelector();
 	const posts = usePostsSelector();
 	const postsTotalCount = usePostsTotalSelector();
 	const general = useDictionary("general");

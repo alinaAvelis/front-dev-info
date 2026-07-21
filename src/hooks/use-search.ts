@@ -3,7 +3,7 @@
 // import { useAppSelector } from "@/lib/hooks";
 
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
-import { getAllPostsQuery } from "@/sanity/lib/queries";
+import { getPostsQuery } from "@/sanity/lib/queries";
 import { PostsFromSanityType } from "@/types/posts";
 import {
 	setPostsState,
@@ -21,7 +21,7 @@ export default function useSearch({ limit = 9 }) {
 		dispatch(setPostsLoading(true));
 		// const lastPost = posts[posts.length - 1];
 
-		const query = getAllPostsQuery({ language, bySearch: true });
+		const query = getPostsQuery({ searchValue, language });
 		const params = {
 			// lastId: lastPost._id,
 			limit: limit,

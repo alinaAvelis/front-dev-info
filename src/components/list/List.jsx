@@ -1,9 +1,11 @@
 
+"use client";
 import Link from "next/link";
 import CategoryLink from "@/components/category-link"
+import useDictionary from "@/shared/i18n/use-dictionary";
 
 const List = ({ data, to = "posts", withCategory=true, categories }) => {
-
+const general = useDictionary("general");
     return (
         <>
             {data?.length > 0 ? (
@@ -31,7 +33,7 @@ const List = ({ data, to = "posts", withCategory=true, categories }) => {
                     })}
                 </ul>
             ) : (
-                <p>Ничего не найдено</p>
+                <p className="text-center">{general.noResut}</p>
             )}
         </>
     );

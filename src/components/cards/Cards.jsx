@@ -1,11 +1,16 @@
 "use client";
-import React from "react";
-import CategoryLink from "@/components/category-link"
+import CategoryLink from "@/components/category-link";
 import Link from "next/link";
+import useDictionary from "@/shared/i18n/use-dictionary";
 
-
-
-const Cards = ({ data, to = "posts", withImage = false, withCategory = true, categories }) => {
+const Cards = ({
+	data,
+	to = "posts",
+	withImage = false,
+	withCategory = true,
+	categories,
+}) => {
+	const general = useDictionary("general");
 	return (
 		<>
 			{data?.length > 0 ? (
@@ -49,13 +54,18 @@ const Cards = ({ data, to = "posts", withImage = false, withCategory = true, cat
                                     </span>} */}
 								</Link>
 
-                                {withCategory && <CategoryLink card={item} categories={categories} />}
+								{withCategory && (
+									<CategoryLink
+										card={item}
+										categories={categories}
+									/>
+								)}
 							</li>
 						);
 					})}
 				</ul>
 			) : (
-				<p>Ничего не найдено</p>
+				<p className="text-center">{general.noResut}</p>
 			)}
 		</>
 	);

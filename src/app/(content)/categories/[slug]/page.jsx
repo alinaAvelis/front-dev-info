@@ -1,11 +1,8 @@
-import {
-	getCategoryQuery,
-	getCategoryPostsQuery,
-} from "@/sanity/lib/queries";
+import { getCategoryQuery, getPostsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import CategoryPage from "@/app-pages/category";
 import { getServerLanguage } from "@/shared/i18n/get-server-language";
-
+import getIsMobile from "@/utils/get-is-mobile";
 export async function generateMetadata({ params }) {
 	const parametrs = await params;
 	const language = await getServerLanguage();
@@ -30,6 +27,7 @@ export async function generateMetadata({ params }) {
 const Category = async ({ params }) => {
 	const parametrs = await params;
 	const language = await getServerLanguage();
+	const isMobile = await getIsMobile();
 
 	const category = await sanityFetch({
 		query: getCategoryQuery(language),
@@ -37,16 +35,14 @@ const Category = async ({ params }) => {
 	});
 
 	const categoryPosts = await sanityFetch({
-		query: getCategoryPostsQuery(language),
-		params: { categorySlug: parametrs.slug, limit: 9 },
+		query: getPostsQuery({ category: parametrs.slug, language }),
+		params: {
+			categorySlug: parametrs.slug,
+			limit: isMobile ? 3 : 9,
+		},
 	});
 
-
-	return (
-		<div className="max-w-screen-xl mx-auto">
-			<CategoryPage allPosts={categoryPosts} category={category} />
-		</div>
-	);
+	return <CategoryPage allPosts={categoryPosts} category={category} />;
 };
 
 export default Category;

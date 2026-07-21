@@ -7,8 +7,7 @@ export const metadata = {
 	keywords: "программирование, посты, JavaScrip, frontend",
 };
 
-const Posts = async () => {
-
+const Posts = () => {
 	return <PostsPage />;
 };
 

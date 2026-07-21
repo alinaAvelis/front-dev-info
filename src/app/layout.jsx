@@ -53,14 +53,14 @@ export const metadata = {
     ],
 };
 
-export default async function Layout({ children }) {
+export default async function Layout({ params, children }) {
     const language = await getServerLanguage();
 
     return (
         <html lang={language} data-scroll-behavior="smooth">
             <body className='flex h-auto min-h-screen flex-col  transition-all ' suppressHydrationWarning>
                 <Providers>
-                    <RootLayout>{children}</RootLayout>
+                    <RootLayout params={params}>{children}</RootLayout>
                     {/* <Analytics /> */}
                
                 </Providers>

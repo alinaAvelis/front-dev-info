@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useMemo, useState } from "react";
 import TextField from "@mui/material/TextField";
 import {
@@ -12,6 +12,7 @@ import {
 	Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import useDictionary from "@/shared/i18n/use-dictionary";
 
 ChartJS.register(
 	CategoryScale,
@@ -20,44 +21,28 @@ ChartJS.register(
 	LineElement,
 	Title,
 	Tooltip,
-	Legend
+	Legend,
 );
 
-export const options = {
+
+const AlgorithmSpeedLineChart = () => {
+	const [items, setItems] = useState(5);
+	const [error, setError] = useState("");
+	const general = useDictionary("general");
+
+ const options = {
 	responsive: true,
-  maintainAspectRatio: false,
+	maintainAspectRatio: false,
 	plugins: {
 		legend: {
 			position: "top",
 		},
 		title: {
 			display: true,
-			text: "График скоростей алгоритма",
+			text: general.algorithmGraph,
 		},
 	},
 };
-
-const AlgorithmSpeedLineChart = () => {
-	const [items, setItems] = useState(5);
-	const [error, setError] = useState("");
-//   const [innerWidth, setInnerWidth] = useState(0);
-
-//     const handleResize = () => {
-//     setInnerWidth(window?.innerWidth);
-//   }
-
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       window.addEventListener("resize", handleResize);
-//     //   handleResize();
-//       return () => {
-//         window.removeEventListener("resize", handleResize);
-//       } 
-//     }
-//   }, [])
-
-
-
 
 	const labels = useMemo(() => {
 		const array = [];
@@ -111,7 +96,7 @@ const AlgorithmSpeedLineChart = () => {
 
 		if (value > 1000) {
 			setError(
-				"Вы ввели слишком большое значение. Укажите значение меньше 1000"
+				general.graphLimitError,
 			);
 			return;
 		} else {
@@ -122,7 +107,9 @@ const AlgorithmSpeedLineChart = () => {
 
 	return (
 		<div className="mt-5">
-			<div className="w-full h-[300px] md:h-[500px]"><Line options={options} data={data} /></div>
+			<div className="w-full h-[300px] md:h-[500px]">
+				<Line options={options} data={data} />
+			</div>
 			<div className="mt-2">
 				<TextField
 					value={items}
@@ -130,7 +117,7 @@ const AlgorithmSpeedLineChart = () => {
 					fullWidth
 					error={Boolean(error)}
 					helperText={error ? error : ""}
-					label="Количество элементов"
+					label={general.elementCount}
 					onChange={(e) => {
 						onInputChange(e);
 					}}

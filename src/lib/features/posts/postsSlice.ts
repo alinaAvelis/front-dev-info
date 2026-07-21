@@ -9,6 +9,7 @@ type postsState = {
 	hasMorePosts: boolean;
 	total: number;
 	limit: number;
+	postsOnPage: number
 };
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
 	hasMorePosts: false,
 	total: 0,
 	limit: 9,
+	postsOnPage: 9,
 } as postsState;
 
 export const posts = createSlice({
@@ -55,6 +57,9 @@ export const posts = createSlice({
 		setLimit: (state, action) => {
 			state.limit = action.payload;
 		},
+		setPostsOnPage: (state, action) => {
+			state.postsOnPage = action.payload;
+		},
 		setPostsByPreloaded: (state) => {
 			state.posts = state.preloaded;
 		},
@@ -69,5 +74,6 @@ export const {
 	setHasMorePosts,
 	setPostsByPreloaded,
 	setLimit,
+	setPostsOnPage
 } = posts.actions;
 export default posts.reducer;
