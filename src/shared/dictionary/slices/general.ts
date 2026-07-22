@@ -14,7 +14,9 @@ export const generalDictionary = {
 		noResut: "Nothing found",
 		algorithmGraph: "Algorithm Performance Graph",
 		graphLimitError: "Value is too large. Please enter a value below 1000.",
-		elementCount: "Element count"
+		elementCount: "Element count",
+		goHomeLink: "Go to Home",
+		goPostsLink: "Browse Posts"
 	},
 	ru: {
 		allPosts: "Все посты",
@@ -31,6 +33,8 @@ export const generalDictionary = {
 		noResut: "Ничего не найдено",
 		algorithmGraph: "График скоростей алгоритма",
 		graphLimitError: "Вы ввели слишком большое значение. Укажите значение меньше 1000",
-		elementCount: "Количество элементов"
+		elementCount: "Количество элементов",
+		goHomeLink: "На главную",
+		goPostsLink: "Смотреть все посты"
 	},
 };

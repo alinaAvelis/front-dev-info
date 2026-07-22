@@ -2,6 +2,7 @@ import { getPostQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import PostPage from "@/app-pages/post";
 import { getServerLanguage } from "@/shared/i18n/get-server-language";
+import NoTranslatedPost from "@/error-handlers/no-translated-post";
 
 export async function generateMetadata({ params }) {
 	const parametrs = await params;
@@ -32,10 +33,10 @@ const Post = async ({ params }) => {
 		params: parametrs,
 	});
 
-
-	return (
-		<PostPage post={post}/>
-	);
+	if (!post) {
+		return <NoTranslatedPost />;
+	}
+	return <PostPage post={post} />;
 };
 
 export default Post;
