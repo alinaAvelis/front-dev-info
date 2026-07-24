@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import { usePathname } from "next/navigation";
@@ -11,7 +11,6 @@ import { Language } from "@/shared/i18n/config";
 import { MenuTranslationKey } from "@/shared/i18n/dictionary";
 const SearchBlock = dynamic(() => import("../search-block/SearchBlock"));
 const CloseBtn = dynamic(() => import("@/shared/ui/close-button/CloseButton"));
-import { SanityCategoriesType } from "@/types/categories";
 import NavigationMenu, { MenuAction } from "@/shared/ui/menu";
 
 const AppHeader = ({ language }: { language: Language }) => {

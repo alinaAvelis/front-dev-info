@@ -4,7 +4,8 @@ import {
 	menuDictionary,
 	generalDictionary,
 	resourcesDictionary,
-	noTranslatedPostDictionary
+	noTranslatedPostDictionary,
+	validationDictionary
 } from "@/shared/dictionary";
 
 const dictionary = {
@@ -13,14 +14,16 @@ const dictionary = {
 		menu: menuDictionary.en,
 		general: generalDictionary.en,
 		resources: resourcesDictionary.en,
-		noTranslatedPost: noTranslatedPostDictionary.en
+		noTranslatedPost: noTranslatedPostDictionary.en,
+		validation: validationDictionary.en
 	},
 	ru: {
 		search: searchDictionary.ru,
 		menu: menuDictionary.ru,
 		general: generalDictionary.ru,
 		resources: resourcesDictionary.ru,
-		noTranslatedPost: noTranslatedPostDictionary.ru
+		noTranslatedPost: noTranslatedPostDictionary.ru,
+		validation: validationDictionary.ru
 	},
 } as const;
 

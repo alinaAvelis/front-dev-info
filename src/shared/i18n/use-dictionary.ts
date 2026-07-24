@@ -2,7 +2,6 @@ import { useTranslations } from "@/shared/i18n/use-translations";
 import { DictionaryItem } from "@/shared/i18n/dictionary";
 import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 import { useMemo } from "react";
-import { title } from "process";
 
 const useDictionary = <K extends DictionaryItem>(key: K) => {
 	const language = useLanguageSelector();
@@ -45,6 +44,10 @@ const useDictionary = <K extends DictionaryItem>(key: K) => {
 			noTranslatedPost: {
 				title: t("noTranslatedPost", "title"), 
 				description: t("noTranslatedPost", "description"), 
+			},
+			validation: {
+				scriptTag: t("validation", "scriptTag"),
+				symbols: t("validation", "symbols"),
 			}
 		};
 

@@ -1,15 +1,16 @@
 "use client";
-import React, { useCallback, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import React, { useCallback, useEffect, useState, ChangeEvent } from "react";
+import { useAppDispatch } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 import useSearch from "@/hooks/use-search";
 import { setPostsByPreloaded } from "@/lib/features/posts/postsSlice";
 import { setSearchState } from "@/lib/features/search/searchSlice";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
-import {
-    useLimitSelector
-} from "@/lib/features/posts/hooks/use-posts-selector";
+import { useLimitSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 import useDictionary from "@/shared/i18n/use-dictionary";
+import Input from "@/shared/ui/input";
+import useValidateInput from "@/hooks/use-validate-input";
+import { usePathname } from "next/navigation";
 
 const code = `(function(){<br />
 let canvas = document.createElement('canvas'),<br />  
@@ -40,42 +41,51 @@ this.x = Math.random()*w;<br />`;
 
 const SearchBlock = () => {
 	const searchValue = useSearchValueSelector();
-	// const [v, setV] = useState()
+		const pathname = usePathname();
+	const [validationError, setValidationError] = useState<boolean | string>(false);
 	const router = useRouter();
 	const limit = useLimitSelector();
-	const { searchPosts } = useSearch({limit});
+	const { searchPosts } = useSearch({ limit });
 	const dispatch = useAppDispatch();
-	const searchDictionary = useDictionary("search") 
+	const searchDictionary = useDictionary("search");
+
+	const resetPosts = useCallback(() => {
+		dispatch(setPostsByPreloaded());
+	}, [dispatch]);
+
+	const validate = useValidateInput();
 
 	const onSearch = useCallback(() => {
 		// console.log(v)
-		if (router.pathname !== "/posts") {
+		if (pathname !== "/posts") {
 			router.push("/posts");
 		}
-		if (searchValue) {
+		if (searchValue && !validationError) {
 			searchPosts(searchValue);
 		} else {
-			dispatch(setPostsByPreloaded());
+			resetPosts();
 		}
-	}, [dispatch, router, searchPosts, searchValue]);
+	}, [pathname, resetPosts, router, searchPosts, searchValue, validationError]);
 
+	useEffect(() => {
+		const handlePressKeyboard = (e: KeyboardEvent) => {
+			// console.log(e.keyCode);
+			if (e.keyCode === 13) {
+				onSearch();
+			}
+		};
+		window.addEventListener("keydown", handlePressKeyboard);
+		return () => window.removeEventListener("keydown", handlePressKeyboard);
+	}, [onSearch]);
 
-	// useEffect(() => {
-	// 	const handlePressKeyboard = 
-	// 	(e) => {
-	// 		// console.log(e.keyCode);
-	// 		if (e.keyCode === 13) {
-	// 			onSearch();
-	// 		}
-	// 	};
-	// 	window.addEventListener("keydown", handlePressKeyboard);
-	// 	return () => window.removeEventListener("resize", handlePressKeyboard);
-	// }, [onSearch]);
-
-
-	const onInputChange = (e) => {
-		// setV(e.target.value)
-		dispatch(setSearchState(e.target.value));
+	const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const currentValue = e.target.value;
+		const error = validate(currentValue);
+		setValidationError(error);
+		dispatch(setSearchState(currentValue));
+		if (!currentValue) {
+			resetPosts();
+		}
 	};
 
 	return (
@@ -87,17 +97,21 @@ const SearchBlock = () => {
 						<code>{code}</code>
 					</pre>
 				</div>
-				<div className="search_container flex">
-					<input
-						type="text"
+				<div className="search_container">
+					<Input
+						label={searchDictionary?.title}
+						type="search"
 						className="input"
+						fullWidth
 						value={searchValue}
 						onChange={onInputChange}
 						placeholder={searchDictionary?.placeholder}
+						error={Boolean(validationError)}
+						helperText={validationError}
 					/>
 
 					<button
-						className="button button--no_styles search_icon flex justify-center items-center"
+						className="button button--no_styles search_icon flex justify-center items-center w-10"
 						type="button"
 						onClick={onSearch}
 						aria-label="search icon"
