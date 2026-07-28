@@ -5,7 +5,8 @@ import {
 	generalDictionary,
 	resourcesDictionary,
 	noTranslatedPostDictionary,
-	validationDictionary
+	validationDictionary,
+	pageNotFound
 } from "@/shared/dictionary";
 
 const dictionary = {
@@ -15,7 +16,8 @@ const dictionary = {
 		general: generalDictionary.en,
 		resources: resourcesDictionary.en,
 		noTranslatedPost: noTranslatedPostDictionary.en,
-		validation: validationDictionary.en
+		validation: validationDictionary.en,
+		pageNotFound: pageNotFound.en
 	},
 	ru: {
 		search: searchDictionary.ru,
@@ -23,7 +25,8 @@ const dictionary = {
 		general: generalDictionary.ru,
 		resources: resourcesDictionary.ru,
 		noTranslatedPost: noTranslatedPostDictionary.ru,
-		validation: validationDictionary.ru
+		validation: validationDictionary.ru,
+		pageNotFound: pageNotFound.ru
 	},
 } as const;
 

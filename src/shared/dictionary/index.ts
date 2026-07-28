@@ -1,3 +1,4 @@
+export { pageNotFound } from "./slices/page-not-found";
 export { searchDictionary } from "./slices/search";
 export { menuDictionary } from "./slices/menu";
 export { generalDictionary } from "./slices/general";

@@ -494,7 +494,7 @@ textarea {
 }
 
 .search_container {
-    @apply flex w-full border-4 p-1 border-solid border-white rounded-sm overflow-hidden bg-gray-200;
+    @apply flex w-full md:border-4 p-1 border-solid border-white rounded-sm overflow-hidden bg-gray-200;
     z-index: 1;
 }
 

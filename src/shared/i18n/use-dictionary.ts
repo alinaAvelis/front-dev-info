@@ -2,6 +2,8 @@ import { useTranslations } from "@/shared/i18n/use-translations";
 import { DictionaryItem } from "@/shared/i18n/dictionary";
 import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 import { useMemo } from "react";
+import { title } from "process";
+import { deserialize } from "v8";
 
 const useDictionary = <K extends DictionaryItem>(key: K) => {
 	const language = useLanguageSelector();
@@ -33,22 +35,26 @@ const useDictionary = <K extends DictionaryItem>(key: K) => {
 				loading: t("general", "loading"),
 				noResut: t("general", "noResut"),
 				algorithmGraph: t("general", "algorithmGraph"),
-				graphLimitError:  t("general", "graphLimitError"),
-				elementCount:  t("general", "elementCount"),
-				goHomeLink:  t("general", "goHomeLink"),
-				goPostsLink:  t("general", "goPostsLink"),
+				graphLimitError: t("general", "graphLimitError"),
+				elementCount: t("general", "elementCount"),
+				goHomeLink: t("general", "goHomeLink"),
+				goPostsLink: t("general", "goPostsLink"),
 			},
 			resources: {
 				documentation: t("resources", "documentation"),
 			},
 			noTranslatedPost: {
-				title: t("noTranslatedPost", "title"), 
-				description: t("noTranslatedPost", "description"), 
+				title: t("noTranslatedPost", "title"),
+				description: t("noTranslatedPost", "description"),
+			},
+			pageNotFound: {
+				title: t("pageNotFound", "title"),
+				description: t("pageNotFound", "description"),
 			},
 			validation: {
 				scriptTag: t("validation", "scriptTag"),
 				symbols: t("validation", "symbols"),
-			}
+			},
 		};
 
 		return dictionary[key];
