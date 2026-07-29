@@ -1,19 +1,29 @@
 "use client";
 import React, { useMemo } from "react";
 import Link from "next/link";
+import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
+const CategoryLink = ({ card, category }) => {
+	const categories = useCategoriesSelector();
+	const categoryItem = useMemo(() => {
+		if (card) {
+			return categories?.find(
+				(point) => card?.category?._ref === point?._id,
+			);
+		}
 
-const CategoryLink = ({ card, categories }) => {
-  
-	const category = useMemo(() => {
-		return categories?.find((point) => card?.category?._ref === point?._id);
-	}, [card, categories]);
+		if (category) {
+			return category;
+		}
+
+		return null;
+	}, [card, categories, category]);
 
 	return (
 		<Link
-			className="border border-solid border-[#dddde1] py-1 px-2 w-fit  transition-all duration-300 text-gray-400 hover:text-blue-800 hover:border-blue-800"
-			href={`/categories/${category?.slug.current}`}
+			className={`category_link ${card && "text-gray-400"}`}
+			href={`/categories/${categoryItem?.slug.current}`}
 		>
-			{category?.title}
+			{categoryItem?.title}
 		</Link>
 	);
 };

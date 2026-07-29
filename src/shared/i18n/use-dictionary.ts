@@ -39,6 +39,7 @@ const useDictionary = <K extends DictionaryItem>(key: K) => {
 				elementCount: t("general", "elementCount"),
 				goHomeLink: t("general", "goHomeLink"),
 				goPostsLink: t("general", "goPostsLink"),
+				categories: t("general", "categories"),
 			},
 			resources: {
 				documentation: t("resources", "documentation"),

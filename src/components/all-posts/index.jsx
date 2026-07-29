@@ -9,7 +9,8 @@ import {
 	usePostsLoadingSelector,
 	usePostsLoadingOnPaginationSelector,
 } from "@/lib/features/posts/hooks/use-posts-selector";
-import List from "@/components/list/List";
+
+import Cards from "@/components/cards/Cards";
 import useLoadPosts from "@/hooks/use-load-posts";
 import { setLimit } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
@@ -18,7 +19,7 @@ import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-s
 import PostsGridSkeleton from "@/shared/ui/sceletons/posts-sceletone";
 import LinearIndeterminate from "@/shared/ui/linear-progress";
 
-const Cards = dynamic(() => import("@/components/cards/Cards"));
+const List = dynamic(() => import("@/components/list/List"));
 
 const ToPostPages = () => {
 	const general = useDictionary("general");
@@ -146,40 +147,39 @@ const AllPosts = ({
 	}, [dispatch, postsOnPage]);
 
 	return (
-		<div className="w-full mt-10">
-			<div className="flex gap-2">
+		<section className="section tabs mt-5 md:mt-10 w-full mt-10">
+			<h1 className="title">{title}</h1>
+
+			<div className="flex gap-2 mb-5">
 				<CardsButton onClick={() => setView("cards")} />
 				<ListButton onClick={() => setView("list")} />
 			</div>
-			<section className="section tabs mt-5 md:mt-10">
-				<h1 className="title">{title}</h1>
 
-				{postsLoading ? (
-					<PostsGridSkeleton count={limit} />
-				) : (
-					<>
-						<div className="tabs_btns flex ">
-							{view === `cards` ? (
-								<Cards
-									data={posts}
-									categories={categories}
-									withCategory={withCategory}
-								/>
-							) : (
-								<List
-									data={posts}
-									categories={categories}
-									withCategory={withCategory}
-								/>
-							)}
-						</div>
-						{bottomLink}
-					</>
-				)}
+			{postsLoading ? (
+				<PostsGridSkeleton count={limit} />
+			) : (
+				<>
+					<div className="tabs_btns flex ">
+						{view === `cards` ? (
+							<Cards
+								data={posts}
+								categories={categories}
+								withCategory={withCategory}
+							/>
+						) : (
+							<List
+								data={posts}
+								categories={categories}
+								withCategory={withCategory}
+							/>
+						)}
+					</div>
+					{bottomLink}
+				</>
+			)}
 
-				{/* <BottomAdds /> */}
-			</section>
-		</div>
+			{/* <BottomAdds /> */}
+		</section>
 	);
 };
 

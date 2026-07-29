@@ -66,7 +66,7 @@ const Cards = ({
 							{withCategory && (
 								<CategoryLink
 									card={item}
-									categories={categories}
+								
 								/>
 							)}
 						</li>

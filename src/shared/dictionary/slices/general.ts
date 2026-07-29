@@ -16,7 +16,8 @@ export const generalDictionary = {
 		graphLimitError: "Value is too large. Please enter a value below 1000.",
 		elementCount: "Element count",
 		goHomeLink: "Go to Home",
-		goPostsLink: "Browse Posts"
+		goPostsLink: "Browse Posts",
+		categories: "Categories"
 	},
 	ru: {
 		allPosts: "Все посты",
@@ -35,6 +36,7 @@ export const generalDictionary = {
 		graphLimitError: "Вы ввели слишком большое значение. Укажите значение меньше 1000",
 		elementCount: "Количество элементов",
 		goHomeLink: "На главную",
-		goPostsLink: "Смотреть все посты"
+		goPostsLink: "Смотреть все посты",
+		categories: "Категории"
 	},
 };

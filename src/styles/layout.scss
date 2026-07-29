@@ -249,6 +249,7 @@ textarea {
 }
 
 .category_link {
+    @apply border border-solid border-[#dddde1] py-1 px-2 w-fit  transition-all duration-300  hover:text-blue-800 hover:border-blue-800;
     font-size: 1.1rem;
 }
 
