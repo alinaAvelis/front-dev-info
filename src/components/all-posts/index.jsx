@@ -15,6 +15,7 @@ import { useAppDispatch } from "@/lib/hooks";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 import PostsGridSkeleton from "@/shared/ui/sceletons/posts-sceletone";
+import LinearIndeterminate from "@/shared/ui/linear-progress";
 
 const Cards = dynamic(() => import("@/components/cards/Cards"));
 
@@ -31,14 +32,23 @@ const AddPostsButton = ({ onClick }) => {
 	const general = useDictionary("general");
 	const postsLoading = usePostsLoadingSelector();
 	if (postsLoading) {
-		return <span className="button button--outlined button--center">{general.loading}...</span>;
+		return (
+			<div className="w-full md:w-1/2 mt-5 md:mt-10 mx-auto">
+				<LinearIndeterminate />{" "}
+			</div>
+		);
 	}
 	return (
 		<button
 			className="button button--fill button--center"
 			onClick={onClick}
+			disabled={postsLoading}
 		>
-			{general?.loadMore}
+			{postsLoading ? (
+				<span>{general.loading}...</span>
+			) : (
+				general?.loadMore
+			)}
 		</button>
 	);
 };
