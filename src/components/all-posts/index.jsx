@@ -7,6 +7,7 @@ import {
 	useLimitSelector,
 	usePostsOnPageSelector,
 	usePostsLoadingSelector,
+	usePostsLoadingOnPaginationSelector,
 } from "@/lib/features/posts/hooks/use-posts-selector";
 import List from "@/components/list/List";
 import useLoadPosts from "@/hooks/use-load-posts";
@@ -30,7 +31,7 @@ const ToPostPages = () => {
 
 const AddPostsButton = ({ onClick }) => {
 	const general = useDictionary("general");
-	const postsLoading = usePostsLoadingSelector();
+	const postsLoading = usePostsLoadingOnPaginationSelector();
 	if (postsLoading) {
 		return (
 			<div className="w-full md:w-1/2 mt-5 md:mt-10 mx-auto">
@@ -110,7 +111,7 @@ const AllPosts = ({
 	withCategory = true,
 }) => {
 	const postsOnPage = usePostsOnPageSelector();
-
+	const postsLoading = usePostsLoadingSelector();
 	const searchValue = useSearchValueSelector();
 	const [view, setView] = useState("cards");
 	const limit = useLimitSelector();
@@ -144,10 +145,6 @@ const AllPosts = ({
 		};
 	}, [dispatch, postsOnPage]);
 
-	// if(true) {
-	// 	return <PostsGridSkeleton />
-	// }
-
 	return (
 		<div className="w-full mt-10">
 			<div className="flex gap-2">
@@ -157,22 +154,28 @@ const AllPosts = ({
 			<section className="section tabs mt-5 md:mt-10">
 				<h1 className="title">{title}</h1>
 
-				<div className="tabs_btns flex ">
-					{view === `cards` ? (
-						<Cards
-							data={posts}
-							categories={categories}
-							withCategory={withCategory}
-						/>
-					) : (
-						<List
-							data={posts}
-							categories={categories}
-							withCategory={withCategory}
-						/>
-					)}
-				</div>
-				{bottomLink}
+				{postsLoading ? (
+					<PostsGridSkeleton count={limit} />
+				) : (
+					<>
+						<div className="tabs_btns flex ">
+							{view === `cards` ? (
+								<Cards
+									data={posts}
+									categories={categories}
+									withCategory={withCategory}
+								/>
+							) : (
+								<List
+									data={posts}
+									categories={categories}
+									withCategory={withCategory}
+								/>
+							)}
+						</div>
+						{bottomLink}
+					</>
+				)}
 
 				{/* <BottomAdds /> */}
 			</section>

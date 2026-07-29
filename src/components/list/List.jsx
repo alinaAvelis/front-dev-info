@@ -33,7 +33,7 @@ const general = useDictionary("general");
                     })}
                 </ul>
             ) : (
-                <p className="text-center">{general.noResut}</p>
+                <p className="text-center">{general.noResult}</p>
             )}
         </>
     );

@@ -33,7 +33,7 @@ const useDictionary = <K extends DictionaryItem>(key: K) => {
 				otherPosts: t("general", "otherPosts"),
 				writeToMe: t("general", "writeToMe"),
 				loading: t("general", "loading"),
-				noResut: t("general", "noResut"),
+				noResult: t("general", "noResult"),
 				algorithmGraph: t("general", "algorithmGraph"),
 				graphLimitError: t("general", "graphLimitError"),
 				elementCount: t("general", "elementCount"),

@@ -6,6 +6,7 @@ type postsState = {
 	posts: PostsType;
 	preloaded: PostsType;
 	loading: boolean;
+	loadingOnPagination: boolean;
 	hasMorePosts: boolean;
 	total: number;
 	limit: number;
@@ -16,6 +17,7 @@ const initialState = {
 	posts: [],
 	preloaded: [],
 	loading: false,
+	loadingOnPagination: false,
 	hasMorePosts: false,
 	total: 0,
 	limit: 9,
@@ -63,6 +65,9 @@ export const posts = createSlice({
 		setPostsByPreloaded: (state) => {
 			state.posts = state.preloaded;
 		},
+		setLoadingOnPagination: (state, action) => {
+			state.loadingOnPagination = action.payload;
+		},
 	},
 });
 
@@ -74,6 +79,7 @@ export const {
 	setHasMorePosts,
 	setPostsByPreloaded,
 	setLimit,
-	setPostsOnPage
+	setPostsOnPage,
+	setLoadingOnPagination
 } = posts.actions;
 export default posts.reducer;

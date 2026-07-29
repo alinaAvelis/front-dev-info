@@ -11,7 +11,7 @@ export const generalDictionary = {
 		writeToMe:
 			"If you notice an error or have any feedback, you can contact us by email",
 		loading: "Loading",
-		noResut: "Nothing found",
+		noResult: "Nothing found",
 		algorithmGraph: "Algorithm Performance Graph",
 		graphLimitError: "Value is too large. Please enter a value below 1000.",
 		elementCount: "Element count",
@@ -30,7 +30,7 @@ export const generalDictionary = {
 		writeToMe:
 			"Если вы заметили ошибку или есть замечания, вы можете написать на почту:",
 		loading: "Загружается",
-		noResut: "Ничего не найдено",
+		noResult: "Ничего не найдено",
 		algorithmGraph: "График скоростей алгоритма",
 		graphLimitError: "Вы ввели слишком большое значение. Укажите значение меньше 1000",
 		elementCount: "Количество элементов",

@@ -4,7 +4,7 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { getPostsQuery } from "@/sanity/lib/queries";
 import {
 	setPostsState,
-	setPostsLoading,
+	setLoadingOnPagination,
 } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { PostsType, PostsFromSanityType } from "@/types/posts";
@@ -24,7 +24,7 @@ export default function useLoadPosts({
 	const language = useAppSelector((state) => state.languageReducer.language);
 	const categorySlug = useCategorySlugSelector();
 	const loadMorePosts = async (searchValue = "", limit = 9) => {
-		dispatch(setPostsLoading(true));
+		dispatch(setLoadingOnPagination(true));
 		// let total = totalPosts;
 		// const lastPost = initialPosts?.[initialPosts?.length - 1];
 
@@ -78,7 +78,7 @@ export default function useLoadPosts({
 			dispatch(setPostsState(newPosts));
 			
 		}
-		dispatch(setPostsLoading(false));
+		dispatch(setLoadingOnPagination(false));
 	};
 
 	return { loadMorePosts };

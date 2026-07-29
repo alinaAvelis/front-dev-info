@@ -17,6 +17,14 @@ export function usePostsLoadingSelector() {
     return loading
 }
 
+export function usePostsLoadingOnPaginationSelector() {
+    const loading = useAppSelector(
+        (state) => state.postsReducer.loadingOnPagination,
+    );
+
+    return loading
+}
+
 export function usePostsTotalSelector() {
     const total = useAppSelector(
         (state) => state.postsReducer.total,
