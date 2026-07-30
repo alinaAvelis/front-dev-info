@@ -1,15 +1,13 @@
 "use client";
 import React, { useEffect, useMemo, useState, useCallback } from "react";
-import Link from "next/link";
+import ToPostPages from "./to-post-pages"
 
 import dynamic from "next/dynamic";
 import {
 	useLimitSelector,
 	usePostsOnPageSelector,
 	usePostsLoadingSelector,
-	usePostsLoadingOnPaginationSelector,
 } from "@/lib/features/posts/hooks/use-posts-selector";
-
 import Cards from "@/components/cards/Cards";
 import useLoadPosts from "@/hooks/use-load-posts";
 import { setLimit } from "@/lib/features/posts/postsSlice";
@@ -17,43 +15,8 @@ import { useAppDispatch } from "@/lib/hooks";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 import PostsGridSkeleton from "@/shared/ui/sceletons/posts-sceletone";
-import LinearIndeterminate from "@/shared/ui/linear-progress";
-
 const List = dynamic(() => import("@/components/list/List"));
-
-const ToPostPages = () => {
-	const general = useDictionary("general");
-	return (
-		<Link href="/posts" className="button button--fill button--center">
-			<span>{general?.toPostsPage}</span>
-		</Link>
-	);
-};
-
-const AddPostsButton = ({ onClick }) => {
-	const general = useDictionary("general");
-	const postsLoading = usePostsLoadingOnPaginationSelector();
-	if (postsLoading) {
-		return (
-			<div className="w-full md:w-1/2 mt-5 md:mt-10 mx-auto">
-				<LinearIndeterminate />{" "}
-			</div>
-		);
-	}
-	return (
-		<button
-			className="button button--fill button--center"
-			onClick={onClick}
-			disabled={postsLoading}
-		>
-			{postsLoading ? (
-				<span>{general.loading}...</span>
-			) : (
-				general?.loadMore
-			)}
-		</button>
-	);
-};
+const AddPostsButton = dynamic(() => import("./add-posts-button"));
 
 const CardsButton = ({ onClick }) => {
 	const general = useDictionary("general");

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
-import Link from "next/link";
+
 import useDictionary from "@/shared/i18n/use-dictionary";
 import CategoryLink from "@/components/category-link";
 const AllCategories = () => {
