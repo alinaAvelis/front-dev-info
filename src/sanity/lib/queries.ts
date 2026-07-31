@@ -24,7 +24,8 @@ export function getPostsQuery({
 	return groq`
   {
     "posts": ${typeBlock} | ${order} [0...$limit],
-    "total": count( ${typeBlock} )
+    "total": count( ${typeBlock} ),
+	// "tags" :  ${typeBlock}.tags
   }`;
 }
 

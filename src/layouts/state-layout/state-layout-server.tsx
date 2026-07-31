@@ -25,6 +25,8 @@ export default async function StateLayout({ children }: PropsWithChildren) {
 		params: { limit: postsLimits.limit },
 	});
 
+	console.log(posts.posts)
+
 	return (
 		<StateLayoutDispatcher
 			categories={categories}

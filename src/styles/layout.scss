@@ -308,23 +308,8 @@ textarea {
   }
   
 
-  /*..........Tabs.........*/
-/*//////////////////////*/
 
-.tabs_btns {
-    @apply w-fit flex-wrap;
-
-    & button {
-        @apply mt-4 basis-[44%] md:basis-full mr-4 md:mr-0 last:mr-0;
-
-    }
-
-    & button:not(:last-child) {
-        margin-right: 30px;
-    }
-}
-
-.tabs_container {
+.posts_container {
     @apply gap-3 md:gap-5 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 }
 
@@ -405,7 +390,7 @@ textarea {
         @apply my-8 mx-0;
     }
 
-    & .tabs_container {
+    & .posts_container {
         @apply mt-8 list-none gap-8 pl-0;
     }
 

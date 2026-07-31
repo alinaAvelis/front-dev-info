@@ -7,46 +7,41 @@ import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-s
 const Cards = ({
 	data,
 	to = "posts",
-	withImage = false,
 	withCategory = true,
-	categories,
 }) => {
 	const general = useDictionary("general");
 	const isDataExist = data?.length > 0;
 	const searchValue = useSearchValueSelector();
-	
 
 	if (searchValue && !isDataExist) {
 		return <p className="text-center">{general.noResult}</p>;
 	}
 
 	return (
-		<>
-	
-			<ul className={`tabs_container grid`}>
-				{data?.map((item, i) => {
-					return (
-						<li
-							key={i + "card"}
-							className="border border-solid border-[#dddde1] p-3 flex flex-col gap-3 "
+		<ul className={`posts_container grid`}>
+			{data?.map((item, i) => {
+				return (
+					<li
+						key={i + "card"}
+						className="border border-solid border-[#dddde1] p-3 flex flex-col gap-3 "
+					>
+						<Link
+							className="card flex! h-full flex-col justify-between link"
+							href={
+								item.toOtherPage
+									? `${item.slug.current}`
+									: `/${to}/${item.slug.current}`
+							}
 						>
-							<Link
-								className="card flex! h-full flex-col justify-between link"
-								href={
-									item.toOtherPage
-										? `${item.slug.current}`
-										: `/${to}/${item.slug.current}`
-								}
-							>
-								<span className="flex flex-col gap-3 md:gap-5">
-									<span className="card_title bold bold text-xl md:text-2xl font-bold leading-none">
-										{item.title}
-									</span>
-
-									<span>{item.shortDescription}</span>
+							<span className="flex flex-col gap-3 md:gap-5">
+								<span className="card_title bold bold text-xl md:text-2xl font-bold leading-none">
+									{item.title}
 								</span>
 
-								{/* {withImage && <span className='w-full '>
+								<span>{item.shortDescription}</span>
+							</span>
+
+							{/* {withImage && <span className='w-full '>
                                         {item.mainImage ? (
                                             <Image
                                                 className='img'
@@ -61,19 +56,13 @@ const Cards = ({
                                             <span className=' inline-block h-full w-full bg-[#dddde1]'></span>
                                         )}
                                     </span>} */}
-							</Link>
+						</Link>
 
-							{withCategory && (
-								<CategoryLink
-									card={item}
-								
-								/>
-							)}
-						</li>
-					);
-				})}
-			</ul>
-		</>
+						{withCategory && <CategoryLink card={item} />}
+					</li>
+				);
+			})}
+		</ul>
 	);
 };
 
