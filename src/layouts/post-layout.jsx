@@ -57,7 +57,7 @@ const PostLayout = ({ currentPostSlug, pathArr, children }) => {
 					)}
 				</div>
 
-				<div className="aside order-1 lg:order-2 md:fixed right-0">
+				<div className="aside order-1 lg:order-2 lg:fixed right-0">
 					<PostMenu />
 				</div>
 			</div>

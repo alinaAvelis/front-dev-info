@@ -17,7 +17,7 @@ const AddPostsButton = ({ onClick }: AddPostsButtonProps) => {
 	}
 	return (
 		<button
-			className="button button--fill button--center"
+			className="button button--center"
 			onClick={onClick}
 			disabled={postsLoading}
 		>

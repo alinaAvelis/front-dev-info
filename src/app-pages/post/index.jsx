@@ -31,7 +31,7 @@ const components = {
 	},
 	marks: {
 		accent_text: ({ children }) => (
-			<span className="accent_text">{children}</span>
+			<span className="">{children}</span>
 		),
 		link: ({ value, children }) => {
 			const { blank, href } = value;

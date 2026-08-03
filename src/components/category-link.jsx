@@ -20,7 +20,7 @@ const CategoryLink = ({ card, category }) => {
 
 	return (
 		<Link
-			className={`category_link ${card && "text-gray-400"}`}
+			className={`category_link ${card && "text-gray-600"}`}
 			href={`/categories/${categoryItem?.slug.current}`}
 		>
 			{categoryItem?.title}

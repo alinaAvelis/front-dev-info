@@ -19,7 +19,7 @@ export function getPostsQuery({
 		? "&& category->slug.current == $categorySlug"
 		: "";
 	const searchCondition = searchValue ? "&& title match $searchQuery" : "";
-	const order = orderType === "desc" ? "order(_createdAt desc)" : "";
+	const order = orderType === "desc" ? "order(releaseDate desc)" : "";
 	const typeBlock = `*[_type == "posts-${language}" ${categoryCondition} ${searchCondition}]`;
 	return groq`
   {

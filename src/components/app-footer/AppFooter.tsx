@@ -8,7 +8,7 @@ const AppFooter = () => {
         return new Date().getFullYear();
     }, []);
     return (
-        <footer className='mt-10 bg-gray-300 py-5 '>
+        <footer className='mt-10 bg-zinc-300 py-5 text-center'>
             <div className='mx-auto flex flex-col md:flex-row w-full max-w-screen-xl items-center justify-between px-5 md:px-10'>
                 <p>© {getCurrentYear} front-dev-info</p>
 

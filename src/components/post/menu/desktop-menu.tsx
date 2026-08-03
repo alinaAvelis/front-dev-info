@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import useDictionary from "@/shared/i18n/use-dictionary";
 
@@ -15,23 +14,10 @@ type DesctopMenuProps = {
 };
 
 export default function DesktopMenu({ menu }: DesctopMenuProps) {
-	const [changeMenuPosition, setChangeMenuPosition] = useState(false);
 	const general = useDictionary("general");
-	const onScroll = useCallback(() => {
-		if (scrollY > 200) {
-			setChangeMenuPosition(true);
-		} else {
-			setChangeMenuPosition(false);
-		}
-	}, []);
-	useEffect(() => {
-		window.addEventListener("scroll", onScroll);
-		return () => {
-			window.removeEventListener("scroll", onScroll);
-		};
-	}, [onScroll]);
+
 	return (
-		<div className={`menu ${changeMenuPosition && "menu--top"}`}>
+		<div className={`menu overflow-y-auto max-h-[calc(100vh-170px)]`}>
 			<h2>{general?.contents}</h2>
 			{menu?.map((item, i) => (
 				<Link

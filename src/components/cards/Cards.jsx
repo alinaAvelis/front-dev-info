@@ -23,7 +23,7 @@ const Cards = ({
 				return (
 					<li
 						key={i + "card"}
-						className="border border-solid border-[#dddde1] p-3 flex flex-col gap-3 "
+						className="border border-solid border-zinc-500 rounded-sm p-3 flex flex-col gap-3 "
 					>
 						<Link
 							className="card flex! h-full flex-col justify-between link"

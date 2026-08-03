@@ -18,7 +18,7 @@ const ResourseBlock = ({ title, data }) => {
 						</Link>{" "}
 						{Boolean(item.text) && <span>{item.text}</span>}
 						{item?.type && item?.type !== "others" && (
-							<span className="accent_text text-xs uppercase">
+							<span className=" text-xs uppercase">
 								{" "}
 								({item?.type})
 							</span>

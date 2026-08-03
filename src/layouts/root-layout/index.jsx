@@ -8,7 +8,7 @@ export default async function RootLayout({ children }) {
 	return (
 		<StateLayout>
 			<AppHeader />
-			<div className="min-h-screen">{children}</div>
+			<main className="min-h-screen">{children}</main>
 
 			<AppFooter />
 		</StateLayout>
