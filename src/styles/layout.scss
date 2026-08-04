@@ -22,7 +22,7 @@ body {
 }
 
 .post_container {
-    @apply flex justify-between flex-col lg:flex-row
+    @apply flex justify-between flex-col lg:flex-row py-5
 }
 
 .aside {
@@ -330,12 +330,14 @@ textarea {
             @apply font-bold mt-0 py-0 px-2;
         }
 
-        & .comment {
-            @apply text-zinc-600;
-        }
 
         code {
             @apply text-zinc-950;
+        }
+
+        
+        & .comment {
+            @apply text-zinc-300!;
         }
     }
 

@@ -10,6 +10,7 @@ const ResoursesPage = ({resources}) => {
 
 	return (
 		<PostLayout pathArr={[{ name: menu?.resources }]}>
+			<h1>{menu?.resources}</h1>
 			{resources?.map(({ _id, title, body }) => {
 				return <ResourseBlock key={_id} title={title} data={body} />;
 			})}
