@@ -19,12 +19,12 @@ const CategoryLink = ({ card, category }) => {
 	}, [card, categories, category]);
 
 	return (
-		<Link
-			className={`category_link ${card && "text-gray-600"}`}
+		categoryItem ? <Link
+			className={`category_link ${card ? "text-gray-600" : ""}`}
 			href={`/categories/${categoryItem?.slug.current}`}
 		>
 			{categoryItem?.title}
-		</Link>
+		</Link> : null
 	);
 };
 

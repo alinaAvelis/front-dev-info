@@ -9,6 +9,7 @@ html {
 }
 
 
+
 body {
     @apply block mx-auto overflow-x-hidden relative min-h-dvh;
 }
@@ -141,16 +142,16 @@ textarea {
 }
 
 .link {
-    @apply inline-block no-underline text-inherit! transition-all duration-300 hover:text-blue-800! active:opacity-40;
+    @apply inline-block no-underline text-inherit! transition-all duration-150 hover:text-blue-800! active:opacity-40;
    
 }
 
 
 .button {
-    @apply text-gray-800 rounded-sm bg-white border-solid border border-zinc-500 py-2 px-3 md:py-3 md:px-10 text-center font-bold leading-none transition-all duration-500;
+    @apply text-gray-800 rounded-sm bg-white border-solid border border-zinc-500 py-2 px-3 md:py-3 md:px-10 text-center font-bold leading-none transition-all duration-150;
 
     & svg {
-        @apply transition-all duration-300;
+        @apply transition-all duration-150;
     }
 
     &--no_styles {
@@ -178,7 +179,7 @@ textarea {
 
         &::before,
         &::after {
-            @apply block w-0 h-0 absolute transition-all duration-300 bg-gray-100 rounded-sm;
+            @apply block w-0 h-0 absolute transition-all duration-150 bg-gray-100 rounded-sm;
             content: "";
         }
 
@@ -246,20 +247,20 @@ textarea {
 
 
 .category_link {
-    @apply border border-solid border-gray-600 py-1 px-2 w-fit  transition-all duration-300  hover:text-blue-800 hover:border-blue-800;
+    @apply border border-solid border-gray-600 py-1 px-2 w-fit  transition-all duration-150  hover:text-blue-800 hover:border-blue-800;
     font-size: 1.1rem;
 }
 
 /*...Header...*/
 
 .burger {
-    @apply gap-2 h-fit relative p-3 transition-all duration-300 w-[60px] md:w-[90px];
+    @apply gap-2 h-fit relative p-3 transition-all duration-150 w-[60px] md:w-[90px];
   
     &::before {
       content: "";
       animation: clippath 3s infinite linear;
   
-      @apply border-2 border-slate-400 border-solid absolute inset-0 opacity-0 rounded-xl  transition-all duration-500;
+      @apply border-2 border-slate-400 border-solid absolute inset-0 opacity-0 rounded-xl  transition-all duration-150;
     }
   
     &:hover {
@@ -270,7 +271,7 @@ textarea {
   }
   
   .nav_container {
-    @apply min-h-dvh absolute top-0 right-0 bg-white  transition-all duration-500 py-5 px-5 md:py-8 md:px-[35px] w-[300px] md:w-[400px] text-base md:text-lg z-10 border-l border-l-gray-300;
+    @apply min-h-dvh absolute top-0 right-0 bg-white  transition-all duration-150 py-5 px-5 md:py-8 md:px-[35px] w-[300px] md:w-[400px] text-base md:text-lg z-10 border-l border-l-gray-300;
   
     transform: translateX(500px);
   

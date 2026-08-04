@@ -8,10 +8,10 @@ const List = ({ data, to = "posts", withCategory = true }) => {
 	return (
 		<>
 			{data?.length > 0 ? (
-				<ul className="posts_container">
+				<div className="posts_container">
 					{data?.map((item, i) => {
 						return (
-							<li
+							<div
 								key={i + "card"}
 								className="pt-3 flex gap-5 items-center"
 							>
@@ -27,10 +27,10 @@ const List = ({ data, to = "posts", withCategory = true }) => {
 								</Link>
 
 								{withCategory && <CategoryLink card={item} />}
-							</li>
+							</div>
 						);
 					})}
-				</ul>
+				</div>
 			) : (
 				<p className="text-center">{general.noResult}</p>
 			)}

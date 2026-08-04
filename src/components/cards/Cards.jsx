@@ -18,10 +18,10 @@ const Cards = ({
 	}
 
 	return (
-		<ul className={`posts_container grid`}>
+		<div className={`posts_container grid`}>
 			{data?.map((item, i) => {
 				return (
-					<li
+					<div
 						key={i + "card"}
 						className="border border-solid border-zinc-500 rounded-sm p-3 flex flex-col gap-3 "
 					>
@@ -59,10 +59,10 @@ const Cards = ({
 						</Link>
 
 						{withCategory && <CategoryLink card={item} />}
-					</li>
+					</div>
 				);
 			})}
-		</ul>
+		</div>
 	);
 };
 

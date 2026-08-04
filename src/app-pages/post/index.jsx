@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link.js";
 import parse from "html-react-parser";
+import { useEffect, useState } from "react";
 import { getDateString } from "@/utils/utils";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
@@ -30,9 +31,7 @@ const components = {
 		checkmarks: ({ children }) => <ol className="mt-2">{children}</ol>,
 	},
 	marks: {
-		accent_text: ({ children }) => (
-			<span className="">{children}</span>
-		),
+		accent_text: ({ children }) => <span className="">{children}</span>,
 		link: ({ value, children }) => {
 			const { blank, href } = value;
 			return blank ? (
@@ -169,6 +168,16 @@ const components = {
 
 const PostPage = ({ post, allPosts }) => {
 	const menu = useDictionary("menu");
+	const [date, setDate] = useState(null);
+
+	useEffect(() => {
+		const setPostDate = async () => {
+			const dateString = getDateString(post?.releaseDate);
+			setDate(dateString);
+		};
+		setPostDate();
+	}, [post?.releaseDate]);
+
 	return (
 		<PostLayout
 			currentPostSlug={post?.slug?.current}
@@ -180,7 +189,7 @@ const PostPage = ({ post, allPosts }) => {
 		>
 			<h1>{post?.title}</h1>
 
-			<p className="post_date">{getDateString(post?.releaseDate)}</p>
+			<p className="post_date">{date}</p>
 			<PortableText value={post?.content} components={components} />
 		</PostLayout>
 	);

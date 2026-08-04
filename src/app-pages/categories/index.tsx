@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
-import AllCategories from "@/components/all-categories";
-
+const AllCategories = dynamic(() => import("@/components/all-categories"),{ ssr: false });
 const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
 
 const CategoriesPage = () => {

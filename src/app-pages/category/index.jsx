@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
-import AllPosts from "@/components/all-posts";
 import {
 	usePostsSelector,
 	usePostsTotalSelector,
@@ -13,7 +12,7 @@ import { setCategorySlug } from "@/lib/features/categories/categoriesSlice";
 import { setPostsByPreloaded } from "@/lib/features/posts/postsSlice";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
-
+const AllPosts = dynamic(() => import("@/components/all-posts"), { ssr: false });
 const CategoryPage = ({ allPosts, category }) => {
 	const dispatch = useAppDispatch();
 	const posts = usePostsSelector();

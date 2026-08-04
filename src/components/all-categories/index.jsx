@@ -15,15 +15,13 @@ const AllCategories = () => {
 		<section className="section tabs mt-5 md:mt-10">
 			<h1 className="title">{general.categories}</h1>
 
-			<ul className="gap-3 flex flex-wrap ">
+			<div className="gap-3 flex flex-wrap ">
 				{categories?.map((item, i) => {
 					return (
-						<li key={item._id}>
-							<CategoryLink category={item} />
-						</li>
+						<CategoryLink  key={item._id} category={item} />
 					);
 				})}
-			</ul>
+			</div>
 		</section>
 	);
 };

@@ -1,6 +1,5 @@
 "use client";
 
-import AllPosts from "@/components/all-posts";
 import dynamic from "next/dynamic";
 import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import {
@@ -13,7 +12,7 @@ import { useAppDispatch } from "@/lib/hooks";
 
 import { useEffect } from "react";
 const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
-
+const AllPosts = dynamic(() => import("@/components/all-posts"), { ssr: false });
 const PostsPage = () => {
 	const categories = useCategoriesSelector();
 	const posts = usePostsSelector();
