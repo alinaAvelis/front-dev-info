@@ -1,6 +1,6 @@
 export const WEBSITE_NAME: string = "FrontDevInfo";
 export const WEBSITE_URL: string =
-  "https://www.front-dev-info.ru/";
+  "https://www.front-dev-info.com/";
 
 
 export const LOGO:string="FrontDevInfo"

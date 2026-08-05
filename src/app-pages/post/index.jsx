@@ -10,6 +10,7 @@ import CodeInput from "@/components/code-input";
 import PostLayout from "@/layouts/post-layout";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import AlgorithmSpeedLineChart from "@/components/line-chart";
+import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 
 const components = {
 	block: {
@@ -169,14 +170,15 @@ const components = {
 const PostPage = ({ post, allPosts }) => {
 	const menu = useDictionary("menu");
 	const [date, setDate] = useState(null);
+	const language = useLanguageSelector();
 
 	useEffect(() => {
 		const setPostDate = async () => {
-			const dateString = getDateString(post?.releaseDate);
+			const dateString = getDateString(post?.releaseDate, language);
 			setDate(dateString);
 		};
 		setPostDate();
-	}, [post?.releaseDate]);
+	}, [post?.releaseDate, language]);
 
 	return (
 		<PostLayout
