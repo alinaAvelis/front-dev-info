@@ -234,10 +234,10 @@ textarea {
 
 
 .input {
-    @apply block border-0 outline-0;
+    @apply block ;
 
     &::placeholder {
-        @apply block border-0 outline-0 text-slate-600 text-sm;
+        @apply block text-slate-600 text-sm;
     }
 }
 

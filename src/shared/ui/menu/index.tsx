@@ -50,13 +50,14 @@ const NavigationMenu = ({ buttonText, items, disabled }: ActionMenuProps) => {
 				className="max-h-100"
 			>
 				{items.map((item) => (
-					<MenuItem
-						key={item.id}
-						onClick={() => handleItemClick()}
-						disabled={item.disabled}
-					>
+					<MenuItem key={item.id} disabled={item.disabled}>
 						{item.icon && <ListItemIcon>{item.icon}</ListItemIcon>}
-						<Link href={item.href}>{item.label}</Link>
+						<Link
+							href={item.href}
+							onClick={() => handleItemClick()}
+						>
+							{item.label}
+						</Link>
 					</MenuItem>
 				))}
 			</Menu>
