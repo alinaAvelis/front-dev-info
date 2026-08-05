@@ -1,11 +1,14 @@
 "use client";
 import { useEffect } from "react";
-import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
+
 
 import useDictionary from "@/shared/i18n/use-dictionary";
-import CategoryLink from "@/components/category-link";
+// import CategoryLink from "@/components/category-link";
+import dynamic from "next/dynamic";
+const CategoriesList = dynamic(() => import("@/components/all-categories/categories-list"),{ ssr: false });
+
 const AllCategories = () => {
-	const categories = useCategoriesSelector();
+
 	const general = useDictionary("general");
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -16,11 +19,7 @@ const AllCategories = () => {
 			<h1 className="title">{general.categories}</h1>
 
 			<div className="gap-3 flex flex-wrap ">
-				{categories?.map((item, i) => {
-					return (
-						<CategoryLink  key={item._id} category={item} />
-					);
-				})}
+				<CategoriesList />
 			</div>
 		</section>
 	);

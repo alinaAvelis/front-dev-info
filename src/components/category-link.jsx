@@ -2,7 +2,7 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
 import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
-const CategoryLink = ({ card, category }) => {
+const CategoryLink = ({ card = null, category }) => {
 	const categories = useCategoriesSelector();
 	const categoryItem = useMemo(() => {
 		if (card) {

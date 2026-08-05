@@ -3,7 +3,8 @@ import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-categ
 import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import dynamic from "next/dynamic";
-const AllCategories = dynamic(() => import("@/components/all-categories"),{ ssr: false });
+import AllCategories from "@/components/all-categories";
+// const AllCategories = dynamic(() => import("@/components/all-categories"),{ ssr: false });
 const AllPosts = dynamic(() => import("@/components/all-posts"), { ssr: false });
 const MainPage = () => {
 	const categories = useCategoriesSelector();
