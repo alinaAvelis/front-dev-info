@@ -1,4 +1,4 @@
-import { WEBSITE_URL } from "@/constants/_APP_SETUP";
+import { WEBSITE_URL } from "@/shared/constants/_APP_SETUP";
 import {
     getPostsQuery,
     getCategoriesQuery,

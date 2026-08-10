@@ -3,20 +3,16 @@
 import Link from "next/link";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import { MenuTranslationKey } from "@/shared/i18n/dictionary";
+import { PathArrayType } from "@/shared/types/breadcrumbs";
 
-type BreadcrumbItem = {
-	name?: string;
-	translationKey?: MenuTranslationKey;
-	url?: string;
-};
 
 type BreadcrumbsPropsType = {
-	pathArr: BreadcrumbItem[];
+	pathArr: PathArrayType;
 };
 
 const Breadcrumbs = ({ pathArr }: BreadcrumbsPropsType) => {
 	const menu  = useDictionary("menu") as { [key in MenuTranslationKey]: string };
-	const path: BreadcrumbItem[] = [
+	const path: PathArrayType = [
 		{ translationKey: "home", url: "/" },
 		...pathArr,
 	];

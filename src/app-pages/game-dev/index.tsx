@@ -3,11 +3,12 @@ import PostLayout from "@/layouts/post-layout";
 
 const GameDevPage = () => {
     return (
-        <PostLayout pathArr={[{ name: "Game Dev" }]} currentPostSlug="game-dev">
-            {data?.map(({ title, data }) => {
-                return <ResourseBlock key={title} title={title} data={data} />;
-            })}
-        </PostLayout>
+        // <PostLayout pathArr={[{ name: "Game Dev" }]} currentPostSlug="game-dev">
+        //     {data?.map(({ title, data }) => {
+        //         return <ResourseBlock key={title} title={title} data={data} />;
+        //     })}
+        // </PostLayout>
+        <></>
     );
 };
 
