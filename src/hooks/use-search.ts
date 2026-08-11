@@ -4,7 +4,7 @@
 
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { getPostsQuery } from "@/sanity/lib/queries";
-import { PostsFromSanityType } from "@/types/posts";
+import { PostsFromSanityType } from "@/shared/types/posts";
 import {
 	setPostsState,
 	setPostsLoading,

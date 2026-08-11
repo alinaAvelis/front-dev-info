@@ -7,7 +7,7 @@ import {
 	setLoadingOnPagination,
 } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { PostsType, PostsFromSanityType } from "@/types/posts";
+import { PostsType, PostsFromSanityType } from "@/shared/types/posts";
 import { useCategorySlugSelector } from "@/lib/features/categories/hooks/use-category-selector";
 
 export default function useLoadPosts({

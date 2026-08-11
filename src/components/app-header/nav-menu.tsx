@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import useDictionary from "@/shared/i18n/use-dictionary";
 import { MenuTranslationKey } from "@/shared/i18n/dictionary";
 import NavigationMenu, { MenuAction } from "@/shared/ui/menu";
+import { SanityCategoryType } from "@/shared/types/categories";
 
 const NavMenu = () => {
 	const pathname = usePathname();
@@ -18,7 +19,7 @@ const NavMenu = () => {
 		return null;
 	}
 
-	const categoriesItems = categories.map((item) => {
+	const categoriesItems = categories.map((item: SanityCategoryType) => {
 		const href = `/categories/${item.slug.current}`;
 		return {
 			id: item._id,

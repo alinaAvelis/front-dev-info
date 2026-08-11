@@ -3,8 +3,8 @@ import { getPostsQuery, getCategoriesQuery } from "@/sanity/lib/queries";
 import StateLayoutDispatcher from "@/layouts/state-layout/state-layout-client";
 import { getServerLanguage } from "@/shared/i18n/get-server-language";
 import { PropsWithChildren } from "react";
-import { SanityCategoriesType } from "@/types/categories";
-import { PostsFromSanityType } from "@/types/posts";
+import { SanityCategoriesType } from "@/shared/types/categories";
+import { PostsFromSanityType } from "@/shared/types/posts";
 import getIsMobile from "@/utils/get-is-mobile";
 
 export default async function StateLayout({ children }: PropsWithChildren) {
@@ -25,7 +25,6 @@ export default async function StateLayout({ children }: PropsWithChildren) {
 		params: { limit: postsLimits.limit },
 	});
 
-	console.log(posts.posts)
 
 	return (
 		<StateLayoutDispatcher

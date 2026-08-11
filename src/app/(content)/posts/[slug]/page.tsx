@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PostProps) {
 const Post = async ({ params }: PostProps) => {
 	const parametrs = params;
 	const language = await getServerLanguage();
-	const post = await sanityFetch({
+	const post: PostType = await sanityFetch({
 		query: getPostQuery(language),
 		params: parametrs,
 	});

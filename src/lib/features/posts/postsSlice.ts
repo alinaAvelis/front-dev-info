@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PostsType } from "@/types/posts";
-// import { SanityCategoriesType } from "@/types/categories";
+import { PostsType } from "@/shared/types/posts";
+// import { SanityCategoriesType } from "@/shared/types/categories";
 
 type postsState = {
 	posts: PostsType;

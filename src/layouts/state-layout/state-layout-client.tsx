@@ -1,13 +1,13 @@
 "use client";
 
-import { SanityCategoriesType } from "@/types/categories";
+import { SanityCategoriesType } from "@/shared/types/categories";
 import { useEffect } from "react";
 // import useLoadPosts from "@/hooks/use-load-posts";
 import { setCategoriesState } from "@/lib/features/categories/categoriesSlice";
 import { setAllPostsState, setLimit, setPostsOnPage } from "@/lib/features/posts/postsSlice";
 import { setLanguageState } from "@/lib/features/language/languageSlice";
 import { useAppDispatch } from "@/lib/hooks";
-import { PostsFromSanityType } from "@/types/posts";
+import { PostsFromSanityType } from "@/shared/types/posts";
 import type { Language } from "@/shared/i18n/config";
 export default function StateLayoutDispatcher({
 	allPosts,

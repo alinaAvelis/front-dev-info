@@ -1,12 +1,12 @@
 "use client";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import {PostType} from "@/shared/types/posts"
 import { SanityCategoryType } from "@/shared/types/categories";
 interface CategoryLinkPropsType {
-	card: null | PostType,
-	category?: string
+	card?: null | PostType,
+	category?: SanityCategoryType
 }
 const CategoryLink = ({ card = null, category }: CategoryLinkPropsType) => {
 	const categories = useCategoriesSelector();

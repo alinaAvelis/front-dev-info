@@ -1,0 +1,4 @@
+{
+		"scriptTag": "The text contains a <script> tag. Please remove it.",
+		"symbols": "The text contains invalid characters: >, <, [, ]."
+	}

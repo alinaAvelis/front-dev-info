@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SanityCategoriesType } from "@/types/categories";
+import { SanityCategoriesType } from "@/shared/types/categories";
 
 type categoriesState = {
 	categories: SanityCategoriesType;

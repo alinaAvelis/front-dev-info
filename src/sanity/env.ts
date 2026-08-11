@@ -16,9 +16,6 @@ export const appId = assertValue(
   'Missing environment variable: SANITY_STUDIO_APP_ID'
 )
 
-const token=`${process.env.SANITY_API_READ_TOKEN}`
-export const previewToken= assertValue(token,'Missing environment variable:SANITY_API_READ_TOKEN')
-
 export const useCdn = false
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {

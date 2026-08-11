@@ -1,0 +1,19 @@
+{
+    "allPosts": "All posts",
+    "lastPosts": "Recent posts",
+    "toPostsPage": "Go to the posts page",
+    "loadMore": "Load more",
+    "cards": "Cards",
+    "list": "List",
+    "contents": "Contents",
+    "otherPosts": "Other Posts",
+    "writeToMe": "If you notice an error or have any feedback, you can contact us by email",
+    "loading": "Loading",
+    "noResult": "Nothing found",
+    "algorithmGraph": "Algorithm Performance Graph",
+    "graphLimitError": "Value is too large. Please enter a value below 1000.",
+    "elementCount": "Element count",
+    "goHomeLink": "Go to Home",
+    "goPostsLink": "Browse Posts",
+    "categories": "Categories"
+  }
