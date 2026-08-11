@@ -2,8 +2,6 @@ import { useTranslations } from "@/shared/i18n/use-translations";
 import { DictionaryItem } from "@/shared/i18n/dictionary";
 import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
 import { useMemo } from "react";
-import { title } from "process";
-import { deserialize } from "v8";
 
 const useDictionary = <K extends DictionaryItem>(key: K) => {
 	const language = useLanguageSelector();
@@ -56,6 +54,10 @@ const useDictionary = <K extends DictionaryItem>(key: K) => {
 				scriptTag: t("validation", "scriptTag"),
 				symbols: t("validation", "symbols"),
 			},
+			cookieMessage: {
+				accept:  t("cookieMessage", "accept"),
+				mainText:  t("cookieMessage", "mainText"),
+			}
 		};
 
 		return dictionary[key];

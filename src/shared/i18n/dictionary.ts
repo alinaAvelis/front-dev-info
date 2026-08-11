@@ -6,7 +6,8 @@ import {
 	resourcesDictionary,
 	noTranslatedPostDictionary,
 	validationDictionary,
-	pageNotFound
+	pageNotFound,
+	cookieMessageDictionary,
 } from "@/shared/dictionary";
 
 const dictionary = {
@@ -17,7 +18,8 @@ const dictionary = {
 		resources: resourcesDictionary.en,
 		noTranslatedPost: noTranslatedPostDictionary.en,
 		validation: validationDictionary.en,
-		pageNotFound: pageNotFound.en
+		pageNotFound: pageNotFound.en,
+		cookieMessage: cookieMessageDictionary.en,
 	},
 	ru: {
 		search: searchDictionary.ru,
@@ -26,7 +28,8 @@ const dictionary = {
 		resources: resourcesDictionary.ru,
 		noTranslatedPost: noTranslatedPostDictionary.ru,
 		validation: validationDictionary.ru,
-		pageNotFound: pageNotFound.ru
+		pageNotFound: pageNotFound.ru,
+		cookieMessage: cookieMessageDictionary.ru,
 	},
 } as const;
 
@@ -34,14 +37,13 @@ type Dictionary = typeof dictionary;
 export type DictionaryItem = keyof Dictionary[Language];
 export type MenuTranslationKey = keyof Dictionary[Language]["menu"];
 
-export const getDictionary = (
-  language: Language = defaultLanguage,
-) => dictionary[language] ?? dictionary[defaultLanguage];
+export const getDictionary = (language: Language = defaultLanguage) =>
+	dictionary[language] ?? dictionary[defaultLanguage];
 
 export const getTranslation =
-  (language: Language = defaultLanguage) =>
-  <T extends DictionaryItem>(
-    namespace: T,
-    key: keyof Dictionary[Language][T],
-  ) =>
-    getDictionary(language)[namespace][key];
+	(language: Language = defaultLanguage) =>
+	<T extends DictionaryItem>(
+		namespace: T,
+		key: keyof Dictionary[Language][T],
+	) =>
+		getDictionary(language)[namespace][key];

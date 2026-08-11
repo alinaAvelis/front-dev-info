@@ -5,3 +5,4 @@ export { generalDictionary } from "./slices/general";
 export { resourcesDictionary } from "./slices/resources";
 export { noTranslatedPostDictionary } from "./slices/no-translated-post";
 export { validationDictionary } from "./slices/validation";
+export {cookieMessageDictionary} from "./slices/cookie-message"
