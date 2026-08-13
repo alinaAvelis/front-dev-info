@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import CategoryLink from "@/components/category-link";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 import { PostsType } from "@/shared/types/posts";
 
 interface ListPropsType {
@@ -10,7 +10,7 @@ interface ListPropsType {
 	withCategory?: boolean;
 }
 const List = ({ data, to = "posts", withCategory = true }: ListPropsType) => {
-	const general = useDictionary("general");
+	const text = useClientDictionary("general");
 	return (
 		<>
 			{data?.length > 0 ? (
@@ -38,7 +38,7 @@ const List = ({ data, to = "posts", withCategory = true }: ListPropsType) => {
 					})}
 				</div>
 			) : (
-				<p className="text-center">{general.noResult}</p>
+				<p className="text-center">{text("noResult")}</p>
 			)}
 		</>
 	);

@@ -7,7 +7,7 @@ import { setPostsByPreloaded } from "@/lib/features/posts/postsSlice";
 import { setSearchState } from "@/lib/features/search/searchSlice";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 import { useLimitSelector } from "@/lib/features/posts/hooks/use-posts-selector";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 import Input from "@/shared/ui/input";
 import useValidateInput from "@/hooks/use-validate-input";
 import { usePathname } from "next/navigation";
@@ -47,7 +47,7 @@ const SearchBlock = () => {
 	const limit = useLimitSelector();
 	const { searchPosts } = useSearch({ limit });
 	const dispatch = useAppDispatch();
-	const searchDictionary = useDictionary("search");
+	const text = useClientDictionary("search");
 
 	const resetPosts = useCallback(() => {
 		dispatch(setPostsByPreloaded());
@@ -90,7 +90,7 @@ const SearchBlock = () => {
 
 	return (
 		<section className="search_block search_block--small ">
-			<h2 className="visually-hidden">{searchDictionary?.title}</h2>
+			<h2 className="visually-hidden">{text("search")}</h2>
 			<div className="py-2 px-5 flex justify-center items-center mx-auto max-w-screen-xl">
 				<div className="search_block_back">
 					<pre>
@@ -99,13 +99,13 @@ const SearchBlock = () => {
 				</div>
 				<div className="search_container">
 					<Input
-						label={searchDictionary?.title}
+						label={text("search")}
 						type="search"
 						className="input"
 						fullWidth
 						value={searchValue}
 						onChange={onInputChange}
-						placeholder={searchDictionary?.placeholder}
+						placeholder={text("searchPlaceholder")}
 						error={Boolean(validationError)}
 						helperText={validationError}
 					/>

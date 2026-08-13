@@ -5,7 +5,7 @@ import {
 } from "@/sanity/lib/queries";
 import { createClient} from "next-sanity";
 import clientConfig from "@/utils/sanity-client-config";
-import { defaultLanguage } from "@/shared/i18n/config";
+import { defaultLanguage } from "@/shared/constants/languages";
 // import { SanityDocument } from "@sanity/client";
 // import { sanityFetch } from "@/sanity/lib/sanityFetch";
 

@@ -11,17 +11,19 @@ import {
 	// setHasMorePosts
 } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch } from "@/lib/hooks";
-import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
+import { useT } from "next-i18next/client";
+import { Language } from "@/shared/types/language";
 
 export default function useSearch({ limit = 9 }) {
 	const dispatch = useAppDispatch();
-	const language = useLanguageSelector();
+	const { i18n } = useT();
+	const currentLanguage = i18n.language as Language;
 
 	const searchPosts = async (searchValue: string) => {
 		dispatch(setPostsLoading(true));
 		// const lastPost = posts[posts.length - 1];
 
-		const query = getPostsQuery({ searchValue, language });
+		const query = getPostsQuery({ searchValue, language: currentLanguage });
 		const params = {
 			// lastId: lastPost._id,
 			limit: limit,
@@ -32,7 +34,7 @@ export default function useSearch({ limit = 9 }) {
 			query,
 			params,
 		});
-	
+
 		dispatch(setPostsState(newPosts));
 		dispatch(setPostsLoading(false));
 	};

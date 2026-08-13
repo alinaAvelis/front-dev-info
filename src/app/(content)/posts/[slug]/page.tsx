@@ -1,20 +1,20 @@
 import { getPostQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import PostPage from "@/app-pages/post";
-import { getServerLanguage } from "@/shared/i18n/get-server-language";
+import { getT } from "next-i18next/server";
 import NoTranslatedPost from "@/error-handlers/no-translated-post";
 import { PostType } from "@/shared/types/posts";
 type PostProps = {
 	params: {
 		slug: string;
-	}
-}
+	};
+};
 
 export async function generateMetadata({ params }: PostProps) {
-	const parametrs = params;
-	const language = await getServerLanguage();
+	const parametrs = await params;
+	const { lng } = await getT();
 	const post: PostType = await sanityFetch({
-		query: getPostQuery(language),
+		query: getPostQuery(lng),
 		params: parametrs,
 	});
 
@@ -32,10 +32,10 @@ export async function generateMetadata({ params }: PostProps) {
 }
 
 const Post = async ({ params }: PostProps) => {
-	const parametrs = params;
-	const language = await getServerLanguage();
+	const parametrs = await params;
+	const { lng } = await getT();
 	const post: PostType = await sanityFetch({
-		query: getPostQuery(language),
+		query: getPostQuery(lng),
 		params: parametrs,
 	});
 

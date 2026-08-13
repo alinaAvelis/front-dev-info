@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 
 const CookieMessage = () => {
 	const [show, setShow] = useState(false);
-	const cookieMessageText = useDictionary("cookieMessage");
+	const text = useClientDictionary("cookie-message");
 
 	useEffect(() => {
 		const isAcceptedJson = sessionStorage.getItem("cookieAccepted");
@@ -41,9 +41,9 @@ const CookieMessage = () => {
 					: "opacity-0 translate-y-10 pointer-events-none -z-10"
 			}`}
 		>
-			<p>{cookieMessageText.mainText}</p>
-			<button className="w-fit button " onClick={onAccept}>
-				{cookieMessageText.accept}
+			<p>{text("mainText")}</p>
+			<button className="w-fit button" onClick={onAccept}>
+				{text("accept")}
 			</button>
 		</div>
 	);

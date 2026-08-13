@@ -1,6 +1,6 @@
 import { Providers } from "@/lib/provider";
 import { ReactNode } from "react";
-import I18nLayout from "@/layouts/i18n-layout";
+
 import RootLayout from "@/layouts/root-layout";
 import "../styles/layout.scss";
 import {
@@ -8,7 +8,7 @@ import {
 	META_SEO_KEYWORDS,
 	META_DESCRIPTION,
 } from "@/shared/constants/_APP_SETUP";
-import { getServerLanguage } from "@/shared/i18n/get-server-language";
+
 import { initServerI18next, getT, getResources } from "next-i18next/server";
 import { I18nProvider } from "next-i18next/client";
 import i18nConfig from "@/dictionary/i18n.config";
@@ -60,8 +60,7 @@ type LayoutProps = {
 };
 
 export default async function Layout({ children }: LayoutProps) {
-	const language = await getServerLanguage();
-const { t, i18n, lng } = await getT();
+	const { t, i18n, lng } = await getT();
 	const resources = getResources(i18n);
 	return (
 		<I18nProvider language={lng} resources={resources}>

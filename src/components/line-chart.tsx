@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState, ChangeEvent } from "react";
+import { useMemo, useState, ChangeEvent } from "react";
 import TextField from "@mui/material/TextField";
 import {
 	Chart as ChartJS,
@@ -13,7 +13,7 @@ import {
 	ChartOptions
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 
 ChartJS.register(
 	CategoryScale,
@@ -29,7 +29,7 @@ ChartJS.register(
 const AlgorithmSpeedLineChart = () => {
 	const [items, setItems] = useState(5);
 	const [error, setError] = useState("");
-	const general = useDictionary("general");
+	const text = useClientDictionary("general");
 
  const options: ChartOptions<'line'> = {
 	responsive: true,
@@ -40,7 +40,7 @@ const AlgorithmSpeedLineChart = () => {
 		},
 		title: {
 			display: true,
-			text: general.algorithmGraph,
+			text: text("algorithmGraph"),
 		},
 	},
 };
@@ -97,7 +97,7 @@ const AlgorithmSpeedLineChart = () => {
 
 		if (value > 1000) {
 			setError(
-				general.graphLimitError,
+				text("graphLimitError"),
 			);
 			return;
 		} else {
@@ -118,7 +118,7 @@ const AlgorithmSpeedLineChart = () => {
 					fullWidth
 					error={Boolean(error)}
 					helperText={error ? error : ""}
-					label={general.elementCount}
+					label={text("elementCount")}
 					onChange={onInputChange}
 				/>
 			</div>

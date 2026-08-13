@@ -3,21 +3,14 @@
 import Link from "next/link";
 import { useCategoriesSelector } from "@/lib/features/categories/hooks/use-category-selector";
 import { usePathname } from "next/navigation";
-import useDictionary from "@/shared/i18n/use-dictionary";
-import { MenuTranslationKey } from "@/shared/i18n/dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 import NavigationMenu, { MenuAction } from "@/shared/ui/menu";
 import { SanityCategoryType } from "@/shared/types/categories";
 
 const NavMenu = () => {
 	const pathname = usePathname();
 	const categories = useCategoriesSelector();
-	const menuDictionary = useDictionary("menu") as {
-		[key in MenuTranslationKey]: string;
-	};
-
-	if (pathname?.startsWith("/studio")) {
-		return null;
-	}
+	const text = useClientDictionary("menu")
 
 	const categoriesItems = categories.map((item: SanityCategoryType) => {
 		const href = `/categories/${item.slug.current}`;
@@ -31,7 +24,7 @@ const NavMenu = () => {
 
 	const menuItems: Array<{
 		id: string;
-		translationKey: MenuTranslationKey;
+		translationKey: string;
 		path: string;
 		type: string;
 		items?: MenuAction[];
@@ -61,7 +54,7 @@ const NavMenu = () => {
 		item.type === "button" ? (
 			<NavigationMenu
 				key={item.id}
-				buttonText={menuDictionary[item.translationKey]}
+				buttonText={text(item.translationKey)}
 				items={item?.items || []}
 				disabled={false}
 			/>
@@ -71,7 +64,7 @@ const NavMenu = () => {
 				className={`link text-base font-bold md:text-lg ${pathname.includes(item.path) ? "underline!" : ""}`}
 				href={item.path}
 			>
-				{menuDictionary[item.translationKey]}
+				{text(item.translationKey)}
 			</Link>
 		),
 	);

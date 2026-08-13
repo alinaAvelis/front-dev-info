@@ -1,20 +1,21 @@
+"use client"
 import {
 	scriptErrorHandle,
 	simbolsErrorHandle,
 } from "@/utils/input-validation";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 
 export default function useValidateInput() {
-	const validationErrors = useDictionary("validation");
+	const validationErrors = useClientDictionary("validation");
 	const validate = (value: string) => {
 		const isScriptTag = scriptErrorHandle(value);
 		if (isScriptTag) {
-			return validationErrors.scriptTag;
+			return validationErrors("scriptTag");
 		}
 
 		const isSymbols = simbolsErrorHandle(value);
 		if (isSymbols) {
-			return validationErrors.symbols;
+			return validationErrors("symbols");
 		}
 
 		return false;

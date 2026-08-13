@@ -1,10 +1,9 @@
 import { getCategoryQuery, getPostsQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import CategoryPage from "@/app-pages/category";
-import { getServerLanguage } from "@/shared/i18n/get-server-language";
 import getIsMobile from "@/utils/get-is-mobile";
 import { PostsFromSanityType } from "@/shared/types/posts";
-
+import { getT } from "next-i18next/server";
 import { SanityCategoryType } from "@/shared/types/categories";
 type CategoryProps = {
 	params: {
@@ -12,10 +11,10 @@ type CategoryProps = {
 	}
 }
 export async function generateMetadata({ params }: CategoryProps) {
-	const parametrs =  params;
-	const language = await getServerLanguage();
+	const parametrs =  await params;
+	const {lng } = await getT();
 	const category: SanityCategoryType = await sanityFetch({
-		query: getCategoryQuery(language),
+		query: getCategoryQuery(lng),
 		params: parametrs,
 	});
 
@@ -33,17 +32,17 @@ export async function generateMetadata({ params }: CategoryProps) {
 }
 
 const Category = async ({ params }: CategoryProps) => {
-	const parametrs =  params;
-	const language = await getServerLanguage();
+	const parametrs = await params;
+	const {lng } = await getT();
 	const isMobile = await getIsMobile();
 
 	const category: SanityCategoryType = await sanityFetch({
-		query: getCategoryQuery(language),
+		query: getCategoryQuery(lng),
 		params: parametrs,
 	});
 
 	const categoryPosts: PostsFromSanityType = await sanityFetch({
-		query: getPostsQuery({ category: parametrs.slug, language }),
+		query: getPostsQuery({ category: parametrs.slug, language:lng }),
 		params: {
 			categorySlug: parametrs.slug,
 			limit: isMobile ? 3 : 9,

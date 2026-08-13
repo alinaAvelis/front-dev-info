@@ -1,7 +1,6 @@
-"use client";
-import Link from "next/link";
-import useDictionary from "@/shared/i18n/use-dictionary";
 
+import Link from "next/link";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 type DesctopMenuProps = {
 	menu:
 		| Array<{
@@ -13,12 +12,12 @@ type DesctopMenuProps = {
 		| undefined;
 };
 
-export default function DesktopMenu({ menu }: DesctopMenuProps) {
-	const general = useDictionary("general");
+export default  function DesktopMenu({ menu }: DesctopMenuProps) {
+	const text =  useClientDictionary("general");
 
 	return (
 		<div className={`menu overflow-y-auto px-3 pb-3 max-h-[calc(100vh-170px)]`}>
-			<h2>{general?.contents}</h2>
+			<h2>{text("contents")}</h2>
 			{menu?.map((item, i) => (
 				<Link
 					key={i}

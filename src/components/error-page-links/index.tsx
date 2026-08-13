@@ -1,16 +1,16 @@
-"use client"
-import Link from "next/link";
-import useDictionary from "@/shared/i18n/use-dictionary";
 
-const ErrorPageLinks = () => {
-	const general = useDictionary("general");
+import Link from "next/link";
+import getServerDictionary from "@/dictionary/hooks/get-server-dictionary";
+
+const ErrorPageLinks = async() => {
+	const text = await getServerDictionary("general");
 	return (
 		<div className="flex gap-5 mt-3">
 			<Link className="button button--outlined w-fit" href="/">
-				{general.goHomeLink}
+				{text("goHomeLink")}
 			</Link>
 			<Link className="button button--fill w-fit" href="/posts">
-				{general.goPostsLink}
+				{text("goPostsLink")}
 			</Link>
 		</div>
 	);

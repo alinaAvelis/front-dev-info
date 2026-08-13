@@ -2,15 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import searchReducer from "./features/search/searchSlice";
 import categoriesReducer  from "./features/categories/categoriesSlice";
 import postsReducer  from "./features/posts/postsSlice";
-import languageReducer from "./features/language/languageSlice";
-// import { setupListeners } from "@reduxjs/toolkit/query";
-
-// export const store = configureStore({
-//   reducer: {
-//     searchReducer,
-//   },
-//   devTools: process.env.NODE_ENV !== "production",
-// });
 
 export const makeStore = () => {
 	return configureStore({
@@ -18,7 +9,6 @@ export const makeStore = () => {
 			searchReducer,
 			categoriesReducer,
 			postsReducer,
-			languageReducer
 		},
 		devTools: process.env.NODE_ENV !== "production",
 	});

@@ -5,7 +5,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 
 type MobileMenuProps = {
 	menu:
@@ -20,7 +20,7 @@ type MobileMenuProps = {
 
 export default function MobileMenu({ menu }: MobileMenuProps) {
 	const [expanded, setExpanded] = useState<string | false>(false);
-	const general = useDictionary("general");
+	const text = useClientDictionary("general");
 	const handleChange =
 		(panel: string) =>
 		(event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -38,7 +38,7 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
 				id="panel2bh-header"
 				expandIcon={<ExpandMoreIcon />}
 			>
-				{general?.contents}
+				{text("contents")}
 			</AccordionSummary>
 			<AccordionDetails>
 				<div className="menu">

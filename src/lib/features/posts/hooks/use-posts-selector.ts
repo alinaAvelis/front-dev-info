@@ -1,4 +1,6 @@
 
+
+"use client"
 import { useAppSelector } from "@/lib/hooks";
 
 export function usePostsSelector() {

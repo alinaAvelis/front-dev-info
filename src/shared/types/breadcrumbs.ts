@@ -1,9 +1,9 @@
-import { MenuTranslationKey } from "@/shared/i18n/dictionary";
+
 
 export interface PathType {
 	name?: string;
 	url?: string;
-	translationKey?: MenuTranslationKey;
+	translationKey?: string;
 }
 
 export type PathArrayType = PathType[]

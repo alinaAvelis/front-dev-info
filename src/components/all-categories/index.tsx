@@ -1,24 +1,23 @@
-"use client";
-import { useEffect } from "react";
-import useDictionary from "@/shared/i18n/use-dictionary";
-import dynamic from "next/dynamic";
-const CategoriesList = dynamic(() => import("@/components/all-categories/categories-list"),{ ssr: false });
 
-const AllCategories = () => {
 
-	const general = useDictionary("general");
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+import getServerDictionary from "@/dictionary/hooks/get-server-dictionary";
+
+import ScrollToTop from "@/shared/ui/scroll-to-top";
+import CategoriesList from "@/components/all-categories/categories-list";
+const AllCategories = async () => {
+	const text = await getServerDictionary("general");
 
 	return (
-		<section className="section tabs mt-5 md:mt-10">
-			<h1 className="title">{general.categories}</h1>
+		<>
+			<ScrollToTop />
+			<section className="section tabs mt-5 md:mt-10">
+				<h1 className="title">{text("categories")}</h1>
 
-			<div className="gap-3 flex flex-wrap ">
-				<CategoriesList />
-			</div>
-		</section>
+				<div className="gap-3 flex flex-wrap ">
+					<CategoriesList />
+				</div>
+			</section>
+		</>
 	);
 };
 

@@ -1,63 +1,43 @@
-"use client";
-import { useMemo, useEffect, ReactNode } from "react";
+
+import { ReactNode } from "react";
 import ToTopButton from "@/shared/ui/to-top-button/ToTopButton";
 import PostMenu from "@/components/post/menu";
-import { sortByDate } from "@/utils/utils";
-import dynamic from "next/dynamic";
-import useDictionary from "@/shared/i18n/use-dictionary";
-import { usePreloadedPostsSelector } from "@/lib/features/posts/hooks/use-posts-selector";
-const Breadcrumbs = dynamic(() => import("@/shared/ui/breadcrumbs"));
-const Cards = dynamic(() => import("@/components/cards/Cards"));
 import { PathArrayType } from "@/shared/types/breadcrumbs";
-import { PostType } from "@/shared/types/posts";
-
+import Breadcrumbs from "@/shared/ui/breadcrumbs";
+import ScrollToTop from "@/shared/ui/scroll-to-top";
+import LastsPosts from "@/components/posts/lasts-posts";
 interface PostLayoutProprsType {
-currentPostSlug?: string, pathArr: PathArrayType, children: ReactNode
+	currentPostSlug?: string;
+	pathArr: PathArrayType;
+	children: ReactNode;
 }
 
-const PostLayout = ({ currentPostSlug, pathArr, children }: PostLayoutProprsType) => {
-	const general = useDictionary("general");
-
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-	const allPosts = usePreloadedPostsSelector();
-	const lastPosts = useMemo(() => {
-		if (allPosts?.length && currentPostSlug) {
-			const newArr = allPosts.filter(
-				(post: PostType) => post.slug.current !== currentPostSlug,
-			);
-			return sortByDate(newArr)?.slice(0, 3);
-		} else {
-			return [];
-		}
-	}, [allPosts, currentPostSlug]);
+const PostLayout = ({
+	currentPostSlug,
+	pathArr,
+	children,
+}: PostLayoutProprsType) => {
 
 	return (
-		<div className="main_container relative px-5 md:px-10 mt-40 md:mt-30 max-w-screen-xl mx-auto">
-			<Breadcrumbs pathArr={pathArr} />
-			<div className="post_container ">
-				<div className="post main  main--not_main order-2 lg:order-1">
-					{children}
+		<>
+			<ScrollToTop />{" "}
+			<div className="main_container relative px-5 md:px-10 mt-40 md:mt-30 max-w-screen-xl mx-auto">
+				<Breadcrumbs pathArr={pathArr} />
+				<div className="post_container ">
+					<div className="post main  main--not_main order-2 lg:order-1">
+						{children}
 
-					{lastPosts?.length > 0 && (
-						<div className="other_posts">
-							<h2>{general?.otherPosts}</h2>
-							<Cards
-								data={lastPosts}
-								withCategory={false}
-							/>
-						</div>
-					)}
+						<LastsPosts currentPostSlug={currentPostSlug} />
+					</div>
+
+					<div className="aside order-1 lg:order-2 lg:fixed right-0">
+						<PostMenu />
+					</div>
 				</div>
 
-				<div className="aside order-1 lg:order-2 lg:fixed right-0">
-					<PostMenu />
-				</div>
+				<ToTopButton />
 			</div>
-
-			<ToTopButton />
-		</div>
+		</>
 	);
 };
 

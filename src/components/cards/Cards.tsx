@@ -1,7 +1,7 @@
 "use client";
 import CategoryLink from "@/components/category-link";
 import Link from "next/link";
-import useDictionary from "@/shared/i18n/use-dictionary";
+import useClientDictionary from "@/dictionary/hooks/use-client-dictionary";
 import { useSearchValueSelector } from "@/lib/features/search/hooks/use-search-selector";
 import { PostsType } from "@/shared/types/posts";
 
@@ -11,12 +11,12 @@ interface CardsPropsType {
 	withCategory?: boolean;
 }
 const Cards = ({ data, to = "posts", withCategory = true }: CardsPropsType) => {
-	const general = useDictionary("general");
+	const text = useClientDictionary("general");
 	const isDataExist = data?.length > 0;
 	const searchValue = useSearchValueSelector();
 
 	if (searchValue && !isDataExist) {
-		return <p className="text-center">{general.noResult}</p>;
+		return <p className="text-center">{text("noResult")}</p>;
 	}
 
 	return (

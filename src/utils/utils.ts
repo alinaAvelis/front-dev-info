@@ -1,5 +1,6 @@
-import { defaultLanguage, normalizeLanguage } from "@/shared/i18n/config";
+import { defaultLanguage } from "@/shared/constants/languages";
 import { PostsType } from "@/shared/types/posts";
+import { Language } from "@/shared/types/language";
 export function sortByDate(arr: PostsType, isToDown = true) {
 	const array = arr?.slice();
 	if (isToDown) {
@@ -24,7 +25,7 @@ const locale = {
 
 export const getDateString = (date: string, language = defaultLanguage) => {
 	const newDate = new Date(date);
-	const dayString = newDate.toLocaleString(locale[language], {
+	const dayString = newDate.toLocaleString(locale[language as Language], {
 		year: "numeric",
 		month: "long",
 		day: "numeric",

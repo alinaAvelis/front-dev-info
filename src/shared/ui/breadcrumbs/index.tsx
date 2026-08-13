@@ -1,17 +1,15 @@
-"use client";
+
 
 import Link from "next/link";
-import useDictionary from "@/shared/i18n/use-dictionary";
-import { MenuTranslationKey } from "@/shared/i18n/dictionary";
 import { PathArrayType } from "@/shared/types/breadcrumbs";
-
+import getServerDictionary from "@/dictionary/hooks/get-server-dictionary";
 
 type BreadcrumbsPropsType = {
 	pathArr: PathArrayType;
 };
 
-const Breadcrumbs = ({ pathArr }: BreadcrumbsPropsType) => {
-	const menu  = useDictionary("menu") as { [key in MenuTranslationKey]: string };
+const Breadcrumbs = async ({ pathArr }: BreadcrumbsPropsType) => {
+	const text  = await getServerDictionary("menu");
 	const path: PathArrayType = [
 		{ translationKey: "home", url: "/" },
 		...pathArr,
@@ -21,7 +19,7 @@ const Breadcrumbs = ({ pathArr }: BreadcrumbsPropsType) => {
 		<div className="flex mt-5 items-center">
 			{path.map((item, index) => {
 				const name = item.translationKey
-					? menu[item.translationKey]
+					? text(item.translationKey)
 					: item.name;
 
 				return item.url ? (

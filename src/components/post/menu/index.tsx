@@ -3,7 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import DesktopMenu from "./desktop-menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useLanguageSelector } from "@/lib/features/language/hooks/use-langugage-selector";
+import { useT } from "next-i18next/client";
+import { Language } from "@/shared/types/language";
 
 type Links =
 	| {
@@ -15,7 +16,8 @@ type Links =
 	| undefined;
 
 export default function PostMenu() {
-	const language = useLanguageSelector();
+	const { i18n } = useT();
+	const currentLanguage = i18n.language as Language;
 	const [menu, setMenu] = useState<Links>([]);
 	const isMobile = useMediaQuery("(max-width: 1020px)");
 	const createMenu = useCallback(
@@ -77,9 +79,8 @@ export default function PostMenu() {
 		const getHeadingsTimout = setTimeout(() => {
 			headings = document.querySelectorAll(".heading");
 			if (headings) {
-					const links = createMenu(headings);
-					setMenu(links);
-				
+				const links = createMenu(headings);
+				setMenu(links);
 			}
 		}, 500);
 
@@ -88,7 +89,7 @@ export default function PostMenu() {
 				clearTimeout(getHeadingsTimout);
 			}
 		};
-	}, [createMenu, language]);
+	}, [createMenu, currentLanguage]);
 
 	return (
 		menu &&

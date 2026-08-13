@@ -1,7 +1,7 @@
 import ResoursesPage from "@/app-pages/resourses";
 import { getResourcesQuery } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
-import { getServerLanguage } from "@/shared/i18n/get-server-language";
+import { getT } from "next-i18next/server";
 import { ResourcesFromSanityType } from "@/shared/types/resources";
 export const metadata = {
 	title: "Ресурсы для frontend разработки",
@@ -12,11 +12,10 @@ export const metadata = {
 };
 
 const Resourses = async () => {
-	const language = await getServerLanguage();
+	const { lng } = await getT();
 	const resources: ResourcesFromSanityType = await sanityFetch({
-			query: getResourcesQuery(language)
-			
-		});
+		query: getResourcesQuery(lng),
+	});
 
 	return <ResoursesPage resources={resources} />;
 };
