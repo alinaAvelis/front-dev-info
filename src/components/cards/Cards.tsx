@@ -12,7 +12,7 @@ interface CardsPropsType {
 }
 const Cards = ({ data, to = "posts", withCategory = true }: CardsPropsType) => {
 	const text = useClientDictionary("general");
-	const isDataExist = data?.length > 0;
+	const isDataExist = data && data?.length > 0;
 	const searchValue = useSearchValueSelector();
 
 	if (searchValue && !isDataExist) {

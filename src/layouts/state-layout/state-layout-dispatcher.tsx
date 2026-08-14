@@ -30,7 +30,7 @@ export default function StateLayoutDispatcher({
 	}, [categories, dispatch]);
 
 	useEffect(() => {
-		if (allPosts.posts.length) {
+		if (allPosts?.posts?.length) {
 			dispatch(setAllPostsState(allPosts));
 		}
 	}, [allPosts, dispatch]);

@@ -27,7 +27,7 @@ const LastsPosts = ({ currentPostSlug }: LastsPostsProprsType) => {
 	}, [allPosts, currentPostSlug]);
 
 	return (
-		lastPosts?.length > 0 && (
+		lastPosts && lastPosts?.length > 0 && (
 			<div className="other_posts">
 				<h2>{text("otherPosts")}</h2>
 				<Cards data={lastPosts} withCategory={false} />

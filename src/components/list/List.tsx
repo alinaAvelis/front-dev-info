@@ -13,7 +13,7 @@ const List = ({ data, to = "posts", withCategory = true }: ListPropsType) => {
 	const text = useClientDictionary("general");
 	return (
 		<>
-			{data?.length > 0 ? (
+			{data && data?.length > 0 ? (
 				<div className="posts_container">
 					{data?.map((item, i) => {
 						return (

@@ -12,7 +12,7 @@ const NavMenu = () => {
 	const categories = useCategoriesSelector();
 	const text = useClientDictionary("menu")
 
-	const categoriesItems = categories.map((item: SanityCategoryType) => {
+	const categoriesItems = categories?.map((item: SanityCategoryType) => {
 		const href = `/categories/${item.slug.current}`;
 		return {
 			id: item._id,
