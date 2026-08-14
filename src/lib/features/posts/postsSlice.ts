@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PostsType } from "@/shared/types/posts";
-// import { SanityCategoriesType } from "@/shared/types/categories";
+
 
 type postsState = {
 	posts: PostsType;
@@ -14,8 +14,8 @@ type postsState = {
 };
 
 const initialState = {
-	posts: [],
-	preloaded: [],
+	posts: null,
+	preloaded: null,
 	loading: false,
 	loadingOnPagination: false,
 	hasMorePosts: false,
@@ -32,23 +32,11 @@ export const posts = createSlice({
 		setPostsState: (state, action) => {
 			state.posts = action.payload.posts;
 			state.total = action.payload.total;
-
-			// if (action.payload.total > state.limit) {
-			// 	state.hasMorePosts = true;
-			// } else {
-			// 	state.hasMorePosts = false;
-			// }
 		},
 		setAllPostsState: (state, action) => {
 			state.posts = action.payload.posts;
 			state.preloaded = action.payload.posts;
 			state.total = action.payload.total;
-
-			// if (action.payload.total > state.limit) {
-			// 		state.hasMorePosts = true;
-			// 	} else {
-			// 		state.hasMorePosts = false;
-			//   }
 		},
 		setPostsLoading: (state, action) => {
 			state.loading = action.payload;

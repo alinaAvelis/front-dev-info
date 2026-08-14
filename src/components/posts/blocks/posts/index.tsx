@@ -17,13 +17,12 @@ const Posts = ({ posts, withCategory = true }: PostsPropsType) => {
 	const postsLoading = usePostsLoadingSelector();
 	const [view, setView] = useState("cards");
 
-	if (postsLoading) {
-		return <PostsGridSkeleton />;
-	}
 	return (
 		<>
 			<TypeButtons setView={setView} />
-			{view === `cards` ? (
+			{posts === null || postsLoading ? (
+				<PostsGridSkeleton />
+			) : view === `cards` ? (
 				<Cards data={posts} withCategory={withCategory} />
 			) : (
 				<List data={posts} withCategory={withCategory} />

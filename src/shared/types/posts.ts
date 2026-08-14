@@ -28,7 +28,7 @@ export interface PostType {
   _updatedAt: string;
 };
 
-export type PostsType = PostType[];
+export type PostsType = PostType[] | null;
 
 export type PostsFromSanityType = {
   posts: PostsType;
