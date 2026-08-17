@@ -27,7 +27,7 @@ export default function useSearch({ limit = 9 }) {
 		const params = {
 			// lastId: lastPost._id,
 			limit: limit,
-			searchQuery: searchValue,
+			searchQuery: `${searchValue}*`,
 		};
 
 		const newPosts: PostsFromSanityType = await sanityFetch({

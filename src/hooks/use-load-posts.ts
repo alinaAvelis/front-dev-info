@@ -29,7 +29,7 @@ export default function useLoadPosts() {
 		const params = {
 			limit: limit,
 			categorySlug,
-			searchQuery: searchValue,
+			searchQuery: `${searchValue}*`,
 		};
 
 		const newPosts: PostsFromSanityType = await sanityFetch({
