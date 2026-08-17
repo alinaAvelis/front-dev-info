@@ -5,6 +5,7 @@ import { PostsType } from "@/shared/types/posts";
 type postsState = {
 	posts: PostsType;
 	preloaded: PostsType;
+	preloadedTotal: number;
 	loading: boolean;
 	loadingOnPagination: boolean;
 	hasMorePosts: boolean;
@@ -16,6 +17,7 @@ type postsState = {
 const initialState = {
 	posts: null,
 	preloaded: null,
+	preloadedTotal: 0,
 	loading: false,
 	loadingOnPagination: false,
 	hasMorePosts: false,
@@ -37,6 +39,7 @@ export const posts = createSlice({
 			state.posts = action.payload.posts;
 			state.preloaded = action.payload.posts;
 			state.total = action.payload.total;
+			state.preloadedTotal = action.payload.total;
 		},
 		setPostsLoading: (state, action) => {
 			state.loading = action.payload;
@@ -52,6 +55,7 @@ export const posts = createSlice({
 		},
 		setPostsByPreloaded: (state) => {
 			state.posts = state.preloaded;
+			state.total = state.preloadedTotal
 		},
 		setLoadingOnPagination: (state, action) => {
 			state.loadingOnPagination = action.payload;
