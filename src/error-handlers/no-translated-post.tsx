@@ -2,7 +2,7 @@
 import ErrorPageLinks from "@/components/error-page-links";
 import getServerDictionary from "@/dictionary/hooks/get-server-dictionary";
 const NoTranslatedPost = async () => {
-	const text = await getServerDictionary("noTranslatedPost");
+	const text = await getServerDictionary("no-translated-post");
 	
 	return (
 		<div
