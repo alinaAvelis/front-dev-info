@@ -6,7 +6,7 @@ import type { PortableTextBlock } from "@portabletext/types";
 import Image from "next/image";
 import { urlFor } from "@/utils/sanity-utils";
 import CodeInput from "@/components/code-input";
-import AlgorithmSpeedLineChart from "@/components/line-chart";
+import AlgorithmSpeedLineChart from "@/components/charts/algorithm-speed-line-chart";
 
 const components: PortableTextComponents = {
 	block: {
