@@ -50,13 +50,13 @@ const CodeInput = ({
 					language={language}
 				>
 					{({
-						className,
+						className = '',
 						style,
 						tokens,
 						getLineProps,
 						getTokenProps,
 					}) => (
-						<pre style={style}>
+						<pre style={style} className={`overflow-x-auto ${className}`}>
 							{tokens.map((line, i) => (
 								<div key={i} {...getLineProps({ line })}>
 									<span className="number">{i + 1}</span>
