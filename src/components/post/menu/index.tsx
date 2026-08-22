@@ -11,6 +11,7 @@ type Links =
 			linkName: string;
 			text: string;
 			classList: string;
+			element: HTMLHeadingElement
 	  }[]
 	| null
 	| undefined;
@@ -34,6 +35,7 @@ export default function PostMenu() {
 					element.setAttribute("id", `${linkName}`);
 
 					const link = {
+						element: element,
 						linkName: linkName,
 						text: text,
 						classList: "relative",

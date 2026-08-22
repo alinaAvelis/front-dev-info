@@ -13,6 +13,7 @@ type MobileMenuProps = {
 				classList: string;
 				text: string;
 				linkName: string;
+				element: HTMLHeadingElement;
 		  }>
 		| null
 		| undefined;
@@ -27,6 +28,13 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
 			setExpanded(isExpanded ? panel : false);
 		};
 
+	const onClick = (element: HTMLHeadingElement) => {
+		window.scrollTo({
+			left: 0,
+			top: element.offsetTop,
+			behavior: "smooth",
+		});
+	};
 	return (
 		<Accordion
 			className="menu_accordeon"
@@ -44,13 +52,13 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
 				<div className="menu">
 					{menu?.map((item, i) => {
 						return (
-							<Link
+							<button
 								key={i}
-								className={`menu__item ${item.classList}`}
-								href={`#${item.linkName}`}
+								className={`menu__item text-left ${item.classList}`}
+								onClick={() => onClick(item.element)}
 							>
 								{item.text}
-							</Link>
+							</button>
 						);
 					})}
 				</div>
